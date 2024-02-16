@@ -9,6 +9,7 @@ $routes = [
     '/join_classrooms' => 'controllers/classroom/join_classroom.controller.php',
     '/reports' => 'controllers/reports/report.controller.php',
     '/reviews' => 'controllers/reviews/review.controller.php',
+    '/class-update' => 'controllers/form_update/form_update.controller.php'
 
 ];
 
@@ -19,7 +20,7 @@ if (array_key_exists($uri, $routes)) {
    $page = 'views/errors/404.php';
 }
 
-if ($uri !== '/' ) {
+if ($uri !== '/' && $uri !== '/class-update' ) {
     require "layouts/header.php";
     require "layouts/navbar.php";
 }
@@ -28,12 +29,10 @@ if ($uri !== '/' ) {
 require $page;
 
 
-if ($uri !== '/' && $uri !== '/join_classrooms' ) {
+if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update') {
     require "layouts/footer.php";
 }
-if ($uri == '/join_classrooms'  ) {
-    require "layouts/teacher/footer.php";
-}
+
 
 
 ?>
