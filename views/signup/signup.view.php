@@ -42,7 +42,7 @@
 							<h1 class="fs-3">SignIn into E-Classroom!</h1>
 
 								<!-- Form START -->
-								<form>
+								<form action="controllers/signup/create_user.controller.php" method="post">
 									<!-- User name -->
 									<div class="mb-4">
 										<label for="exampleInputEmail1" class="form-label">User Name *</label>
@@ -50,7 +50,7 @@
 											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
                         						<i class="bi bi-person-fill"></i>
 											</span>
-											<input type="input" class="form-control border-0 bg-light rounded-end ps-1" placeholder="User-name" >
+											<input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="User-name" name="username">
 										</div>
 									</div>
 									<!-- Email  -->
@@ -60,7 +60,7 @@
 											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
 												<i class="bi bi-envelope-fill"></i>
 											</span>
-											<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
+											<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name="email">
 										</div>
 									</div>
 									<!-- Password -->
@@ -70,7 +70,7 @@
 											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
 												<i class="fas fa-lock"></i>
 											</span>
-											<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
+											<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5" name="pwd">
 										</div>
 										<div id="passwordHelpBlock" class="form-text">
 											Your password must be 8 characters at least 
@@ -79,7 +79,7 @@
 									<!-- Button -->
 									<div class="d-flex justify-content-center">
 										<div class="d-grid">
-											<a href="/home" class="btn btn-primary w-100">SignIn</a>
+											<button class="btn btn-primary w-100">SignIn</button>
 										</div>
 									</div>
 								</form>
