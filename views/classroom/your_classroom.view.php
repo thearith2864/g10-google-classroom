@@ -56,8 +56,9 @@
 
 								<!-- Table body START -->
 								<?php 
-								$users = [1,2,3,4,5,6,7,8,9,10];
-								foreach($users as $user):
+								
+								foreach($classes as $class):
+									
 								?>
 								<tbody>
 									<!-- Table item -->
@@ -71,7 +72,7 @@
 												</div>
 												<div class="mb-0 ms-2">
 													<!-- Title -->
-													<h6><a href="#">Building Scalable APIs with GraphQL</a></h6>
+													<h6><a href="#"><?php echo $class['classroom_name'] ?></a></h6>
 													<!-- Info -->
 													<div class="d-sm-flex">
 														<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>18 lectures</p>

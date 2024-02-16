@@ -16,3 +16,10 @@ function createClass(string $classroom_name, string $classroom_code, string $sec
 
     return $statement->rowCount() > 0;
 }
+
+function displayClass() {
+    global $connection;
+    $statement = $connection->prepare("SELECT classroom_name, classroom_code, section, subject, room FROM classrooms WHERE teacher_id = 1");
+    $statement->execute();
+    return $statement->fetchAll();
+}
