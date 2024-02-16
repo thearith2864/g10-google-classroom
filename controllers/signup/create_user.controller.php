@@ -5,15 +5,15 @@ require "../../models/signin.model.php";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST"){
 
-    if(isset($_POST['username']) & isset($_POST['email']) & isset($_POST['pwd'])){
-        $UserName = htmlspecialchars($_POST['username']);
-        $Email = htmlspecialchars($_POST['email']);
-        $PWD = htmlspecialchars($_POST['pwd']);
+    if(isset($_POST['username']) & isset($_POST['passwd']) & isset($_POST['email'])){
+        $userName = htmlspecialchars($_POST['username']);
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['passwd']);
 
-        $passwordHash = password_hash($PWD, PASSWORD_BCRYPT);
-        $user = getUser($Email);
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+        $user = getUser($email);
         if (count($user) == 0){
-            $iscreated = signUp($UserName, $Email, $passwordHash);
+            $iscreated = signUp($userName, $passwordHash,$email);
             if($isCreated){
                 header ('Location: /signup');
             }else{

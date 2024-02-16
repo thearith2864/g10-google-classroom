@@ -1,14 +1,12 @@
 <?php 
-function signUp(string $name, string $email, string $password) : bool
+function signUp(string $name, string $password, string $email) : bool
 {
     global $connection;
-    $defaultRole = 'user';
-    $statement = $connection->prepare("insert into users (name, email, password, role) values (:name, :email, :password, :role)");
+    $statement = $connection->prepare("insert into users (user_name, user_password, user_email) values (:name, :password, :email)");
     $statement->execute([
         ':name' => $name,
-        ':email' => $email,
         ':password' => $password,
-        ':role' => $defaultRole
+        ':email' => $email
     ]);
     return $statement->rowCount() > 0;
     

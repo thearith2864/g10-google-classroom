@@ -95,7 +95,7 @@
 											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
 												<i class="fas fa-lock"></i>
 											</span>
-											<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5" name="PWD">
+											<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5" name="passwd">
 										</div>
 										<div id="passwordHelpBlock" class="form-text">
 											Your password must be 8 characters at least 
@@ -104,7 +104,7 @@
 									<!-- Button -->
 									<div class="d-flex justify-content-center">
 										<div class="d-grid">
-											<button  class="btn btn-primary w-100">Loign</button>
+											<button  class="btn btn-primary w-100">Login</button>
 										</div>
 									</div>
 								</form>

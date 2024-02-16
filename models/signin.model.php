@@ -1,11 +1,14 @@
 <?php 
-function getUser ( string $Email){
+function getUser(string $email)
+{
     global $connection;
-    $statement = $connection->prepare("SELECT * FROM users WHERE email = :email");
-    $statement->execute([":email" => $Email]);
-    if($statement-> rowCount() > 0){
-        return $statement->fetch();
-    }else{
-        return[];
+    $statement = $connection->prepare("SELECT * FROM users WHERE user_email = :email");
+    $statement->execute([":email" => $email]);
+    $result = $statement->fetchAll();
+
+    if (count($result) > 0) {
+        return $result[0];
+    } else {
+        return [];
     }
 }
