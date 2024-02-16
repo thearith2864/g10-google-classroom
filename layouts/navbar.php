@@ -212,7 +212,6 @@
 				<!-- Nav Search END -->
 			</div>
 			<!-- Main navbar END -->
-
 			<!-- Profile START -->
 			<div class="dropdown ms-1 ms-lg-0">
 				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
@@ -237,7 +236,7 @@
 					<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-					<li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+					<li><a class="dropdown-item bg-danger-soft-hover" href="/signout"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 					<li> <hr class="dropdown-divider"></li>
 					<!-- Dark mode switch START -->
 					<li>

@@ -77,7 +77,7 @@
 							<p class="lead mb-4">Nice to see you! Please log in with your account.</p>
 
 								<!-- Form START -->
-								<form>
+								<form action="controllers/signin/check_signi.controller.php" method="post">
 									<!-- Email -->
 									<div class="mb-4">
 										<label for="exampleInputEmail1" class="form-label">Email address *</label>
@@ -85,7 +85,7 @@
 											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
 												<i class="bi bi-envelope-fill"></i>
 											</span>
-											<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
+											<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name="email">
 										</div>
 									</div>
 									<!-- Password -->
@@ -95,7 +95,7 @@
 											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
 												<i class="fas fa-lock"></i>
 											</span>
-											<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
+											<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5" name="PWD">
 										</div>
 										<div id="passwordHelpBlock" class="form-text">
 											Your password must be 8 characters at least 
@@ -104,7 +104,7 @@
 									<!-- Button -->
 									<div class="d-flex justify-content-center">
 										<div class="d-grid">
-											<a href="/home" class="btn btn-primary w-100">Login</a>
+											<button  class="btn btn-primary w-100">Loign</button>
 										</div>
 									</div>
 								</form>
