@@ -1,4 +1,3 @@
-
 <!-- Header START -->
 <header class="navbar-light navbar-sticky header-static">
 	<!-- Logo Nav START -->
@@ -6,10 +5,10 @@
 		<div class="container-fluid px-3 px-xl-5">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="/home">
-                <h3>
-                    <span class="text-danger">E-</span>
-                    <span>Classroom</span>
-                </h3>
+				<h3>
+					<span class="text-danger">E-</span>
+					<span>Classroom</span>
+				</h3>
 				<!-- <img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo"> -->
 				<!-- <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo"> -->
 			</a>
@@ -29,9 +28,9 @@
 
 				<!-- Nav category menu START -->
 				<ul class="navbar-nav navbar-nav-scroll me-auto ms-5">
-					
-					
-<!--    _________________________________________________________________________    -->
+
+
+					<!--    _________________________________________________________________________    -->
 
 					<!-- Nav item 3 Account -->
 					<li class="nav-item dropdown ms-5">
@@ -43,12 +42,14 @@
 							</li>
 
 							<!-- Dropdown submenu -->
-								<li class="dropdown-submenu dropend">
+							<li class="dropdown-submenu dropend">
 								<a class="dropdown-item" href="/join_classrooms"><i class="fas fa-user-graduate fa-fw me-1"></i>Endolled</a>
 							</li>
-							
+
 							<li> <a class="dropdown-item" href="#"><i class="fas fa-user-cog fa-fw me-1"></i>Admin (Coming Soon)</a> </li>
-							<li> <hr class="dropdown-divider"></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
 							<li> <a class="dropdown-item" href="instructor-edit-profile.html"><i class="fas fa-fw fa-edit me-1"></i>Edit Profile</a> </li>
 							<li> <a class="dropdown-item" href="instructor-setting.html"><i class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
 							<li> <a class="dropdown-item" href="instructor-delete-account.html"><i class="fas fa-fw fa-trash-alt me-1"></i>Delete Profile</a> </li>
@@ -78,7 +79,7 @@
 										<li> <a class="dropdown-item" href="#">Business marketing</a> </li>
 									</ul>
 								</div>
-								
+
 								<!-- Dropdown column item -->
 								<div class="col-xl-6 col-xxl-3">
 									<h6 class="mb-0">Degree</h6>
@@ -175,7 +176,7 @@
 					<li class="nav-item"><a class="nav-link me-5" href="docs/alerts.html">To-do</a></li>
 
 					<!-- Nav item 5 link-->
-					
+
 				</ul>
 				<!-- Nav Main menu END -->
 				<div>
@@ -185,15 +186,15 @@
 								<i class="fas fa-plus"></i>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="none">
-								<li> 
+								<li>
 									<a class="dropdown-item" href="#" target="_blank">
 										<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Create class
-									</a> 
+									</a>
 								</li>
-								<li> 
+								<li>
 									<a class="dropdown-item" href="docs/index.html" target="_blank">
 										<i class="text-danger fa-fw bi bi-card-text me-2"></i>Join class
-									</a> 
+									</a>
 								</li>
 
 							</ul>
@@ -226,18 +227,29 @@
 								<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
 							</div>
 							<div>
-								<a class="h6" href="#">Lori Ferguson</a>
-								<p class="small m-0">example@gmail.com</p>
+								<div>
+									<?php
+									if (!isset($_SESSION['user']) & !isset($_SESSION['email'])) {
+										header('Location: /');
+										die();
+									}
+									$user = $_SESSION['user'];
+									$email = $_SESSION['email'];
+									?>
+									<a class="h6" href="#"><?= $user[1] ?></a>
+									<p class="small m-0"><?= $email ?></p>
+								</div>
 							</div>
-						</div>
-						<hr>
+							<hr>
 					</li>
 					<!-- Links -->
 					<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
 					<li><a class="dropdown-item bg-danger-soft-hover" href="/signout"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
-					<li> <hr class="dropdown-divider"></li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
 					<!-- Dark mode switch START -->
 					<li>
 						<div class="modeswitch-wrap" id="darkModeSwitch">
@@ -246,8 +258,8 @@
 							</div>
 							<span>Dark mode</span>
 						</div>
-					</li> 
-          <!-- Dark mode switch END -->
+					</li>
+					<!-- Dark mode switch END -->
 				</ul>
 			</div>
 			<!-- Profile START -->
