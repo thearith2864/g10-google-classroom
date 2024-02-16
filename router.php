@@ -1,4 +1,5 @@
 <?php
+session_start();
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
@@ -9,6 +10,9 @@ $routes = [
     '/join_classrooms' => 'controllers/classroom/join_classroom.controller.php',
     '/reports' => 'controllers/reports/report.controller.php',
     '/reviews' => 'controllers/reviews/review.controller.php',
+    '/signup' => 'controllers/signup/create_user.controller.php',
+    '/signin' => 'controllers/signin/signin.controller.php',
+    '/admin' => 'controllers/admin/admin.controller.php'
 
 ];
 
@@ -26,7 +30,6 @@ if ($uri !== '/' ) {
 
 
 require $page;
-
 
 if ($uri !== '/' && $uri !== '/join_classrooms' ) {
     require "layouts/footer.php";
