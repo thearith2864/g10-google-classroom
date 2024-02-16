@@ -746,7 +746,7 @@ Popular course END -->
 
 <!-- =======================
 Action box START -->
-<section class="pt-0 pt-lg-5">
+<section class=" popup pt-0 pt-lg-5">
 	<div class="container position-relative">
 		<!-- SVG decoration START -->
 		<figure class="position-absolute top-50 start-50 translate-middle ms-2">

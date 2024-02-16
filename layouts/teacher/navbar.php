@@ -161,7 +161,7 @@ Main Banner START -->
 							</div>
 							<!-- Button -->
 							<div class="d-flex align-items-center mt-2 mt-md-0">
-								<a href="instructor-create-course.html" class="btn btn-success mb-0">Create a classroom</a>
+								<a href="/create-class" class="btn btn-success mb-0">Create a class</a>
 							</div>
 						</div>
 					</div>
