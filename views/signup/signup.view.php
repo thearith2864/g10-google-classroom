@@ -39,7 +39,7 @@
 						<div class="col-sm-10 col-xl-8 m-auto">
 							<!-- Title -->
 							<span class="mb-0 fs-1">👋</span>
-							<h1 class="fs-3">SignIn into E-Classroom!</h1>
+							<h1 class="fs-3">SignIn into Google Classroom!</h1>
 
 								<!-- Form START -->
 								<form>
