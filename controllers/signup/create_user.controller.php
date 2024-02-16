@@ -15,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         if (count($user) == 0){
             $iscreated = signUp($userName, $passwordHash,$email);
             if($isCreated){
-                header ('Location: /signup');
-            }else{
                 header ('Location: /signin');
+            }else{
+                header ('Location: /home');
             }
         }else{
-            echo "User already exists";
+            echo "User already created!";
         }
     }
 }
