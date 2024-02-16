@@ -10,24 +10,13 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
-<body class="bg-primary text-white">
-
-
-
+<body class="bg-info text-white">
     <main>
-
-    <h1 class="text-center mt-5 pt-5">Manage teaching and learning with <br> <span class="text-danger">E</span>-classroom</h1>
-    <p class="text-center mt-5">You need to signIn if you don't have any account yet and you need to logIn if you already have an account to use E-classroom</p>
+    <h1 class="text-center mt-5 pt-5">Manage teaching and learning with <br> <span class="text-primary">Google</span> Classroom</h1>
+    <p class="text-center mt-5">You need to signIn if you don't have any account yet and you need to logIn if you already have an account to use Google Classroom</p>
     <div class="d-flex justify-content-center">
-        <a href="/signin"><button class="btn btn-primary bg-white text-primary px-4 mt-4">Log In</button></a>
+        <a href="/signin"><button class="btn btn-primary bg-primary text-white px-4 mt-4">Log In</button></a>
     </div>
-
     </main>
-
-
-
 </body>
-
 </html>
-
-
