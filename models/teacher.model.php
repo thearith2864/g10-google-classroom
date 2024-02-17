@@ -16,3 +16,4 @@ function createClass(string $classroom_name, string $classroom_code, string $sec
 
     return $statement->rowCount() > 0;
 }
+// funtion createTeacher(string $)
