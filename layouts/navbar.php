@@ -224,10 +224,6 @@
 						<div class="d-flex align-items-center">
 							<!-- Avatar -->
 							<div class="avatar me-3">
-								<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
-							</div>
-							<div>
-								<div>
 									<?php
 									if (!isset($_SESSION['user']) & !isset($_SESSION['email'])) {
 										header('Location: /');
@@ -235,7 +231,12 @@
 									}
 									$user = $_SESSION['user'];
 									$email = $_SESSION['email'];
+									// $image = $_SESSION['image']
 									?>
+								<!-- <img class="avatar-img rounded-circle shadow" src="uploads/<?= $image ?>" alt="Card image cap"> -->
+							</div>
+							<div>
+								<div>
 									<a class="h6" href="#"><?= $user[1] ?></a>
 									<p class="small m-0"><?= $email ?></p>
 								</div>
@@ -246,7 +247,7 @@
 					<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-					<li><a class="dropdown-item bg-danger-soft-hover" href="/signout"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+					<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 					<li>
 						<hr class="dropdown-divider">
 					</li>

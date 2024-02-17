@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         $passwordHash = password_hash($PWD, PASSWORD_BCRYPT);
         $user = getUser($Email);
         if (count($user) == 0){
-            $iscreated = signUp($UserName, $Email, $passwordHash);
+            $iscreated = signUp($UserName, $passwordHash, $Email);
             if($isCreated){
                 header ('Location: /signup');
             }else{
