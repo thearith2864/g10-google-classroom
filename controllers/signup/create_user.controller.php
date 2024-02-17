@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require "../../database/database.php";
 require "../../models/sigup.model.php";
 require "../../models/signin.model.php";
@@ -16,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
             $iscreated = signUp($userName, $passwordHash,$email);
             if($isCreated){
                 header ('Location: /signin');
+                $_SESSION['user_email'] = $email;
             }else{
                 header ('Location: /home');
             }

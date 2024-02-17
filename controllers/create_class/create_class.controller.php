@@ -20,13 +20,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $classroom_code .= $combined[$randomIndex];
     }
 
-    $teacher_id = 1;
+    $user_eamil = $_SESSION['user_email'];
 
     $section = $_POST['section'];
     $subject = $_POST['subject'];
     $room = $_POST['room'];
 
-    $isCreate = createClass($classroom_name,$classroom_code, $section, $subject, $room,$teacher_id);
+    $isCreate = createClass($classroom_name,$classroom_code, $section, $subject, $room,$user_eamil);
     if($isCreate){
         header('location: /trainer-classroom');
     }
