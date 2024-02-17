@@ -187,7 +187,7 @@
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="none">
 								<li> 
-									<a class="dropdown-item" href="#" target="_blank">
+									<a class="dropdown-item" href="/create-class" target="_blank">
 										<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Create class
 									</a>
 								</li>
