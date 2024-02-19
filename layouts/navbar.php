@@ -6,7 +6,7 @@
 			<!-- Logo START -->
 			<a class="navbar-brand" href="/home">
 				<h3>
-					<span class="text-danger">E-</span>
+					<span class="text-danger primary">Google</span>
 					<span>Classroom</span>
 				</h3>
 				<!-- <img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo"> -->
@@ -214,16 +214,6 @@
 			</div>
 			<!-- Main navbar END -->
 			<!-- Profile START -->
-			<div class="dropdown ms-1 ms-lg-0">
-				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-					<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
-				</a>
-				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-					<!-- Profile info -->
-					<li class="px-3">
-						<div class="d-flex align-items-center">
-							<!-- Avatar -->
-							<div class="avatar me-3">
 									<?php
 									if (!isset($_SESSION['user']) & !isset($_SESSION['email'])) {
 										header('Location: /');
@@ -231,9 +221,20 @@
 									}
 									$user = $_SESSION['user'];
 									$email = $_SESSION['email'];
-									// $image = $_SESSION['image']
+									$image = $_SESSION['image_url'];
+
 									?>
-								<!-- <img class="avatar-img rounded-circle shadow" src="uploads/<?= $image ?>" alt="Card image cap"> -->
+			<div class="dropdown ms-1 ms-lg-0">
+				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+					<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image[4]?>" alt="avatar">
+				</a>
+				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+					<!-- Profile info -->
+					<li class="px-3">
+						<div class="d-flex align-items-center">
+							<!-- Avatar -->
+							<div class="avatar me-3">
+								<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image[4]?>" alt="Card image cap">
 							</div>
 							<div>
 								<div>

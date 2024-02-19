@@ -45,6 +45,9 @@
 						<!-- Form START -->
 						<form action="controllers/signup/create_user.controller.php" method="post" enctype="multipart/form-data">
 							<!-- User name -->
+							<?php if (isset($_GET['error'])) : ?>
+								<p><?php echo $_GET['error']; ?></p>
+							<?php endif ?>
 							<div class="mb-4">
 								<label for="exampleInputEmail1" class="form-label">User Name *</label>
 								<div class="input-group input-group-lg">
@@ -83,7 +86,7 @@
 									<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
 										<i class="bi bi-images"></i>
 									</span>
-									<input type="file" id="file" class="form-control border-0 bg-light rounded-end ps-1" name="file">
+									<input type="file" id="file" class="form-control border-0 bg-light rounded-end ps-1" name="my_image">
 								</div>
 								<div id="passwordHelpBlock" class="form-text">
 									Your password must be 8 characters at least
