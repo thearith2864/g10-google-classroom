@@ -58,8 +58,10 @@
 								<!-- Table body START -->
 								<?php 
 								
-								foreach($classes as $class):
-									
+								if(is_array($classes)):
+									foreach($classes as $class):
+										
+							
 								?>
 								<tbody>
 									<!-- Table item -->
@@ -99,9 +101,9 @@
 									</tr>
 									
 									<?php
-	                endforeach;
-					endif;
-					?>
+									endforeach;
+									endif;
+									?>
 									
 								</tbody>
 								<!-- Table body END -->
