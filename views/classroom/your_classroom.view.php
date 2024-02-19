@@ -60,6 +60,7 @@
 								
 								foreach($classes as $class):
 									
+									
 								?>
 								<tbody>
 									<!-- Table item -->
