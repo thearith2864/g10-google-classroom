@@ -5,11 +5,10 @@
 		<div class="container-fluid px-3 px-xl-5">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="/home">
-				<h3>
-					<span class="text-danger primary">Google</span>
-					<span>Classroom</span>
-				</h3>
-				<!-- <img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo"> -->
+				
+			
+				<!-- <img src="../assets/images/GoogleClassroomBanner.png" alt="" class="w-25"> -->
+				<img class="light-mode-item navbar-brand-item " src="../assets/images/GoogleClassroomBanner.png" alt="logo" >
 				<!-- <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo"> -->
 			</a>
 			<!-- Logo END -->
