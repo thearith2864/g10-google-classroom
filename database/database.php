@@ -1,7 +1,7 @@
 <?php
 
 $hostname = "localhost";
-$database = "files";
+$database = "google_classroom";
 $username = "root";
 $password = "";
 
