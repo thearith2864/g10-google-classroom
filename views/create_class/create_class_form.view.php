@@ -71,7 +71,7 @@
 									<div class="d-flex justify-content-end">
 										<div class="d-flex">
 											<a href="/trainer-classroom" class="text-white w-50 me-3 link-danger">Cancel</a>
-											<button type='submit' class="text-white w-50">Create</button>
+											<button type='submit' class="text-white bg-primary border-0 w-50">Create</button>
 										</div>
 									</div>
 								</form>

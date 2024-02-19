@@ -1,5 +1,4 @@
 <?php
-session_start();
 function createClass(string $classroom_name, string $classroom_code, string $section, string $subject, string $room , string $user_email): bool
 {
     global $connection;
@@ -19,9 +18,13 @@ function createClass(string $classroom_name, string $classroom_code, string $sec
 
 function displayClass() {
     global $connection;
-    $user_email = $_SESSION['user_email'];
-    $statement = $connection->prepare("SELECT classroom_name, classroom_code, section, subject, room FROM classrooms WHERE user_email = :user_email");
-    $statement->bindParam(':user_email', $user_email);
-    $statement->execute();
-    return $statement->fetchAll();
+    if(isset($_SESSION['email']) && !empty($_SESSION['email'])){
+
+        $user_email = $_SESSION['email'];
+        $statement = $connection->prepare("SELECT classroom_name, classroom_code, section, subject, room FROM classrooms WHERE user_email = :user_email");
+        $statement->execute(
+            [':user_email'=> $user_email]
+        );
+        return $statement->fetchAll();
+    }
 }
