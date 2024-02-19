@@ -60,7 +60,6 @@
 								
 								foreach($classes as $class):
 									
-									
 								?>
 								<tbody>
 									<!-- Table item -->
@@ -99,7 +98,10 @@
 										</td>
 									</tr>
 									
-									<?php endforeach ?>
+									<?php
+	                endforeach;
+					endif;
+					?>
 									
 								</tbody>
 								<!-- Table body END -->

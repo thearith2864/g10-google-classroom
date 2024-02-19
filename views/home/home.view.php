@@ -222,8 +222,12 @@ Popular course START -->
 			<div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
 				<div class="row g-4">
 					<?php 
-					foreach($classes as $class):
+					if(is_array($classes)):
+						foreach($classes as $class):
+							
+				
 					?>
+					
 					<!-- Card item START -->
 					<div class="col-sm-6 col-lg-4 col-xl-3">
 						<div class="card shadow h-100">
@@ -240,7 +244,6 @@ Popular course START -->
 								<h5 class="card-title fw-normal"><a href="#"><?php echo $class['classroom_name'] ?></a></h5>
 								<p class="mb-2 text-truncate-2"><?php echo $class['subject'] ?></p>
 								<p class="mb-2 text-truncate-2"><?php echo $class['room'] ?></p>
-								
 
 							</div>
 							<!-- Card footer -->
@@ -254,12 +257,10 @@ Popular course START -->
 						</div>
 					</div>
 					<!-- Card item END -->
-
 					<?php
 	                endforeach;
+					endif;
 					?>
-					
-
 					
 
 					

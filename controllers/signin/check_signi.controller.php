@@ -1,4 +1,5 @@
 <?php
+ini_set('session.cookie_lifetime', 86400);
 session_start();
 require_once '../../database/database.php';
 require_once '../../models/signin.model.php';
