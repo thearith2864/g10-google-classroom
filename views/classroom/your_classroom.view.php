@@ -56,13 +56,13 @@
 								</thead>
 
 								<!-- Table body START -->
-								<tbody>
 								<?php 
-								
-								if(is_array($classes)):
-									foreach($classes as $class):
-									
-								?>
+					if(is_array($classes)):
+						foreach($classes as $class):
+							
+				
+					?>
+								<tbody>
 									<!-- Table item -->
 									<tr>
 										<!-- Course item -->
@@ -98,17 +98,18 @@
 											<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
 										</td>
 									</tr>
-
-									<?php 
-									endforeach;
-									endif;
-									 ?>
+									
+									<?php
+	                endforeach;
+					endif;
+					?>
+									
 								</tbody>
 								<!-- Table body END -->
 							</table>
 						</div>
 						<!-- Course list table END -->
-									
+
 						<!-- Pagination START -->
 						<div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
 							<!-- Content -->

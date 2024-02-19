@@ -224,6 +224,7 @@ Popular course START -->
 					<?php 
 					if(is_array($classes)):
 						foreach($classes as $class):
+							
 				
 					?>
 					
@@ -243,7 +244,6 @@ Popular course START -->
 								<h5 class="card-title fw-normal"><a href="#"><?php echo $class['classroom_name'] ?></a></h5>
 								<p class="mb-2 text-truncate-2"><?php echo $class['subject'] ?></p>
 								<p class="mb-2 text-truncate-2"><?php echo $class['room'] ?></p>
-								
 
 							</div>
 							<!-- Card footer -->
@@ -257,7 +257,6 @@ Popular course START -->
 						</div>
 					</div>
 					<!-- Card item END -->
-
 					<?php
 	                endforeach;
 					endif;
