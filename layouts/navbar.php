@@ -5,11 +5,10 @@
 		<div class="container-fluid px-3 px-xl-5">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="/home">
-				<h3>
-					<span class="text-danger">E-</span>
-					<span>Classroom</span>
-				</h3>
-				<!-- <img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo"> -->
+				
+			
+				<!-- <img src="../assets/images/GoogleClassroomBanner.png" alt="" class="w-25"> -->
+				<img class="light-mode-item navbar-brand-item " src="../assets/images/GoogleClassroomBanner.png" alt="logo" >
 				<!-- <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo"> -->
 			</a>
 			<!-- Logo END -->
@@ -214,20 +213,6 @@
 			</div>
 			<!-- Main navbar END -->
 			<!-- Profile START -->
-			<div class="dropdown ms-1 ms-lg-0">
-				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-					<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
-				</a>
-				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-					<!-- Profile info -->
-					<li class="px-3">
-						<div class="d-flex align-items-center">
-							<!-- Avatar -->
-							<div class="avatar me-3">
-								<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
-							</div>
-							<div>
-								<div>
 									<?php
 									if (!isset($_SESSION['user']) & !isset($_SESSION['email'])) {
 										header('Location: /');
@@ -235,7 +220,23 @@
 									}
 									$user = $_SESSION['user'];
 									$email = $_SESSION['email'];
+									$image = $_SESSION['image_url'];
+
 									?>
+			<div class="dropdown ms-1 ms-lg-0">
+				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+					<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image[4]?>" alt="avatar">
+				</a>
+				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+					<!-- Profile info -->
+					<li class="px-3">
+						<div class="d-flex align-items-center">
+							<!-- Avatar -->
+							<div class="avatar me-3">
+								<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image[4]?>" alt="Card image cap">
+							</div>
+							<div>
+								<div>
 									<a class="h6" href="#"><?= $user[1] ?></a>
 									<p class="small m-0"><?= $email ?></p>
 								</div>
@@ -246,7 +247,7 @@
 					<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-					<li><a class="dropdown-item bg-danger-soft-hover" href="/signout"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+					<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 					<li>
 						<hr class="dropdown-divider">
 					</li>

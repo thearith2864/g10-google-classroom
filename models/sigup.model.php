@@ -1,13 +1,13 @@
 <?php 
-function signUp(string $name, string $password, string $email) : bool
+function signUp(string $name, string $password ,string $email, $image ) : bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into users (user_name, user_password, user_email) values (:name, :password, :email)");
+    $statement = $connection->prepare("insert into users (user_name,  user_email, user_password, image_url) values(:name,  :email, :password, :image)");
     $statement->execute([
         ':name' => $name,
         ':password' => $password,
-        ':email' => $email
+        ':email' => $email,
+        ':image' => $image
     ]);
     return $statement->rowCount() > 0;
-    
 }
