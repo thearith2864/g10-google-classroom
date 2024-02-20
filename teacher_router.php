@@ -5,6 +5,7 @@ $routes = [
     '/trainer-student' => 'controllers/students/student.controller.php',
     '/trainer-review' => 'controllers/reviews/review.controller.php',
     '/trainer-classroom' => 'controllers/classroom/your_classroom.controller.php',
+    '/class-work' => 'controllers/create-classwork/create_classwork.controller.php',
     
 ];
 
