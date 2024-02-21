@@ -9,6 +9,7 @@ $routes = [
     '/join_classrooms' => 'controllers/classroom/join_classroom.controller.php',
     '/reports' => 'controllers/reports/report.controller.php',
     '/reviews' => 'controllers/reviews/review.controller.php',
+    '/class' => 'controllers/page_class_ech_class.cntroller/page_in_the_class.php'
 
 ];
 
