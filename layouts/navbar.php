@@ -185,8 +185,8 @@
 								<i class="fas fa-plus"></i>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="none">
-								<li> 
-									<a class="dropdown-item" href="/create-class" target="_blank">
+								<li>
+									<a class="dropdown-item" href="#" target="_blank">
 										<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Create class
 									</a>
 								</li>
@@ -215,8 +215,7 @@
 			<!-- Profile START -->
 									<?php
 									if (!isset($_SESSION['user']) & !isset($_SESSION['email'])) {
-										header('Location: /');
-										die();
+
 									}
 									$user = $_SESSION['user'];
 									$email = $_SESSION['email'];

@@ -1,6 +1,12 @@
+<?php
+session_start();
+if (isset($_SESSION['user'])) {
+    header('Location: /home');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<title>signup</title>
 
@@ -40,14 +46,11 @@
 					<div class="col-sm-10 col-xl-8 m-auto">
 						<!-- Title -->
 						<span class="mb-0 fs-1">👋</span>
-						<h1 class="fs-3">SignIn into Google Classroom!</h1>
+						<h1 class="fs-3">SignUp into Google Classroom!</h1>
 
 						<!-- Form START -->
 						<form action="controllers/signup/create_user.controller.php" method="post" enctype="multipart/form-data">
 							<!-- User name -->
-							<?php if (isset($_GET['error'])) : ?>
-								<p><?php echo $_GET['error']; ?></p>
-							<?php endif ?>
 							<div class="mb-4">
 								<label for="exampleInputEmail1" class="form-label">User Name *</label>
 								<div class="input-group input-group-lg">
@@ -95,7 +98,7 @@
 							<!-- Button -->
 							<div class="d-flex justify-content-center">
 								<div class="d-grid">
-									<button class="btn btn-primary w-100">SignIn</button>
+									<button class="btn btn-primary w-100">SignUp</button>
 								</div>
 							</div>
 						</form>

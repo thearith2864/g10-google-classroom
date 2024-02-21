@@ -6,7 +6,7 @@
 			<!-- Logo START -->
 			<a class="navbar-brand" href="/home">
 				<h3>
-					<span class="text-danger">E-</span>
+					<span class="text-danger">Google</span>
 					<span>Classroom</span>
 				</h3>
 				<!-- <img class="light-mode-item navbar-brand-item" src="assets/images/logo.svg" alt="logo">
@@ -79,11 +79,20 @@
 				<!-- Nav Search END -->
 			</div>
 			<!-- Main navbar END -->
+			<?php
+									if (!isset($_SESSION['user']) & !isset($_SESSION['email'])) {
+
+									}
+									$user = $_SESSION['user'];
+									$email = $_SESSION['email'];
+									$image = $_SESSION['image_url'];
+
+									?>
 
 			<!-- Profile START -->
 			<div class="dropdown me-1 ms-lg-0">
 				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-					<img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
+					<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image[4]?>" alt="avatar">
 				</a>
 				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 					<!-- Profile info -->
@@ -91,11 +100,11 @@
 						<div class="d-flex align-items-center">
 							<!-- Avatar -->
 							<div class="avatar me-3">
-								<img class="avatar-img rounded-circle shadow" src="assets/images/avatar/01.jpg" alt="avatar">
+								<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image[4]?>" alt="avatar">
 							</div>
 							<div>
-								<a class="h6" href="#">Lori Ferguson</a>
-								<p class="small m-0">example@gmail.com</p>
+								<a class="h6" href="#"><?= $user[1] ?></a>
+								<p class="small m-0"><?= $email ?></p>
 							</div>
 						</div>
 						<hr>
@@ -104,7 +113,7 @@
 					<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-					<li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+					<li><a class="dropdown-item bg-danger-soft-hover" href="../../controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 					<li>
 						<hr class="dropdown-divider">
 					</li>
@@ -146,13 +155,13 @@ Main Banner START -->
 						<!-- Avatar -->
 						<div class="col-auto mt-4 mt-md-0">
 							<div class="avatar avatar-xxl mt-n3">
-								<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/avatar/01.jpg" alt="">
+								<img class="avatar-img rounded-circle border border-white border-3 shadow" src="../../assets/images/profiles/<?= $image[4]?>" alt="">
 							</div>
 						</div>
 						<!-- Profile info -->
 						<div class="col d-md-flex justify-content-between align-items-center mt-4">
 							<div>
-								<h1 class="my-1 fs-4">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+								<h1 class="my-1 fs-4"><?= $user[1] ?><i class="bi bi-patch-check-fill text-info small"></i></h1>
 								<ul class="list-inline mb-0">
 									<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
 									<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled Students</li>

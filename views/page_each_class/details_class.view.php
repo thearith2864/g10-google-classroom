@@ -108,10 +108,25 @@
 			<!-- Content END -->
 
 			<!-- Content START -->
-			<div class="tab-pane fade" id="course-pills-tabs-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
-
-				<!-- classWork do here________________________________________________________________________________________________________________________________________________ -->
-                <h1>Classwork page</h1>
+			<div class="tab-pane fade p-3" id="course-pills-tabs-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
+    <div class="btn-group " style="margin-bottom: 300px;">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            ➕ Create
+        </button>
+        <ul class="dropdown-menu">
+            
+            <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-medical m-2 fa-2x"></i>Assignment</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-medical-fill m-2 fa-2x"></i>Quiz assignment</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-question-square m-2 fa-2x"></i>Question</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-journal-bookmark-fill m-2 fa-2x"></i>Material</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-clockwise m-2 fa-2x"></i>Reuse post</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Topic</a></li>
+        </ul>
+    </div>
+</html>
 
 			</div>
 			<div class="tab-pane fade" id="course-pills-tabs-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
