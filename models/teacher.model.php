@@ -28,3 +28,12 @@ function displayClass() {
         return $statement->fetchAll();
     }
 }
+
+function deleteClass( $classroom_code) : bool
+{
+    global $connection;
+    $statement = $connection->prepare("delete from classrooms where classroom_code =:classroom_code");
+    $statement->execute([':classroom_code' => $classroom_code]);
+    return $statement->rowCount() > 0;
+
+}
