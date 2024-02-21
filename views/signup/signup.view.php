@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>signup</title>
 
@@ -28,80 +29,96 @@
 
 <body>
 
-<!-- **************** MAIN CONTENT START **************** -->
-<main>
-	<section class="p-0 d-flex  align-items-center position-relative overflow-hidden">
+	<!-- **************** MAIN CONTENT START **************** -->
+	<main>
+		<section class="p-0 d-flex  align-items-center position-relative overflow-hidden">
 
 
-				<!-- Right -->
-				<div class="col-12 col-lg-6 m-auto">
-					<div class="row my-5">
-						<div class="col-sm-10 col-xl-8 m-auto">
-							<!-- Title -->
-							<span class="mb-0 fs-1">👋</span>
-							<h1 class="fs-3">SignIn into Google Classroom!</h1>
+			<!-- Right -->
+			<div class="col-12 col-lg-6 m-auto">
+				<div class="row my-5">
+					<div class="col-sm-10 col-xl-8 m-auto">
+						<!-- Title -->
+						<span class="mb-0 fs-1">👋</span>
+						<h1 class="fs-3">SignIn into Google Classroom!</h1>
 
-								<!-- Form START -->
-								<form>
-									<!-- User name -->
-									<div class="mb-4">
-										<label for="exampleInputEmail1" class="form-label">User Name *</label>
-										<div class="input-group input-group-lg">
-											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
-                        						<i class="bi bi-person-fill"></i>
-											</span>
-											<input type="input" class="form-control border-0 bg-light rounded-end ps-1" placeholder="User-name" >
-										</div>
-									</div>
-									<!-- Email  -->
-									<div class="mb-4">
-										<label for="exampleInputEmail1" class="form-label">Email address *</label>
-										<div class="input-group input-group-lg">
-											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
-												<i class="bi bi-envelope-fill"></i>
-											</span>
-											<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1">
-										</div>
-									</div>
-									<!-- Password -->
-									<div class="mb-4">
-										<label for="inputPassword5" class="form-label">Password *</label>
-										<div class="input-group input-group-lg">
-											<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
-												<i class="fas fa-lock"></i>
-											</span>
-											<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5">
-										</div>
-										<div id="passwordHelpBlock" class="form-text">
-											Your password must be 8 characters at least 
-										</div>
-									</div>
-									<!-- Button -->
-									<div class="d-flex justify-content-center">
-										<div class="d-grid">
-											<a href="/home" class="btn btn-primary w-100">SignIn</a>
-										</div>
-									</div>
-								</form>
-							<!-- Form END -->
+						<!-- Form START -->
+						<form action="controllers/signup/create_user.controller.php" method="post" enctype="multipart/form-data">
+							<!-- User name -->
+							<?php if (isset($_GET['error'])) : ?>
+								<p><?php echo $_GET['error']; ?></p>
+							<?php endif ?>
+							<div class="mb-4">
+								<label for="exampleInputEmail1" class="form-label">User Name *</label>
+								<div class="input-group input-group-lg">
+									<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
+										<i class="bi bi-person-fill"></i>
+									</span>
+									<input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="User-name" name="username">
+								</div>
+							</div>
+							<!-- Email  -->
+							<div class="mb-4">
+								<label for="exampleInputEmail1" class="form-label">Email address *</label>
+								<div class="input-group input-group-lg">
+									<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
+										<i class="bi bi-envelope-fill"></i>
+									</span>
+									<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name="email">
+								</div>
+							</div>
+							<!-- Password -->
+							<div class="mb-4">
+								<label for="inputPassword5" class="form-label">Password *</label>
+								<div class="input-group input-group-lg">
+									<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
+										<i class="fas fa-lock"></i>
+									</span>
+									<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5" name="pwd">
+								</div>
+								<div id="passwordHelpBlock" class="form-text">
+									Your password must be 8 characters at least
+								</div>
+							</div>
+							<div class="mb-4">
+								<label for="inputPassword5" class="form-label">profile</label>
+								<div class="input-group input-group-lg">
+									<span class="input-group-text bg-light rounded-start border-0 text-secondary px-3">
+										<i class="bi bi-images"></i>
+									</span>
+									<input type="file" id="file" class="form-control border-0 bg-light rounded-end ps-1" name="my_image">
+								</div>
+								<div id="passwordHelpBlock" class="form-text">
+									Your password must be 8 characters at least
+								</div>
+							</div>
+							<!-- Button -->
+							<div class="d-flex justify-content-center">
+								<div class="d-grid">
+									<button class="btn btn-primary w-100">SignIn</button>
+								</div>
+							</div>
+						</form>
+						<!-- Form END -->
 
-						</div>
-					</div> <!-- Row END -->
-				</div>
+					</div>
+				</div> <!-- Row END -->
+			</div>
 			</div> <!-- Row END -->
-		</div>
-	</section>
-</main>
-<!-- **************** MAIN CONTENT END **************** -->
+			</div>
+		</section>
+	</main>
+	<!-- **************** MAIN CONTENT END **************** -->
 
-<!-- Back to top -->
-<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
+	<!-- Back to top -->
+	<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
 
-<!-- Bootstrap JS -->
-<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Template Functions -->
-<script src="vendor/js/functions.js"></script>
+	<!-- Template Functions -->
+	<script src="vendor/js/functions.js"></script>
 
 </body>
+
 </html>
