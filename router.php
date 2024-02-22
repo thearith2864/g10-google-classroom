@@ -12,10 +12,10 @@ $routes = [
     '/reviews' => 'controllers/reviews/review.controller.php',
     '/signup' => 'controllers/signup/create_user.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
-    '/admin' => 'controllers/admin/admin.controller.php'
+    '/admin' => 'controllers/admin/admin.controller.php',
+    '/assignment' => 'controllers/assignment/assignment.controllers.php',
 
 ];
-
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
 } else {
@@ -23,7 +23,7 @@ if (array_key_exists($uri, $routes)) {
    $page = 'views/errors/404.php';
 }
 
-if ($uri !== '/' ) {
+if ($uri !== '/' && $uri !== '/assignment' ) {
     require "layouts/header.php";
     require "layouts/navbar.php";
 }
@@ -31,12 +31,10 @@ if ($uri !== '/' ) {
 
 require $page;
 
-if ($uri !== '/' && $uri !== '/join_classrooms' ) {
+
+if ($uri !== '/' && $uri !== '/join_classrooms'&& $uri !== '/assignment'  ) {
     require "layouts/footer.php";
 }
 if ($uri == '/join_classrooms'  ) {
     require "layouts/teacher/footer.php";
 }
-
-
-?>
