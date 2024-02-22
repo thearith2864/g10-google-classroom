@@ -14,7 +14,8 @@ $routes = [
     '/signup' => 'controllers/signup/create_user.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
     '/admin' => 'controllers/admin/admin.controller.php',
-    '/class-update' => 'controllers/form_update/form_update.controller.php'
+    '/class-update' => 'controllers/form_update/form_update.controller.php',
+    '/join_class' => 'controllers/join_class/join_class_form.controller.php'
 
 ];
 
@@ -25,7 +26,7 @@ if (array_key_exists($uri, $routes)) {
    $page = 'views/errors/404.php';
 }
 
-if ($uri !== '/' && $uri !== '/class-update' ) {
+if ($uri !== '/' && $uri !== '/class-update' && $uri !== '/join_class') {
     require "layouts/header.php";
     require "layouts/navbar.php";
 }
@@ -35,7 +36,7 @@ require $page;
 
 
 
-if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update') {
+if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update' && $uri !== '/join_class') {
     require "layouts/footer.php";
 }
 
