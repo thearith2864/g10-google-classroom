@@ -15,8 +15,8 @@
 						<div class="row g-3 align-items-center justify-content-between mb-4">
 							<!-- Search -->
 							<div class="col-md-8">
-								<form class="rounded position-relative">
-									<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+								<form class="rounded position-relative" action="">
+									<input class="form-control pe-5 bg-transparent" id="#search-post" type="search" placeholder="Search" aria-label="Search">
 									<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
 								</form>
 							</div>
@@ -155,3 +155,4 @@ Inner part END -->
 
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
+

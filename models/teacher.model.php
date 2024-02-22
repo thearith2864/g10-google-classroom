@@ -37,3 +37,11 @@ function deleteClass( $classroom_code) : bool
     return $statement->rowCount() > 0;
 
 }
+
+function getClass($name)
+{
+    global $connection;
+    $statement = $connection->prepare("select * from classrooms where classroom_name = '$name'");
+    $statement->execute();
+    return $statement->fetch();
+}
