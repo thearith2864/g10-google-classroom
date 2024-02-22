@@ -9,6 +9,7 @@ function getUser ( string $Email){
         return[];
     }
 }
+
 function getimage ( string $Email){
     global $connection;
     $statement = $connection->prepare("SELECT * FROM users WHERE user_email = :email");

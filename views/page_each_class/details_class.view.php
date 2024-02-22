@@ -110,7 +110,7 @@
 			<!-- Content START -->
 			<div class="tab-pane fade p-3" id="course-pills-tabs-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
     <div class="btn-group " style="margin-bottom: 300px;">
-        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             ➕ Create
         </button>
         <ul class="dropdown-menu">
