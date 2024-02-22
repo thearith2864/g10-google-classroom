@@ -14,10 +14,13 @@ $routes = [
     '/signup' => 'controllers/signup/create_user.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
     '/admin' => 'controllers/admin/admin.controller.php',
+<<<<<<< HEAD
     '/class-update' => 'controllers/form_update/form_update.controller.php'
+=======
+    '/assignment' => 'controllers/assignment/assignment.controllers.php',
+>>>>>>> page_assignment
 
 ];
-
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
 } else {
@@ -25,7 +28,11 @@ if (array_key_exists($uri, $routes)) {
    $page = 'views/errors/404.php';
 }
 
+<<<<<<< HEAD
 if ($uri !== '/' && $uri !== '/class-update' ) {
+=======
+if ($uri !== '/' && $uri !== '/assignment' ) {
+>>>>>>> page_assignment
     require "layouts/header.php";
     require "layouts/navbar.php";
 }
@@ -34,6 +41,7 @@ if ($uri !== '/' && $uri !== '/class-update' ) {
 require $page;
 
 
+<<<<<<< HEAD
 
 if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update') {
     require "layouts/footer.php";
@@ -42,3 +50,11 @@ if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update') {
 
 
 ?>
+=======
+if ($uri !== '/' && $uri !== '/join_classrooms'&& $uri !== '/assignment'  ) {
+    require "layouts/footer.php";
+}
+if ($uri == '/join_classrooms'  ) {
+    require "layouts/teacher/footer.php";
+}
+>>>>>>> page_assignment
