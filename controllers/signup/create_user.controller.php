@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 	if($UserName !== ''){
 		if($Email !== ''){
 			if($PWD !== ''){
-				if (strlen($PWD) > 8){					
+				if (strlen($PWD) >= 8){					
 				$passwordHash = password_hash($PWD, PASSWORD_BCRYPT);
 				// __files image______________
 				$img_name = $_FILES['my_image']['name'];
@@ -21,8 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 				$tmp_name = $_FILES['my_image']['tmp_name'];
 				$error = $_FILES['my_image']['error'];
 				if ($error === 0) {
-					if ($img_size > 125000) {
-						echo "Sorry, your file is too large.";
+					if ($img_size < 5000) {
+						echo "Sorry, your file is too small";
 					} else {
 						$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
 						$img_ex_lc = strtolower($img_ex);
@@ -46,8 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 					}
 				}
 				else{
-					// forget inter image__________
-					header ("location: /signup");
+					// condition ddon't have image ___________________				
+					$iscreated = signUpNotImage ($UserName, $passwordHash, $Email,);
+					header ('location: /signin');
 				}
 			}else{
 				// PWD < 8_________________________

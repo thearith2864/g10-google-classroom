@@ -1,4 +1,8 @@
-
+<?php
+if (!isset($_SESSION['user'])) {
+	echo 'love';
+}
+?>
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
 	

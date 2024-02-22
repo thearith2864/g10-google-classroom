@@ -1,4 +1,10 @@
+<?php
 
+if (isset($_SESSION['user'])) {
+    header('Location: /home');
+    die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +18,11 @@
 
 <body class="bg-info text-white">
     <main>
-    <h1 class="text-center mt-5 pt-5">Manage teaching and learning with <br> <span class="text-primary">Google</span> Classroom</h1>
+    <h1 class="text-center mt-5 pt-5">Manage teaching and learning with <br> <span class="text-danger">Google</span> Classroom</h1>
     <p class="text-center mt-5">You need to signIn if you don't have any account yet and you need to logIn if you already have an account to use Google Classroom</p>
     <div class="d-flex justify-content-center">
-        <a href="/signin"><button class="btn btn-primary bg-primary text-white px-4 mt-4">Log In</button></a>
+        <a href="/signup"><button class="btn btn-primary bg-danger text-white px-4 mt-4 m-2">SignUP</button></a>
+        <a href="/signin"><button class="btn btn-primary bg-danger text-white px-4 mt-4 m-2">SignIn</button></a>
     </div>
     </main>
 </body>
