@@ -63,12 +63,3 @@ function updateClass ($code){
     ]);
     return $statement->fetch();
 }
-
-
-function getClass($name)
-{
-    global $connection;
-    $statement = $connection->prepare("select * from classrooms where classroom_name = '$name'");
-    $statement->execute();
-    return $statement->fetch();
-}
