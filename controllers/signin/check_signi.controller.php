@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = getUser($Email);
         $image = getimage($Email);
         if ($image[4] === '') {
-            // Account that don't have image____________________________
+            // Account that has image____________________________
             echo "no image";
             if (count($user) > 0) {
                 if (password_verify($PWD, $user['user_password'])) {
