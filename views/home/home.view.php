@@ -204,6 +204,7 @@ Popular course START -->
 
 		<!-- Tabs START -->
 		<ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
+
 			<!-- Tab item -->
 			<li class="nav-item me-5 me-sm-5 mr-5">
 				<button class="nav-link  mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Your classes</button>
@@ -229,8 +230,12 @@ Popular course START -->
 					?>
 					
 					<!-- Card item START -->
-					<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="col-sm-6 col-lg-4 col-xl-3" id="classCard">
 						<div class="card shadow h-100">
+
+
+
+
 							<!-- Image -->
 							<img src="assets/images/courses/4by3/08.jpg" class="card-img-top" alt="course image">
 							<!-- Card body -->
@@ -241,7 +246,7 @@ Popular course START -->
 									<a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
 								</div>
 								<!-- Title -->
-								<h5 class="card-title fw-normal"><a href="#"><?php echo $class['classroom_name'] ?></a></h5>
+								<h5 class="card-title fw-normal" id='className'><a href="#"><?php echo $class['classroom_name'] ?></a></h5>
 								<p class="mb-2 text-truncate-2"><?php echo $class['subject'] ?></p>
 								<p class="mb-2 text-truncate-2"><?php echo $class['room'] ?></p>
 
@@ -518,6 +523,8 @@ Action box START -->
 </section>
 <!-- =======================
 Action box END -->
-
-
 </main>
+<?php
+echo '<script src="views/home/searchClasses.view.js"></script>';
+
+?>
