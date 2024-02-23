@@ -21,70 +21,40 @@
 <body >
 
 <!-- **************** MAIN CONTENT START **************** -->
-<main >
-	<section class="w-50 mt-5 rounded-4 m-auto p-0 d-flex bg-primary  align-items-center position-relative overflow-hidden">
 
+<div class="container mt-3">
+          <div class="modal-dialog shadow-lg">
+            <div class="modal-content">
 
-				<!-- Right -->
-				<div class="col-12 col-lg-0 m-auto">
-					<div class="row my-3">
-						<div class="col-sm-0 col-xl-11 m-auto">
-							<!-- Title -->
-							
-							<h1 class="fs-4 text-white">Create class</h1>
+              <!-- Modal Header -->
+              <div class="modal-header btn-primary">
+                <h4 class="modal-title">Create class</h4>
+                <a href="/trainer-classroom" class="text-dark mx-2 link-danger">X</a>
+              </div>
 
-								<!-- Form START -->
-								<form id="createClassForm" action="../../controllers/create_class/create_class.controller.php" method="post">
-									<!-- User name -->
-									<div class="mb-4">
-										
-										<div class="input-group input-group-lg">
-											
-											<input type="input" class="form-control  border-0 bg-light rounded-end ps-2" name="className" placeholder="Class name (required)" >
-										</div>
-									</div>
-									<!-- Classname  -->
-									<div class="mb-4">
-										<div class="input-group input-group-lg">
-										
-											<input type="input" class="form-control border-0 bg-light rounded-end ps-2" name='section' placeholder="Section" id="exampleInputEmail1">
-										</div>
-									</div>
-									<!-- Password -->
-									<div class="mb-4">
-										
-										<div class="input-group input-group-lg">
-											
-											<input type="input" class="form-control border-0 bg-light rounded-end ps-2" name="subject" placeholder="Subject" id="inputPassword5">
-										</div>
-										
-									</div>
-									<div class="mb-4">
-										
-										<div class="input-group input-group-lg">
-											
-											<input type="input" class="form-control border-0 bg-light rounded-end ps-2" name="room" placeholder="room" id="inputPassword5">
-										</div>
-										
-									</div>
-									<!-- Button -->
-									<div class="d-flex justify-content-end">
-										<div class="d-flex">
-											<a href="/trainer-classroom" class="text-white w-50 me-3 link-danger">Cancel</a>
-											<button type='submit' class="text-white bg-primary border-0 w-50">Create</button>
-										</div>
-									</div>
-								</form>
-							<!-- Form END -->
-
-						</div>
-					</div> <!-- Row END -->
+              <!-- Modal body -->
+			  <form id="createClassForm" action="../../controllers/create_class/create_class.controller.php" method="post">
+				<div class="modal-body">
+					<input type="text" id="className" class="form-control" name="className" placeholder="Class name (required)">
 				</div>
-			</div> <!-- Row END -->
-		</div>
-	</section>
-</main>
+				<div class="modal-body">
+					<input type="text" id="section" class="form-control" name='section' placeholder="Section">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="subject" class="form-control" name='subject' placeholder="Subject">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="room" class="form-control" name='room' placeholder="Room">
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary" data-dismiss="modal">Create</button>
+				</div>
+			  </form>
+            </div>
+          </div>
 
+  </div>
 
 </body>
 </html>
