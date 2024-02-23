@@ -191,7 +191,7 @@
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="docs/index.html" target="_blank">
+									<a class="dropdown-item" href="/join_class" target="_blank">
 										<i class="text-danger fa-fw bi bi-card-text me-2"></i>Join class
 									</a>
 								</li>
