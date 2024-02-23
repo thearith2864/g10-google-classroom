@@ -37,3 +37,29 @@ function deleteClass( $classroom_code) : bool
     return $statement->rowCount() > 0;
 
 }
+
+
+function updateClasses($classroom_name,  $section, $subject, $room, $id ): bool
+{
+    global $connection;
+    $query = "UPDATE classrooms SET classroom_name = :classroom_name,  section = :section, subject = :subject, room = :room WHERE classroom_id = :classroom_id";
+    $statement = $connection->prepare($query);
+    $statement->execute([
+        ':classroom_name' => $classroom_name,
+        ':section' => $section,
+        ':subject' => $subject,
+        ':room' => $room,
+        'classroom_id' => $id
+        
+    ]);
+
+    return $statement->rowCount() > 0;
+}
+function updateClass ($code){
+    global $connection;
+    $statement = $connection->prepare('select * from classrooms where classroom_code = :classscode');
+    $statement->execute([
+        ':classscode' => $code
+    ]);
+    return $statement->fetch();
+}

@@ -10,39 +10,42 @@
 </head>
 
 <body>
-
   <div class="container mt-3">
-          <div class="modal-dialog shadow-lg">
-            <div class="modal-content">
+    <form action="../../controllers/form_update/form_update_class.controller.php" method="post">
+      <div class="modal-dialog shadow-lg">
+        <div class="modal-content">
 
-              <!-- Modal Header -->
-              <div class="modal-header btn-primary">
-                <h4 class="modal-title">To updata class</h4>
-                <button type="button" class="close" data-dismiss="modal">×</button>
-              </div>
-
-              <!-- Modal body -->
-              <div class="modal-body ">
-                <h2> Edit Class</h2>
-              </div>
-              <div class="modal-body">
-                <input type="text" id="className" class="form-control" placeholder="Class name (required)">
-              </div>
-              <div class="modal-body">
-                <input type="text" id="section" class="form-control" placeholder="Section">
-              </div>
-              <div class="modal-body">
-                <input type="text" id="subject" class="form-control" placeholder="Subject">
-              </div>
-              <div class="modal-body">
-                <input type="text" id="room" class="form-control" placeholder="Room">
-              </div>
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
-              </div>
-            </div>
+          <!-- Modal Header -->
+          <div class="modal-header btn-primary">
+            <h4 class="modal-title">To updata class</h4>
+            <a href="/trainer-classroom" class="btn ">✖</a>
           </div>
+
+          <!-- Modal body -->
+          <div class="modal-body ">
+            <h2> Edit Class</h2>
+
+          </div>
+          <div class="modal-body">
+            <input type="text" hidden class="hidden" value="<?=$get['classroom_id']?>" name="id">
+            <input type="text" id="className" class="form-control" placeholder="Class name (required)" value="<?=$get['classroom_name']?> " name="classsName">
+          </div>
+          <div class="modal-body">
+            <input type="text" id="section" class="form-control" placeholder="Section" value="<?=$get['section']?>" name="section">
+          </div>
+          <div class="modal-body">
+            <input type="text" id="subject" class="form-control" placeholder="Subject" value="<?=$get['subject']?>" name="subject">
+          </div>
+          <div class="modal-body">
+            <input type="text" id="room" class="form-control" placeholder="Room" value="<?=$get['room']?>" name="room">
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
+          </div>
+        </div>
+      </div>
+    </form>
 
   </div>
 
