@@ -39,6 +39,9 @@ require $page;
 if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update' && $uri !== '/join_class') {
     require "layouts/footer.php";
 }
+if ($uri == '/join_classrooms') {
+    require "layouts/teacher/footer.php";
+}
 
 
 

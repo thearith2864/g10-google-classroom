@@ -52,6 +52,14 @@
 								</thead>
 
 								<!-- Table body START -->
+								<?php 
+								
+								if(is_array($join_classes)):
+									foreach($join_classes as $class):
+									
+										
+							
+								?>
 								<tbody>
 									<!-- Table item -->
 									<tr>
@@ -62,9 +70,9 @@
 												<div class="w-100px">
 													<img src="assets/images/courses/4by3/08.jpg" class="rounded" alt="">
 												</div>
-												<div class="mb-0 ms-2" name= 'hello'>
+												<div class="mb-0 ms-2">
 													<!-- Title -->
-													<h6><a href="#">Building Scalable APIs with GraphQL</a></h6>
+													<h6><a href="#"><?php echo $class['classroom_name'] ?></a></h6>
 													<!-- Info -->
 													<div class="d-sm-flex">
 														<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>18 lectures</p>
@@ -74,53 +82,26 @@
 											</div>
 										</td>
 										<!-- Enrolled item -->
+										<td class="text-center text-sm-start"><?php echo $class['classroom_code'] ?></td>
 										<td class="text-center text-sm-start">125</td>
 										<!-- Status item -->
 										<td>
-											<div class="badge bg-success bg-opacity-10 text-success">Live</div>
+											<div class="badge bg-success bg-opacity-10 text-success"><?php echo $class['subject'] ?></div>
 										</td>
 										<!-- Price item -->
-										<td>$250</td>
+										<td><?php echo $class['room'] ?></td>
 										<!-- Action item -->
 										<td>
 											<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-											<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
-										</td>
-									</tr>									
-									<!-- Table item -->
-									<tr>
-										<!-- Course item -->
-										<td>
-											<div class="d-flex align-items-center">
-												<!-- Image -->
-												<div class="w-100px">
-													<img src="assets/images/courses/4by3/11.jpg" class="rounded" alt="">
-												</div>
-												<div class="mb-0 ms-2">
-													<!-- Title -->
-													<h6><a href="#">Build Responsive Websites with HTML</a></h6>
-													<!-- Info -->
-													<div class="d-sm-flex">
-														<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>42 lectures</p>
-														<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>25 Completed</p>
-													</div>		
-												</div>
-											</div>
-										</td>
-										<!-- Enrolled item -->
-										<td class="text-center text-sm-start">345</td>
-										<!-- Status item -->
-										<td>
-											<div class="badge bg-success bg-opacity-10 text-success">Live</div>
-										</td>
-										<!-- Price item -->
-										<td>$222</td>
-										<!-- Action item -->
-										<td>
-											<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-											<button class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+											<a href="controllers/classroom/delete.classroom.controller.php?id=<?php echo $class['classroom_code'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
 										</td>
 									</tr>
+									
+									<?php
+									endforeach;
+									endif;
+									?>
+									
 								</tbody>
 								<!-- Table body END -->
 							</table>
