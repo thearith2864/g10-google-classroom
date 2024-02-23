@@ -186,12 +186,12 @@
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="none">
 								<li>
-									<a class="dropdown-item" href="#" target="_blank">
+									<a class="dropdown-item" href="/create-class" >
 										<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Create class
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="/join_class" target="_blank">
+									<a class="dropdown-item" href="/join_class" >
 										<i class="text-danger fa-fw bi bi-card-text me-2"></i>Join class
 									</a>
 								</li>

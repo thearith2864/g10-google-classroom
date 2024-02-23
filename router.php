@@ -14,7 +14,7 @@ $routes = [
     '/signup' => 'controllers/signup/create_user.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
     '/admin' => 'controllers/admin/admin.controller.php',
-    '/class-update' => 'controllers/form_update/form_update.controller.php',
+    
     '/join_class' => 'controllers/join_class/join_class_form.controller.php'
 
 ];
@@ -45,4 +45,3 @@ if ($uri == '/join_classrooms') {
 
 
 ?>
-

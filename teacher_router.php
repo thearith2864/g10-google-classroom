@@ -7,6 +7,7 @@ $routes = [
     '/trainer-review' => 'controllers/reviews/review.controller.php',
     '/trainer-classroom' => 'controllers/classroom/your_classroom.controller.php',
     '/create-class' => 'controllers/create_class/create_class_form.controller.php',
+    '/class-update' => 'controllers/form_update/form_update.controller.php',
     '/class-work' => 'controllers/create-classwork/create_classwork.controller.php',
     
 ];
@@ -18,13 +19,13 @@ if (array_key_exists($uri, $routes)) {
    $page = 'views/errors/404.php';
 }
 
-if($uri !== '/create-class'){
+if($uri !== '/create-class' && $uri !== '/class-update') {
     require "layouts/teacher/header.php";
     require "layouts/teacher/navbar.php";
 }
 
 require $page;
 
-if($uri !== '/create-class'){
+if($uri !== '/create-class' && $uri !== '/class-update'){
     require "layouts/teacher/footer.php";
 }
