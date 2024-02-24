@@ -28,7 +28,6 @@ function displayClass() {
         return $statement->fetchAll();
     }
 }
-
 function deleteClass( $classroom_code) : bool
 {
     global $connection;
