@@ -87,7 +87,17 @@
 										</td>
 										<!-- Enrolled item -->
 										<td class="text-center text-sm-start"><?php echo $class['classroom_code'] ?></td>
-										<td class="text-center text-sm-start">125</td>
+										<td class="text-center text-sm-start">
+										<?php 
+											if (is_array($enrolleds)) {
+												foreach ($enrolleds as $enrolle) {
+													if ($class['classroom_code'] == $enrolle['classroom_code']) {
+														echo $enrolle['COUNT(classroom_code)'];
+													}
+												}
+											}
+										?>
+										</td>
 										<!-- Status item -->
 										<td>
 											<div class="badge bg-success bg-opacity-10 text-success"><?php echo $class['subject'] ?></div>

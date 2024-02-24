@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         //The session value is get form the file '../signup/signup.controller.php'
         $user_email = $_SESSION['email'];
-    
+        $_SESSION['classroom_code'] = $classroom_code;
         $section = $_POST['section'];
         $subject = $_POST['subject'];
         $room = $_POST['room'];

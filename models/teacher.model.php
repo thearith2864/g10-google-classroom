@@ -28,6 +28,13 @@ function displayClass() {
         return $statement->fetchAll();
     }
 }
+
+function get_enrolled(){
+    global $connection;
+    $statement = $connection->prepare('SELECT classroom_code , COUNT(classroom_code) FROM `classroommembers` GROUP BY classroom_code');
+    $statement ->execute();
+    return $statement->fetchAll();
+}
 function deleteClass( $classroom_code) : bool
 {
     global $connection;

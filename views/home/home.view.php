@@ -202,7 +202,7 @@ Popular course START -->
 		<div class="row mb-4">
 			<div class="col-lg-8 mx-auto text-center">
 				<h2 class="fs-1">All of Classroom</h2>
-				<p class="mb-0">Here is all of classroom that you have include your own classroom and classrooms that you have join </p>
+				<p class="mb-0">Here are all of the classrooms including your classroom and the classrooms that you have joined</p>
 			</div>
 		</div>
 
@@ -215,7 +215,7 @@ Popular course START -->
 			</li>
 			<!-- Tab item -->
 			<li class="nav-item me-1 me-sm-5 ml-5">
-				<button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2"	aria-selected="false">Your joining classes</button>
+				<button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2"	aria-selected="false">Enrolled</button>
 			</li>
 
 		</ul>

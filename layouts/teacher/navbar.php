@@ -27,7 +27,7 @@
 			<div class="navbar-collapse w-100 collapse" id="navbarCollapse">
 
 				<!-- Nav Main menu START -->
-				<ul class="navbar-nav navbar-nav-scroll ms-5">
+				<ul class="navbar-nav navbar-nav-scroll ms-3">
 					<!-- Nav item 1 Demos -->
 					<li class="nav-item"><a class="nav-link ms-5" href="/home">Home</a></li>
 
@@ -45,7 +45,7 @@
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item" href="/join_classrooms"><i class="fas fa-user-graduate fa-fw me-1"></i>Endolled</a>
+								<a class="dropdown-item" href="/join_classrooms"><i class="fas fa-user-graduate fa-fw me-1"></i>Enrolled</a>
 							</li>
 
 							<li> <a class="dropdown-item" href="#"><i class="fas fa-user-cog fa-fw me-1"></i>Admin (Coming Soon)</a> </li>
@@ -59,8 +59,8 @@
 					</li>
 
 					<!-- Nav item 4 Component-->
-					<li class="nav-item"><a class="nav-link me-5" href="docs/alerts.html">To review</a></li>
-					<div class='ms-5 me-5'></div>
+					<li class="nav-item"><a class="nav-link me-3" href="docs/alerts.html">To review</a></li>
+					<div class='ms-5 me-4'></div>
 
 
 

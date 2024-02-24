@@ -14,7 +14,11 @@ function displayJoinClass() {
     if(isset($_SESSION['email']) && !empty($_SESSION['email'])){
 
         $user_email = $_SESSION['email'];
-        $statement = $connection->prepare("SELECT c.classroom_name, c.classroom_code, c.section, c.subject, c.room FROM classrooms AS c INNER JOIN classroommembers AS cm ON c.classroom_code = cm.classroom_code WHERE cm.user_email = :user_email");
+        $statement = $connection->prepare("SELECT c.classroom_name, c.classroom_code, c.section, c.subject, c.room, u.user_name
+        FROM classrooms AS c
+        INNER JOIN classroommembers AS cm ON c.classroom_code = cm.classroom_code
+        INNER JOIN users AS u ON cm.user_email = u.user_email
+        WHERE cm.user_email = :user_email;");
         $statement->execute(
             [':user_email'=> $user_email]
         );

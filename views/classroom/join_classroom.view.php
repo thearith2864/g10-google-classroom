@@ -44,9 +44,9 @@
 								<thead>
 									<tr>
 										<th scope="col" class="border-0 rounded-start">Course Title</th>
-										<th scope="col" class="border-0">Enrolled</th>
-										<th scope="col" class="border-0">Status</th>
-										<th scope="col" class="border-0">Price</th>
+										<th scope="col" class="border-0">Owner</th>
+										<th scope="col" class="border-0">Subject</th>
+										<th scope="col" class="border-0">Room</th>
 										<th scope="col" class="border-0 rounded-end">Action</th>
 									</tr>
 								</thead>
@@ -82,8 +82,7 @@
 											</div>
 										</td>
 										<!-- Enrolled item -->
-										<td class="text-center text-sm-start"><?php echo $class['classroom_code'] ?></td>
-										<td class="text-center text-sm-start">125</td>
+										<td class="text-center text-sm-start"><?php echo $class['user_name'] ?></td>
 										<!-- Status item -->
 										<td>
 											<div class="badge bg-success bg-opacity-10 text-success"><?php echo $class['subject'] ?></div>
