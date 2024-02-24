@@ -83,3 +83,12 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
         return[];
     }
  }
+
+ function Deleteassignment($classwork_id){
+    global $connection;
+    $stetement = $connection->prepare ('DELETE FROM classworks WHERE classwork_id = :classwork_id');
+    $stetement->execute([
+        ':classwork_id' => $classwork_id
+    ]);
+    return $stetement->rowCount() > 0;
+ }

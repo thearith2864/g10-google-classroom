@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <a href="">
-                                        <a href="/class"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
+                                        <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?=$assignment['classwork_id']?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
                                     </a>
                                     <a href="">
                                         <i class="bi bi-pencil-square fa-2x m-2"></i>

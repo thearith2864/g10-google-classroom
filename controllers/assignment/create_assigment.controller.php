@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
             $file_upload_path = '../../assets/files/assignment_files/' . $new_file_name;
             move_uploaded_file($tmp_name, $file_upload_path);
             $isert = createAssignment($title, $Instruction ,$new_file_name ,$idclass[0] ,$point, $date, $idtopic[0], $date_create , $assigment   );
-            header ("location: /assignment");
+            header ("location: /trainer-classroom");
         }
     }
 }
