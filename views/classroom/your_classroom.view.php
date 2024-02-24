@@ -63,7 +63,7 @@
 									foreach($classes as $class):
 										
 							
-								?>
+								?>								
 								<tbody>
 									<!-- Table item -->
 									<tr>
@@ -76,7 +76,7 @@
 												</div>
 												<div class="mb-0 ms-2">
 													<!-- Title -->
-													<h6><a href="#"><?php echo $class['classroom_name'] ?></a></h6>
+													<h6><a href="/class?id=<?=$class['classroom_code']?>"><?php echo $class['classroom_name'] ?></a></h6>
 													<!-- Info -->
 													<div class="d-sm-flex">
 														<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>18 lectures</p>
@@ -84,6 +84,7 @@
 													</div>
 												</div>
 											</div>
+											
 										</td>
 										<!-- Enrolled item -->
 										<td class="text-center text-sm-start"><?php echo $class['classroom_code'] ?></td>
@@ -91,7 +92,8 @@
 										<!-- Status item -->
 										<td>
 											<div class="badge bg-success bg-opacity-10 text-success"><?php echo $class['subject'] ?></div>
-										</td>
+										
+									</a>
 										<!-- Price item -->
 										<td><?php echo $class['room'] ?></td>
 										<!-- Action item -->
