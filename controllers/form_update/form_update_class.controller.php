@@ -3,7 +3,6 @@
 require_once("../../database/database.php");
 require_once("../../models/teacher.model.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    // echo $_POST['subject'];
     $subject = $_POST['subject'];
     $className = $_POST['classsName'];
     $section = $_POST['section'];
