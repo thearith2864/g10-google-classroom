@@ -56,6 +56,7 @@
                                 <div class="p-2 w-100">
                                     <h5 class="card-title"><?=$assignment['title']?></h5>
                                     <p class="card-text"><?=$assignment['create_date']?></p>
+                                    <p class="card-text"> Dateline (<?=$assignment['dateline']?>)</p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <a href="">
