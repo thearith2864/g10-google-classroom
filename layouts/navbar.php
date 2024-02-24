@@ -5,10 +5,12 @@
 		<div class="container-fluid px-3 px-xl-5">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="/home">
-				
-			
+			<h3>
+					<span class="text-danger">Google</span>
+					<span>Classroom</span>
+				</h3>
 				<!-- <img src="../assets/images/GoogleClassroomBanner.png" alt="" class="w-25"> -->
-				<img class="light-mode-item navbar-brand-item " src="../assets/images/GoogleClassroomBanner.png" alt="logo" >
+				<!-- <img class="light-mode-item navbar-brand-item " src="../assets/images/GoogleClassroomBanner.png" alt="logo" > -->
 				<!-- <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo"> -->
 			</a>
 			<!-- Logo END -->
@@ -186,7 +188,7 @@
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="none">
 								<li>
-									<a class="dropdown-item" href="#" target="_blank">
+									<a class="dropdown-item" href="/create-class" target="_blank">
 										<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Create class
 									</a>
 								</li>
@@ -215,12 +217,9 @@
 			<!-- Profile START -->
 									<?php
 									if (isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['image_url'])) {
-
 										$user = $_SESSION['user'];
 										$email = $_SESSION['email'];
 										$image = $_SESSION['image_url'];
-									
-
 									?>
 			<div class="dropdown ms-1 ms-lg-0">
 				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
@@ -307,7 +306,7 @@
 					<!-- Dark mode switch END -->
 				</ul>
 			</div>
-			<?PHP
+			<?php
 									}
 			?>
 			<!-- Profile START -->

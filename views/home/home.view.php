@@ -245,7 +245,7 @@ Popular course START -->
 									<a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
 								</div>
 								<!-- Title -->
-								<h5 class="card-title fw-normal"><a href="#"><?php echo $class['classroom_name'] ?></a></h5>
+								<h5 class="card-title fw-normal"><a href="/class?id=<?=$class['classroom_code']?>"><?php echo $class['classroom_name'] ?></a></h5>
 								<p class="mb-2 text-truncate-2"><?php echo $class['subject'] ?></p>
 								<p class="mb-2 text-truncate-2"><?php echo $class['room'] ?></p>
 

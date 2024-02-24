@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <a href="">
-                                        <i class="bi bi-trash-fill fa-2x m-2"></i>
+                                        <a href="/class"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
                                     </a>
                                     <a href="">
                                         <i class="bi bi-pencil-square fa-2x m-2"></i>

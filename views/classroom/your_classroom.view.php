@@ -10,7 +10,6 @@
 						<h3 class="mb-0">My Classroom List</h3>
 					</div>
 					<!-- Card header END -->
-
 					<!-- Card body START -->
 					<div class="card-body">
 
@@ -40,7 +39,6 @@
 							</div>
 						</div>
 						<!-- Search and select END -->
-
 						<!-- Course list table START -->
 						<div class="table-responsive-lg border-0">
 							<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
