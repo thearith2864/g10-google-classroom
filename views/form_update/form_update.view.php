@@ -27,7 +27,7 @@
 
           </div>
           <div class="modal-body">
-            <input type="text" hidden class="hidden" value="<?=$get['classroom_id']?>" name="id">
+            <input type="text" hidden value="<?=$get['classroom_id']?>" name="id">
             <input type="text" id="className" class="form-control" placeholder="Class name (required)" value="<?=$get['classroom_name']?> " name="classsName">
           </div>
           <div class="modal-body">
