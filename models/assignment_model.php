@@ -92,3 +92,30 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     ]);
     return $stetement->rowCount() > 0;
  }
+
+ function selectAssignment ($assignment_id){
+    global $connection;
+    $statement = $connection -> prepare('SELECT * FROM classworks WHERE classwork_id =:classwork_id');
+    $statement->execute([
+        ':classwork_id' => $assignment_id
+    ]);
+    if($statement-> rowCount() > 0){
+        return $statement->fetch();
+    }else{
+        return[];
+    }
+ }
+
+ function Updateassignment ($title, $Instructio, $create_date, $point, $id_classwork, $dateline){
+    global $connection;
+    $statement = $connection -> prepare('UPDATE classworks SET title  = :title, instruction = :instruction, point = :point, create_date = :create_date, dateline = :dateline WHERE classwork_id = :classwork_id');
+    $statement->execute([
+        ':title' => $title,
+        'instruction' => $Instructio,
+        ':point' => $point,
+        'create_date' => $create_date,
+        'dateline' => $dateline,
+        ':classwork_id' => $id_classwork
+    ]);
+    return $statement->rowCount() > 0;
+ }
