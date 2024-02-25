@@ -25,6 +25,7 @@
     
     <!-- Theme CSS -->
     <link id="style-switch" rel="stylesheet" type="text/css" href="vendor/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     
 </head>
 
@@ -107,6 +108,7 @@
                             <h6 class="text " style="width:20"> Create</h6>
                         </div>
                         <div class="Upload m-3">
+                            
                             <div class="btn-group">
                                 <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span id="boot-icon" class="bi bi-upload fa-2x" style=" color: rgb(0, 128, 55);"></span>

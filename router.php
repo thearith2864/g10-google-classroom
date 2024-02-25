@@ -14,7 +14,7 @@ $routes = [
     '/signup' => 'controllers/signup/create_user.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
     '/admin' => 'controllers/admin/admin.controller.php',
-    
+    '/assignment' => 'controllers/assignment/assignment.controllers.php',
     '/join_class' => 'controllers/join_class/join_class_form.controller.php'
 
 ];
