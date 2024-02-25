@@ -16,29 +16,30 @@
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <!-- Plugins CSS -->
     <link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap-icons/bootstrap-icons.css">
-
+    
     <!-- Theme CSS -->
     <link id="style-switch" rel="stylesheet" type="text/css" href="vendor/css/style.css">
-
+    
 </head>
 
 <body>
     <div class="conainer ">
-        <nav class="navbar navbar-expand-xl shadow-lg border border-secondary pmd-navbar pmd-z-depth p-2">
-            <div class="container-fluid ">
+        <form action="../../controllers/assignment/create_assigment.controller.php"  method="post" enctype="multipart/form-data">
+            <nav class="navbar navbar-expand-xl shadow-lg border border-secondary pmd-navbar pmd-z-depth p-2">
+                <!-- <script src="../../vendor/js/time.js"defer></script> -->
+                <div class="container-fluid ">
+                <!-- <h1 id="hour" >jjj</h1> -->
                 <i class="bi bi-calendar2-x-fill "> Assignments </i>
-                <form class="d-flex " role="search">
+                
                     <div class="btn-group">
-                        <button type="button" class="btn btn-primary  dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">Assign</button>
+                        <button class="btn btn-primary w-100">Create</button>
+                        <button type="button" class="btn btn-primary  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#"></a>Assign</li>
                             <li><a class="dropdown-item" href="#"></a>Schedule</li>
@@ -48,13 +49,12 @@
                             </li>
                             <li><a class="dropdown-item" href="#"></a>Discard draft</li>
 
+                           
                             </li>
 
                         </ul>
                     </div>
                     </button>
-
-                </form>
             </div>
         </nav>
         <div class="d-flex">
@@ -63,11 +63,12 @@
                     <div class="card-body">
                         <div class="form-group pmd-textfield m-3">
                             <label for="input-without-floating">Titles</label>
-                            <input type="text" id="input-without-floating" class="form-control">
+                            <input type="text" id="input-without-floating" class="form-control" name="title">
+                            <!-- <input type="text" id="hour" class="form-control" name="title"> -->
                         </div>
                         <div class="form-group pmd-textfield pmd-textfield-outline m-3">
                             <label>Instruction (optional)</label>
-                            <textarea required class="form-control" style="padding-bottom: 90px;">
+                            <textarea required class="form-control" style="padding-bottom: 90px;" name="instruction">
                             </textarea>
 
                         </div>
@@ -79,8 +80,7 @@
                     </div>
                     <div class="p-3 d-flex justify-content-center">
                         <div class="drive m-3 p-3">
-                            <a href="#"><i class="fab fa-google-drive fa-2x m-1"
-                                    style=" color: rgb(0, 128, 55);"></i></a>
+                            <a href="#"><i class="fab fa-google-drive fa-2x m-1" style=" color: rgb(0, 128, 55);"></i></a>
                             <h6>Drive</h6>
                         </div>
                         <div class="you_tube m-3 p-3 ">
@@ -89,8 +89,7 @@
                         </div>
                         <div class="create m-3 ">
                             <div class="btn-group">
-                                <button type="button" class=" btn dropdown-toggle " data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <button type="button" class=" btn dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-folder-plus fa-2x m-1 p-2" style=" color: rgb(0, 128, 55); "></i>
                                 </button>
                                 <ul class="dropdown-menu  flex-row">
@@ -109,20 +108,17 @@
                         </div>
                         <div class="Upload m-3">
                             <div class="btn-group">
-                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <span id="boot-icon" class="bi bi-upload fa-2x"
-                                        style=" color: rgb(0, 128, 55);"></span>
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span id="boot-icon" class="bi bi-upload fa-2x" style=" color: rgb(0, 128, 55);"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <input type="file" class="upload ">
+                                    <input type="file" class="upload " name="files">
                             </div>
                             <h6>Upload</h6>
                         </div>
                         <div class="link m-3">
                             <div class="btn-group">
-                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-link fa-2x" style="color: rgb(0, 128, 55);"></i>
                                 </button>
                                 <ul class="dropdown-menu">
@@ -146,19 +142,18 @@
             <div class="col-5">
                 <div class="card shadow-lg border border-secondary h-100 ">
                     <div class="card-header d-flex ">
-                        <div
-                            class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-4 m-2">
-                            <label for="country-select">For</label>
-                            <select id="country-select" class="form-control">
-                                <option></option>
-                                <option>India</option>
-                                <option>United States of America</option>
-                                <option>United Kingdom</option>
-                                <option>Australia</option>
-                                <option>New Zealand</option>
-                                <option>United Arab Emirates</option>
-                                <option>Africa</option>
-                                <option>Russia</option>
+                        <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-4 m-2">
+                            <label for="country-select" >For</label>
+                            <select id="country-select" class="form-control" name="class">
+                                <?php
+                                foreach ($allclass as $class){
+                                    ?>
+                                    <option><?=$class['classroom_name']?></option>
+
+                                    <?php
+                                }
+                                ?>
+                                
                             </select>
                         </div>
                         <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label  m-2">
@@ -173,17 +168,28 @@
                     </div>
                     <div class="input-group pmd-input-group input-group-lg m-4">
                         <div class="pmd-textfield ">Point
-                            <input type="text" class="form-control" aria-label="Large" aria-describedby="large-ig">
+                            <input type="number" class="form-control" aria-label="Large" aria-describedby="large-ig" name="point" value="100">
                         </div>
                     </div>
                     <div class="input-group pmd-input-group input-group-lg m-3">
                         <div class="md-form md-outline input-with-post-icon datepicker m-2 ">Date
-                            <input placeholder="Select date" type="date" id="example" class="form-control ">
+                            <input placeholder="Select date" type="date" id="example" class="form-control " name="date">
+                              <script src="../../vendor/js/time.js"defer></script>
+                                <!-- <h1 id="our" ></h1> -->
+                                <input type="text" name="date_of_create" id="hour" hidden>
+                            <!-- <input type="date" id="hour"  name="date"> -->
                         </div>
                     </div>
                     <div class="input-group pmd-input-group input-group-lg m-4">
                         <div class="pmd-textfield ">Topics
-                            <input type="text" class="form-control" aria-label="Large" aria-describedby="large-ig">
+                            <select id="country-select" class="form-control" name="topic">
+                                <?php
+                                foreach ($alltopic as $topic){
+                                ?>
+                                <option><?=$topic['topic_name']?></option>
+                                <?php
+                                }
+                                ?>
                         </div>
                     </div>
 
@@ -192,6 +198,7 @@
             </div>
             <div class="footer"></div>
         </div>
+</form>
         <!-- **************** MAIN CONTENT END **************** -->
 
         <!-- Back to top -->
