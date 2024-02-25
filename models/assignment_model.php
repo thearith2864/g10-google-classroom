@@ -9,7 +9,7 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     echo $topic. '--';
     print_r ($files .'--');
     global $connection;
-    $statement = $connection->prepare("insert into classwor (classroom_id, work_type, title, instruction, file_work, point,  create_date, dateline, topic_id) values(:classroom_id, :work_type, :title, :instruction, :file_work, :point, :create_date, :dateline, :topic_id)");
+    $statement = $connection->prepare("insert into classworks (classroom_id, work_type, title, instruction, file_work, point,  create_date, dateline, topic_id) values(:classroom_id, :work_type, :title, :instruction, :file_work, :point, :create_date, :dateline, :topic_id)");
     $statement->execute([
         ':classroom_id' => $class,
         ':work_type' => $assigment,
@@ -58,7 +58,7 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
 
  function checkassignment($classId){
     global $connection;
-    $statement = $connection -> prepare ("SELECT * FROM classwor WHERE classroom_id = :classroom_id");
+    $statement = $connection -> prepare ("SELECT * FROM classworks WHERE classroom_id = :classroom_id");
     $statement->execute([
         ':classroom_id' => $classId
     ]);
@@ -82,4 +82,13 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     }else{
         return[];
     }
+ }
+
+ function Deleteassignment($classwork_id){
+    global $connection;
+    $stetement = $connection->prepare ('DELETE FROM classworks WHERE classwork_id = :classwork_id');
+    $stetement->execute([
+        ':classwork_id' => $classwork_id
+    ]);
+    return $stetement->rowCount() > 0;
  }
