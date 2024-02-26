@@ -25,3 +25,13 @@ function displayJoinClass() {
         return $statement->fetchAll();
     }
 }
+
+
+function get_class_owners() {
+    global $connection;
+    $statement = $connection->prepare('SELECT * FROM class_owners');
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+

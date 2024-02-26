@@ -53,9 +53,10 @@
 
 								<!-- Table body START -->
 								<?php 
-								
+							
 								if(is_array($join_classes)):
 									foreach($join_classes as $class):
+										
 									
 										
 							
@@ -82,7 +83,17 @@
 											</div>
 										</td>
 										<!-- Enrolled item -->
-										<td class="text-center text-sm-start"><?php echo $class['user_name'] ?></td>
+										<td class="text-center text-sm-start"><?php 
+											if(is_array($class_owner)){
+												foreach($class_owner as $owner){
+													if($owner['classroom_code'] == $class['classroom_code']){
+														echo $owner['user_name'];
+													}
+												}
+												
+											}
+										
+										?></td>
 										<!-- Status item -->
 										<td>
 											<div class="badge bg-success bg-opacity-10 text-success"><?php echo $class['subject'] ?></div>
