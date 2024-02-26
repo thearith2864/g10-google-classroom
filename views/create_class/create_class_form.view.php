@@ -15,6 +15,7 @@
 
 	<!-- Theme CSS -->
 	<link id="style-switch" rel="stylesheet" type="text/css" href="vendor/css/style.css">
+	
 
 </head>
 
@@ -34,8 +35,9 @@
 
               <!-- Modal body -->
 			  <form id="createClassForm" action="../../controllers/create_class/create_class.controller.php" method="post">
-				<div class="modal-body">
-					<input type="text" id="className" class="form-control" name="className" placeholder="Class name (required)">
+			  	<div class="modal-body">
+				  	<input type="text" id="className" class="form-control" name="className" placeholder="Class name (required)">
+            		<span class="text-danger"><?php echo isset($_SESSION['error_classname']) ? $_SESSION['error_classname'] : ''; ?></span>
 				</div>
 				<div class="modal-body">
 					<input type="text" id="section" class="form-control" name='section' placeholder="Section">
