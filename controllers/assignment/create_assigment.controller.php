@@ -26,7 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         $file_ex_lc = strtolower($file_ex);
         $allowed_exs = array("pdf", "zip", "xls", "doc");
 		if (in_array($file_ex_lc, $allowed_exs)) {
-            $new_file_name = uniqid("IMG-", true) . '.' . $file_ex_lc;
+            // echo $file_ex_lc;
+            $new_file_name = uniqid("$fileAssignment", true) . '.' . $file_ex_lc;
+            echo $new_file_name;
             $file_upload_path = '../../assets/files/assignment_files/' . $new_file_name;
             move_uploaded_file($tmp_name, $file_upload_path);
             $isert = createAssignment($title, $Instruction ,$new_file_name ,$idclass[0] ,$point, $date, $idtopic[0], $date_create , $assigment   );

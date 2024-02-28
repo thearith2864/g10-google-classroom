@@ -48,15 +48,15 @@
                     <?php
                     foreach ($checkAssignments as $assignment){
                     ?>
-                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 1020px;">
+                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 850px;">
                             <div class="card-body d-flex">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
                                 </div>
                                 <div class="p-2 w-100">
-                                    <h5 class="card-title"><?=$assignment['title']?></h5>
+                                    <a href="/detait_assignment?id=<?=$assignment['classwork_id']?>"><h5 class="card-title"><?=$assignment['title']?></h5></a>
                                     <p class="card-text"><?=$assignment['create_date']?></p>
-                                    <p class="card-text"> Dateline (<?=$assignment['dateline']?>)</p>
+                                    <p class="card-text"> Dateline (<?=$assignment['dateline']?></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <a href="">

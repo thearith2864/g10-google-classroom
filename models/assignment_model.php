@@ -119,3 +119,13 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     ]);
     return $statement->rowCount() > 0;
  }
+
+ function choosessignment($Id){
+    global $connection;
+    $statement = $connection -> prepare ("SELECT * FROM classworks WHERE classwork_id = :classwork_id");
+    $statement->execute([
+        ':classwork_id' => $Id
+    ]);
+    return $statement->fetchAll();
+ }
+ 
