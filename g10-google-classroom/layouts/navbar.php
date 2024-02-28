@@ -226,7 +226,7 @@
 									?>
 			<div class="dropdown ms-1 ms-lg-0">
 				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-					<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image[4]?>" alt="avatar">
+					<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image[4]?>" alt="<?= $image[4]?>">
 				</a>
 				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 					<!-- Profile info -->

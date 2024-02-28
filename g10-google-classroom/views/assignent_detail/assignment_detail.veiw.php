@@ -30,10 +30,9 @@
     <div class=" " style="height: 230px; margin: 20px 300px 0 300px; border-bottom: 1px solid blue;">
     <div class="card w-75 shadow-lg" style="margin-left:60px;">
   <div class="card-body d-flex align-items-center ">
-  <img  class="card-img-top" src="assets/files/assignment_files/<?=$detail[0][5]?>" alt="<?=$detail[0][5]?>" style="width:190px; height:130px; margin-right: 40px; ">
-  <img aria-hidden="true" role="presentation" jsname="q4uQmd" class=" " src="https://lh3.googleusercontent.com/drive-storage/ANtge_Egnqvo911O6lvktTv-Q9aUd4q9EyLVvMggVti2Gg1Mthl0kSC3wn8-bUadxSIKViR20jGel0ASperf4qn28eqheaV3TBgn4oiAT16x7A=w105-h70-c" data-mime-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document" data-iml="5967">
+    <a href="assets/files/assignment_files/<?=$detail[0][5]?>" style="margin-right: 60px; "><i class="fas fa-file-invoice fa-5x"></i></i></a>
+  
   <div>
-
       <h4><?=$detail[0][3]?></h4>
       <p>pdf</p>
   </div>
