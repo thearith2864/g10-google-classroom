@@ -47,23 +47,24 @@
                     <div>
                     <?php
                     foreach ($checkAssignments as $assignment){
+                  
                     ?>
-                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 850px;">
+                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 190%;">
                             <div class="card-body d-flex">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
                                 </div>
-                                <div class="p-2 w-100">
+                                <div class="p-2 w-100 ">
                                     <a href="/detait_assignment?id=<?=$assignment['classwork_id']?>"><h5 class="card-title"><?=$assignment['title']?></h5></a>
                                     <p class="card-text"><?=$assignment['create_date']?></p>
-                                    <p class="card-text"> Dateline (<?=$assignment['dateline']?></p>
+                                    <p class="card-text" id="dateline"> Dateline (<?=$assignment['dateline']?></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <a href="">
-                                        <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?=$assignment['classwork_id']?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
+                                        <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?=$assignment['classwork_id']?>?idclass=<?= $_GET['id']?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
                                     </a>
                                     <a href="">
-                                       <a href="/form_edit_assignment?id=<?=$assignment['classwork_id']?>"><i class="bi bi-pencil-square fa-2x m-2"></i></a> 
+                                       <a href="/form_edit_assignment?id=<?=$assignment['classwork_id']?>?idclass=<?= $_GET['id']?>"><i class="bi bi-pencil-square fa-2x m-2"></i></a> 
                                     </a>
                                 </div>
                             </div>
@@ -85,7 +86,7 @@
                     </button>
                     <ul class="dropdown-menu">
 
-                        <li><a class="dropdown-item" href="/assignment"><i class="bi bi-file-earmark-medical m-2 fa-2x"></i>Assignment</a></li>
+                        <li><a class="dropdown-item" href="/assignment?id=<?php echo $_GET['id']?>"><i class="bi bi-file-earmark-medical m-2 fa-2x"></i>Assignment</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-medical-fill m-2 fa-2x"></i>Quiz assignment</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-question-square m-2 fa-2x"></i>Question</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-journal-bookmark-fill m-2 fa-2x"></i>Material</a></li>

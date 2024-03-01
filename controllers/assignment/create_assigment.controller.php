@@ -9,6 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
     $class = $_POST['class'];
     $topic = $_POST['topic'];
     $point = $_POST['point'];
+    $idclas = $_POST['ids'];
+    echo $idclas;
     $date_create = $_POST['date_of_create'];
     $assigment = "Assinment";
     $topic = $_POST['topic'];
@@ -32,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
             $file_upload_path = '../../assets/files/assignment_files/' . $new_file_name;
             move_uploaded_file($tmp_name, $file_upload_path);
             $isert = createAssignment($title, $Instruction ,$new_file_name ,$idclass[0] ,$point, $date, $idtopic[0], $date_create , $assigment   );
-            header ("location: /trainer-classroom");
+            header ('location: /class?id='. $idclas);
         }
     }
 }

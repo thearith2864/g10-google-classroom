@@ -28,5 +28,5 @@ function showDate() {
   ];
   
   const hourElement = document.querySelector("#hour");
-
+   
   setInterval(showDate, 1000);

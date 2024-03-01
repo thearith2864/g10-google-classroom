@@ -179,6 +179,7 @@
                               <script src="../../vendor/js/time.js"defer></script>
                                 <!-- <h1 id="our" ></h1> -->
                                 <input type="text" name="date_of_create" id="hour" hidden>
+                                <input type="text" name="ids" value="<?=$_GET['id']?>" hidden>
                             <!-- <input type="date" id="hour"  name="date"> -->
                         </div>
                     </div>

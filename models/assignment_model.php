@@ -128,4 +128,20 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     ]);
     return $statement->fetchAll();
  }
+//function here ______________________________________
+
+ function checkcomment ($idclasswork){
+    global $connection;
+    $stetement = $connection -> prepare('SELECT * FROM classworks WHERE classwork_id = :classwork_id');
+    $stetement->execute([
+        ':classwork_id' => $idclasswork
+    ]);
+    return $stetement->fetchAll();
+ }
  
+ function groupjoin(){
+    global $connection;
+    $statement = $connection -> prepare ("  select time_comment, comments, file_work, user_name, image_url from class_work_comments CM  inner join classworks CK on CM.classwork_id = CK.classwork_id inner join classrooms CR on CR.classroom_id = CK.classroom_id inner join users U on CM.user_id = U.user_id ");
+    $statement->execute();
+    return $statement->fetchAll();
+ }
