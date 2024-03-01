@@ -26,21 +26,21 @@
                 </div>
 
                 <div>
-                <div class="btn-group p-5">
-                                    <button type="button" class=" btn" data-bs-toggle="dropdown" aria-expanded="false" style="margin: -90px -180px 0 0;">
-                                        <i class="bi bi-three-dots-vertical fa-2x"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        
-                                        <li><a class="dropdown-item" href="/form_edit_assignment?id=<?= $_GET['id']; ?>"><i class="bi bi-pencil-square m-2"></i>Edit</a></li>
-                                        <li><a class="dropdown-item" href="../../controllers/assignment/delete_assignment_controller.php?id=<?= $_GET['id']; ?>"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                    </ul>
-                                </div>
+                    <div class="btn-group p-5">
+                        <button type="button" class=" btn" data-bs-toggle="dropdown" aria-expanded="false" style="margin: -90px -180px 0 0;">
+                            <i class="bi bi-three-dots-vertical fa-2x"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+
+                            <li><a class="dropdown-item" href="/form_edit_assignment?id=<?= $_GET['id']; ?>&codeclass=<?= $_GET['codeclass'] ?>"><i class="bi bi-pencil-square m-2"></i>Edit</a></li>
+                            <li><a class="dropdown-item" href="../../controllers/assignment/delete_assignment_controller.php?id=<?= $_GET['id']; ?>&codeclass=<?= $_GET['codeclass'] ?>"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </div>
                     <!-- <i class="bi bi-three-dots-vertical fa-2x" style="margin-left: 110px;"></i> -->
-                    
+
                     <p style="margin-top: -45px;">Dateline > <?= $chooose[0]['dateline'] ?> AM</p>
                 </div>
             </div>
@@ -99,20 +99,29 @@
                             if ($image[1] == $comment['user_name']) {
 
                         ?>
-                                <div class="btn-group p-5">
-                                    <button type="button" class=" btn" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="dropdown ms-1 ms-lg-0">
+                                    <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-three-dots-vertical fa-1x"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square m-2"></i>Edit</a></li>
-                                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                                        <div class="dropdown ms-1 ms-lg-0">
+                                            <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-pencil-square m-2 dropdown-item">Edit</i> 
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown" style="margin: -100px 580px 0 0;   background-color: rgba(14, 13, 13, 0.075);">
+                                                <form action="controllers/detait_assignment_for teacher_controller/edit_comment_controller.php" class="d-flex " method="post">
+                                                    <input class="form-control shadow-sm" type="text" style="height: 27px;" value="<?=$comment['comments']?>" name="comment"> 
+                                                    <input type="text" value="<?=$comment['comment_id']?>" name="idcomment" hidden>
+                                                    <input type="text" value="<?=$_GET['id']?>" name="idassignment" hidden>
+                                                    <input type="text" value="<?=$_GET['codeclass']?>" name="classcode" hidden>
+                                                    <button class="" style="height: 27px;">Send</button>
+                                                </form>
+                                            </ul>
+                                        </div>
+                                        <!-- <a class="dropdown-item" href="#"><i class="bi bi-pencil-square m-2"></i>Edit</li> -->
+                                        <a class="dropdown-item" href="#"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
                                     </ul>
                                 </div>
-
                         <?php
                             }
                         }

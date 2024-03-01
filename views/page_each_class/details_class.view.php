@@ -3,8 +3,8 @@
         <!-- Title -->
         <div class="row mb-4">
             <div class="col-lg-8 mx-auto text-center">
-                <h2 class="fs-1"><?=$checkid['classroom_name']?></h2>
-                <p class="mb-0"><?=$checkid['room']?></p>
+                <h2 class="fs-1"><?= $checkid['classroom_name'] ?></h2>
+                <p class="mb-0"><?= $checkid['room'] ?></p>
             </div>
         </div>
 
@@ -37,42 +37,89 @@
                 <div class="d-flex">
                     <div>
                         <div class="card shadow-lg border border-secondary m-3" style="width: 12rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between">
+
+                                    <div class="d-flex">
+                                        <img src="../../assets/images/event/logo_meet_2020q4_color_2x_web_96dp.png" alt="logo_google_meet" style="height: 30px; margin-right: 10px;">
+                                        <h5>Meet</h5>
+                                    </div>
+                                    <div class="dropdown ms-1 ms-lg-0" >
+                                        <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="dropdown-item rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                                            <script src="../../vendor/js/time.js" defer></script>
+                                        <input type="text" id="text-to-copy" value="https://meet.google.com/gfe-aqct-pbk?authuser=0" readonly hidden>
+                                        <button class="btn dropdown-item" onclick="copyText()">Copy link</button>
+                                        <button class="btn dropdown-item">Manage</button>
+                                    </div>
+
+                                </div>
                             </div>
+                            <div class="card-body">
+                                <a href="https://meet.google.com/gfe-aqct-pbk?authuser=0" class="btn btn-primary " style="width: 150px;">Join</a>
+                                <i class="bi bi-eye">Visible to students</i>
+                            </div>
+                        </div>
+                        <div class="card shadow-lg border border-secondary m-3" style="width: 12rem;">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between">
+
+                                    <div class="d-flex">
+                                        <h5>Class code</h5>
+                                    </div>
+                                    <div class="dropdown ms-1 ms-lg-0" >
+                                        <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-three-dots-vertical"style="margin-left: 24px;"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                                            <script src="../../vendor/js/time.js" defer></script>
+                                        <input type="text" id="text-to-copy" value="https://meet.google.com/gfe-aqct-pbk?authuser=0" readonly hidden>
+                                        <button class="btn dropdown-item" onclick="copyText()">Copy link</button>
+                                        <button class="btn dropdown-item">Manage</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body d-flex justify-content-between">
+                             <h3><?=$_GET['id']?></h3>
+                             <button class="dropdown-item rounded-circle"><i class="bi bi-fullscreen"></i></button>
+                            </div>
+
                         </div>
                     </div>
                     <div>
-                    <?php
-                    foreach ($checkAssignments as $assignment){
-                  
-                    ?>
-                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 190%;">
-                            <div class="card-body d-flex">
-                                <div>
-                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
-                                </div>
-                                <div class="p-2 w-100 ">
-                                    <a href="/detait_assignment?id=<?=$assignment['classwork_id']?>"><h5 class="card-title"><?=$assignment['title']?></h5></a>
-                                    <p class="card-text"><?=$assignment['create_date']?></p>
-                                    <p class="card-text" id="dateline"> Dateline (<?=$assignment['dateline']?></p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <a href="">
-                                        <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?=$assignment['classwork_id']?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
-                                    </a>
-                                    <a href="">
-                                       <a href="/form_edit_assignment?id=<?=$assignment['classwork_id']?>"><i class="bi bi-pencil-square fa-2x m-2"></i></a> 
-                                    </a>
+                        <?php
+                        foreach ($checkAssignments as $assignment) {
+
+                        ?>
+                            <div class="card  shadow-lg m-3 border border-secondary" style="width: 190%;">
+                                <div class="card-body d-flex">
+                                    <div>
+                                        <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                    </div>
+                                    <div class="p-2 w-100 ">
+                                        <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
+                                            <h5 class="card-title"><?= $assignment['title'] ?></h5>
+                                        </a>
+                                        <p class="card-text"><?= $assignment['create_date'] ?></p>
+                                        <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?></p>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <a href="">
+                                            <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
+                                        </a>
+                                        <a href="">
+                                            <a href="/form_edit_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-pencil-square fa-2x m-2"></i></a>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <?php
-                    }
+                        }
                         ?>
-                        
+
                     </div>
                 </div>
             </div>
@@ -86,7 +133,7 @@
                     </button>
                     <ul class="dropdown-menu">
 
-                        <li><a class="dropdown-item" href="/assignment?id=<?php echo $_GET['id']?>"><i class="bi bi-file-earmark-medical m-2 fa-2x"></i>Assignment</a></li>
+                        <li><a class="dropdown-item" href="/assignment?id=<?php echo $_GET['id'] ?>"><i class="bi bi-file-earmark-medical m-2 fa-2x"></i>Assignment</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-medical-fill m-2 fa-2x"></i>Quiz assignment</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-question-square m-2 fa-2x"></i>Question</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-journal-bookmark-fill m-2 fa-2x"></i>Material</a></li>
@@ -96,33 +143,33 @@
                         </li>
                         <li><a class="dropdown-item" href="#">Topic</a></li>
                     </ul>
-                    
+
                 </div>
                 <?php
-                    foreach ($checkAssignments as $assignment){
-                    ?>
-                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 1230px;">
-                            <div class="card-body d-flex">
-                                <div>
-                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
-                                </div>
-                                <div class="p-2 w-100">
-                                    <h5 class="card-title"><?=$assignment['title']?></h5>
-                                    <p class="card-text"><?=$assignment['create_date']?></p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <a href="">
-                                        <i class="bi bi-trash-fill fa-2x m-2"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="bi bi-pencil-square fa-2x m-2"></i>
-                                    </a>
-                                </div>
+                foreach ($checkAssignments as $assignment) {
+                ?>
+                    <div class="card  shadow-lg m-3 border border-secondary " style="width: 1050px;">
+                        <div class="card-body d-flex">
+                            <div>
+                                <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                            </div>
+                            <div class="p-2 w-100">
+                                <h5 class="card-title"><?= $assignment['title'] ?></h5>
+                                <p class="card-text"><?= $assignment['create_date'] ?></p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <a href="">
+                                    <i class="bi bi-trash-fill fa-2x m-2"></i>
+                                </a>
+                                <a href="">
+                                    <i class="bi bi-pencil-square fa-2x m-2"></i>
+                                </a>
                             </div>
                         </div>
-                        <?php
-                    }
-                        ?>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
             <div class="tab-pane fade" id="course-pills-tabs-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
 

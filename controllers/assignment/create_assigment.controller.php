@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
     $topic = $_POST['topic'];
     $point = $_POST['point'];
     $idclas = $_POST['ids'];
-    echo $idclas;
     $date_create = $_POST['date_of_create'];
     $assigment = "Assinment";
     $topic = $_POST['topic'];

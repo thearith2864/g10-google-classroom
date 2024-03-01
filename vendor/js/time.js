@@ -30,3 +30,10 @@ function showDate() {
   const hourElement = document.querySelector("#hour");
    
   setInterval(showDate, 1000);
+
+  function copyText() {
+    var text = document.getElementById("text-to-copy");
+    text.select();
+    text.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+}

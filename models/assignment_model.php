@@ -149,9 +149,19 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     return $stetement->fetchAll();
  }
  
- function groupjoin(){
+ function displayCM(){
     global $connection;
-    $statement = $connection -> prepare ("  select time_comment, comments, file_work, user_name, image_url from class_work_comments CM  inner join classworks CK on CM.classwork_id = CK.classwork_id inner join classrooms CR on CR.classroom_id = CK.classroom_id inner join users U on CM.user_id = U.user_id ");
+    $statement = $connection -> prepare ("  select comment_id, time_comment, comments, file_work, user_name, image_url from class_work_comments CM  inner join classworks CK on CM.classwork_id = CK.classwork_id inner join classrooms CR on CR.classroom_id = CK.classroom_id inner join users U on CM.user_id = U.user_id ");
     $statement->execute();
     return $statement->fetchAll();
+ }
+
+ function DeleteCM (int $idcomment, string $comment){
+    global $connection;
+    $stetement = $connection->prepare('UPDATE class_work_comments set comments =:comments WHERE comment_id = :comment_id');
+    $stetement->execute([
+        ':comments' => $comment,
+        ':comment_id' => $idcomment
+    ]);
+    return $stetement->rowCount() > 0;
  }
