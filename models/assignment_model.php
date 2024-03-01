@@ -165,3 +165,11 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     ]);
     return $stetement->rowCount() > 0;
  }
+ function deleteComment(int $comment_id){
+    global $connection;
+    $stetement = $connection->prepare('DELETE FROM class_work_comments WHERE comment_id = :comment_id');
+    $stetement->execute([
+        ':comment_id' => $comment_id
+    ]);
+    return $stetement->rowCount() >0;
+ }

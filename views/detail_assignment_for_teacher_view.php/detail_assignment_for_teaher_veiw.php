@@ -119,7 +119,7 @@
                                             </ul>
                                         </div>
                                         <!-- <a class="dropdown-item" href="#"><i class="bi bi-pencil-square m-2"></i>Edit</li> -->
-                                        <a class="dropdown-item" href="#"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
+                                        <a class="dropdown-item" href="controllers/detait_assignment_for teacher_controller/delete_comment_controller.php?id=<?=$comment['comment_id'];?>&idassignment=<?=$_GET['id']?>&code=<?=$_GET['codeclass']?>"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
                                     </ul>
                                 </div>
                         <?php
@@ -156,7 +156,7 @@
                     <script src="../../vendor/js/time.js" defer></script>
                     <input type="text" name="time_comment" id="hour" value="" hidden>
                     <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
-                    <button class="btn btn-primary d-flex j"><i class="bi bi-send-check fa-2x"></i></button>
+                    <button class="btn btn-primary d-flex "><i class="bi bi-send-check "></i></button>
 
                 </form>
 

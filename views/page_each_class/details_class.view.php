@@ -50,7 +50,7 @@
                                         </a>
                                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                                             <script src="../../vendor/js/time.js" defer></script>
-                                        <input type="text" id="text-to-copy" value="https://meet.google.com/gfe-aqct-pbk?authuser=0" readonly hidden>
+                                        <input type="text" id="text-to-copy" value="https://meet.google.com/gfe-aqct-pbk?authuser=0" readonly >
                                         <button class="btn dropdown-item" onclick="copyText()">Copy link</button>
                                         <button class="btn dropdown-item">Manage</button>
                                     </div>
