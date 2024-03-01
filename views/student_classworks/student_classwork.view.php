@@ -1,12 +1,11 @@
 <section>
     <div class="container">
         <!-- Title -->
-        <!-- <div class="row mb-4">
+         <div class="row mb-4">
             <div class="col-lg-8 mx-auto text-center">
                 <h2 class="fs-1"><?=$checkid['classroom_name']?></h2>
-                <p class="mb-0"><?=$checkid['room']?></p>
             </div>
-        </div> -->
+        </div>
 
         <!-- Tabs START -->
         <ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
