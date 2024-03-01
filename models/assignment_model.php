@@ -128,7 +128,17 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     ]);
     return $statement->fetchAll();
  }
-//function here ______________________________________
+ function insertcomment ( int $classwork_id, int $user_id, string $comment, string $time):bool {
+    global $connection;
+    $stetement = $connection->prepare("insert into class_work_comments (user_id, classwork_id, comments, time_comment) values(:user_id, :classwork_id, :comments, :time_comment)");
+    $stetement->execute([
+        ':user_id' => $user_id,
+        ':classwork_id' => $classwork_id,
+        ':comments' => $comment,
+        ':time_comment' => $time
+    ]);
+    return $stetement->rowCount() > 0;
+ }
 
  function checkcomment ($idclasswork){
     global $connection;
