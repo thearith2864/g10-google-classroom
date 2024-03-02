@@ -44,15 +44,16 @@
                                         <img src="../../assets/images/event/logo_meet_2020q4_color_2x_web_96dp.png" alt="logo_google_meet" style="height: 30px; margin-right: 10px;">
                                         <h5>Meet</h5>
                                     </div>
-                                    <div class="dropdown ms-1 ms-lg-0" >
+                                    <div class="dropdown ms-1 ms-lg-0">
                                         <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <button class="dropdown-item rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
+                                            <button class="dropdown-item rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
                                         </a>
                                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                                             <script src="../../vendor/js/time.js" defer></script>
-                                        <input type="text" id="text-to-copy" value="https://meet.google.com/gfe-aqct-pbk?authuser=0" readonly >
-                                        <button class="btn dropdown-item" onclick="copyText()">Copy link</button>
-                                        <button class="btn dropdown-item">Manage</button>
+                                            <input type="text" id="text-to-copy" value="https://meet.google.com/gfe-aqct-pbk?authuser=0" readonly>
+                                            <button class="btn dropdown-item" onclick="copyText()">Copy link</button>
+                                            <button class="btn dropdown-item">Manage</button>
+                                        </ul>
                                     </div>
 
                                 </div>
@@ -69,22 +70,22 @@
                                     <div class="d-flex">
                                         <h5>Class code</h5>
                                     </div>
-                                    <div class="dropdown ms-1 ms-lg-0" >
+                                    <div class="dropdown ms-1 ms-lg-0">
                                         <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-three-dots-vertical"style="margin-left: 24px;"></i>
+                                            <i class="bi bi-three-dots-vertical" style="margin-left: 24px;"></i>
                                         </a>
                                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                                             <script src="../../vendor/js/time.js" defer></script>
-                                        <input type="text" id="text-to-copy" value="https://meet.google.com/gfe-aqct-pbk?authuser=0" readonly hidden>
-                                        <button class="btn dropdown-item" onclick="copyText()">Copy link</button>
-                                        <button class="btn dropdown-item">Manage</button>
+                                            <input type="text" id="text-to-copy" value="https://meet.google.com/gfe-aqct-pbk?authuser=0" readonly hidden>
+                                            <button class="btn dropdown-item" onclick="copyText()">Copy link</button>
+                                            <button class="btn dropdown-item">Manage</button>
                                     </div>
 
                                 </div>
                             </div>
                             <div class="card-body d-flex justify-content-between">
-                             <h3><?=$_GET['id']?></h3>
-                             <button class="dropdown-item rounded-circle"><i class="bi bi-fullscreen"></i></button>
+                                <h3><?= $_GET['id'] ?></h3>
+                                <button class="dropdown-item rounded-circle"><i class="bi bi-fullscreen"></i></button>
                             </div>
 
                         </div>
@@ -174,8 +175,61 @@
             <div class="tab-pane fade" id="course-pills-tabs-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
 
                 <!-- People page do here ___________________________________________________________________________________________________________________________________ -->
-                <h1>People page</h1>
+                <div class="d-flex justify-content-between p-2 m-3 text-primary align-items-end" style="height: 70px; border-bottom: 1px solid blue;">
+                    <h3 class="text-primary">Teacher</h3>
+                    
+                    <i class="bi bi-person-plus-fill fa-2x"></i>
+                </div>
+                <div class="p-2 m-3">
+                    <div class="d-flex align-items-center">
+                        <img src="../../assets/images/profiles/<?=$chose[0]['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-3">
+                        <h5><?=$chose[0]['user_name']?></h5>
 
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between p-2 m-3 text-primary align-items-end" style="height: 70px; border-bottom: 1px solid blue;">
+                    <h3 class="text-primary">students</h3>
+                    <?php
+                    $count = 0;
+                    foreach($chose as $member){
+                        $count += 1;
+                    }
+                    ?>
+                    <div class="d-flex">
+                        <p><?=$count." Student "?></p>
+                        <i class="bi bi-person-plus-fill fa-2x"></i>
+                    </div>
+                </div>
+
+                <div  class="p-3 m-2">
+                    <?php
+                    foreach ($chose as $member){
+                    ?>
+                    <div class="d-flex justify-content-between p-4 m-2 dropdown-item" style="height: 80px; border-bottom: 1px solid black;">
+                        <div class="d-flex align-items-center">
+                            <img src="../../assets/images/profiles/<?=$member['image_url']?>" alt="not foun profile" style="height: 40px;" class="rounded-circle m-3">
+                            <h5><?=$member['user_name']?></h5>
+                        </div>
+                        <div class="right">
+                            <div class="dropdown ms-1 ms-lg-0">
+                                <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="dropdown-item rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                                    <!-- option here -->
+                        <li><a class="dropdown-item" href="#">Remove</a></li>
+                        <li><a class="dropdown-item" href="#">Email name</a></li>
+                        <li><a class="dropdown-item" href="#">mute</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php
+                    }
+                ?>
+                </div>
             </div>
             <div class="tab-pane fade" id="course-pills-tabs-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
 
