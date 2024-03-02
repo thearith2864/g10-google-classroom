@@ -26,5 +26,21 @@ function displayJoinClass() {
     }
 }
 
+function get_class_owners() {
+    global $connection;
+    $statement = $connection->prepare('SELECT * FROM class_owners');
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function selectstudent ($classcode) {
+    global $connection;
+    $stetement = $connection-> prepare('select classroom_code, user_name, image_url from classroommembers CB inner join users UR on CB.user_email = UR.user_email WHERE classroom_code = :classroom_code');
+    $stetement-> execute([
+        ':classroom_code' => $classcode
+    ]);
+    return $stetement->fetchAll();
+}
+
 
 
