@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 	    header ("location: /signup");
 		exit;
 	}
-	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['PWD'])){
+	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pwd'])){
 	if (isset($_FILES['my_image']))
 	{
 				if (strlen($PWD) >= 8){					
