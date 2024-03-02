@@ -156,6 +156,7 @@
                     <script src="../../vendor/js/time.js" defer></script>
                     <input type="text" name="time_comment" id="hour" value="" hidden>
                     <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
+                    <input type="text" name="classcode" value="<?= $_GET['codeclass'] ;?>" hidden>
                     <button class="btn btn-primary d-flex "><i class="bi bi-send-check "></i></button>
 
                 </form>
