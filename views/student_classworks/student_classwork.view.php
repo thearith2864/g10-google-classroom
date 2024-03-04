@@ -45,24 +45,23 @@
                     <?php
                     foreach ($checkAssignments as $assignment){
                     ?>
-                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 1020px;">
+                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 870px; height:100px; padding:0; margin:0;">
                             <div class="card-body d-flex">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
                                 </div>
                                 <div class="p-2 w-100">
-                                    <h5 class="card-title"><?=$assignment['title']?></h5>
+                                    <a href="/submit-form"><h5 class="card-title"><?=$assignment['title']?></h5></a>
                                     <p class="card-text"><?=$assignment['create_date']?></p>
-                                    <p class="card-text"> Dateline (<?=$assignment['dateline']?>)</p>
+                                   
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <a href="">
-                                        <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?=$assignment['classwork_id']?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
+                                        <i class="fa fa-ellipsis-v fa-2x m-2" aria-hidden="true" style="font-size: 20px;margin: 0; padding: 0;"></i>
                                     </a>
-                                    <a href="">
-                                       <a href="/form_edit_assignment?id=<?=$assignment['classwork_id']?>"><i class="bi bi-pencil-square fa-2x m-2"></i></a> 
-                                    </a>
+                                   
                                 </div>
+                               
                             </div>
                         </div>
                         <?php
@@ -75,7 +74,7 @@
             <!-- Content END -->
 
             <!-- Content START -->
-            <div class="tab-pane fade p-3 w-100" id="course-pills-tabs-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
+            <div class="tab-pane fade p-3 w-50 " id="course-pills-tabs-2" role="tabpanel" aria-labelledby="course-pills-tab-2"> 
                 <div class="btn-group " style="margin-bottom: 20px;">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     All topics
@@ -97,21 +96,17 @@
                 <?php
                     foreach ($checkAssignments as $assignment):
                     ?>
-                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 1230px;">
+                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 800px; height: 70px;margin: 0; padding: 0;">
                             <div class="card-body d-flex">
                                 <div>
-                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3" style="font-size: 23px;margin: 0; padding: 0;"></i>
                                 </div>
-                                <div class="p-2 w-100">
-                                    <h5 class="card-title"><?=$assignment['title']?></h5>
-                                    <p class="card-text"><?=$assignment['create_date']?></p>
+                                <div class="w-100">
+                                    <h5 class="card-title" style="margin: 0; padding: 0;"><?=$assignment['title']?></h5>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <a href="">
-                                        <i class="bi bi-trash-fill fa-2x m-2"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="bi bi-pencil-square fa-2x m-2"></i>
+                                        <i class="fa fa-ellipsis-v fa-1x " aria-hidden="true" style="font-size: 15px;margin: 0; padding: 0;"></i>
                                     </a>
                                 </div>
                             </div>
