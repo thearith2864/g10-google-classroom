@@ -182,8 +182,8 @@
                 </div>
                 <div class="p-2 m-3">
                     <div class="d-flex align-items-center">
-                        <img src="../../assets/images/profiles/<?=$chose[0]['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-3">
-                        <h5><?=$chose[0]['user_name']?></h5>
+                        <img src="../../assets/images/profiles/<?=$teacher[0]['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-3">
+                        <h5><?=$teacher[0]['user_name']?></h5>
 
                     </div>
                 </div>
@@ -196,7 +196,7 @@
                     }
                     ?>
                     <div class="d-flex">
-                        <p><?=$count." Student "?></p>
+                        <p style="margin-top: 19px;" class="m-2"><?=$count." Student "?></p>
                         <i class="bi bi-person-plus-fill fa-2x"></i>
                     </div>
                 </div>
@@ -217,7 +217,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                                     <!-- option here -->
-                        <li><a class="dropdown-item" href="#">Remove</a></li>
+                        <li><a class="dropdown-item" href="controllers/page_class_each_class.cntroller/delete_steudent.php?id=<?=$member['classroommember_id'];?>&class=<?=$_GET['id']?>">Remove</a></li>
                         <li><a class="dropdown-item" href="#">Email name</a></li>
                         <li><a class="dropdown-item" href="#">mute</a></li>
                                     

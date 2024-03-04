@@ -35,12 +35,28 @@ function get_class_owners() {
 
 function selectstudent ($classcode) {
     global $connection;
-    $stetement = $connection-> prepare('select classroom_code, user_name, image_url from classroommembers CB inner join users UR on CB.user_email = UR.user_email WHERE classroom_code = :classroom_code');
+    $stetement = $connection-> prepare('select classroommember_id, classroom_code, user_name, image_url from classroommembers CB inner join users UR on CB.user_email = UR.user_email WHERE classroom_code = :classroom_code');
     $stetement-> execute([
         ':classroom_code' => $classcode
     ]);
     return $stetement->fetchAll();
 }
 
+function getteacher ($classcodes) {
+    global $connection;
+    $stetemet = $connection-> prepare('select user_name, image_url, classroom_code from classrooms CS inner join users US on CS.user_email = US.user_email where classroom_code = :classroom_codes');
+    $stetemet->execute([
+        ':classroom_codes' => $classcodes
+    ]);
+    return $stetemet -> fetchAll();
+}
 
+function RemoveStudent ( $id){
+    global $connection;
+    $stetement = $connection-> prepare ('DELETE FROM classroommembers WHERE classroommember_id = :classroommember_id');
+    $stetement->execute([
+        ':classroommember_id' => $id
+    ]);
+    return $stetement->rowCount() >0;
+}
 
