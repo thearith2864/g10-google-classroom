@@ -17,7 +17,8 @@ $routes = [
     '/assignment' => 'controllers/assignment/assignment.controllers.php',
     '/join_class' => 'controllers/join_class/join_class_form.controller.php',
     '/form_edit_assignment' => 'controllers/assignment/form_edit_assignment.controller.php',
-    '/student_classwork' => 'controllers/student_classworks/student_classwork.controller.php'
+    '/student_classwork' => 'controllers/student_classworks/student_classwork.controller.php',
+    '/detait_assignment' => 'controllers/detait_assignment_for teacher_controller/detail_assignment_controller.php'
 
 ];
 if (array_key_exists($uri, $routes)) {

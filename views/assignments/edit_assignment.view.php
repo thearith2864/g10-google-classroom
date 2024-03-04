@@ -146,20 +146,18 @@
                 <div class="card shadow-lg border border-secondary h-100 ">
                     <div class="card-header d-flex ">
                         <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label col-md-4 m-2">
-                            <!-- <label for="country-select" >For</label> -->
-                            <!-- <select id="country-select" class="form-control" name="class">
+                            <label for="country-select" >For</label>
+                            <select id="country-select" class="form-control" name="class">
                                 <?php
                                 foreach ($allclass as $class){
                                     ?>
                                     <option><?=$class['classroom_name']?></option>
-
                                     <?php
                                 }
-                                ?>
-                                
-                            </select> -->
+                                ?>                               
+                            </select>
                         </div>
-                        <!-- <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label  m-2">
+                        <div class="form-group pmd-textfield pmd-textfield-outline pmd-textfield-floating-label  m-2">
                             <label for="country-select">All students</label>
                             <select id="country-select" class="form-control">
                                 <option></option>
@@ -167,7 +165,7 @@
                                 <option>United States of America</option>
                                 <option>United Kingdom</option>
                             </select>
-                        </div> -->
+                        </div>
                     </div>
                     <div class="input-group pmd-input-group input-group-lg m-4">
                         <div class="pmd-textfield ">Point
@@ -180,6 +178,7 @@
                               <script src="../../vendor/js/time.js"defer></script>
                                 <!-- <h1 id="our" ></h1> -->
                                 <input type="text" name="date_of_create" id="hour" hidden>
+                                <input type="text" name="codeclass" id="hour" hidden value="<?=$codeclass?>">
                             <!-- <input type="date" id="hour"  name="date"> -->
                         </div>
                     </div>

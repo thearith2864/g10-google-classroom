@@ -119,3 +119,57 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     ]);
     return $statement->rowCount() > 0;
  }
+
+ function choosessignment($Id){
+    global $connection;
+    $statement = $connection -> prepare ("SELECT * FROM classworks WHERE classwork_id = :classwork_id");
+    $statement->execute([
+        ':classwork_id' => $Id
+    ]);
+    return $statement->fetchAll();
+ }
+ function insertcomment ( int $classwork_id, int $user_id, string $comment, string $time):bool {
+    global $connection;
+    $stetement = $connection->prepare("insert into class_work_comments (user_id, classwork_id, comments, time_comment) values(:user_id, :classwork_id, :comments, :time_comment)");
+    $stetement->execute([
+        ':user_id' => $user_id,
+        ':classwork_id' => $classwork_id,
+        ':comments' => $comment,
+        ':time_comment' => $time
+    ]);
+    return $stetement->rowCount() > 0;
+ }
+
+ function checkcomment ($idclasswork){
+    global $connection;
+    $stetement = $connection -> prepare('SELECT * FROM classworks WHERE classwork_id = :classwork_id');
+    $stetement->execute([
+        ':classwork_id' => $idclasswork
+    ]);
+    return $stetement->fetchAll();
+ }
+ 
+ function displayCM(){
+    global $connection;
+    $statement = $connection -> prepare ("  select comment_id, time_comment, comments, file_work, user_name, image_url from class_work_comments CM  inner join classworks CK on CM.classwork_id = CK.classwork_id inner join classrooms CR on CR.classroom_id = CK.classroom_id inner join users U on CM.user_id = U.user_id ");
+    $statement->execute();
+    return $statement->fetchAll();
+ }
+
+ function DeleteCM (int $idcomment, string $comment){
+    global $connection;
+    $stetement = $connection->prepare('UPDATE class_work_comments set comments =:comments WHERE comment_id = :comment_id');
+    $stetement->execute([
+        ':comments' => $comment,
+        ':comment_id' => $idcomment
+    ]);
+    return $stetement->rowCount() > 0;
+ }
+ function deleteComment(int $comment_id){
+    global $connection;
+    $stetement = $connection->prepare('DELETE FROM class_work_comments WHERE comment_id = :comment_id');
+    $stetement->execute([
+        ':comment_id' => $comment_id
+    ]);
+    return $stetement->rowCount() >0;
+ }
