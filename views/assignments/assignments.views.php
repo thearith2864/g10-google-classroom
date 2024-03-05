@@ -73,6 +73,7 @@
                             </textarea>
 
                         </div>
+                        
                     </div>
                 </div>
                 <div class="card m-3 shadow-lg border border-secondary">
@@ -180,12 +181,12 @@
                     <div class="input-group pmd-input-group input-group-lg m-3">
                         <div class="md-form md-outline input-with-post-icon datepicker m-2 ">Daline 
                             <input placeholder="Select date" type="date" id="example" class="form-control " name="date">
-                                <input type="text" name="ids" value="<?=$_GET['id']?>" hidden>
-                            </div>
                         </div>
-                        <?php 
+                    </div>
+                    <?php 
                          }
                          ?>
+                         <input type="text" name="ids" value="<?=$_GET['id']?>" hidden>
                          <input type="text" name="type" value="<?=$types?>" hidden>
                     <div class="input-group pmd-input-group input-group-lg m-4">
                         <div class="pmd-textfield ">Topics

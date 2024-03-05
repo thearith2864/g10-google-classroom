@@ -1,13 +1,6 @@
 <?php
 // require "database/database.php";
 function createAssignment (string $tile, string $Instruction, $files, $class, int $point,string $date, $topic, string $date_create,string $assigment){
-    echo $class .'--';
-    echo $tile. '--';
-    echo $Instruction. '--';
-    echo $point . '--';
-    echo $date. '--';
-    echo $topic. '--';
-    print_r ($files .'--');
     global $connection;
     $statement = $connection->prepare("insert into classworks (classroom_id, work_type, title, instruction, file_work, point,  create_date, dateline, topic_id) values(:classroom_id, :work_type, :title, :instruction, :file_work, :point, :create_date, :dateline, :topic_id)");
     $statement->execute([
@@ -19,6 +12,19 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
         ':point' => $point,
         ':create_date' => $date_create,
         ':dateline' => $date,
+        ':topic_id' => $topic
+    ]); 
+    return $statement->rowCount() > 0;
+}
+function createMaterial (string $tile, string $Instruction, $files, $class, string $topic, string $type){
+    global $connection;
+    $statement = $connection->prepare("insert into classworks (classroom_id, work_type, title, instruction, file_work, topic_id) values(:classroom_id, :work_type, :title, :instruction, :file_work, :topic_id)");
+    $statement->execute([
+        ':classroom_id' => $class,
+        ':work_type' => $type,
+        ':title' => $tile,
+        ':instruction' => $Instruction,
+        ':file_work' => $files,
         ':topic_id' => $topic
     ]); 
     return $statement->rowCount() > 0;
