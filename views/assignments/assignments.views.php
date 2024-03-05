@@ -168,24 +168,28 @@
                             </select>
                         </div>
                     </div>
-                    <div class="input-group pmd-input-group input-group-lg m-4">
+                    <?php
+                         $types = $_GET['type'];
+                         if ($types == "Assignment" or $types == "Quiz assignment" or $types == "Question"){
+                          ?>
+                        <div class="input-group pmd-input-group input-group-lg m-4">
                         <div class="pmd-textfield ">Point
                             <input type="number" class="form-control" aria-label="Large" aria-describedby="large-ig" name="point" value="100">
                         </div>
-                    </div>
-                    <div class="input-group pmd-input-group input-group-lg m-3">
-                        <div class="md-form md-outline input-with-post-icon datepicker m-2 ">Date
-                            <input placeholder="Select date" type="date" id="example" class="form-control " name="date">
-                              <script src="../../vendor/js/time.js"defer></script>
-                                <!-- <h1 id="our" ></h1> -->
-                                <input type="text" name="date_of_create" id="hour" hidden>
-                                <input type="text" name="ids" value="<?=$_GET['id']?>" hidden>
-                            <!-- <input type="date" id="hour"  name="date"> -->
                         </div>
-                    </div>
+                    <div class="input-group pmd-input-group input-group-lg m-3">
+                        <div class="md-form md-outline input-with-post-icon datepicker m-2 ">Daline 
+                            <input placeholder="Select date" type="date" id="example" class="form-control " name="date">
+                                <input type="text" name="ids" value="<?=$_GET['id']?>" hidden>
+                            </div>
+                        </div>
+                        <?php 
+                         }
+                         ?>
+                         <input type="text" name="type" value="<?=$types?>" hidden>
                     <div class="input-group pmd-input-group input-group-lg m-4">
                         <div class="pmd-textfield ">Topics
-                            <select id="country-select" class="form-control" name="topic">
+                            <select id="country-select" class="form-control" name="topic" style="width: 440px;">
                                 <?php
                                 foreach ($alltopic as $topic){
                                 ?>

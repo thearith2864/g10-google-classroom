@@ -93,7 +93,6 @@
                     <div>
                         <?php
                         foreach ($checkAssignments as $assignment) {
-
                         ?>
                             <div class="card  shadow-lg m-3 border border-secondary" style="width: 190%;">
                                 <div class="card-body d-flex">
@@ -105,7 +104,7 @@
                                             <h5 class="card-title"><?= $assignment['title'] ?></h5>
                                         </a>
                                         <p class="card-text"><?= $assignment['create_date'] ?></p>
-                                        <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?></p>
+                                        <p class="card-text"> <?= $assignment['dateline'] ?></p>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <a href="">
@@ -134,10 +133,10 @@
                     </button>
                     <ul class="dropdown-menu">
 
-                        <li><a class="dropdown-item" href="/assignment?id=<?php echo $_GET['id'] ?>"><i class="bi bi-file-earmark-medical m-2 fa-2x"></i>Assignment</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-medical-fill m-2 fa-2x"></i>Quiz assignment</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-question-square m-2 fa-2x"></i>Question</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-journal-bookmark-fill m-2 fa-2x"></i>Material</a></li>
+                        <li><a class="dropdown-item" href="/assignment?id=<?php echo $_GET['id'] ?>&type=Assignment"><i class="bi bi-file-earmark-medical m-2 fa-2x"></i>Assignment</a></li>
+                        <li><a class="dropdown-item" href="/assignment?id=<?php echo $_GET['id'] ?>&type=Quiz assignment"><i class="bi bi-file-earmark-medical-fill m-2 fa-2x"></i>Quiz assignment</a></li>
+                        <li><a class="dropdown-item" href="/assignment?id=<?php echo $_GET['id'] ?>&type=Question"><i class="bi bi-question-square m-2 fa-2x"></i>Question</a></li>
+                        <li><a class="dropdown-item" href="/assignment?id=<?php echo $_GET['id'] ?>&type=Material"><i class="bi bi-journal-bookmark-fill m-2 fa-2x"></i>Material</a></li>
                         <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-clockwise m-2 fa-2x"></i>Reuse post</a></li>
                         <li>
                             <hr class="dropdown-divider">

@@ -40,8 +40,9 @@
                         </ul>
                     </div>
                     <!-- <i class="bi bi-three-dots-vertical fa-2x" style="margin-left: 110px;"></i> -->
-
-                    <p style="margin-top: -45px;">Dateline > <?= $chooose[0]['dateline'] ?> AM</p>
+                    <script src="../../vendor/js/time.js" defer></script>
+                    <span id="date" class="text-danger" ></span>
+                    <p id="dateline" style="margin-top: -45px;"><?= $chooose[0]['dateline'] ?></p>
                 </div>
             </div>
             <div class="p-4" style="height: 180px; border-bottom:2px solid blue; width:90%; margin-left:55px;">
@@ -153,8 +154,6 @@
                     </div>
                     <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>" hidden>
                     <input type="text" name="iduser" value="<?= $image['user_id'] ?>" hidden>
-                    <script src="../../vendor/js/time.js" defer></script>
-                    <input type="text" name="time_comment" id="hour" value="" hidden>
                     <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
                     <input type="text" name="classcode" value="<?= $_GET['codeclass'] ;?>" hidden>
                     <button class="btn btn-primary d-flex "><i class="bi bi-send-check "></i></button>
