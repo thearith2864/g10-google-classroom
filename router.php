@@ -39,7 +39,7 @@ require $page;
 
 
 
-if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update' && $uri !== '/join_class') {
+if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update' && $uri !== '/join_class'&& $uri !== '/submit-form' ) {
     require "layouts/footer.php";
 }
 if ($uri == '/join_classrooms') {
