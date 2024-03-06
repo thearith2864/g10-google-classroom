@@ -60,3 +60,20 @@ function RemoveStudent ( $id){
     return $stetement->rowCount() >0;
 }
 
+// upload----------
+function uploadProfile($email, $img){
+    global $connection;
+    $statement = $connection->prepare("update users set image_url = :img where user_email = :email");
+    $statement->execute([
+        ':img'=>$img,
+        ':email'=>$email
+    ]);
+}
+
+function getProfile($email){
+    global $connection;
+    $statement = $connection->prepare("select image_url from users where user_email = :email");
+    $statement->execute([':email'=> $email]);
+    return $statement->fetchAll();
+}
+
