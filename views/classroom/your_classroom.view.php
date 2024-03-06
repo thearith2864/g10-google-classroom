@@ -61,7 +61,8 @@
 									foreach($classes as $class):
 										
 							
-								?>								
+								?>	
+								<a href="/class?id=<?=$class['classroom_code']?>">					
 								<tbody>
 									<!-- Table item -->
 									<tr>
@@ -101,7 +102,7 @@
 										<td>
 											<div class="badge bg-success bg-opacity-10 text-success"><?php echo $class['subject'] ?></div>
 										
-									</a>
+									
 										<!-- Price item -->
 										<td><?php echo $class['room'] ?></td>
 										<!-- Action item -->
@@ -117,6 +118,7 @@
 									?>
 									
 								</tbody>
+								</a>
 								<!-- Table body END -->
 							</table>
 						</div>

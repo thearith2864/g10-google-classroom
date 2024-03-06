@@ -179,3 +179,24 @@ function createMaterial (string $tile, string $Instruction, $files, $class, stri
     ]);
     return $stetement->rowCount() >0;
  }
+
+ function InsertCoverImage ($codeClass, $cover_image){
+    echo $codeClass;
+    echo $cover_image;
+    global $connection;
+    $stetement = $connection->prepare("UPDATE classrooms set  cover_image = :cover_image where classroom_code = :classroom_code");
+    $stetement->execute([
+        ':cover_image' => $cover_image,
+        ':classroom_code' => $codeClass
+    ]);
+    return $stetement-> rowCount() > 0 ;    
+
+ }
+ function chooseCoverImage ($Idclass){
+    global $connection;
+    $stetement = $connection->prepare('SELECT cover_image FROM classrooms WHERE classroom_code = :classroom_code');
+    $stetement->execute([
+        ':classroom_code' => $Idclass
+    ]);
+    return $stetement->fetchAll();
+ }

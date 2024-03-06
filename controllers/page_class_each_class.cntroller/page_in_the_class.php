@@ -3,6 +3,8 @@ require "models/assignment_model.php";
 require "database/database.php";
 require "models/student.model.php";
 $codeclass = $_GET['id'];
+$cover_image = chooseCoverImage ($codeclass);
+// print_r( $cover_image);
 $chose = selectstudent($codeclass);
 $checkid = selectidInclass($codeclass);
 $teacher = getteacher ($codeclass);

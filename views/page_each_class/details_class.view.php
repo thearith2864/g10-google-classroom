@@ -2,31 +2,25 @@
     <!-- write cover image here// -->
     <div class="container">
         <!-- Title -->
-        <div class="row mb-4 nav-pills-bg-soft ">
-            <div class="col-lg-8 mx-auto text-center d-flex justify-content-between">
-                <h4 class=" ">Room Name: <?= $checkid['room'] ?> |</h4>
-                <h4 class=""> Class Name: <?= $checkid['classroom_name'] ?> | </h4>
-                <h4 class="">Section: <?= $checkid['section'] ?> |</h4>
-                <h4 class="">Subject: <?= $checkid['subject'] ?> |</h4>
-                <!-- <p class="mb-0"><?= $checkid['room'] ?></p> -->
-            </div>
-
+        <div class=" nav-pills-bg-soft" style="margin-bottom: 20px;">
+            
 
             <?php
             if (!isset($checkid['cover_image'])) {
             ?>
-                     <i class="bi bi-images fa-2x" id="upload_cover"></i>
-            <div id="contact-popup" style="display: none;">
-  <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
-    <div >
-      <div>
-        <input type="file" name="my_image" id="image">
-      </div>
-    </div>
-  </form>
-</div>
-<?php
-echo '<script>
+            
+                <i class="bi bi-images fa-2x" id="upload_cover"></i>
+                <div id="contact-popup" style="display: none;">
+                    <form class="contact-form" id="" enctype="multipart/form-data" action="controllers/page_class_each_class.cntroller/insert_cover_image_inclass.php" method="post" enctype="multipart/form-data">
+                        <div class="d-flex">
+                            <input type="file" name="cover_image" id="image">
+                            <input type="text" name="idclass" value="<?= $_GET['id'] ?>" hidden>
+                            <button class="btn btn-primary" type="submit">upload cover</button>
+                        </div>
+                    </form>
+                </div>
+                <?php
+                echo '<script>
 
 let uploadProfile = document.querySelector("#upload_cover");
 let popUp = document.querySelector("#contact-popup");
@@ -40,24 +34,26 @@ uploadProfile.addEventListener("click", ()=>{
     count += 1;
 })
 
-</script>'?>
-                <img src="../../assets/images/cover image/cover_image_classrooms.webp" class="img-fluid " alt="Responsive image">
+</script>' ?>   <div class="shadow-lg " style="margin-bottom: 10px ;">
+
+    <img src="assets/images/cover_class/defualt of cover image/cover_defualt.gif" class="img-fluid " alt="Responsive image">
+</div>
             <?php
             } else {
             ?>
-                <i class="bi bi-images fa-2x" id="upload_cover"></i>
+                 <i class="bi bi-images fa-2x" id="upload_cover" ></i>
                 <div id="contact-popup" style="display: none;">
-                    <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
-                        <div>
-                            <div>
-                                <input type="file" name="my_image" id="image">
-                            </div>
+                    <form class="contact-form" id="" enctype="multipart/form-data" action="controllers/page_class_each_class.cntroller/insert_cover_image_inclass.php" method="post" enctype="multipart/form-data">
+                        <div class="d-flex">
+                            <input type="file" name="cover_image" id="image">
+                            <input type="text" name="idclass" value="<?= $_GET['id'] ?>">
+
+                            <button class="btn btn-primary" type="submit">upload cover</button>
                         </div>
                     </form>
                 </div>
                 <?php
                 echo '<script>
-
 let uploadProfile = document.querySelector("#upload_cover");
 let popUp = document.querySelector("#contact-popup");
 uploadProfile.addEventListener("click", ()=>{
@@ -73,10 +69,21 @@ uploadProfile.addEventListener("click", ()=>{
 })
 
 </script>' ?>
-                <img src="../../assets/images/cover image/<?= $checkid['cover_image'] ?>" class="img-fluid " alt="Responsive image">
+ <div class="shadow-lg " style="margin-bottom: 10px ;">
+
+<img src="../../assets/images/cover_class/<?=$checkid['cover_image']?>" class="img-fluid " alt="Responsive image" style="width: 100%; height:290px;">
+</div>
             <?php
             }
             ?>
+             <div class=" d-flex  justify-content-sm-around  ">
+                <h5 class="text-danger " style="border-bottom: 2px solid blue;">Room: <?= $checkid['room'] ?> |</h5>
+                <h5 class="text-danger " style="border-bottom: 2px solid blue;">Class: <?= $checkid['classroom_name'] ?> |</h5>
+                <h5 class="text-danger" style="border-bottom: 2px solid blue;">Section: <?= $checkid['section'] ?> |</h5>
+                <h5 class="text-danger" style="border-bottom: 2px solid blue;">Subject: <?= $checkid['subject'] ?></h4>
+                <!-- <p class="mb-0"><?= $checkid['room'] ?></p> -->
+             </div>
+
         </div>
 
 
@@ -92,7 +99,7 @@ uploadProfile.addEventListener("click", ()=>{
             </li>
             <!-- Tab item -->
             <li class="nav-item me-1 me-sm-5 ml-5">
-                <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false">People </button>
+                <button class="nav-link mb-2 mb-md-0 " id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false">People </button>
             </li>
             <!-- Tab item -->
             <li class="nav-item me-1 me-sm-5 ml-5">
@@ -197,12 +204,12 @@ uploadProfile.addEventListener("click", ()=>{
                                         ?>
                                     </div>
                                     <div class="d-flex align-items-center">
-                                        <a href="">
+                                       
                                             <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
-                                        </a>
-                                        <a href="">
+                                       
+                                       
                                             <a href="/form_edit_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-pencil-square fa-2x m-2"></i></a>
-                                        </a>
+                                       
                                     </div>
                                 </div>
                             </div>
