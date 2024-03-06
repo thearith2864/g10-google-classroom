@@ -323,6 +323,7 @@
 
 <div id="contact-popup" style="display: none;">
 	<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+		<a href="/home" class="btn d-flex justify-content-end">✖</a>
 		<h1>Upload Profile</h1>
 		<div style="margin-top: 10px; margin-bottom: 10px;">
 			<div>
