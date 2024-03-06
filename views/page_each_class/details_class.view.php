@@ -1,8 +1,85 @@
 <section>
-    
-        <!-- write cover image here// -->
+    <!-- write cover image here// -->
+    <div class="container">
+        <!-- Title -->
+        <div class="row mb-4 nav-pills-bg-soft ">
+            <div class="col-lg-8 mx-auto text-center d-flex justify-content-between">
+                <h4 class=" ">Room Name: <?= $checkid['room'] ?> |</h4>
+                <h4 class=""> Class Name: <?= $checkid['classroom_name'] ?> | </h4>
+                <h4 class="">Section: <?= $checkid['section'] ?> |</h4>
+                <h4 class="">Subject: <?= $checkid['subject'] ?> |</h4>
+                <!-- <p class="mb-0"><?= $checkid['room'] ?></p> -->
+            </div>
 
-        
+
+            <?php
+            if (!isset($checkid['cover_image'])) {
+            ?>
+                     <i class="bi bi-images fa-2x" id="upload_cover"></i>
+            <div id="contact-popup" style="display: none;">
+  <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+    <div >
+      <div>
+        <input type="file" name="my_image" id="image">
+      </div>
+    </div>
+  </form>
+</div>
+<?php
+echo '<script>
+
+let uploadProfile = document.querySelector("#upload_cover");
+let popUp = document.querySelector("#contact-popup");
+let count = 0;
+uploadProfile.addEventListener("click", ()=>{
+    if (count % 2 === 0){
+        popUp.style.display = "block";
+    }else{
+        popUp.style.display = "none";
+    }
+    count += 1;
+})
+
+</script>'?>
+                <img src="../../assets/images/cover image/cover_image_classrooms.webp" class="img-fluid " alt="Responsive image">
+            <?php
+            } else {
+            ?>
+                <i class="bi bi-images fa-2x" id="upload_cover"></i>
+                <div id="contact-popup" style="display: none;">
+                    <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+                        <div>
+                            <div>
+                                <input type="file" name="my_image" id="image">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <?php
+                echo '<script>
+
+let uploadProfile = document.querySelector("#upload_cover");
+let popUp = document.querySelector("#contact-popup");
+uploadProfile.addEventListener("click", ()=>{
+    let count = 0;
+    uploadProfile.addEventListener("click", ()=>{
+        if (count % 2 === 0){
+            popUp.style.display = "block";
+        }else{
+            popUp.style.display = "none";
+        }
+        count += 1;
+    })
+})
+
+</script>' ?>
+                <img src="../../assets/images/cover image/<?= $checkid['cover_image'] ?>" class="img-fluid " alt="Responsive image">
+            <?php
+            }
+            ?>
+        </div>
+
+
         <!-- Tabs START -->
         <ul class="nav nav-pills  justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist" style="border-bottom: 3px solid blue;">
             <!-- Tab item -->
