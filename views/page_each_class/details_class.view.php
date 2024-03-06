@@ -1,15 +1,10 @@
 <section>
-    <div class="container">
-        <!-- Title -->
-        <div class="row mb-4">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="fs-1"><?= $checkid['classroom_name'] ?></h2>
-                <p class="mb-0"><?= $checkid['room'] ?></p>
-            </div>
-        </div>
+    
+        <!-- write cover image here// -->
 
+        
         <!-- Tabs START -->
-        <ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
+        <ul class="nav nav-pills  justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist" style="border-bottom: 3px solid blue;">
             <!-- Tab item -->
             <li class="nav-item me-5 me-sm-5 mr-5">
                 <button class="nav-link  mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Class Stream</button>
@@ -92,6 +87,10 @@
                     </div>
                     <div>
                         <?php
+                        $targetitme = '';
+                        if (empty($targetitme)) {
+                            $targetitme = date('Y-m-d ');
+                        }
                         foreach ($checkAssignments as $assignment) {
                         ?>
                             <div class="card  shadow-lg m-3 border border-secondary" style="width: 190%;">
@@ -104,7 +103,21 @@
                                             <h5 class="card-title"><?= $assignment['title'] ?></h5>
                                         </a>
                                         <p class="card-text"><?= $assignment['create_date'] ?></p>
-                                        <p class="card-text"> <?= $assignment['dateline'] ?></p>
+                                        <?php
+                                        if ($assignment['dateline'] > $targetitme) {
+                                        ?>
+
+                                            <p class="card-text"> <?= $assignment['dateline'] ?></p>
+                                        <?php
+
+                                        } else {
+                                        ?>
+
+                                            <h5 class="text-danger card-text ">Missing</h5>
+                                        <?php
+
+                                        }
+                                        ?>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <a href="">
@@ -148,26 +161,60 @@
                 <?php
                 foreach ($checkAssignments as $assignment) {
                 ?>
-                    <div class="card  shadow-lg m-3 border border-secondary " style="width: 1050px;">
-                        <div class="card-body d-flex">
-                            <div>
-                                <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
-                            </div>
-                            <div class="p-2 w-100">
-                                <h5 class="card-title"><?= $assignment['title'] ?></h5>
-                                <p class="card-text"><?= $assignment['create_date'] ?></p>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <a href="">
-                                    <i class="bi bi-trash-fill fa-2x m-2"></i>
-                                </a>
-                                <a href="">
-                                    <i class="bi bi-pencil-square fa-2x m-2"></i>
-                                </a>
+                    <?php
+                    if ($assignment['dateline'] > $targetitme) {
+                    ?>
+                        <div class="card  shadow-lg m-3 border border-secondary " style="width: 1050px;">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                </div>
+                                <div class="p-2 w-100">
+                                    <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
+                                        <h4 class="card-title text-primary"><?= $assignment['title'] ?></h4>
+                                    </a>
+                                    <p class="card-text"><?= $assignment['create_date'] ?></p>
+                                    <p class="card-text"> <?= $assignment['dateline'] ?></p>
+
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <a href="">
+                                        <i class="bi bi-trash-fill fa-2x m-2"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="bi bi-pencil-square fa-2x m-2"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                    <?php
+                    } else {
+                    ?>
+                        <div class="card  shadow-lg m-3 border border-danger  " style="width: 1050px; ">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                </div>
+                                <div class="p-2 w-100">
+                                    <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
+                                        <h4 class="card-title text-danger"><?= $assignment['title'] ?></h4>
+                                    </a>
+                                    <p class="card-text"><?= $assignment['create_date'] ?></p>
+                                    <h5 class="text-danger card-text ">❌ Missing</h5>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <a href="">
+                                        <i class="bi bi-trash-fill fa-2x m-2"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="bi bi-pencil-square fa-2x m-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                 <?php
+                    }
                 }
                 ?>
             </div>
@@ -176,13 +223,13 @@
                 <!-- People page do here ___________________________________________________________________________________________________________________________________ -->
                 <div class="d-flex justify-content-between p-2 m-3 text-primary align-items-end" style="height: 70px; border-bottom: 1px solid blue;">
                     <h3 class="text-primary">Teacher</h3>
-                    
+
                     <i class="bi bi-person-plus-fill fa-2x"></i>
                 </div>
                 <div class="p-2 m-3">
                     <div class="d-flex align-items-center">
-                        <img src="../../assets/images/profiles/<?=$teacher[0]['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-3">
-                        <h5><?=$teacher[0]['user_name']?></h5>
+                        <img src="../../assets/images/profiles/<?= $teacher[0]['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-3">
+                        <h5><?= $teacher[0]['user_name'] ?></h5>
 
                     </div>
                 </div>
@@ -190,44 +237,44 @@
                     <h3 class="text-primary">students</h3>
                     <?php
                     $count = 0;
-                    foreach($chose as $member){
+                    foreach ($chose as $member) {
                         $count += 1;
                     }
                     ?>
                     <div class="d-flex">
-                        <p style="margin-top: 19px;" class="m-2"><?=$count." Student "?></p>
+                        <p style="margin-top: 19px;" class="m-2"><?= $count . " Student " ?></p>
                         <i class="bi bi-person-plus-fill fa-2x"></i>
                     </div>
                 </div>
 
-                <div  class="p-3 m-2">
+                <div class="p-3 m-2">
                     <?php
-                    foreach ($chose as $member){
+                    foreach ($chose as $member) {
                     ?>
-                    <div class="d-flex justify-content-between p-4 m-2 dropdown-item" style="height: 80px; border-bottom: 1px solid black;">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/images/profiles/<?=$member['image_url']?>" alt="not foun profile" style="height: 40px;" class="rounded-circle m-3">
-                            <h5><?=$member['user_name']?></h5>
-                        </div>
-                        <div class="right">
-                            <div class="dropdown ms-1 ms-lg-0">
-                                <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button class="dropdown-item rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-                                    <!-- option here -->
-                        <li><a class="dropdown-item" href="controllers/page_class_each_class.cntroller/delete_steudent.php?id=<?=$member['classroommember_id'];?>&class=<?=$_GET['id']?>">Remove</a></li>
-                        <li><a class="dropdown-item" href="#">Email name</a></li>
-                        <li><a class="dropdown-item" href="#">mute</a></li>
-                                    
-                                </ul>
+                        <div class="d-flex justify-content-between p-4 m-2 dropdown-item" style="height: 80px; border-bottom: 1px solid black;">
+                            <div class="d-flex align-items-center">
+                                <img src="../../assets/images/profiles/<?= $member['image_url'] ?>" alt="not foun profile" style="height: 40px;" class="rounded-circle m-3">
+                                <h5><?= $member['user_name'] ?></h5>
+                            </div>
+                            <div class="right">
+                                <div class="dropdown ms-1 ms-lg-0">
+                                    <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="dropdown-item rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                                        <!-- option here -->
+                                        <li><a class="dropdown-item" href="controllers/page_class_each_class.cntroller/delete_steudent.php?id=<?= $member['classroommember_id']; ?>&class=<?= $_GET['id'] ?>">Remove</a></li>
+                                        <li><a class="dropdown-item" href="#">Email name</a></li>
+                                        <li><a class="dropdown-item" href="#">mute</a></li>
+
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                <?php
+                    <?php
                     }
-                ?>
+                    ?>
                 </div>
             </div>
             <div class="tab-pane fade" id="course-pills-tabs-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
