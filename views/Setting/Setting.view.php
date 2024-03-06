@@ -17,7 +17,6 @@
         <!-- Modal Header -->
         <div class="modal-header btn-primary d-flex justify-content-center">
           <h1 class="modal-title text-white"> ACCOUNT SETTINGS</h1>
-          
         </div>
 
         <!-- Modal body -->
@@ -31,7 +30,6 @@
           <input type="file" id="fileName" class="form-control" name="fileName">
           
         </div>
-
 
         <div class="modal-body">
           <h6>Edit Name</h6>
@@ -47,6 +45,7 @@
           <a class="btn btn-danger" href="/home">Cancel</a>
           <button type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
         </div>
+        
       </div>
     </form>
 
