@@ -173,3 +173,25 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
     ]);
     return $stetement->rowCount() >0;
  }
+
+ function get_user_id() {
+    global $connection;
+    $user_email = $_SESSION['email'];
+    $statement = $connection->prepare("SELECT user_id FROM users WHERE user_email = :user_email");
+    $statement->execute([
+        ':user_email' => $user_email
+    ]);
+    $result = $statement->fetch();
+    return $result['user_id'];
+}
+
+function submit_classwork(int $classwork_id, int $user_id, string $file_work, string $date) {
+    global $connection;
+    $statement = $connection->prepare('INSERT INTO submit_classworks (classwork_id, user_id, file_work, date) VALUES (:classwork_id, :user_id, :file_work, :date)');
+    $statement->execute([
+        ':classwork_id' => $classwork_id,
+        ':user_id' => $user_id,
+        ':file_work' => $file_work,
+        ':date' => $date
+    ]);
+}

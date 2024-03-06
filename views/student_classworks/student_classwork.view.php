@@ -44,6 +44,7 @@
                     <div>
                     <?php
                     foreach ($checkAssignments as $assignment){
+                        
                     ?>
                         <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 870px; height:100px; padding:0; margin:0;">
                             <div class="card-body d-flex">

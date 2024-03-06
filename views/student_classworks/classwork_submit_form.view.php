@@ -5,9 +5,10 @@
     <!-- Details about classwork -->
     <div class="w-50 px-5">
         <div class="d-flex justifycontent-between">
+            
             <div class="p-2 w-100">
                 <h5 class="card-title"><?= $chooose[0]['title'] ?></h5>
-                <p class="card-text">3/4/2024</p>
+                <p class="card-text"><?= $chooose[0]['create_date'] ?></p>
                                     
             </div>
             <div class="d-flex align-items-center">
@@ -22,16 +23,33 @@
                 <p class="card-text"><?= $chooose[0]['point'] ?> point</p>                     
             </div>
             <div class="d-flex align-items-end justify-content-end w-50">
-                <p><?= $chooose[0]['create_date'] ?></p>                   
+                <p>Dateline: <?= $chooose[0]['dateline'] ?></p>                   
             </div>
         </div>
         <div>
             <p>_______________________________________________________________________________</p>
         </div>
         <div>
-            <p>Classwork file </p>
+        <div class="p-4" style="height: 180px;  width:90%; margin-left:15px;">
+                <div class="card p-2 shadow-sm" style="width: 100%; border:1px solid black;">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>"><i class="bi bi-file-earmark-ruled-fill fa-4x " style="margin-right:18px;"></i></a>
+
+                        </div>
+                        <div>
+                            <a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>    ">
+                                <h4><?= $chooose[0]['file_work'] = substr($chooose[0]['file_work'], 0, 20) ?></h4>
+                            </a>
+
+                            <p><?= $pdf[0]['file_work'] = substr($pdf[0]['file_work'], -3) ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div>
+            
             <p style="color: gray;">_______________________________________________________________________________</p>
         </div>
         <div>
@@ -57,12 +75,21 @@
         <div class="w-100 p-4" style=" border: solid 1px black; border-radius: 10px;">
             <div class="w-100 d-flex justify-content-between">
                 <p style="font-size: 26px;">Your work</p>
-                <p class="text-danger" style="font-size: 18px;">Missing</p>
+                <p class="text-danger" style="font-size: 18px;">
+                <?php
+                    $dateline = $chooose[0]['dateline'];
+                    $currentDate = date('Y-m-d');
+                    if ($dateline < $currentDate) {
+                        
+                        echo "Missing";
+                    } 
+                    ?>
+                </p>
             </div>
             <div>
-                <form action="" method="post" class="d-flex flex-column">
+                <form action="../../controllers/student_classworks/submit_classwork.controller.php?" method="post" class="d-flex flex-column">
                     <div class="form-group mb-3">
-                        <input type="file" class="form-control">
+                        <input type="file" class="form-control" name="file">
                     </div>
                     <div class="mt-auto">
                         <button type="submit" class="btn btn-primary w-100">Mark as done</button>
