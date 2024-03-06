@@ -16,14 +16,13 @@
       <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header btn-primary d-flex justify-content-center">
-          <h1 class="modal-title text-white">EDIT PROFILE</h1>
+          <h1 class="modal-title text-white"> ACCOUNT SETTINGS</h1>
           
         </div>
 
         <!-- Modal body -->
         <div class="modal-body ">
-          <h2> Edit profile</h2>
-          <a href="/home" class="btn d-flex justify-content-end ">✖</a>
+          <h2> Edit account settings</h2>
 
         </div>
         <div class="modal-body">
@@ -44,7 +43,8 @@
           <input type="password" id="password" class="form-control" placeholder="Edit Your Password"  name="password">
         </div>
 
-        <div class="modal-footer">
+        <div class="modal-footer d-flex justify-content-between">
+          <a class="btn btn-danger" href="/home">Cancel</a>
           <button type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
         </div>
       </div>
