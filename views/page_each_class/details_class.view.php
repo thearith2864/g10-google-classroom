@@ -1,15 +1,94 @@
 <section>
+    <!-- write cover image here// -->
     <div class="container">
         <!-- Title -->
-        <div class="row mb-4">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="fs-1"><?= $checkid['classroom_name'] ?></h2>
-                <p class="mb-0"><?= $checkid['room'] ?></p>
-            </div>
+        <div class=" nav-pills-bg-soft" style="margin-bottom: 20px;">
+            
+
+            <?php
+            if (!isset($checkid['cover_image'])) {
+            ?>
+            
+                <i class="bi bi-images fa-2x" id="upload_cover"></i>
+                <div id="contact-popup" style="display: none;">
+                    <form class="contact-form" id="" enctype="multipart/form-data" action="controllers/page_class_each_class.cntroller/insert_cover_image_inclass.php" method="post" enctype="multipart/form-data">
+                        <div class="d-flex">
+                            <input type="file" name="cover_image" id="image">
+                            <input type="text" name="idclass" value="<?= $_GET['id'] ?>" hidden>
+                            <button class="btn btn-primary" type="submit">upload cover</button>
+                        </div>
+                    </form>
+                </div>
+                <?php
+                echo '<script>
+
+let uploadProfile = document.querySelector("#upload_cover");
+let popUp = document.querySelector("#contact-popup");
+let count = 0;
+uploadProfile.addEventListener("click", ()=>{
+    if (count % 2 === 0){
+        popUp.style.display = "block";
+    }else{
+        popUp.style.display = "none";
+    }
+    count += 1;
+})
+
+</script>' ?>   <div class="shadow-lg " style="margin-bottom: 10px ;">
+
+    <img src="assets/images/cover_class/defualt of cover image/cover_defualt.gif" class="img-fluid " alt="Responsive image">
+</div>
+            <?php
+            } else {
+            ?>
+                 <i class="bi bi-images fa-2x" id="upload_cover" ></i>
+                <div id="contact-popup" style="display: none;">
+                    <form class="contact-form" id="" enctype="multipart/form-data" action="controllers/page_class_each_class.cntroller/insert_cover_image_inclass.php" method="post" enctype="multipart/form-data">
+                        <div class="d-flex">
+                            <input type="file" name="cover_image" id="image">
+                            <input type="text" name="idclass" value="<?= $_GET['id'] ?>">
+
+                            <button class="btn btn-primary" type="submit">upload cover</button>
+                        </div>
+                    </form>
+                </div>
+                <?php
+                echo '<script>
+let uploadProfile = document.querySelector("#upload_cover");
+let popUp = document.querySelector("#contact-popup");
+uploadProfile.addEventListener("click", ()=>{
+    let count = 0;
+    uploadProfile.addEventListener("click", ()=>{
+        if (count % 2 === 0){
+            popUp.style.display = "block";
+        }else{
+            popUp.style.display = "none";
+        }
+        count += 1;
+    })
+})
+
+</script>' ?>
+ <div class="shadow-lg " style="margin-bottom: 10px ;">
+
+<img src="../../assets/images/cover_class/<?=$checkid['cover_image']?>" class="img-fluid " alt="Responsive image" style="width: 100%; height:290px;">
+</div>
+            <?php
+            }
+            ?>
+             <div class=" d-flex  justify-content-sm-around  ">
+                <h5 class="text-danger " style="border-bottom: 2px solid blue;">Room: <?= $checkid['room'] ?> |</h5>
+                <h5 class="text-danger " style="border-bottom: 2px solid blue;">Class: <?= $checkid['classroom_name'] ?> |</h5>
+                <h5 class="text-danger" style="border-bottom: 2px solid blue;">Section: <?= $checkid['section'] ?> |</h5>
+                <h5 class="text-danger" style="border-bottom: 2px solid blue;">Subject: <?= $checkid['subject'] ?></h4>
+                <!-- <p class="mb-0"><?= $checkid['room'] ?></p> -->
+             </div>
+
         </div>
 
+
         <!-- Tabs START -->
-        <ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist">
+        <ul class="nav nav-pills  justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist" style="border-bottom: 3px solid blue;">
             <!-- Tab item -->
             <li class="nav-item me-5 me-sm-5 mr-5">
                 <button class="nav-link  mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Class Stream</button>
@@ -20,7 +99,7 @@
             </li>
             <!-- Tab item -->
             <li class="nav-item me-1 me-sm-5 ml-5">
-                <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false">People </button>
+                <button class="nav-link mb-2 mb-md-0 " id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false">People </button>
             </li>
             <!-- Tab item -->
             <li class="nav-item me-1 me-sm-5 ml-5">
@@ -92,6 +171,10 @@
                     </div>
                     <div>
                         <?php
+                        $targetitme = '';
+                        if (empty($targetitme)) {
+                            $targetitme = date('Y-m-d ');
+                        }
                         foreach ($checkAssignments as $assignment) {
                         ?>
                             <div class="card  shadow-lg m-3 border border-secondary" style="width: 190%;">
@@ -104,15 +187,29 @@
                                             <h5 class="card-title"><?= $assignment['title'] ?></h5>
                                         </a>
                                         <p class="card-text"><?= $assignment['create_date'] ?></p>
-                                        <p class="card-text"> <?= $assignment['dateline'] ?></p>
+                                        <?php
+                                        if ($assignment['dateline'] > $targetitme) {
+                                        ?>
+
+                                            <p class="card-text"> <?= $assignment['dateline'] ?></p>
+                                        <?php
+
+                                        } else {
+                                        ?>
+
+                                            <h5 class="text-danger card-text ">Missing</h5>
+                                        <?php
+
+                                        }
+                                        ?>
                                     </div>
                                     <div class="d-flex align-items-center">
-                                        <a href="">
+                                       
                                             <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
-                                        </a>
-                                        <a href="">
+                                       
+                                       
                                             <a href="/form_edit_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-pencil-square fa-2x m-2"></i></a>
-                                        </a>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -148,26 +245,60 @@
                 <?php
                 foreach ($checkAssignments as $assignment) {
                 ?>
-                    <div class="card  shadow-lg m-3 border border-secondary " style="width: 1050px;">
-                        <div class="card-body d-flex">
-                            <div>
-                                <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
-                            </div>
-                            <div class="p-2 w-100">
-                                <h5 class="card-title"><?= $assignment['title'] ?></h5>
-                                <p class="card-text"><?= $assignment['create_date'] ?></p>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <a href="">
-                                    <i class="bi bi-trash-fill fa-2x m-2"></i>
-                                </a>
-                                <a href="">
-                                    <i class="bi bi-pencil-square fa-2x m-2"></i>
-                                </a>
+                    <?php
+                    if ($assignment['dateline'] > $targetitme) {
+                    ?>
+                        <div class="card  shadow-lg m-3 border border-secondary " style="width: 1050px;">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                </div>
+                                <div class="p-2 w-100">
+                                    <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
+                                        <h4 class="card-title text-primary"><?= $assignment['title'] ?></h4>
+                                    </a>
+                                    <p class="card-text"><?= $assignment['create_date'] ?></p>
+                                    <p class="card-text"> <?= $assignment['dateline'] ?></p>
+
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <a href="">
+                                        <i class="bi bi-trash-fill fa-2x m-2"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="bi bi-pencil-square fa-2x m-2"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                    <?php
+                    } else {
+                    ?>
+                        <div class="card  shadow-lg m-3 border border-danger  " style="width: 1050px; ">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                </div>
+                                <div class="p-2 w-100">
+                                    <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
+                                        <h4 class="card-title text-danger"><?= $assignment['title'] ?></h4>
+                                    </a>
+                                    <p class="card-text"><?= $assignment['create_date'] ?></p>
+                                    <h5 class="text-danger card-text ">❌ Missing</h5>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <a href="">
+                                        <i class="bi bi-trash-fill fa-2x m-2"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="bi bi-pencil-square fa-2x m-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                 <?php
+                    }
                 }
                 ?>
             </div>
@@ -176,13 +307,13 @@
                 <!-- People page do here ___________________________________________________________________________________________________________________________________ -->
                 <div class="d-flex justify-content-between p-2 m-3 text-primary align-items-end" style="height: 70px; border-bottom: 1px solid blue;">
                     <h3 class="text-primary">Teacher</h3>
-                    
+
                     <i class="bi bi-person-plus-fill fa-2x"></i>
                 </div>
                 <div class="p-2 m-3">
                     <div class="d-flex align-items-center">
-                        <img src="../../assets/images/profiles/<?=$teacher[0]['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-3">
-                        <h5><?=$teacher[0]['user_name']?></h5>
+                        <img src="../../assets/images/profiles/<?= $teacher[0]['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-3">
+                        <h5><?= $teacher[0]['user_name'] ?></h5>
 
                     </div>
                 </div>
@@ -190,44 +321,44 @@
                     <h3 class="text-primary">students</h3>
                     <?php
                     $count = 0;
-                    foreach($chose as $member){
+                    foreach ($chose as $member) {
                         $count += 1;
                     }
                     ?>
                     <div class="d-flex">
-                        <p style="margin-top: 19px;" class="m-2"><?=$count." Student "?></p>
+                        <p style="margin-top: 19px;" class="m-2"><?= $count . " Student " ?></p>
                         <i class="bi bi-person-plus-fill fa-2x"></i>
                     </div>
                 </div>
 
-                <div  class="p-3 m-2">
+                <div class="p-3 m-2">
                     <?php
-                    foreach ($chose as $member){
+                    foreach ($chose as $member) {
                     ?>
-                    <div class="d-flex justify-content-between p-4 m-2 dropdown-item" style="height: 80px; border-bottom: 1px solid black;">
-                        <div class="d-flex align-items-center">
-                            <img src="../../assets/images/profiles/<?=$member['image_url']?>" alt="not foun profile" style="height: 40px;" class="rounded-circle m-3">
-                            <h5><?=$member['user_name']?></h5>
-                        </div>
-                        <div class="right">
-                            <div class="dropdown ms-1 ms-lg-0">
-                                <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button class="dropdown-item rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-                                    <!-- option here -->
-                        <li><a class="dropdown-item" href="controllers/page_class_each_class.cntroller/delete_steudent.php?id=<?=$member['classroommember_id'];?>&class=<?=$_GET['id']?>">Remove</a></li>
-                        <li><a class="dropdown-item" href="#">Email name</a></li>
-                        <li><a class="dropdown-item" href="#">mute</a></li>
-                                    
-                                </ul>
+                        <div class="d-flex justify-content-between p-4 m-2 dropdown-item" style="height: 80px; border-bottom: 1px solid black;">
+                            <div class="d-flex align-items-center">
+                                <img src="../../assets/images/profiles/<?= $member['image_url'] ?>" alt="not foun profile" style="height: 40px;" class="rounded-circle m-3">
+                                <h5><?= $member['user_name'] ?></h5>
+                            </div>
+                            <div class="right">
+                                <div class="dropdown ms-1 ms-lg-0">
+                                    <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="dropdown-item rounded-circle"><i class="bi bi-three-dots-vertical"></i></button>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                                        <!-- option here -->
+                                        <li><a class="dropdown-item" href="controllers/page_class_each_class.cntroller/delete_steudent.php?id=<?= $member['classroommember_id']; ?>&class=<?= $_GET['id'] ?>">Remove</a></li>
+                                        <li><a class="dropdown-item" href="#">Email name</a></li>
+                                        <li><a class="dropdown-item" href="#">mute</a></li>
+
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                <?php
+                    <?php
                     }
-                ?>
+                    ?>
                 </div>
             </div>
             <div class="tab-pane fade" id="course-pills-tabs-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
