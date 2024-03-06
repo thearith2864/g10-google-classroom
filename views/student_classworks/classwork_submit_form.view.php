@@ -6,7 +6,7 @@
     <div class="w-50 px-5">
         <div class="d-flex justifycontent-between">
             <div class="p-2 w-100">
-                <h5 class="card-title">Game</h5>
+                <h5 class="card-title"><?= $chooose[0]['title'] ?></h5>
                 <p class="card-text">3/4/2024</p>
                                     
             </div>
@@ -19,10 +19,10 @@
         </div>
         <div class="d-flex justifycontent-between">
         <div class=" w-100">
-                <p class="card-text">100 point</p>                     
+                <p class="card-text"><?= $chooose[0]['point'] ?> point</p>                     
             </div>
             <div class="d-flex align-items-end justify-content-end w-50">
-                <p>Due Feb 15, 11:30 AM</p>                   
+                <p><?= $chooose[0]['create_date'] ?></p>                   
             </div>
         </div>
         <div>

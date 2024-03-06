@@ -51,7 +51,9 @@
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
                                 </div>
                                 <div class="p-2 w-100">
-                                    <a href="/submit-form"><h5 class="card-title"><?=$assignment['title']?></h5></a>
+                                    <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
+                                            <h5 class="card-title"><?= $assignment['title'] ?></h5>
+                                    </a>
                                     <p class="card-text"><?=$assignment['create_date']?></p>
                                    
                                 </div>
