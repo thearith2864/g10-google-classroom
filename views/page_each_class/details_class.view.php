@@ -104,7 +104,7 @@
                                             <h5 class="card-title"><?= $assignment['title'] ?></h5>
                                         </a>
                                         <p class="card-text"><?= $assignment['create_date'] ?></p>
-                                        <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?></p>
+                                        <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?>)</p>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <a href="">

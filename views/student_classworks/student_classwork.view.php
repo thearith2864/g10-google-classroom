@@ -93,7 +93,7 @@
                     </ul>
                     
                 </div>
-                <?php
+                    <?php
                     foreach ($checkAssignments as $assignment):
                     ?>
                         <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 800px; height: 70px;margin: 0; padding: 0;">
@@ -109,11 +109,12 @@
                                         <i class="fa fa-ellipsis-v fa-1x " aria-hidden="true" style="font-size: 15px;margin: 0; padding: 0;"></i>
                                     </a>
                                 </div>
+                                
                             </div>
                         </div>
-                        <?php
+                    <?php
                     endforeach;
-                        ?>
+                    ?>
             </div>
             <div class="tab-pane fade" id="course-pills-tabs-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
 
