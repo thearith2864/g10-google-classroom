@@ -87,9 +87,11 @@
                 </p>
             </div>
             <div>
-                <form action="../../controllers/student_classworks/submit_classwork.controller.php?" method="post" class="d-flex flex-column">
+                <form action="../../controllers/student_classworks/submit_classwork.controller.php?" method="post" class="d-flex flex-column" enctype="multipart/form-data">
                     <div class="form-group mb-3">
                         <input type="file" class="form-control" name="file">
+                        <input type="text" class="form-control" name="idAS" value="<?=$_GET['id']?>" hidden>
+                        <input type="text" class="form-control" name="idCS" value="<?=$_GET['codeclass']?>" hidden>
                     </div>
                     <div class="mt-auto">
                         <button type="submit" class="btn btn-primary w-100">Mark as done</button>

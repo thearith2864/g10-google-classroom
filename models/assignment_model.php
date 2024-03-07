@@ -186,12 +186,18 @@ function createAssignment (string $tile, string $Instruction, $files, $class, in
 }
 
 function submit_classwork(int $classwork_id, int $user_id, string $file_work, string $date) {
+    echo $classwork_id . "---";
+    echo $user_id. '----';
+    echo $file_work. "-----";
+    echo $date . "------";
+
     global $connection;
-    $statement = $connection->prepare('INSERT INTO submit_classworks (classwork_id, user_id, file_work, date) VALUES (:classwork_id, :user_id, :file_work, :date)');
+    $statement = $connection->prepare('insert into submit_classworks (classwork_id, user_id, file_work, date) VALUES (:classwork_id, :user_id, :file_work, :date)');
     $statement->execute([
         ':classwork_id' => $classwork_id,
         ':user_id' => $user_id,
         ':file_work' => $file_work,
         ':date' => $date
     ]);
+    return $statement->rowCount() > 0;
 }
