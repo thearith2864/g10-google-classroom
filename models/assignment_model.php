@@ -212,11 +212,7 @@ function createMaterial (string $tile, string $Instruction, $files, $class, stri
 }
 
 function submit_classwork(int $classwork_id, int $user_id, string $file_work, string $date) {
-    echo $classwork_id . "---";
-    echo $user_id. '----';
-    echo $file_work. "-----";
-    echo $date . "------";
-
+ 
     global $connection;
     $statement = $connection->prepare('insert into submit_classworks (classwork_id, user_id, file_work, date) VALUES (:classwork_id, :user_id, :file_work, :date)');
     $statement->execute([
@@ -226,4 +222,13 @@ function submit_classwork(int $classwork_id, int $user_id, string $file_work, st
         ':date' => $date
     ]);
     return $statement->rowCount() > 0;
+}
+
+function chooseAssignmentStudent ($idAssignment){
+    global $connection;
+    $stetement = $connection->prepare('SELECT * FROM submit_classworks WHERE classwork_id = :classwork_id');
+    $stetement->execute([
+        ':classwork_id' => $idAssignment
+    ]);
+    return $stetement->fetchAll();
 }

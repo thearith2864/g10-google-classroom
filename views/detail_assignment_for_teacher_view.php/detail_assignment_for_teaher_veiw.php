@@ -149,8 +149,8 @@
                 ?>
                 <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="d-flex">
                     <div>
-                        <input name="comments" type="text" class="form-control shadow-sm" aria-describedby="emailHelp" placeholder="Enter Your comment" style="width: 800px;">
-                        <span class="text-danger"><?php echo isset($_SESSION['errorcomment']) ? $_SESSION['errorcomment'] : ''; ?> </span>
+                    <input name="comments" type="text" class="form-control shadow-sm" aria-describedby="emailHelp" placeholder="Enter Your comment" style="width: 800px;">
+                    <span class="text-danger"><?php echo isset($_SESSION['errorcomment']) ? $_SESSION['errorcomment'] : ''; ?> </span>
                     </div>
                     <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>" hidden>
                     <input type="text" name="iduser" value="<?= $image['user_id'] ?>" hidden>
