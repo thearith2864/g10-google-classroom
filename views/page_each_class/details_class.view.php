@@ -202,6 +202,7 @@ uploadProfile.addEventListener("click", ()=>{
 
                                         }
                                         ?>
+                                        <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?>)</p>
                                     </div>
                                     <div class="d-flex align-items-center">
                                        

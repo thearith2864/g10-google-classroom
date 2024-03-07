@@ -20,6 +20,9 @@ $routes = [
     '/detait_assignment' => 'controllers/detait_assignment_for teacher_controller/detail_assignment_controller.php',
     '/editprofile'=>'controllers/Setting/Setting.controller.php',
     
+    '/student_classwork' => 'controllers/student_classworks/student_classwork.controller.php',
+    '/detait_assignment' => 'controllers/detait_assignment_for teacher_controller/detail_assignment_controller.php',
+    '/submit-form'=> 'controllers/student_classworks/classwork_submit_form.controller.php'
 
 ];
 if (array_key_exists($uri, $routes)) {
@@ -43,7 +46,7 @@ require $page;
 
 
 
-if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update' && $uri !== '/join_class') {
+if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update' && $uri !== '/join_class'&& $uri !== '/submit-form' ) {
     require "layouts/footer.php";
 }
 if ($uri == '/join_classrooms') {
@@ -52,4 +55,3 @@ if ($uri == '/join_classrooms') {
 
 
 
-?>
