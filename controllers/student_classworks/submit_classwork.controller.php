@@ -19,13 +19,19 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             $file_ex_lc = strtolower($file_ex);
             $allowed_exs = array("pdf", "zip", "xls", "doc");
             if (in_array($file_ex_lc, $allowed_exs)) {
-                $new_file_name = uniqid("$fileAssignment", true) . '.' . $file_ex_lc;
+                $new_file_name = uniqid("HOMEWORK"."$fileAssignment", true) . '.' . $file_ex_lc;
                 $file_upload_path = '../../assets/files/Assignment_for_students_subment/' . $new_file_name;
                 move_uploaded_file($tmp_name, $file_upload_path);
                 submit_classwork($idwork, $user_id['user_id'], $new_file_name, date('Y-m-d'));
-                echo "riht";
                 header('location: /submit-form?id='. $idwork . '&codeclass=' . $codeclass);
             }
         }
+    }else{ 
+        $link = $_POST['link'];
+        $idwork = $_POST['idAS'];
+        $user_id = $_SESSION['user_id'];
+        submit_classwork($idwork, $user_id['user_id'], $link, date('Y-m-d'));
+        header('location: /submit-form?id='. $idwork . '&codeclass=' . $codeclass);
+        
     }   
 }

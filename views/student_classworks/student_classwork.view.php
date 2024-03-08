@@ -94,6 +94,7 @@
                             <div class="card-body d-flex">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                    
                                 </div>
                                 <div class="p-2 w-100">
                                     <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
@@ -103,9 +104,7 @@
                                    
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <a href="">
-                                        <i class="fa fa-ellipsis-v fa-2x m-2" aria-hidden="true" style="font-size: 20px;margin: 0; padding: 0;"></i>
-                                    </a>
+                                    
                                    
                                 </div>
                                

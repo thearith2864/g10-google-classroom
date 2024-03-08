@@ -9,5 +9,4 @@ $displaycomment  = displayCM();
 $user_id = get_user_id();
 $studentsAS = chooseAssignmentStudent($_GET['id']);
 $displaycomment  = displayCM();
-print_r($displaycomment[0]['comments']);
 require('views/student_classworks/classwork_submit_form.view.php');
