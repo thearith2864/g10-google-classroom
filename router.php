@@ -19,9 +19,7 @@ $routes = [
     '/form_edit_assignment' => 'controllers/assignment/form_edit_assignment.controller.php',
     '/detait_assignment' => 'controllers/detait_assignment_for teacher_controller/detail_assignment_controller.php',
     '/editprofile'=>'controllers/Setting/Setting.controller.php',
-    
     '/student_classwork' => 'controllers/student_classworks/student_classwork.controller.php',
-    '/detait_assignment' => 'controllers/detait_assignment_for teacher_controller/detail_assignment_controller.php',
     '/submit-form'=> 'controllers/student_classworks/classwork_submit_form.controller.php'
 
 ];
