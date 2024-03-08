@@ -232,3 +232,11 @@ function chooseAssignmentStudent ($idAssignment){
     ]);
     return $stetement->fetchAll();
 }
+function DeleteWork ($idwork){
+    global $connection;
+    $stetement = $connection-> prepare('DELETE FROM submit_classworks WHERE submit_id = :submit_id');
+    $stetement->execute([
+        ':submit_id' => $idwork
+    ]);
+    return $stetement->rowCount() >0 ;
+}

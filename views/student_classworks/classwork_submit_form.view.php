@@ -237,11 +237,14 @@
                                     <div class="d-flex justify-content-between">
                                         <a href="../../assets/files/Assignment_for_students_subment/<?= $assinment_name['file_work'] ?>" class="d-flex align-items-center ">
                                             <i class="bi bi-file-earmark-check fa-3x " style="margin-right: 13px;"></i>
-                                            <h6><?= $assinment_name['file_work'] = substr($assinment_name['file_work'], 8, 25) ?></h6>
+                                            <h6><?= $assinment_name['file_work'] = substr($assinment_name['file_work'], 8, 20) ?></h6>
                                         </a>
                                         <p><?= $assinment_name['date'] ?> </p>
+                                        
+                                        <a href="controllers/student_classworks/delete_assignment_for_student.php?id=<?= $assinment_name['submit_id']?>&AS=<?=$_GET['id']?>&code=<?=$_GET['codeclass']?>" class="m-2" style="color:red; font-size:22px;">✖</a>
+                                        <!-- <a href="" class="m-2" style="color:red; font-size:22px;">✖</a> -->
                                     </div>
-
+                                    
                                 </div>
                         <?php
                             }
@@ -262,6 +265,7 @@
                                             <?= $ll = substr($ll, 0, 26) ?>
                                         </a>
                                         <p> <?= $like['date'] ?></p>
+                                        <a href="controllers/student_classworks/delete_assignment_for_student.php?id=<?=$like['submit_id']?>&AS=<?=$_GET['id']?>&code=<?=$_GET['codeclass']?>" class="m-2" style="color:red; font-size:22px;">✖</a>
 
                                     </div>
 
@@ -271,7 +275,7 @@
                         }
                     }
                     ?>
-
+                    
                     <div>
                         <div class="dropdown ms-1 ms-lg-0">
                             <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
@@ -293,22 +297,6 @@
                 </div>
             </div>
 
-            <div class=" mt-4 p-4" style=" border: solid 1px black; border-radius: 10px;">
-                <div class="d-flex align-items-end">
-                    <div>
-                        <i class="bi bi-person-fill fa-2x  text-primary"></i>
-                    </div>
-                    <div>
-                        <p style="margin-bottom: 7px; margin-left:7px;">Private comment</p>
-                    </div>
-                </div>
-                <div>
-                    <form action="" method="post">
-                        <input type="text" placeholder="Add private comment..." style=" width:230px; border:solid 0.5px gray; border-radius: 10px; padding:4px;">
-                        <button type="submit" style="border:none; background:none">Send</button>
-                    </form>
-                </div>
-            </div>
         </div>
 
     </div>
