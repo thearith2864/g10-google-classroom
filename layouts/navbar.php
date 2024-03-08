@@ -1,4 +1,66 @@
 <!-- Header START -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <link href='/docs/dist/demo-to-codepen.css' rel='stylesheet' />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      
+    }
+    #calendar {
+      max-width: 100%;
+      margin: 40px auto;
+	  height: 40%;
+    }
+  </style>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+  <script src='/docs/dist/demo-to-codepen.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    timeZone: 'UTC',
+    initialView: 'dayGridWeek',
+    headerToolbar: {
+      left: 'prev,next',
+      center: 'title',
+      right: 'dayGridWeek,dayGridDay'
+    },
+    editable: true,
+    events: [
+      {
+        title: 'Event 1',
+        start: '2024-03-05',
+      },
+      {
+        title: 'Event 2',
+        start: '2024-03-05',
+      },
+      {
+        title: 'Event 3',
+        start: '2024-03-15',
+      },
+      {
+        title: 'Event 4',
+        start: '2024-03-20',
+      }
+    ],
+    eventClick: function(info) {
+      info.jsEvent.preventDefault(); // don't let the browser navigate
+
+      if (info.event.url) {
+        window.open(info.event.url);
+      }
+    }
+  });
+
+  calendar.render();
+});
+</script>
+</head>
 <header class="navbar-light navbar-sticky header-static">
 	<!-- Logo Nav START -->
 	<nav class="navbar navbar-expand-xl">
@@ -53,120 +115,19 @@
 						</ul>
 					</li>
 
-					<!-- Nav item 4 Megamenu-->
+					<!-- Nav item 4 Calendar-->
 					<li class="nav-item dropdown dropdown-fullwidth">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Megamenu</a>
+						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Calendar</a>
 						<div class="dropdown-menu dropdown-menu-end pb-0" data-bs-popper="none">
 							<div class="row p-4 g-4">
 								<!-- Dropdown column item -->
-								<div class="col-xl-6 col-xxl-3">
-									<h6 class="mb-0">Get started</h6>
-									<hr>
-									<ul class="list-unstyled">
-										<li> <a class="dropdown-item" href="#">Market research</a> </li>
-										<li> <a class="dropdown-item" href="#">Advertising</a> </li>
-										<li> <a class="dropdown-item" href="#">Consumer behavior</a> </li>
-										<li> <a class="dropdown-item" href="#">Digital marketing</a> </li>
-										<li> <a class="dropdown-item" href="#">Marketing ethics</a> </li>
-										<li> <a class="dropdown-item" href="#">Social media marketing</a> </li>
-										<li> <a class="dropdown-item" href="#">Public relations</a> </li>
-										<li> <a class="dropdown-item" href="#">Advertising</a> </li>
-										<li> <a class="dropdown-item" href="#">Decision science</a> </li>
-										<li> <a class="dropdown-item" href="#">SEO</a> </li>
-										<li> <a class="dropdown-item" href="#">Business marketing</a> </li>
-									</ul>
-								</div>
 
-								<!-- Dropdown column item -->
-								<div class="col-xl-6 col-xxl-3">
-									<h6 class="mb-0">Degree</h6>
-									<hr>
-									<!-- Dropdown item -->
-									<div class="mb-2 position-relative bg-primary-soft-hover rounded-2 transition-base p-3">
-										<a class="stretched-link h6 mb-0" href="#">Contact management</a>
-										<p class="mb-0 small text-truncate-2">Speedily say has suitable disposal add boy. On forth doubt miles of child.</p>
-									</div>
-									<!-- Dropdown item -->
-									<div class="mb-2 position-relative bg-primary-soft-hover rounded-2 transition-base p-3">
-										<a class="stretched-link h6 mb-0" href="#">Sales pipeline</a>
-										<p class="mb-0 small text-truncate-2">Speedily say has suitable disposal add boy. On forth doubt miles of child.</p>
-									</div>
-									<!-- Dropdown item -->
-									<div class="mb-2 position-relative bg-primary-soft-hover rounded-2 transition-base p-3">
-										<a class="stretched-link h6 mb-0" href="#">Security & Permission</a>
-										<p class="mb-0 small text-truncate-2">Speedily say has suitable disposal add boy. On forth doubt miles of child.</p>
-									</div>
-								</div>
 
-								<!-- Dropdown column item -->
-								<div class="col-xl-6 col-xxl-3">
-									<h6 class="mb-0">Certificate</h6>
-									<hr>
-									<!-- Dropdown item -->
-									<div class="d-flex mb-4 position-relative">
-										<h2 class="mb-0"><i class="fab fa-fw fa-google text-google-icon"></i></h2>
-										<div class="ms-2">
-											<a class="stretched-link h6 mb-0" href="#">Google SEO certificate</a>
-											<p class="mb-0 small">No prerequisites</p>
-										</div>
-									</div>
-									<!-- Dropdown item -->
-									<div class="d-flex mb-4 position-relative">
-										<h2 class="mb-0"><i class="fab fa-fw fa-linkedin-in text-linkedin"></i></h2>
-										<div class="ms-2">
-											<a class="stretched-link h6 mb-0" href="#">Business Development Executive(BDE)</a>
-											<p class="mb-0 small">No prerequisites</p>
-										</div>
-									</div>
-									<!-- Dropdown item -->
-									<div class="d-flex mb-4 position-relative">
-										<h2 class="mb-0"><i class="fab fa-fw fa-facebook text-facebook"></i></h2>
-										<div class="ms-2">
-											<a class="stretched-link h6 mb-0" href="#">Facebook social media marketing</a>
-											<p class="mb-0 small">Expert advice</p>
-										</div>
-									</div>
-									<!-- Dropdown item -->
-									<div class="d-flex mb-4 position-relative">
-										<h2 class="mb-0"><i class="fas fa-fw fa-basketball-ball text-dribbble"></i></h2>
-										<div class="ms-2">
-											<a class="stretched-link h6 mb-0" href="#">Creative graphics design</a>
-											<p class="mb-0 small">No prerequisites</p>
-										</div>
-									</div>
-								</div>
+								<div class='demo-topbar'></div>
+  								<div id='calendar'></div>
 
-								<!-- Dropdown column item -->
-								<div class="col-xl-6 col-xxl-3">
-									<h6 class="mb-0">Download Eduport</h6>
-									<hr>
-									<!-- Image -->
-									<img src="assets/images/element/14.svg" alt="">
 
-									<!-- Download button -->
-									<div class="row g-2 justify-content-center mt-3">
-										<!-- Google play store button -->
-										<div class="col-6 col-sm-4 col-xxl-6">
-											<a href="#"> <img src="assets/images/client/google-play.svg" class="btn-transition" alt="google-store"> </a>
-										</div>
-										<!-- App store button -->
-										<div class="col-6 col-sm-4 col-xxl-6">
-											<a href="#"> <img src="assets/images/client/app-store.svg" class="btn-transition" alt="app-store"> </a>
-										</div>
-									</div>
-								</div>
-
-								<!-- Action box -->
-								<div class="col-12">
-									<div class="alert alert-success alert-dismissible fade show mt-2 mb-0 rounded-3" role="alert">
-										<!-- Avatar -->
-										<div class="avatar avatar-xs me-2">
-											<img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
-										</div>
-										<!-- Info -->
-										The personality development class starts at 2:00 pm, click to <a href="#" class="alert-link">Join Now</a>
-									</div>
-								</div>
+							
 							</div>
 						</div>
 					</li>
