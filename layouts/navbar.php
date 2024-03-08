@@ -29,6 +29,7 @@
       center: 'title',
       right: 'dayGridWeek,dayGridDay'
     },
+
     editable: true,
     events: [
       {
@@ -126,7 +127,7 @@
 								<div class='demo-topbar'></div>
   								<div id='calendar'></div>
 
-
+								
 							
 							</div>
 						</div>

@@ -77,3 +77,9 @@ function getProfile($email){
     return $statement->fetchAll();
 }
 
+function get_assignment (){
+    global $connection;
+    $statement = $connection->prepare('SELECT title,dateline FROM classworks');
+    $statement->execute() ;
+    return $statement->fetchAll();
+}
