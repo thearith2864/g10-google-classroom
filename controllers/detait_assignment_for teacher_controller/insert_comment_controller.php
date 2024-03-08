@@ -20,6 +20,10 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         $classworkid = $_POST['idclasswork'];
         $userid = $_POST['iduser'];
         insertcomment($classworkid, $userid, $comment, $TimeComment);
-        header('location: /detait_assignment?id='. $idassignmnt . '&codeclass=' . $classcode);
+        if (isset($_POST['role'])){
+            header('location: /submit-form?id='. $idassignmnt . '&codeclass=' . $classcode);
+        }else{
+            header('location: /detait_assignment?id='. $idassignmnt . '&codeclass=' . $classcode);
+        }
     }
 }

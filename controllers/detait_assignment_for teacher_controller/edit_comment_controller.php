@@ -9,5 +9,9 @@ if (isset($_SERVER['REQUEST_METHOD'])== "POST"){
     echo $codeclass;
     echo $idassignment;
     DeleteCM($id, $comment);
-    header('Location: /detait_assignment?id=' . $idassignment . '&codeclass=' . $codeclass);
+    if (isset($_POST['role'])){
+        header('Location: /submit-form?id=' . $idassignment . '&codeclass=' . $codeclass);
+    }else{
+        header('Location: /detait_assignment?id=' . $idassignment . '&codeclass=' . $codeclass);
+    }
 }

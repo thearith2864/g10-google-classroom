@@ -7,4 +7,6 @@ $chooose = choosessignment($isassignment);
 $pdf = choosessignment($isassignment);
 $displaycomment  = displayCM();
 $user_id = get_user_id();
+$studentsAS = chooseAssignmentStudent($_GET['id']);
+$displaycomment  = displayCM();
 require('views/student_classworks/classwork_submit_form.view.php');

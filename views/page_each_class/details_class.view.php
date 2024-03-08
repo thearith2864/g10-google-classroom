@@ -3,86 +3,51 @@
     <div class="container">
         <!-- Title -->
         <div class=" nav-pills-bg-soft" style="margin-bottom: 20px;">
-            
-
+            <i class="bi bi-images fa-2x" type="button" data-bs-toggle="modal" data-bs-target="#createTaskModal"></i>
+            <div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="createTaskModalLabel">Create New Cover</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="controllers/page_class_each_class.cntroller/insert_cover_image_inclass.php" method="post" enctype="multipart/form-data">
+                                <label for="taskTitleInput" class="form-label">Choose your cover here</label>
+                                <input type="file" name="cover_image" class="form-control" id="taskTitleInput" required>
+                                <input type="text" name="idclass" value="<?= $_GET['id'] ?>" hidden>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary w-100">Create</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <?php
             if (!isset($checkid['cover_image'])) {
             ?>
-            
-                <i class="bi bi-images fa-2x" id="upload_cover"></i>
-                <div id="contact-popup" style="display: none;">
-                    <form class="contact-form" id="" enctype="multipart/form-data" action="controllers/page_class_each_class.cntroller/insert_cover_image_inclass.php" method="post" enctype="multipart/form-data">
-                        <div class="d-flex">
-                            <input type="file" name="cover_image" id="image">
-                            <input type="text" name="idclass" value="<?= $_GET['id'] ?>" hidden>
-                            <button class="btn btn-primary" type="submit">upload cover</button>
-                        </div>
-                    </form>
+                <div class="shadow-lg " style="margin-bottom: 10px ;">
+
+                    <img src="assets/images/cover_class/defualt of cover image/cover_defualt.gif" class="img-fluid " alt="Responsive image">
                 </div>
-                <?php
-                echo '<script>
-
-let uploadProfile = document.querySelector("#upload_cover");
-let popUp = document.querySelector("#contact-popup");
-let count = 0;
-uploadProfile.addEventListener("click", ()=>{
-    if (count % 2 === 0){
-        popUp.style.display = "block";
-    }else{
-        popUp.style.display = "none";
-    }
-    count += 1;
-})
-
-</script>' ?>   <div class="shadow-lg " style="margin-bottom: 10px ;">
-
-    <img src="assets/images/cover_class/defualt of cover image/cover_defualt.gif" class="img-fluid " alt="Responsive image">
-</div>
             <?php
             } else {
             ?>
-                 <i class="bi bi-images fa-2x" id="upload_cover" ></i>
-                <div id="contact-popup" style="display: none;">
-                    <form class="contact-form" id="" enctype="multipart/form-data" action="controllers/page_class_each_class.cntroller/insert_cover_image_inclass.php" method="post" enctype="multipart/form-data">
-                        <div class="d-flex">
-                            <input type="file" name="cover_image" id="image">
-                            <input type="text" name="idclass" value="<?= $_GET['id'] ?>">
+                <div class="shadow-lg " style="margin-bottom: 10px ;">
 
-                            <button class="btn btn-primary" type="submit">upload cover</button>
-                        </div>
-                    </form>
+                    <img src="../../assets/images/cover_class/<?= $checkid['cover_image'] ?>" class="img-fluid " alt="Responsive image" style="width: 100%; height:290px;">
                 </div>
-                <?php
-                echo '<script>
-let uploadProfile = document.querySelector("#upload_cover");
-let popUp = document.querySelector("#contact-popup");
-uploadProfile.addEventListener("click", ()=>{
-    let count = 0;
-    uploadProfile.addEventListener("click", ()=>{
-        if (count % 2 === 0){
-            popUp.style.display = "block";
-        }else{
-            popUp.style.display = "none";
-        }
-        count += 1;
-    })
-})
-
-</script>' ?>
- <div class="shadow-lg " style="margin-bottom: 10px ;">
-
-<img src="../../assets/images/cover_class/<?=$checkid['cover_image']?>" class="img-fluid " alt="Responsive image" style="width: 100%; height:290px;">
-</div>
             <?php
             }
             ?>
-             <div class=" d-flex  justify-content-sm-around  ">
+            <div class=" d-flex  justify-content-sm-around  ">
                 <h5 class="text-danger " style="border-bottom: 2px solid blue;">Room: <?= $checkid['room'] ?> |</h5>
                 <h5 class="text-danger " style="border-bottom: 2px solid blue;">Class: <?= $checkid['classroom_name'] ?> |</h5>
                 <h5 class="text-danger" style="border-bottom: 2px solid blue;">Section: <?= $checkid['section'] ?> |</h5>
                 <h5 class="text-danger" style="border-bottom: 2px solid blue;">Subject: <?= $checkid['subject'] ?></h4>
-                <!-- <p class="mb-0"><?= $checkid['room'] ?></p> -->
-             </div>
+                    <!-- <p class="mb-0"><?= $checkid['room'] ?></p> -->
+            </div>
 
         </div>
 
@@ -205,12 +170,12 @@ uploadProfile.addEventListener("click", ()=>{
                                         <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?>)</p>
                                     </div>
                                     <div class="d-flex align-items-center">
-                                       
-                                            <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
-                                       
-                                       
-                                            <a href="/form_edit_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-pencil-square fa-2x m-2"></i></a>
-                                       
+
+                                        <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
+
+
+                                        <a href="/form_edit_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-pencil-square fa-2x m-2"></i></a>
+
                                     </div>
                                 </div>
                             </div>
