@@ -5,14 +5,26 @@ require "../../database/database.php";
 require "../../models/sigup.model.php";
 require "../../models/signin.model.php";
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
+	$UserName = htmlspecialchars($_POST['username']);
+	$Email = htmlspecialchars($_POST['email']);
+	$PWD = htmlspecialchars($_POST['pwd']);	
+	if($UserName == ''){
+		$_SESSION['error_username'] = 'UserName can not emty!';	
+	}
+	if($Email == ''){
+		$_SESSION['error_email'] = 'please inter your Email!';
+	}
+	if($PWD == ''){
+		$_SESSION['error_PWD'] = 'Please enter your password!';
+	}
+	if(strlen($PWD) < 8){
+		$_SESSION['error_secure'] = 'Your password is not secure';
+	    header ("location: /signup");
+		exit;
+	}
+	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pwd'])){
 	if (isset($_FILES['my_image']))
 	{
-		$UserName = htmlspecialchars($_POST['username']);
-		$Email = htmlspecialchars($_POST['email']);
-		$PWD = htmlspecialchars($_POST['pwd']);	
-	if($UserName !== ''){
-		if($Email !== ''){
-			if($PWD !== ''){
 				if (strlen($PWD) >= 8){					
 				$passwordHash = password_hash($PWD, PASSWORD_BCRYPT);
 				// __files image______________
@@ -49,25 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 					$iscreated = signUpNotImage ($UserName, $passwordHash, $Email,);
 					header ('location: /signin');
 				}
-			}else{
-				// PWD < 8_________________________
-
-				header ("location: /signup");
 			}
-			}else{
-				// PWD have not values___________________
-
-				header ("location: /signup");
-			}
-		}else{
-			// email have not values____________
-
-			header ("location: /signup");
-		}
-	}else{
-		// hove not inter values_____________________
-
-	    header ("location: /signup");
-	}	
 }
+	}else{
+		header('location: /signup');
+	}
 }

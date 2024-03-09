@@ -5,13 +5,10 @@
 		<div class="container-fluid px-3 px-xl-5">
 			<!-- Logo START -->
 			<a class="navbar-brand" href="/home">
-			<h3>
+				<h3>
 					<span class="text-danger">Google</span>
 					<span>Classroom</span>
 				</h3>
-				<!-- <img src="../assets/images/GoogleClassroomBanner.png" alt="" class="w-25"> -->
-				<!-- <img class="light-mode-item navbar-brand-item " src="../assets/images/GoogleClassroomBanner.png" alt="logo" > -->
-				<!-- <img class="dark-mode-item navbar-brand-item" src="assets/images/logo-light.svg" alt="logo"> -->
 			</a>
 			<!-- Logo END -->
 
@@ -51,8 +48,7 @@
 							<li>
 								<hr class="dropdown-divider">
 							</li>
-							<li> <a class="dropdown-item" href="instructor-edit-profile.html"><i class="fas fa-fw fa-edit me-1"></i>Edit Profile</a> </li>
-							<li> <a class="dropdown-item" href="instructor-setting.html"><i class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
+							<li> <a class="dropdown-item" href="/editprofile"><i class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
 							<li> <a class="dropdown-item" href="instructor-delete-account.html"><i class="fas fa-fw fa-trash-alt me-1"></i>Delete Profile</a> </li>
 						</ul>
 					</li>
@@ -174,7 +170,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="nav-item"><a class="nav-link me-5" href="docs/alerts.html">To-do</a></li>
+					<li class="nav-item"><a class="nav-link me-5" href="/todos">To-do</a></li>
 
 					<!-- Nav item 5 link-->
 
@@ -193,7 +189,7 @@
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="/join_class" >
+									<a class="dropdown-item" href="/join_class">
 										<i class="text-danger fa-fw bi bi-card-text me-2"></i>Join class
 									</a>
 								</li>
@@ -209,116 +205,147 @@
 							<input class="form-control pe-5 bg-transparent" id="searchclass" type="search" placeholder="Search" aria-label="Search">
 							<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
 						</form>
-
-
-
 					</div>
 				</div>
 				<!-- Nav Search END -->
 			</div>
 			<!-- Main navbar END -->
 			<!-- Profile START -->
-									<?php
-									if (isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['image_url'])) {
-										$user = $_SESSION['user'];
-										$email = $_SESSION['email'];
-										$image = $_SESSION['image_url'];
-									?>
-			<div class="dropdown ms-1 ms-lg-0">
-				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-					<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image[4]?>" alt="avatar">
-				</a>
-				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-					<!-- Profile info -->
-					<li class="px-3">
-						<div class="d-flex align-items-center">
-							<!-- Avatar -->
-							<div class="avatar me-3">
-								<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image[4]?>" alt="Card image cap">
-							</div>
-							<div>
-								<div>
-									<a class="h6" href="#"><?= $user[1] ?></a>
-									<p class="small m-0"><?= $email ?></p>
-								</div>
-							</div>
-							<hr>
-					</li>
-					<!-- Links -->
-					<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
-					<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
-					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-					<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
-					<li>
-						<hr class="dropdown-divider">
-					</li>
-					<!-- Dark mode switch START -->
-					<li>
-						<div class="modeswitch-wrap" id="darkModeSwitch">
-							<div class="modeswitch-item">
-								<div class="modeswitch-icon"></div>
-							</div>
-							<span>Dark mode</span>
-						</div>
-					</li>
-					<!-- Dark mode switch END -->
-				</ul>
-			</div>
 			<?php
-									}else{
-										$user = $_SESSION['user'];
-										$email = $_SESSION['email'];							
+			if (isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['image_url'])) {
+				$user = $_SESSION['user'];
+				$email = $_SESSION['email'];
+				$image = $_SESSION['image_url'];
 			?>
-			<div class="dropdown ms-1 ms-lg-0">
-				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-					<img class="avatar-img rounded-circle" src="../../assets/images/profiles/g10-google-classroom.png" alt="avatar">
-				</a>
-				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-					<!-- Profile info -->
-					<li class="px-3">
-						<div class="d-flex align-items-center">
-							<!-- Avatar -->
-							<div class="avatar me-3">
-								<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/g10-google-classroom.png" alt="Card image cap">
-							</div>
-							<div>
-								<div>
-									<a class="h6" href="#"><?= $user[1] ?></a>
-									<p class="small m-0"><?= $email ?></p>
+				<div class="dropdown ms-1 ms-lg-0">
+					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="avatar">
+					</a>
+					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+						<!-- Profile info -->
+						<li class="px-3">
+							<div class="d-flex align-items-center">
+								<!-- Avatar -->
+								<div class="avatar me-3">
+									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="Card image cap">
 								</div>
-							</div>
-							<hr>
-					</li>
-					<!-- Links -->
-					<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
-					<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
-					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-					<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
-					<li>
-						<hr class="dropdown-divider">
-					</li>
-					<!-- Dark mode switch START -->
-					<li>
-						<div class="modeswitch-wrap" id="darkModeSwitch">
-							<div class="modeswitch-item">
-								<div class="modeswitch-icon"></div>
-							</div>
-							<span>Dark mode</span>
+								<div>
+									<div>
+										<a class="h6" href="#"><?= $user[1] ?></a>
+										<p class="small m-0"><?= $email ?></p>
+									</div>
+								</div>
+								<hr>
+						</li>
+						<!-- Links -->
+
+						<div class="dropdown ms-1 ms-lg-0">
+
+							<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="dropdown-item">
+									<i class="bi bi-person fa-fw me-2" id="upload_profile">Edit Profile</i>
+								</span>
+							</a>
 						</div>
-					</li>
-					<!-- Dark mode switch END -->
-				</ul>
-			</div>
+
+						<li><a class="dropdown-item" href="/editprofile"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+						<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<!-- Dark mode switch START -->
+						<li>
+							<div class="modeswitch-wrap" id="darkModeSwitch">
+								<div class="modeswitch-item">
+									<div class="modeswitch-icon"></div>
+								</div>
+								<span>Dark mode</span>
+							</div>
+						</li>
+						<!-- Dark mode switch END -->
+					</ul>
+				</div>
 			<?php
-									}
+			} else {
+				$user = $_SESSION['user'];
+				$email = $_SESSION['email'];
 			?>
-			<!-- Profile START -->
+				<div class="dropdown ms-1 ms-lg-0">
+					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/g10-google-classroom.png" alt="avatar">
+					</a>
+					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+						<!-- Profile info -->
+						<li class="px-3">
+							<div class="d-flex align-items-center">
+								<!-- Avatar -->
+								<div class="avatar me-3">
+									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/g10-google-classroom.png" alt="Card image cap">
+								</div>
+								<div>
+									<div>
+										<a class="h6" href="#"><?= $user[1] ?></a>
+										<p class="small m-0"><?= $email ?></p>
+									</div>
+								</div>
+								<hr>
+						</li>
+						<!-- Links -->
+						<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+						<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+						<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<!-- Dark mode switch START -->
+						<li>
+							<div class="modeswitch-wrap" id="darkModeSwitch">
+								<div class="modeswitch-item">
+									<div class="modeswitch-icon"></div>
+								</div>
+								<span>Dark mode</span>
+							</div>
+						</li>
+						<!-- Dark mode switch END -->
+					</ul>
+				</div>
+			<?php
+			}
+			?>
+			<!-- Profile END -->
 		</div>
 	</nav>
 	<!-- Logo Nav END -->
 </header>
 <!-- Header END -->
 
+<div id="contact-popup" style="display: none;">
+	<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+		<a href="/home" class="btn d-flex justify-content-end">✖</a>
+		<h1>Upload Profile</h1>
+		<div style="margin-top: 10px; margin-bottom: 10px;">
+			<div>
+				<input type="file" name="my_image" id="image">
+			</div>
+		</div>
+		<div>
+			<input type="submit" id="send" name="send" value="Upload" />
+		</div>
+	</form>
+</div>
+
 <?php
 echo '<script src="views/home/searchClasses.view.js"></script>';
+echo '<script>
+
+let uploadProfile = document.querySelector("#upload_profile");
+let popUp = document.querySelector("#contact-popup");
+uploadProfile.addEventListener("click", ()=>{
+	popUp.style.display = "block";
+})
+
+</script>'
+
 ?>
