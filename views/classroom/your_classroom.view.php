@@ -6,9 +6,16 @@
 				<!-- Card START -->
 				<div class="card border rounded-3">
 					<!-- Card header START -->
-					<div class="card-header border-bottom">
-						<h3 class="mb-0">My Classroom List</h3>
-					</div>
+					<div class="d-flex justify-content-between border-bottom">
+			<div class="card-header ">
+				<h3 class="mb-0">My Classroom List</h3>
+			</div>
+			<!-- Card header END -->
+			<a href="/create-class" class="btn btn-primary h-50 m-3">
+				<i class="bi bi-plus-circle-fill m-2"></i>
+				Cleate Now Class
+			</a>
+		</div>
 					<!-- Card header END -->
 					<!-- Card body START -->
 					<div class="card-body">
@@ -68,6 +75,7 @@
 									<tr>
 										<!-- Course item -->
 										<td>
+										<a href="/class?id=<?=$class['classroom_code']?>">
 											<div class="d-flex align-items-center">
 												<!-- Image -->
 												<div class="w-100px">
@@ -75,7 +83,7 @@
 												</div>
 												<div class="mb-0 ms-2">
 													<!-- Title -->
-													<h6><a href="/class?id=<?=$class['classroom_code']?>"><?php echo $class['classroom_name'] ?></a></h6>
+													<h6><?php echo $class['classroom_name'] ?></h6>
 													<!-- Info -->
 													<div class="d-sm-flex">
 														<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>18 lectures</p>
@@ -83,11 +91,11 @@
 													</div>
 												</div>
 											</div>
-											
 										</td>
 										<!-- Enrolled item -->
 										<td class="text-center text-sm-start"><?php echo $class['classroom_code'] ?></td>
 										<td class="text-center text-sm-start">
+											</a>
 										<?php 
 											if (is_array($enrolleds)) {
 												foreach ($enrolleds as $enrolle) {

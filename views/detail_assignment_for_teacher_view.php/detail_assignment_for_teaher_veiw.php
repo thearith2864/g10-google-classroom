@@ -47,19 +47,19 @@
             </div>
             <div class="p-4" style="height: 180px; border-bottom:2px solid blue; width:90%; margin-left:55px;">
                 <div class="card p-2 shadow-sm" style="width: 90%; border:1px solid black;">
+                    <a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>    ">
                     <div class="d-flex align-items-center">
                         <div>
-                            <a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>"><i class="bi bi-file-earmark-ruled-fill fa-4x " style="margin-right:18px;"></i></a>
-
+                            <i class="bi bi-file-earmark-ruled-fill fa-4x " style="margin-right:18px;"></i>
+                            
                         </div>
                         <div>
-                            <a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>    ">
                                 <h4><?= $chooose[0]['file_work'] = substr($chooose[0]['file_work'], 0, 40) ?></h4>
-                            </a>
-
-                            <p><?= $pdf[0]['file_work'] = substr($pdf[0]['file_work'], -3) ?></p>
+                                
+                                <p><?= $pdf[0]['file_work'] = substr($pdf[0]['file_work'], -3) ?></p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <div class="d-flex align-items-end" style=" width:90%; margin-left:55px;">

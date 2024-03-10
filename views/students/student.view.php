@@ -1,14 +1,51 @@
+<div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Join Class by Class code</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<!-- Task creation form -->
+				<form action="../../controllers/join_class/join_class.controller.php" method="post">
+					<div class="form-group d-flex flex-column">
+						<label for="classCode" class="mb-3">Ask your teacher for the class code, then enter it here.</label>
+						<input type="text" class="form-control mb-4 w-100" name="classcode" id="classCode" placeholder="Class code">
+					</div>
+					<h5>To sign in with a class code</h5>
+        <ul>
+            <li>Use an authorized account</li>
+            <li>Use a class code with 5-7 letters or numbers, and no spaces or symbols</li>
+        </ul>
+        <p>You need to make sure that I have input the right class code</p>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="submit" class="btn btn-primary align-self-end px-4">Join Now</button> -->
+					<button type="button" class="btn btn-primary" id="createTaskBtn">Join Class</button>
+				</form>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
 
-			<!-- Right sidebar END -->
+<!-- Right sidebar END -->
 
 			<!-- Main content START -->
 			<div class="col-xl-9">
 				<!-- Card START -->
 				<div class="card border rounded-3">
 					<!-- Card header START -->
-					<div class="card-header border-bottom">
-						<h3 class="mb-0">My Students List</h3>
-					</div>
+					<div class="d-flex justify-content-between border-bottom">
+			<div class="card-header ">
+				<h3 class="mb-0">Enrolled</h3>
+			</div>
+			<!-- Card header END -->
+			<a href="/join_class" class="btn btn-danger h-50 m-3" data-bs-toggle="modal" data-bs-target="#createTaskModal">
+				<i class="bi bi-plus-circle-fill m-2"></i>
+				Join Now Class
+			</a>
+		</div>
 					<!-- Card header END -->
 
 					<!-- Card body START -->
@@ -41,274 +78,81 @@
 
 						<!-- Student list table START -->
 						<div class="table-responsive border-0">
-							<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
-								<!-- Table head -->
-								<thead>
-									<tr>
-										<th scope="col" class="border-0 rounded-start">Student name</th>
-										<th scope="col" class="border-0">Progress</th>
-										<th scope="col" class="border-0">Courses</th>
-										<th scope="col" class="border-0">Enrolled date</th>
-										<th scope="col" class="border-0 rounded-end">Action</th>
-									</tr>
-								</thead>
+						<table class="table table-primary align-middle p-4 mb-0 table-hover">
+					<!-- Table head -->
+					<thead>
+						<tr>
+							<th scope="col" class="border-0 rounded-start">Course Title</th>
+							<th scope="col" class="border-0">Owner</th>
+							<th scope="col" class="border-0">Subject</th>
+							<th scope="col" class="border-0">Room</th>
+							<th scope="col" class="border-0 rounded-end">Action</th>
+						</tr>
+					</thead>
 
-								<!-- Table body START -->
-								<tbody>
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<div class="d-flex align-items-center position-relative">
-												<!-- Image -->
-												<div class="avatar avatar-md mb-2 mb-md-0">
-													<img src="assets/images/avatar/01.jpg" class="rounded" alt="">
-												</div>
-												<div class="mb-0 ms-2">
-													<!-- Title -->
-													<h6 class="mb-0"><a href="#" class="stretched-link">Lori Stevens</a></h6>
-													<!-- Address -->
-													<span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>Mumbai</span>
+					<!-- Table body START -->
+					<?php
+
+					if (is_array($join_classes)) :
+						foreach ($join_classes as $class) :
+
+
+
+
+					?>
+							<tbody>
+								<!-- Table item -->
+								<tr>
+									<!-- Course item -->
+									<td>
+										<div class="d-flex align-items-center">
+											<!-- Image -->
+											<div class="w-100px">
+												<img src="assets/images/courses/4by3/08.jpg" class="rounded" alt="">
+											</div>
+											<div class="mb-0 ms-2">
+												<!-- Title -->
+												<h6><a href="/student_classwork?id=<?= $class['classroom_code'] ?>"><?php echo $class['classroom_name'] ?></a></h6>
+												<!-- Info -->
+												<div class="d-sm-flex">
+													<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>18 lectures</p>
+													<p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>6 Completed</p>
 												</div>
 											</div>
-										</td>
+										</div>
+									</td>
+									<!-- Enrolled item -->
+									<td class="text-center text-sm-start"><?php
+																			if (is_array($class_owner)) {
+																				foreach ($class_owner as $owner) {
+																					if ($owner['classroom_code'] == $class['classroom_code']) {
+																						echo $owner['user_name'];
+																					}
+																				}
+																			}
 
-										<!-- Table data -->
-										<td class="text-center text-sm-start">
-											<div class=" overflow-hidden">
-												<h6 class="mb-0">85%</h6>
-												<div class="progress progress-sm bg-primary bg-opacity-10">
-													<div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-													</div>
-												</div>
-											</div>
-										</td>
+																			?></td>
+									<!-- Status item -->
+									<td>
+										<div class="badge bg-success bg-opacity-10 text-success"><?php echo $class['subject'] ?></div>
+									</td>
+									<!-- Price item -->
+									<td><?php echo $class['room'] ?></td>
+									<!-- Action item -->
+									<td>
+										<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+										<a href="controllers/classroom/delete.classroom.controller.php?id=<?php echo $class['classroom_code'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
+									</td>
+								</tr>
 
-										<!-- Table data -->
-										<td>10</td>
+						<?php
+						endforeach;
+					endif;
+						?>
 
-										<!-- Table data -->
-										<td>4/9/2021</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-											<button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-										</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<div class="d-flex align-items-center position-relative">
-												<!-- Image -->
-												<div class="avatar avatar-md mb-2 mb-md-0">
-													<img src="assets/images/avatar/03.jpg" class="rounded" alt="">
-												</div>
-												<div class="mb-0 ms-2">
-													<!-- Title -->
-													<h6 class="mb-0"><a href="#" class="stretched-link">Dennis Barrett</a></h6>
-													<!-- Address -->
-													<span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>New york</span>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td class="text-center text-sm-start">
-											<div class=" overflow-hidden">
-												<h6 class="mb-0">40%</h6>
-												<div class="progress progress-sm bg-primary bg-opacity-10">
-													<div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-													</div>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td>12</td>
-
-										<!-- Table data -->
-										<td>9/7/2021</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-											<button class="btn btn-danger btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Unblock"><i class="fas fa-ban"></i></button>
-										</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<div class="d-flex align-items-center position-relative">
-												<!-- Image -->
-												<div class="avatar avatar-md mb-2 mb-md-0">
-													<img src="assets/images/avatar/04.jpg" class="rounded" alt="">
-												</div>
-												<div class="mb-0 ms-2">
-													<!-- Title -->
-													<h6 class="mb-0"><a href="#" class="stretched-link">Billy Vasquez</a></h6>
-													<!-- Address -->
-													<span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>Paris</span>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td class="text-center text-sm-start">
-											<div class=" overflow-hidden">
-												<h6 class="mb-0">62%</h6>
-												<div class="progress progress-sm bg-primary bg-opacity-10">
-													<div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 62%" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">
-													</div>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td>08</td>
-
-										<!-- Table data -->
-										<td>10/5/2021</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-											<button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-										</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<div class="d-flex align-items-center position-relative">
-												<!-- Image -->
-												<div class="avatar avatar-md mb-2 mb-md-0">
-													<img src="assets/images/avatar/09.jpg" class="rounded" alt="">
-												</div>
-												<div class="mb-0 ms-2">
-													<!-- Title -->
-													<h6 class="mb-0"><a href="#" class="stretched-link">Carolyn Ortiz</a></h6>
-													<!-- Address -->
-													<span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>Delhi</span>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td class="text-center text-sm-start">
-											<div class=" overflow-hidden">
-												<h6 class="mb-0">60%</h6>
-												<div class="progress progress-sm bg-primary bg-opacity-10">
-													<div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-													</div>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td>06</td>
-
-										<!-- Table data -->
-										<td>20/4/2021</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-											<button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-										</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<div class="d-flex align-items-center position-relative">
-												<!-- Image -->
-												<div class="avatar avatar-md mb-2 mb-md-0">
-													<img src="assets/images/avatar/07.jpg" class="rounded" alt="">
-												</div>
-												<div class="mb-0 ms-2">
-													<!-- Title -->
-													<h6 class="mb-0"><a href="#" class="stretched-link">Larry Lawson</a></h6>
-													<!-- Address -->
-													<span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>London</span>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td class="text-center text-sm-start">
-											<div class=" overflow-hidden">
-												<h6 class="mb-0">35%</h6>
-												<div class="progress progress-sm bg-primary bg-opacity-10">
-													<div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
-													</div>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td>04</td>
-
-										<!-- Table data -->
-										<td>12/7/2021</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-											<button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-										</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<div class="d-flex align-items-center position-relative">
-												<!-- Image -->
-												<div class="avatar avatar-md mb-2 mb-md-0">
-													<img src="assets/images/avatar/06.jpg" class="rounded" alt="">
-												</div>
-												<div class="mb-0 ms-2">
-													<!-- Title -->
-													<h6 class="mb-0"><a href="#" class="stretched-link">Frances Guerrero</a></h6>
-													<!-- Address -->
-													<span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i>Pune</span>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td class="text-center text-sm-start">
-											<div class=" overflow-hidden">
-												<h6 class="mb-0">42%</h6>
-												<div class="progress progress-sm bg-primary bg-opacity-10">
-													<div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 42%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100">
-													</div>
-												</div>
-											</div>
-										</td>
-
-										<!-- Table data -->
-										<td>14</td>
-
-										<!-- Table data -->
-										<td>8/8/2021</td>
-
-										<!-- Table data -->
-										<td>
-											<a href="#" class="btn btn-success-soft btn-round me-1 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Message"><i class="far fa-envelope"></i></a>
-											<button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Block"><i class="fas fa-ban"></i></button>
-										</td>
-									</tr>
-								</tbody>
-								<!-- Table body END -->
-							</table>
+							</tbody>
+							<!-- Table body END -->
+				</table>
 						</div>
 						<!-- Student list table END -->
 
