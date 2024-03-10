@@ -77,13 +77,19 @@
             <div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
                 <div class="d-flex">
                     <div>
-                        <div class="card shadow-lg border border-secondary m-3" style="width: 12rem;">
+                        <a href="/todos">
+                        <div class="card shadow-lg border border-secondary m-3" style="width: 16rem;">
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5>Upcoming</h5>
+                            </div>
+                            <div class="card-main p-3">
+                                <p>Woohoo, no work due soon!</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-end p-3">
+                                <p>View All</p>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div>
                     <?php

@@ -75,33 +75,32 @@
             </div>
         </div>
         <div>
-            <p>_____________________________________________________________________________________________________________________________________________</p>
+            <p>___________________________________________________________________________________________________</p>
         </div>
-        <div>
-            <div class="p-4">
-                <div class="card p-2 shadow-sm" style="width: 900px; border:1px solid black;">
+        <div class="p-4">
+                <div><a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>">
+                <div class="card p-2 shadow-sm" style="width: 600px; border:1px solid black;">
                     <div class="d-flex align-items-center">
                         <div>
 
-                            <a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>"><i class="bi bi-file-earmark-ruled-fill fa-4x " style="margin-right:18px;"></i></a>
+                            <i class="bi bi-file-earmark-ruled-fill fa-4x " style="margin-right:18px;"></i>
 
                         </div>
                         <div>
-                            <a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>">
                                 <h4><?= $chooose[0]['file_work'] = substr($chooose[0]['file_work'], 0, 20) ?></h4>
-                            </a>
+                            
 
                             <p><?= $pdf[0]['file_work'] = substr($pdf[0]['file_work'], -3) ?></p>
                         </div>
                     </div>
+                </div></a>
                 </div>
             </div>
-        </div>
         <div>
 
-            <p style="color: gray;">____________________________________________________________________________________________________________________________________________</p>
+            <p style="color: gray;">___________________________________________________________________________________________________</p>
         </div>
-        <div class="d-flex align-items-end" style=" width:90%; margin-left:55px;">
+        <div class="d-flex align-items-end">
 
             <i class="bi bi-people-fill fa-2x m-2"></i>
             <p><?php
@@ -122,7 +121,7 @@
 
             if ($comment['file_work'] == $checkass[0]['file_work']) {
         ?>
-                <div style=" width:80%; margin-left:85px;" class="d-flex align-items-center justify-content-between ">
+                <div class="d-flex align-items-center justify-content-between ">
                     <div class="d-flex align-items-center">
                         <img src="../../assets/images/profiles/<?= $comment['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-1">
                         <div class="">
@@ -176,7 +175,7 @@
         ?>
 
         <!-- //------=========================================================== end display comenrnt-->
-        <div style="height: 100px; width:90%; margin-left:55px;" class="p-4 d-flex">
+        <div  class="p-4 d-flex ">
             <?php
             if (isset($_SESSION['image_url'])) {
                 $image = $_SESSION['image_url'];
@@ -191,14 +190,15 @@
             ?>
             <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="d-flex">
                 <div>
-                    <input name="comments" type="text" class="form-control shadow-sm" aria-describedby="emailHelp" placeholder="Enter Your comment" style="width: 800px;">
+                    <input name="comments" type="text" class="form-control shadow-sm h-50" aria-describedby="emailHelp" placeholder="Enter Your comment">
                     <span class="text-danger"><?php echo isset($_SESSION['errorcomment']) ? $_SESSION['errorcomment'] : ''; ?> </span>
                 </div>
                 <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>" hidden>
                 <input type="text" name="iduser" value="<?= $image['user_id'] ?>" hidden>
                 <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
                 <input type="text" name="classcode" value="<?= $_GET['codeclass']; ?>" hidden>
-                <button class="btn btn-primary d-flex "><i class="bi bi-send-check "></i></button>
+                <input type="text" name="role" value="" hidden>
+                <button class="btn btn-primary d-flex h-50"><i class="bi bi-send-check "></i></button>
 
             </form>
 
@@ -207,7 +207,7 @@
     <div>
 
         <!-- Form for submit the classwork  -->
-        <div style="width:440px;  margin-left: 205px;">
+        <div style="width:440px;  margin-left: 80px;">
             <div class="w-100 p-4" style=" border: solid 1px blue; border-radius: 10px;" class="shadow-lg">
                 <div class="w-100 d-flex justify-content-between">
                     <p style="font-size: 26px;">Your work</p>

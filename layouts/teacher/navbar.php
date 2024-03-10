@@ -89,7 +89,7 @@
 				<!-- Profile START -->
 				<div class="dropdown me-1 ms-lg-0">
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image ?>" alt="avatar">
+						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?=$image['image_url'] ?>" alt="avatar">
 					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->
@@ -97,7 +97,7 @@
 							<div class="d-flex align-items-center">
 								<!-- Avatar -->
 								<div class="avatar me-3">
-									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image ?>" alt="avatar">
+									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?=$image['image_url'] ?>" alt="avatar">
 								</div>
 								<div>
 									<a class="h6" href="#"><?= $user[1] ?></a>
@@ -162,7 +162,7 @@ Main Banner START -->
 							<!-- Avatar -->
 							<div class="col-auto mt-4 mt-md-0">
 								<div class="avatar avatar-xxl mt-n3">
-									<img class="avatar-img rounded-circle border border-white border-3 shadow" src="../../assets/images/profiles/<?= $image ?>" alt="">
+									<img class="avatar-img rounded-circle border border-white border-3 shadow" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="">
 								</div>
 							</div>
 							<!-- Profile info -->

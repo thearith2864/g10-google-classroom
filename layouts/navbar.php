@@ -170,7 +170,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="nav-item"><a class="nav-link me-5" href="docs/alerts.html">To-do</a></li>
+					<li class="nav-item"><a class="nav-link me-5" href="/todos">To-do</a></li>
 
 					<!-- Nav item 5 link-->
 
@@ -219,7 +219,7 @@
 			?>
 				<div class="dropdown ms-1 ms-lg-0">
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image ?>" alt="avatar">
+						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="avatar">
 					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->
@@ -227,7 +227,7 @@
 							<div class="d-flex align-items-center">
 								<!-- Avatar -->
 								<div class="avatar me-3">
-									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image ?>" alt="Card image cap">
+									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="Card image cap">
 								</div>
 								<div>
 									<div>

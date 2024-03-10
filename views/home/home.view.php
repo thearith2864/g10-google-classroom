@@ -285,8 +285,6 @@ Popular course START -->
 					<?php 
 					if(is_array($join_classes)):
 						foreach( $join_classes as $class):
-							
-				
 					?>
 					
 					<!-- Card item START -->
