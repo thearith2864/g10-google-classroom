@@ -4,7 +4,7 @@ require "models/student.model.php";
 
 $classes = displayClass();
 
-$event = get_assignment();
+$_SESSION['event'] = get_assignment();
 
 $join_classes = displayJoinClass();
 

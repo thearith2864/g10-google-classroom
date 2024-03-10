@@ -270,7 +270,6 @@ Popular course START -->
 	                endforeach;
 					endif;
 					?>
-					
 
 					
 				</div> <!-- Row END -->

@@ -4,61 +4,44 @@
 <head>
   <meta charset='utf-8' />
   <link href='/docs/dist/demo-to-codepen.css' rel='stylesheet' />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      
-    }
-    #calendar {
-      max-width: 100%;
-      margin: 40px auto;
-	  height: 40%;
-    }
-  </style>
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
   <script src='/docs/dist/demo-to-codepen.js'></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    timeZone: 'UTC',
-    initialView: 'dayGridWeek',
-    headerToolbar: {
-      left: 'prev,next',
-      center: 'title',
-      right: 'dayGridWeek,dayGridDay'
-    },
+ <style>
+	.fc-event {
+		padding-top: 10px;
+  		height: 40px;
+	}
+ </style>
+  <?php
+	$eventsJson = json_encode($_SESSION['event']);
+  ?>
 
-    editable: true,
-    events: [
-      {
-        title: 'Event 1',
-        start: '2024-03-05',
-      },
-      {
-        title: 'Event 2',
-        start: '2024-03-05',
-      },
-      {
-        title: 'Event 3',
-        start: '2024-03-15',
-      },
-      {
-        title: 'Event 4',
-        start: '2024-03-20',
-      }
-    ],
-    eventClick: function(info) {
-      info.jsEvent.preventDefault(); // don't let the browser navigate
-
-      if (info.event.url) {
-        window.open(info.event.url);
-      }
-    }
-  });
-
-  calendar.render();
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        timeZone: 'UTC',
+        initialView: 'dayGridWeek',
+        headerToolbar: {
+            left: 'prev,next',
+            center: 'title',
+            right: 'dayGridWeek,dayGridDay'
+        },
+        editable: true,
+        events: <?php echo $eventsJson ?>.map(function(event) {
+            return {
+                title: event.title,
+                start: event.dateline
+            };
+        }),
+        eventClick: function(info) {
+            info.jsEvent.preventDefault();
+            if (info.event.url) {
+                window.open(info.event.url);
+            }
+        }
+    });
+    calendar.render();
 });
 </script>
 </head>
@@ -74,7 +57,7 @@
 				</h3>
 			</a>
 			<!-- Logo END -->
-
+			
 			<!-- Responsive navbar toggler -->
 			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-animation">
@@ -83,6 +66,7 @@
 					<span></span>
 				</span>
 			</button>
+			
 
 			<!-- Main navbar START -->
 			<div class="navbar-collapse w-100 collapse" id="navbarCollapse">
@@ -125,9 +109,10 @@
 
 
 								<div class='demo-topbar'></div>
-  								<div id='calendar'></div>
+  								<div class="w-100 mx-1 h-25" id='calendar'></div>
 
-								
+								  
+					
 							
 							</div>
 						</div>

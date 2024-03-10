@@ -79,7 +79,14 @@ function getProfile($email){
 
 function get_assignment (){
     global $connection;
-    $statement = $connection->prepare('SELECT title,dateline FROM classworks');
-    $statement->execute() ;
+    $user_email = $_SESSION['email'];
+    $statement = $connection->prepare('SELECT cw.title, cw.dateline
+    FROM classworks AS cw
+    INNER JOIN classrooms AS c ON cw.classroom_id = c.classroom_id
+    INNER JOIN classroommembers AS cm ON c.classroom_code = cm.classroom_code
+    WHERE cm.user_email = :user_email ');
+    $statement->execute(
+        [':user_email'=> $user_email]
+    );
     return $statement->fetchAll();
 }
