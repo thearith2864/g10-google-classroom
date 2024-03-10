@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         if ($error === 0) {
             $file_ex = pathinfo($fileAssignment, PATHINFO_EXTENSION);
             $file_ex_lc = strtolower($file_ex);
-            $allowed_exs = array("pdf", "zip", "xls", "doc");
+            $allowed_exs = array("pdf", "zip", "xls", "doc", "txt",);
             if (in_array($file_ex_lc, $allowed_exs)) {
                 // echo $file_ex_lc;
                 $new_file_name = uniqid("$fileAssignment", true) . '.' . $file_ex_lc;
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if ($error === 0) {
         $file_ex = pathinfo($fileAssignment, PATHINFO_EXTENSION);
         $file_ex_lc = strtolower($file_ex);
-        $allowed_exs = array("pdf", "zip", "xls", "doc");
+        $allowed_exs = array("pdf", "zip", "xls", "doc" ,"txt");
         if (in_array($file_ex_lc, $allowed_exs)) {
             // echo $file_ex_lc;
             $new_file_name = uniqid("$fileAssignment", true) . '.' . $file_ex_lc;

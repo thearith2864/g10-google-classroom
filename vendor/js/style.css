@@ -1,0 +1,13 @@
+/* author: Tom Miller
+https://codepen.io/creativeocean/pen/LYMmbvZ */
+html, body, canvas {
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+
+  }
+  
+  canvas {
+    position:fixed;
+    background-color: rgba(12, 1, 3, 0.218);

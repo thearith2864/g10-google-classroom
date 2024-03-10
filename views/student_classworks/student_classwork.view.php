@@ -77,13 +77,19 @@
             <div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
                 <div class="d-flex">
                     <div>
-                        <div class="card shadow-lg border border-secondary m-3" style="width: 12rem;">
+                        <a href="/todos">
+                        <div class="card shadow-lg border border-secondary m-3" style="width: 16rem;">
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h5>Upcoming</h5>
+                            </div>
+                            <div class="card-main p-3">
+                                <p>Woohoo, no work due soon!</p>
+                            </div>
+                            <div class="card-footer d-flex justify-content-end p-3">
+                                <p>View All</p>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div>
                     <?php
@@ -94,6 +100,7 @@
                             <div class="card-body d-flex">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                    
                                 </div>
                                 <div class="p-2 w-100">
                                     <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
@@ -103,9 +110,7 @@
                                    
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <a href="">
-                                        <i class="fa fa-ellipsis-v fa-2x m-2" aria-hidden="true" style="font-size: 20px;margin: 0; padding: 0;"></i>
-                                    </a>
+                                    
                                    
                                 </div>
                                

@@ -77,3 +77,28 @@ function getProfile($email){
     return $statement->fetchAll();
 }
 
+function selectclasjoin ($user_ID){
+    global $connection;
+    $stetement = $connection->prepare(' SELECT * from classroommembers CR inner join classrooms CM on CR.classroom_code = CM.classroom_code inner join users US on CR.user_email = US.user_email WHERE user_id = :user_id');
+    $stetement->execute([
+        ':user_id' => $user_ID
+    ]);
+    return $stetement->fetchAll();
+}
+function showAssignment (){
+    global $connection;
+    $stetement = $connection->prepare('SELECT * FROM classworks');
+    $stetement->execute();
+    return $stetement->fetchAll();
+
+}
+
+function workdone ($user_id){
+    global $connection;
+    $stetement = $connection->prepare('select * from submit_classworks WHERE user_id = :user_id');
+    $stetement->execute([
+        'user_id' => $user_id
+    ]);
+    return $stetement->fetchAll();
+
+}
