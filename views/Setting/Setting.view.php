@@ -22,18 +22,10 @@
         <!-- Modal body -->
         <div class="modal-body ">
           <h2> Edit account settings</h2>
-
-        </div>
-        <div class="modal-body">
-          <h5>Update profile picture</h5>
-          <input type="text" hidden name="id">
-          <input type="file" id="fileName" class="form-control" name="fileName">
-
         </div>
 
-
         <div class="modal-body">
-          <h5>change Name</h5>
+          <h5>Change Name</h5>
           <input type="text" id="name" class="form-control" placeholder="Enter New Name" name="name">
         </div>
         
@@ -44,7 +36,7 @@
         
       <!-- password_update_form.php -->
         <div class="modal-body">
-          <h5>change Password</h5>
+          <h5>Change Password</h5>
           <label for="current_password">Current Password:</label>
           <input type="password" class="form-control" name="current_password" id="current_password" required>
 
