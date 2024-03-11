@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,35 +15,37 @@
       <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header btn-primary d-flex justify-content-center">
-          <h1 class="modal-title text-white">EDIT PROFILE</h1>
-          
+          <h1 class="modal-title text-white"> ACCOUNT SETTINGS</h1>
+
         </div>
 
         <!-- Modal body -->
         <div class="modal-body ">
-          <h2> Edit profile</h2>
-          <a href="/home" class="btn d-flex justify-content-end ">✖</a>
-
-        </div>
-        <div class="modal-body">
-          <h6>Update profile picture</h6>
-          <input type="text" hidden name="id">
-          <input type="file" id="fileName" class="form-control" name="fileName">
-          
-        </div>
-
-
-        <div class="modal-body">
-          <h6>Edit Name</h6>
-          <input type="text" id="name" class="form-control" placeholder="Edit Your Name"  name="name">
+          <h2> Edit account settings</h2>
         </div>
 
         <div class="modal-body">
-          <h6>Edit Password</h6>
-          <input type="password" id="password" class="form-control" placeholder="Edit Your Password"  name="password">
+          <h5>Change Name</h5>
+          <input type="text" id="name" class="form-control" placeholder="Enter New Name" name="name">
+        </div>
+        
+        <div class="modal-body">
+          <h5>Enter Your Email</h5>
+          <input type="email" id="email" class="form-control" placeholder="Enter Your email" name="email">
+        </div>
+        
+      <!-- password_update_form.php -->
+        <div class="modal-body">
+          <h5>Change Password</h5>
+          <label for="current_password">Current Password:</label>
+          <input type="password" class="form-control" name="current_password" id="current_password" required>
+
+          <label for="new_password">New Password:</label>
+          <input type="password" class="form-control" name="new_password" id="new_password" required>
         </div>
 
-        <div class="modal-footer">
+        <div class="modal-footer d-flex justify-content-between">
+          <a class="btn btn-danger" href="/home">Cancel</a>
           <button type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
         </div>
       </div>
