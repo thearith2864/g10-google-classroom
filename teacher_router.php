@@ -10,6 +10,7 @@ $routes = [
     '/class-update' => 'controllers/form_update/form_update.controller.php',
     '/class-work' => 'controllers/create-classwork/create_classwork.controller.php',
     '/to-review' => 'controllers/to_review/to_review.controller.php',
+    '/submission' => 'controllers/to_review/submission.controller.php',
     
 ];
 
