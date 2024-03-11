@@ -274,8 +274,9 @@
 </header>
 <!-- Header END -->
 
-<div id="contact-popup" style="display: none;">
+<div id="contact-popup" style="display: none; z-index: 999; margin-top: 200px;">
 	<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+
 		<a href="/home" class="btn d-flex justify-content-end">✖</a>
 		<h1>Upload Profile</h1>
 		<div style="margin-top: 10px; margin-bottom: 10px;">
@@ -283,9 +284,11 @@
 				<input type="file" name="my_image" id="image">
 			</div>
 		</div>
+
 		<div>
 			<input type="submit" id="send" name="send" value="Upload" />
 		</div>
+
 	</form>
 </div>
 
