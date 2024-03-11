@@ -20,14 +20,6 @@ $routes = [
     '/todos' => 'controllers/todo_contreoller/todo_page_controllers.php',
     '/detait_assignment' => 'controllers/detait_assignment_for teacher_controller/detail_assignment_controller.php',
     '/editprofile'=>'controllers/Setting/Setting.controller.php',
-<<<<<<< HEAD
-    '/student_classwork' => 'controllers/student_classworks/student_classwork.controller.php',
-    '/submit-form'=> 'controllers/student_classworks/classwork_submit_form.controller.php'
-=======
-    // '/setting'=>'controllers/Setting/update_setting.controller.php'
-    
->>>>>>> setting
-
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
