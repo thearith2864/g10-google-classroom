@@ -234,7 +234,9 @@ Popular course START -->
 					?>
 					
 					<!-- Card item START -->
+					
 					<div class="col-sm-6 col-lg-4 col-xl-3" id="classCard">
+						<a href="/class?id=<?=$class['classroom_code']?>">
 						<div class="card shadow h-100">
 
 
@@ -246,11 +248,13 @@ Popular course START -->
 							<div class="card-body pb-0">
 								<!-- Badge and favorite -->
 								<div class="d-flex justify-content-between mb-2">
-									<a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
-									<a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
+									
+									<p>All level</p>
+									<i class="far fa-heart"></i>
 								</div>
 								<!-- Title -->
-								<h5 class="card-title fw-normal" id='className'><a href="#"><?php echo $class['classroom_name'] ?></a></h5>
+								<h5 class="card-title fw-normal" id='className'><?php echo $class['classroom_name'] ?></h5>
+								
 								<p class="mb-2 text-truncate-2"><?php echo $class['subject'] ?></p>
 								<p class="mb-2 text-truncate-2"><?php echo $class['room'] ?></p>
 
@@ -264,6 +268,7 @@ Popular course START -->
 								</div>
 							</div>
 						</div>
+						</a>
 					</div>
 					<!-- Card item END -->
 					<?php
@@ -289,6 +294,7 @@ Popular course START -->
 					
 					<!-- Card item START -->
 					<div class="col-sm-6 col-lg-4 col-xl-3">
+					<a href="/student_classwork?id=<?= $class['classroom_code'] ?>">
 						<div class="card shadow h-100">
 							<!-- Image -->
 							<img src="assets/images/courses/4by3/08.jpg" class="card-img-top" alt="course image">
@@ -314,6 +320,7 @@ Popular course START -->
 								</div>
 							</div>
 						</div>
+					</a>
 					</div>
 					<!-- Card item END -->
 					<?php

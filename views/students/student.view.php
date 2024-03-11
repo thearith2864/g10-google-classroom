@@ -106,6 +106,7 @@
 								<tr>
 									<!-- Course item -->
 									<td>
+										<a href="/student_classwork?id=<?= $class['classroom_code'] ?>">
 										<div class="d-flex align-items-center">
 											<!-- Image -->
 											<div class="w-100px">
@@ -113,7 +114,7 @@
 											</div>
 											<div class="mb-0 ms-2">
 												<!-- Title -->
-												<h6><a href="/student_classwork?id=<?= $class['classroom_code'] ?>"><?php echo $class['classroom_name'] ?></a></h6>
+												<h6><?php echo $class['classroom_name'] ?></h6>
 												<!-- Info -->
 												<div class="d-sm-flex">
 													<p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-orange me-2"></i>18 lectures</p>
@@ -121,6 +122,7 @@
 												</div>
 											</div>
 										</div>
+									
 									</td>
 									<!-- Enrolled item -->
 									<td class="text-center text-sm-start"><?php
@@ -139,6 +141,7 @@
 									</td>
 									<!-- Price item -->
 									<td><?php echo $class['room'] ?></td>
+									</a>
 									<!-- Action item -->
 									<td>
 										<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
