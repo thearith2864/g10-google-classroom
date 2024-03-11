@@ -334,7 +334,7 @@ Inner part START -->
 									<div class="list-group list-group-dark list-group-borderless">
 										
 										<a class="list-group-item d-flex" href="/home"><span class="material-symbols-outlined">home</span>Home</a>
-										<a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">calendar_month</span>Calendar</a>
+										<!-- <a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">calendar_month</span>Calendar</a> -->
 										<a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">cast_for_education</span>Teaching</a>
 										
 										<a class="list-group-item d-flex" href="/trainer-review"><span class="material-symbols-outlined">preview</span>Reviews</a>

@@ -51,6 +51,74 @@
 
 </script>
 </head>
+<div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Join Class by Class code</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<!-- Task creation form -->
+				<form action="../../controllers/join_class/join_class.controller.php" method="post">
+					<div class="form-group d-flex flex-column">
+						<label for="classCode" class="mb-3">Ask your teacher for the class code, then enter it here.</label>
+						<input type="text" class="form-control mb-4 w-100" name="classcode" id="classCode" placeholder="Class code">
+					</div>
+					<h5>To sign in with a class code</h5>
+        <ul>
+            <li>Use an authorized account</li>
+            <li>Use a class code with 5-7 letters or numbers, and no spaces or symbols</li>
+        </ul>
+        <p>You need to make sure that I have input the right class code</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary align-self-end px-4">Join Now</button>
+					<!-- <button type="button" class="btn btn-primary">Join Class</button> -->
+				</form>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- _______________________________________________________________________________________________________for teacher -->
+<div class="modal fade" id="formteacher" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Create New Class</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form id="createClassForm" action="../../controllers/create_class/create_class.controller.php" method="post">
+			<div class="modal-body">
+				<!-- Task creation form -->
+				
+			  	<div class="modal-body">
+				  	<input type="text" id="className" class="form-control" name="className" placeholder="Class name (required)">
+            		<span class="text-danger"><?php echo isset($_SESSION['error_classname']) ? $_SESSION['error_classname'] : ''; ?></span>
+				</div>
+				<div class="modal-body">
+					<input type="text" id="section" class="form-control" name='section' placeholder="Section">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="subject" class="form-control" name='subject' placeholder="Subject">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="room" class="form-control" name='room' placeholder="Room">
+				</div>
+			
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary align-self-end px-4">Create</button>
+
+			</form>
+				
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ________________________________________________________________________end teacher -->
 <header class="navbar-light navbar-sticky header-static">
 	<!-- Logo Nav START -->
 	<nav class="navbar navbar-expand-xl">
@@ -94,7 +162,7 @@
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item" href="/join_classrooms"><i class="fas fa-user-graduate fa-fw me-1"></i>Enrolled</a>
+								<a class="dropdown-item" href="/trainer-student"><i class="fas fa-user-graduate fa-fw me-1"></i>Enrolled</a>
 							</li>
 
 							<li> <a class="dropdown-item" href="#"><i class="fas fa-user-cog fa-fw me-1"></i>Admin (Coming Soon)</a> </li>
@@ -137,12 +205,12 @@
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="none">
 								<li>
-									<a class="dropdown-item" href="/create-class">
+										<a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#formteacher">
 										<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Create class
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="/join_class">
+									<a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#createTaskModal">
 										<i class="text-danger fa-fw bi bi-card-text me-2"></i>Join class
 									</a>
 								</li>
