@@ -148,22 +148,23 @@
                     <?php
                     foreach ($checkAssignments as $assignment):
                     ?>
-                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 800px; height: 70px;margin: 0; padding: 0;">
+                    <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
+                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft m-2" style=" width: 1050px; ">
                             <div class="card-body d-flex">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3" style="font-size: 23px;margin: 0; padding: 0;"></i>
                                 </div>
                                 <div class="w-100">
                                     <h5 class="card-title" style="margin: 0; padding: 0;"><?=$assignment['title']?></h5>
+                                    <p><?=$assignment['dateline']?></p>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <a href="">
-                                        <i class="fa fa-ellipsis-v fa-1x " aria-hidden="true" style="font-size: 15px;margin: 0; padding: 0;"></i>
-                                    </a>
+                                    
                                 </div>
                                 
                             </div>
                         </div>
+                    </a>
                     <?php
                     endforeach;
                     ?>

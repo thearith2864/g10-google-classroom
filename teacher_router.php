@@ -9,9 +9,7 @@ $routes = [
     '/create-class' => 'controllers/create_class/create_class_form.controller.php',
     '/class-update' => 'controllers/form_update/form_update.controller.php',
     '/class-work' => 'controllers/create-classwork/create_classwork.controller.php',
-    '/todos' => 'controllers/todos/todo.controllers.php'
-
-    
+    '/todos' => 'controllers/todo_contreoller/todo_page_controllers.php',  
 ];
 
 if (array_key_exists($uri, $routes)) {

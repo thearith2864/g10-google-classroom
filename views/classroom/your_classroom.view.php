@@ -1,4 +1,40 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Create New Class</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form id="createClassForm" action="../../controllers/create_class/create_class.controller.php" method="post">
+			<div class="modal-body">
+				<!-- Task creation form -->
+				
+			  	<div class="modal-body">
+				  	<input type="text" id="className" class="form-control" name="className" placeholder="Class name (required)">
+            		<span class="text-danger"><?php echo isset($_SESSION['error_classname']) ? $_SESSION['error_classname'] : ''; ?></span>
+				</div>
+				<div class="modal-body">
+					<input type="text" id="section" class="form-control" name='section' placeholder="Section">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="subject" class="form-control" name='subject' placeholder="Subject">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="room" class="form-control" name='room' placeholder="Room">
+				</div>
+			
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary align-self-end px-4">Create</button>
 
+			</form>
+				
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
 			<!-- Right sidebar END -->
 
 			<!-- Main content START -->
@@ -11,9 +47,9 @@
 				<h3 class="mb-0">My Classroom List</h3>
 			</div>
 			<!-- Card header END -->
-			<a href="/create-class" class="btn btn-primary h-50 m-3">
+			<a href="" class="btn btn-primary h-50 m-3" data-bs-toggle="modal" data-bs-target="#createTaskModal">
 				<i class="bi bi-plus-circle-fill m-2"></i>
-				Cleate Now Class
+				Cleate New Class
 			</a>
 		</div>
 					<!-- Card header END -->
@@ -48,13 +84,13 @@
 						<!-- Search and select END -->
 						<!-- Course list table START -->
 						<div class="table-responsive-lg border-0">
-							<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+							<table class=" table table-dark-gray align-middle p-4 mb-0 table-hover " >
 								<!-- Table head -->
-								<thead>
+								<thead class="bg-dark " style="height: 50px; ">
 									<tr>
 										<th scope="col" class="border-0 rounded-start">Course Title</th>
 										<th scope="col" class="border-0">Class code</th>
-										<th scope="col" class="border-0">Enrolled</th>
+										<!-- <th scope="col" class="border-0">Enrolled</th> -->
 										<th scope="col" class="border-0">Subject</th>
 										<th scope="col" class="border-0">Room</th>
 										<th scope="col" class="border-0 rounded-end">Action</th>
@@ -70,7 +106,7 @@
 							
 								?>	
 								<a href="/class?id=<?=$class['classroom_code']?>">					
-								<tbody>
+								<tbody >
 									<!-- Table item -->
 									<tr>
 										<!-- Course item -->
@@ -94,7 +130,7 @@
 										</td>
 										<!-- Enrolled item -->
 										<td class="text-center text-sm-start"><?php echo $class['classroom_code'] ?></td>
-										<td class="text-center text-sm-start">
+										<!-- <td class="text-center text-sm-start">
 											</a>
 										<?php 
 											if (is_array($enrolleds)) {
@@ -105,7 +141,7 @@
 												}
 											}
 										?>
-										</td>
+										</td> -->
 										<!-- Status item -->
 										<td>
 											<div class="badge bg-success bg-opacity-10 text-success"><?php echo $class['subject'] ?></div>
@@ -156,6 +192,7 @@
 			<!-- Main content END -->
 		</div><!-- Row END -->
 	</div>
+	
 </section>
 <!-- =======================
 Inner part END -->

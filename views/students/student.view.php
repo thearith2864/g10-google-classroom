@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -20,8 +21,8 @@
         <p>You need to make sure that I have input the right class code</p>
 				</div>
 				<div class="modal-footer">
-					<!-- <button type="submit" class="btn btn-primary align-self-end px-4">Join Now</button> -->
-					<button type="button" class="btn btn-primary" id="createTaskBtn">Join Class</button>
+					<button type="submit" class="btn btn-primary align-self-end px-4">Join Now</button>
+					<!-- <button type="button" class="btn btn-primary">Join Class</button> -->
 				</form>
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 			</div>
@@ -41,9 +42,9 @@
 				<h3 class="mb-0">Enrolled</h3>
 			</div>
 			<!-- Card header END -->
-			<a href="/join_class" class="btn btn-danger h-50 m-3" data-bs-toggle="modal" data-bs-target="#createTaskModal">
+			<a href="" class="btn btn-danger h-50 m-3" data-bs-toggle="modal" data-bs-target="#createTaskModal">
 				<i class="bi bi-plus-circle-fill m-2"></i>
-				Join Now Class
+				Join New Class
 			</a>
 		</div>
 					<!-- Card header END -->
@@ -78,7 +79,7 @@
 
 						<!-- Student list table START -->
 						<div class="table-responsive border-0">
-						<table class="table table-primary align-middle p-4 mb-0 table-hover">
+						<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
 					<!-- Table head -->
 					<thead>
 						<tr>

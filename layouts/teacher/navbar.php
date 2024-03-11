@@ -176,9 +176,7 @@ Main Banner START -->
 									</ul>
 								</div>
 								<!-- Button -->
-								<div class="d-flex align-items-center mt-2 mt-md-0">
-									<a href="/create-class" class="btn btn-success mb-0">Create a class</a>
-								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -335,12 +333,13 @@ Inner part START -->
 									<!-- Dashboard menu -->
 									<div class="list-group list-group-dark list-group-borderless">
 										
-										<a class="list-group-item " href="/home"><span class="material-symbols-outlined">home</span>Home</a>
-										<a class="list-group-item " href="/trainer-classroom"><span class="material-symbols-outlined">calendar_month</span>Calendar</a>
-										<a class="list-group-item " href="/trainer-classroom"><span class="material-symbols-outlined">cast_for_education</span>My Classroom</a>
-										<a class="list-group-item" href="/trainer-review"><span class="material-symbols-outlined">preview</span>Reviews</a>
-										<a class="list-group-item " href="/trainer-student"><span class="material-symbols-outlined">school</span>Enrolled</a>
-										<a class="list-group-item" href="#"><i class="bi bi-pencil-square fa-fw me-2"></i>To Do</a>
+										<a class="list-group-item d-flex" href="/home"><span class="material-symbols-outlined">home</span>Home</a>
+										<a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">calendar_month</span>Calendar</a>
+										<a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">cast_for_education</span>Teaching</a>
+										
+										<a class="list-group-item d-flex" href="/trainer-review"><span class="material-symbols-outlined">preview</span>Reviews</a>
+										<a class="list-group-item d-flex" href="/trainer-student"><span class="material-symbols-outlined">school</span>Enrolled</a>
+										<a class="list-group-item d-flex" href="/todos"><i class="bi bi-pencil-square fa-fw me-2"></i>To Do</a>
 
 
 										<a class="list-group-item text-danger bg-danger-soft-hover" href="/user-signin"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign Out</a>

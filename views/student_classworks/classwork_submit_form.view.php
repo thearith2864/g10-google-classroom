@@ -75,7 +75,7 @@
             </div>
         </div>
         <div>
-            <p>___________________________________________________________________________________________________</p>
+            <p>_________________________________________________________________________________</p>
         </div>
         <div class="p-4">
                 <div><a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>">
@@ -98,7 +98,7 @@
             </div>
         <div>
 
-            <p style="color: gray;">___________________________________________________________________________________________________</p>
+            <p style="color: gray;">_________________________________________________________________________________</p>
         </div>
         <div class="d-flex align-items-end">
 
@@ -121,7 +121,7 @@
 
             if ($comment['file_work'] == $checkass[0]['file_work']) {
         ?>
-                <div class="d-flex align-items-center justify-content-between ">
+                <div class="d-flex align-items-center justify-content-between " style="width: 680px;">
                     <div class="d-flex align-items-center">
                         <img src="../../assets/images/profiles/<?= $comment['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-1">
                         <div class="">
@@ -138,7 +138,7 @@
                         if ($image[1] == $comment['user_name']) {
 
                     ?>
-                            <div class="dropdown ms-1 ms-lg-0">
+                            <div class="dropdown ms-1 ms-lg-0 ">
                                 <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-three-dots-vertical fa-1x"></i>
                                 </a>
@@ -175,7 +175,7 @@
         ?>
 
         <!-- //------=========================================================== end display comenrnt-->
-        <div  class="p-4 d-flex ">
+        <div  class=" d-flex " style="width: 680px;">
             <?php
             if (isset($_SESSION['image_url'])) {
                 $image = $_SESSION['image_url'];
@@ -188,9 +188,9 @@
             <?php
             }
             ?>
-            <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="d-flex">
-                <div>
-                    <input name="comments" type="text" class="form-control shadow-sm h-50" aria-describedby="emailHelp" placeholder="Enter Your comment">
+            <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="d-flex  w-100">
+                <div class="  w-100" >
+                    <input name="comments" type="text" class="form-control shadow-sm h-100 " aria-describedby="emailHelp" placeholder="Enter Your comment">
                     <span class="text-danger"><?php echo isset($_SESSION['errorcomment']) ? $_SESSION['errorcomment'] : ''; ?> </span>
                 </div>
                 <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>" hidden>
@@ -198,7 +198,7 @@
                 <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
                 <input type="text" name="classcode" value="<?= $_GET['codeclass']; ?>" hidden>
                 <input type="text" name="role" value="" hidden>
-                <button class="btn btn-primary d-flex h-50"><i class="bi bi-send-check "></i></button>
+                <button class="btn btn-primary d-flex align-items-center  h-100"><i class="bi bi-send-check "></i></button>
 
             </form>
 
@@ -207,7 +207,7 @@
     <div>
 
         <!-- Form for submit the classwork  -->
-        <div style="width:440px;  margin-left: 80px;">
+        <div style="width:400px;  margin-left: 80px;">
             <div class="w-100 p-4" style=" border: solid 1px blue; border-radius: 10px;" class="shadow-lg">
                 <div class="w-100 d-flex justify-content-between">
                     <p style="font-size: 26px;">Your work</p>
@@ -279,14 +279,14 @@
                     <div>
                         <div class="dropdown ms-1 ms-lg-0">
                             <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                                <button class="btn " style="border:1px solid black; width:387px;">➕Add or create</button>
+                                <button class="btn " style="border:1px solid black; width:347px;">➕Add or create</button>
                             </a>
                             <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                                 <div class="" style="width: 350px;">
 
-                                    <i class="bi bi-link fa-2x m-2" type="button" data-bs-toggle="modal" data-bs-target="#InterLink">Link</i>
+                                    <i class="bi bi-link fa-2x m-2 dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#InterLink">Link</i>
                                     <br>
-                                    <i class="bi bi-file-earmark-arrow-up fa-2x m-2 " type="button" data-bs-toggle="modal" data-bs-target="#createTaskModal">File</i>
+                                    <i class="bi bi-file-earmark-arrow-up fa-2x m-2 dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#createTaskModal">File</i>
                                 </div>
                             </ul>
                         </div>
