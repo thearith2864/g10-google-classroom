@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user_email = $_SESSION['email'];
         $isjoin = joinClass($classroom_code, $user_email);
         if($isjoin){
-            header('location: /join_classrooms');
+            header('location: /trainer-student');
         }
     }
 }

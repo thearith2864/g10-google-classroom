@@ -145,30 +145,32 @@
                             <div class="card  shadow-lg m-3 border border-secondary" style="width: 190%;">
                                 <div class="card-body d-flex">
                                     <div>
+                                        <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; " >
                                         <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
-                                    </div>
-                                    <div class="p-2 w-100 ">
-                                        <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
-                                            <h5 class="card-title"><?= $assignment['title'] ?></h5>
                                         </a>
-                                        <p class="card-text"><?= $assignment['create_date'] ?></p>
-                                        <?php
+                                    </div>
+                                    <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; " >
+                                    <div class="p-2 w-100 ">
+                                            <h5 class="card-title"><?= $assignment['title'] ?></h5>
+                                            <p class="card-text"><?= $assignment['create_date'] ?></p>
+                                            <?php
                                         if ($assignment['dateline'] > $targetitme) {
-                                        ?>
-
+                                            ?>
+                                            
                                             <p class="card-text"> <?= $assignment['dateline'] ?></p>
-                                        <?php
-
-                                        } else {
+                                            <?php
+                                        
+                                    } else {
                                         ?>
-
+                                            
                                             <h5 class="text-danger card-text ">Missing</h5>
-                                        <?php
-
+                                            <?php
+                                            
                                         }
                                         ?>
                                         <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?>)</p>
                                     </div>
+                                </a>
                                     <div class="d-flex align-items-center">
 
                                         <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
@@ -217,16 +219,19 @@
                         <div class="card  shadow-lg m-3 border border-secondary " style="width: 1050px;">
                             <div class="card-body d-flex">
                                 <div>
+                                    <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%;">
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
-                                </div>
-                                <div class="p-2 w-100">
-                                    <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
-                                        <h4 class="card-title text-primary"><?= $assignment['title'] ?></h4>
                                     </a>
+                                </div>
+                                <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%;">
+                                <div class="p-2 w-100">
+                                        <h4 class="card-title text-primary"><?= $assignment['title'] ?></h4>
+                                    
                                     <p class="card-text"><?= $assignment['create_date'] ?></p>
                                     <p class="card-text"> <?= $assignment['dateline'] ?></p>
 
                                 </div>
+                                </a>
                                 <div class="d-flex align-items-center">
                                     <a href="">
                                         <i class="bi bi-trash-fill fa-2x m-2"></i>
@@ -278,8 +283,8 @@
                 </div>
                 <div class="p-2 m-3">
                     <div class="d-flex align-items-center">
-                        <img src="../../assets/images/profiles/<?= $teacher[0]['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-3">
-                        <h5><?= $teacher[0]['user_name'] ?></h5>
+                        <img src="../../assets/images/profiles/<?=$teacher[0]['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-3">
+                        <h5><?=$teacher[0]['user_name'] ?></h5>
 
                     </div>
                 </div>
