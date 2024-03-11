@@ -17,7 +17,8 @@
   ?>
 
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
+	
+	document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
         timeZone: 'UTC',
@@ -29,20 +30,25 @@
         },
         editable: true,
         events: <?php echo $eventsJson ?>.map(function(event) {
+            var link = '/class?id=' + event.classroom_code;
+
             return {
                 title: event.title,
-                start: event.dateline
+                start: event.dateline,
+                url: link
             };
         }),
         eventClick: function(info) {
             info.jsEvent.preventDefault();
             if (info.event.url) {
-                window.open(info.event.url);
+                window.location.href = info.event.url; 
             }
         }
     });
     calendar.render();
 });
+
+
 </script>
 </head>
 <header class="navbar-light navbar-sticky header-static">
