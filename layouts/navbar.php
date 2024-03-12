@@ -30,7 +30,7 @@
         },
         editable: true,
         events: <?php echo $eventsJson ?>.map(function(event) {
-            var link = '/class?id=' + event.classroom_code;
+            var link = '/student_classwork?id=' + event.classroom_code;
 
             return {
                 title: event.title,
