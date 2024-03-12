@@ -1,4 +1,30 @@
-<!-- Header START -->
+<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="createTaskModalLabel">Update Your profile here</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+                        <div class="modal-body">
+                            <!-- Task creation form -->
+                            <form  enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+                                <div class="mb-3">
+                                    <label for="taskTitleInput" class="form-label">Inter your profile</label>
+                                    <input type="file" class="form-control" id="taskTitleInput" required name="my_image">
+                                </div>
+                                
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary ">Update new</button>
+									</form>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 <header class="navbar-light navbar-sticky">
 	<!-- Logo Nav START -->
 	<nav class="navbar navbar-expand-xl">
@@ -112,7 +138,7 @@
 							<div class="dropdown ms-1 ms-lg-0 ">
 								<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
 									<span class="dropdown-item">
-										<i class="bi bi-person fa-fw me-2" id="upload_profile"> Edit Profile</i>
+										<i class="bi bi-person fa-fw me-2" data-bs-toggle="modal" data-bs-target="#edit_profile"> Edit Profile</i>
 									</span>
 								</a>
 							</div>
@@ -224,7 +250,7 @@ Main Banner END -->
 				<hr>
 			</li>
 			<!-- Links -->
-			<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+			<!-- <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li> -->
 			<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 			<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
 			<li><a class="dropdown-item bg-danger-soft-hover" href="../../controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
