@@ -30,7 +30,7 @@
         },
         editable: true,
         events: <?php echo $eventsJson ?>.map(function(event) {
-            var link = '/class?id=' + event.classroom_code;
+            var link = '/student_classwork?id=' + event.classroom_code;
 
             return {
                 title: event.title,
@@ -51,6 +51,74 @@
 
 </script>
 </head>
+<div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Join Class by Class code</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<!-- Task creation form -->
+				<form action="../../controllers/join_class/join_class.controller.php" method="post">
+					<div class="form-group d-flex flex-column">
+						<label for="classCode" class="mb-3">Ask your teacher for the class code, then enter it here.</label>
+						<input type="text" class="form-control mb-4 w-100" name="classcode" id="classCode" placeholder="Class code">
+					</div>
+					<h5>To sign in with a class code</h5>
+        <ul>
+            <li>Use an authorized account</li>
+            <li>Use a class code with 5-7 letters or numbers, and no spaces or symbols</li>
+        </ul>
+        <p>You need to make sure that I have input the right class code</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary align-self-end px-4">Join Now</button>
+					<!-- <button type="button" class="btn btn-primary">Join Class</button> -->
+				</form>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- _______________________________________________________________________________________________________for teacher -->
+<div class="modal fade" id="formteacher" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Create New Class</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form id="createClassForm" action="../../controllers/create_class/create_class.controller.php" method="post">
+			<div class="modal-body">
+				<!-- Task creation form -->
+				
+			  	<div class="modal-body">
+				  	<input type="text" id="className" class="form-control" name="className" placeholder="Class name (required)">
+            		<span class="text-danger"><?php echo isset($_SESSION['error_classname']) ? $_SESSION['error_classname'] : ''; ?></span>
+				</div>
+				<div class="modal-body">
+					<input type="text" id="section" class="form-control" name='section' placeholder="Section">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="subject" class="form-control" name='subject' placeholder="Subject">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="room" class="form-control" name='room' placeholder="Room">
+				</div>
+			
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary align-self-end px-4">Create</button>
+
+			</form>
+				
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ________________________________________________________________________end teacher -->
 <header class="navbar-light navbar-sticky header-static">
 	<!-- Logo Nav START -->
 	<nav class="navbar navbar-expand-xl">
@@ -94,7 +162,7 @@
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item" href="/join_classrooms"><i class="fas fa-user-graduate fa-fw me-1"></i>Enrolled</a>
+								<a class="dropdown-item" href="/trainer-student"><i class="fas fa-user-graduate fa-fw me-1"></i>Enrolled</a>
 							</li>
 
 							<li> <a class="dropdown-item" href="#"><i class="fas fa-user-cog fa-fw me-1"></i>Admin (Coming Soon)</a> </li>
@@ -123,7 +191,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="nav-item"><a class="nav-link me-5" href="docs/alerts.html">To-do</a></li>
+					<li class="nav-item"><a class="nav-link me-5" href="/todos">To-do</a></li>
 
 					<!-- Nav item 5 link-->
 
@@ -137,12 +205,12 @@
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="none">
 								<li>
-									<a class="dropdown-item" href="/create-class">
+										<a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#formteacher">
 										<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Create class
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="/join_class">
+									<a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#createTaskModal">
 										<i class="text-danger fa-fw bi bi-card-text me-2"></i>Join class
 									</a>
 								</li>
@@ -172,7 +240,7 @@
 			?>
 				<div class="dropdown ms-1 ms-lg-0">
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image ?>" alt="avatar">
+						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="avatar">
 					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->
@@ -180,7 +248,7 @@
 							<div class="d-flex align-items-center">
 								<!-- Avatar -->
 								<div class="avatar me-3">
-									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image ?>" alt="Card image cap">
+									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="Card image cap">
 								</div>
 								<div>
 									<div>
@@ -246,7 +314,7 @@
 						</li>
 						<!-- Links -->
 						<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
-						<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+						<li><a class="dropdown-item" href="/editprofile"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
 						<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 						<li>
@@ -274,8 +342,9 @@
 </header>
 <!-- Header END -->
 
-<div id="contact-popup" style="display: none;">
+<div id="contact-popup" style="display: none; z-index: 999; margin-top: 200px;">
 	<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+
 		<a href="/home" class="btn d-flex justify-content-end">✖</a>
 		<h1>Upload Profile</h1>
 		<div style="margin-top: 10px; margin-bottom: 10px;">
@@ -283,9 +352,11 @@
 				<input type="file" name="my_image" id="image">
 			</div>
 		</div>
+
 		<div>
 			<input type="submit" id="send" name="send" value="Upload" />
 		</div>
+
 	</form>
 </div>
 
