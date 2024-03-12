@@ -1,5 +1,36 @@
 <!-- Header START -->
-<div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+
+<!-- _____________________________________________-start form edit profle_________________________________________________ -->
+<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="createTaskModalLabel">update your profile here</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+                        <div class="modal-body">
+                            <!-- Task creation form -->
+                            <form  enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+                                <div class="mb-3">
+                                    <label for="taskTitleInput" class="form-label">Inter your profile</label>
+                                    <input type="file" class="form-control" id="taskTitleInput" required name="my_image">
+                                </div>
+                                
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary ">Update new</button>
+									</form>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- __________________________________________________________________end edit profile ______________________________________- -->
+
+<!-- _________________________________start form join class______________________________________________- -->
+
+<div class="modal fade" id="form_join_class" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -14,7 +45,7 @@
 						<input type="text" class="form-control mb-4 w-100" name="classcode" id="classCode" placeholder="Class code">
 					</div>
 					<h5>To sign in with a class code</h5>
-        <ul>
+					<ul>
             <li>Use an authorized account</li>
             <li>Use a class code with 5-7 letters or numbers, and no spaces or symbols</li>
         </ul>
@@ -29,7 +60,9 @@
 		</div>
 	</div>
 </div>
-<!-- _______________________________________________________________________________________________________for teacher -->
+
+<!-- _______________________________________________________________________________________________________for teacher create class______________________________________________- -->
+
 <div class="modal fade" id="formteacher" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true" >
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -54,11 +87,11 @@
 				<div class="modal-body">
 					<input type="text" id="room" class="form-control" name='room' placeholder="Room">
 				</div>
-			
+				
 			</div>
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-primary align-self-end px-4">Create</button>
-
+				
 			</form>
 				
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -66,13 +99,15 @@
 		</div>
 	</div>
 </div>
-<!-- ________________________________________________________________________end teacher -->
+<!-- ________________________________________________________________________end teacher create class_______________ -->
+
+ <!-- ______________________________________________-start calendar_____________________________________________-? -->
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset='utf-8' />
-  <link href='/docs/dist/demo-to-codepen.css' rel='stylesheet' />
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+	<head>
+		<meta charset='utf-8' />
+		<link href='/docs/dist/demo-to-codepen.css' rel='stylesheet' />
+		<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
   <script src='/docs/dist/demo-to-codepen.js'></script>
  <style>
 	.fc-event {
@@ -118,6 +153,7 @@
 
 
 </script>
+<!-- _______________________________________________________end calendar ___________________________________________ -->
 </head>
 <header class="navbar-light navbar-sticky header-static">
 	<!-- Logo Nav START -->
@@ -141,7 +177,6 @@
 				</span>
 			</button>
 			
-
 			<!-- Main navbar START -->
 			<div class="navbar-collapse w-100 collapse" id="navbarCollapse">
 
@@ -210,7 +245,7 @@
 									</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#createTaskModal">
+									<a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#form_join_class">
 										<i class="text-danger fa-fw bi bi-card-text me-2"></i>Join class
 									</a>
 								</li>
@@ -264,7 +299,7 @@
 
 							<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="dropdown-item">
-									<i class="bi bi-person fa-fw me-2" id="upload_profile">Edit Profile</i>
+									<i class="bi bi-person fa-fw me-2" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_profile">Edit Profile</i>
 								</span>
 							</a>
 						</div>
@@ -313,7 +348,7 @@
 								<hr>
 						</li>
 						<!-- Links -->
-						<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+						<li><a class="dropdown-item" href="#" ><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
 						<li><a class="dropdown-item" href="/editprofile"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
 						<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
@@ -342,31 +377,4 @@
 </header>
 <!-- Header END -->
 
-<div id="contact-popup" style="display: none;">
-	<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
-		<a href="/home" class="btn d-flex justify-content-end">✖</a>
-		<h1>Upload Profile</h1>
-		<div style="margin-top: 10px; margin-bottom: 10px;">
-			<div>
-				<input type="file" name="my_image" id="image">
-			</div>
-		</div>
-		<div>
-			<input type="submit" id="send" name="send" value="Upload" />
-		</div>
-	</form>
-</div>
 
-<?php
-echo '<script src="views/home/searchClasses.view.js"></script>';
-echo '<script>
-
-let uploadProfile = document.querySelector("#upload_profile");
-let popUp = document.querySelector("#contact-popup");
-uploadProfile.addEventListener("click", ()=>{
-	popUp.style.display = "block";
-})
-
-</script>'
-
-?>
