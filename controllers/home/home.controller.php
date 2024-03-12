@@ -4,6 +4,8 @@ require "models/student.model.php";
 
 $classes = displayClass();
 
+$_SESSION['event'] = get_assignment();
+
 $join_classes = displayJoinClass();
 
 require "views/home/home.view.php";

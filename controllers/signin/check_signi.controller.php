@@ -3,6 +3,7 @@ ini_set('session.cookie_lifetime', 86400);
 session_start();
 require_once '../../database/database.php';
 require_once '../../models/signin.model.php';
+require_once '../../models/student.model.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['email']) && isset($_POST['passwd'])) {
         $Email = htmlspecialchars($_POST['email']);
@@ -16,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (password_verify($PWD, $user['user_password'])) {
                     $_SESSION['user'] = $user;
                     $_SESSION['email'] = $Email;
+                    $_SESSION['user_id'] = $image;
                     header('location: /home');
                 } else {
                     echo 'Password is incorrect';
@@ -30,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['user'] = $user;
                     $_SESSION['email'] = $Email;
                     $_SESSION['image_url'] = $image;
+                    $_SESSION['user_id'] = $image;
                     header('location: /home');
                 } else {
                     echo 'Password is incorrect no';

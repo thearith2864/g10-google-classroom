@@ -1,0 +1,52 @@
+body {
+    color: #232323;
+    font-size: 0.95em;    
+    font-family: arial;
+}
+
+
+
+#contact-popup {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #676767;
+}
+
+.contact-form {
+    width: 400px;
+    margin: 0px;
+    background-color: white;
+    font-family: Arial;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -210px;
+    margin-top: -255px;
+    box-shadow: 1px 1px 5px #444444;
+    padding: 20px 40px 40px 40px;
+}
+
+
+#send, #image {
+    background-color: rgb(20, 145, 217);
+    border: 1px solid rgb(20, 145, 217);
+    font-family: Arial;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#contact-popup h1 {
+    font-weight: normal;
+    text-align: center;
+    margin: 10px 0px 20px 0px;
+}
+
+.input-error {
+    border: #e66262 1px solid;
+}
