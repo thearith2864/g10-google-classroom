@@ -14,14 +14,15 @@ function signUp(string $name, string $password ,string $email, $image ) : bool
 
 //function for email that don't have image ________________________________________________________________________
 
-function signUpNotImage(string $name, string $password ,string $email,) : bool
+function signUpNotImage(string $name, string $password ,string $email, $imgDefault) : bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into users (user_name,  user_email, user_password) values(:name,  :email, :password)");
+    $statement = $connection->prepare("insert into users (user_name,  user_email, user_password, image_url) values(:name,  :email, :password, :imgDefault)");
     $statement->execute([
         ':name' => $name,
         ':password' => $password,
-        ':email' => $email
+        ':email' => $email,
+        ':imgDefault'=> $imgDefault
     ]);
     return $statement->rowCount() > 0;
 }

@@ -23,6 +23,8 @@ $routes = [
     '/submit-form'=> 'controllers/student_classworks/classwork_submit_form.controller.php',
         
 
+    
+
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
@@ -31,13 +33,9 @@ if (array_key_exists($uri, $routes)) {
    $page = 'views/errors/404.php';
 }
 
-if ($uri !== '/' && $uri !== '/class-update' && $uri !== '/join_class' && $uri !== '/editprofile') {
+if ($uri !== '/' && $uri !== '/class-update' && $uri !== '/join_class') {
     require "layouts/header.php";
     require "layouts/navbar.php";
-}
-if($uri === '/editprofile'){
-    require "layouts/teacher/header.php";
-    require "layouts/teacher/nav_profile.php";
 }
 
 
@@ -54,3 +52,5 @@ if ($uri == '/join_classrooms') {
 
 
 
+
+?>

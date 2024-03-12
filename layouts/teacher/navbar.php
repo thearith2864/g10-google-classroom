@@ -1,4 +1,30 @@
-<!-- Header START -->
+<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="createTaskModalLabel">Update Your profile here</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+                        <div class="modal-body">
+                            <!-- Task creation form -->
+                            <form  enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+                                <div class="mb-3">
+                                    <label for="taskTitleInput" class="form-label">Inter your profile</label>
+                                    <input type="file" class="form-control" id="taskTitleInput" required name="my_image">
+                                </div>
+                                
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary ">Update new</button>
+									</form>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 <header class="navbar-light navbar-sticky">
 	<!-- Logo Nav START -->
 	<nav class="navbar navbar-expand-xl">
@@ -110,9 +136,9 @@
 						<!-- Profile START -->
 						<li>
 							<div class="dropdown ms-1 ms-lg-0 ">
-								<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+								<a class="avatar avatar-sm p-0" href="controllers/Setting/popup.controller.php" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
 									<span class="dropdown-item">
-										<i class="bi bi-person fa-fw me-2" id="upload_profile"> Edit Profile</i>
+										<i class="bi bi-person fa-fw me-2" data-bs-toggle="modal" data-bs-target="#edit_profile"> Edit Profile</i>
 									</span>
 								</a>
 							</div>
@@ -200,9 +226,7 @@ Main Banner START -->
 Main Banner END -->
 
 <?php
-			} else {
-				$user = $_SESSION['user'];
-				$email = $_SESSION['email'];
+			}
 ?>
 	<div class="dropdown me-1 ms-lg-0">
 		<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
@@ -224,7 +248,7 @@ Main Banner END -->
 				<hr>
 			</li>
 			<!-- Links -->
-			<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+			<!-- <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li> -->
 			<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 			<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
 			<li><a class="dropdown-item bg-danger-soft-hover" href="../../controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
@@ -252,65 +276,6 @@ Main Banner END -->
 	<!-- **************** MAIN CONTENT START **************** -->
 	<main>
 
-		<!-- =======================
-Main Banner START -->
-		<section class="pt-0 ">
-			<!-- Main banner background image -->
-			<div class="container-fluid px-0">
-				<div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
-				</div>
-			</div>
-			<div class="container mt-n4">
-				<div class="row">
-					<!-- Profile banner START -->
-					<div class="col-12">
-						<div class="card bg-transparent card-body p-0">
-							<div class="row d-flex justify-content-between">
-								<!-- Avatar -->
-								<div class="col-auto mt-4 mt-md-0">
-									<div class="avatar avatar-xxl mt-n3">
-										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="../../assets/images/profiles/g10-google-classroom.png" alt="">
-									</div>
-								</div>
-								<!-- Profile info -->
-								<div class="col d-md-flex justify-content-between align-items-center mt-4">
-									<div>
-										<h1 class="my-1 fs-4"><?= $user[1] ?><i class="bi bi-patch-check-fill text-info small"></i></h1>
-										<ul class="list-inline mb-0">
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled Students</li>
-											<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
-										</ul>
-									</div>
-									<!-- Button -->
-									<div class="d-flex align-items-center mt-2 mt-md-0">
-										<a href="/create-class" class="btn btn-success mb-0">Create a class</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Profile banner END -->
-
-						<!-- Advanced filter responsive toggler START -->
-						<!-- Divider -->
-						<hr class="d-xl-none">
-						<div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
-							<a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
-							<button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-								<i class="fas fa-sliders-h"></i>
-							</button>
-						</div>
-						<!-- Advanced filter responsive toggler END -->
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- =======================
-Main Banner END -->
-
-	<?php
-			}
-	?>
 	<!-- =======================
 Inner part START -->
 	<section class="pt-0">
