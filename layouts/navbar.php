@@ -212,7 +212,7 @@
 			<!-- Main navbar END -->
 			<!-- Profile START -->
 			<?php
-			if (isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['image_url'])) {
+			if (isset($_SESSION['user']) && isset($_SESSION['email'])) {
 				$user = $_SESSION['user'];
 				$email = $_SESSION['email'];
 				$image = $_SESSION['image_url'];
@@ -237,13 +237,13 @@
 								</div>
 								<hr>
 						</li>
-						<!-- Links -->
 
 						<div class="dropdown ms-1 ms-lg-0">
 
-							<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="avatar avatar-sm p-0" href="controllers/Setting/popup.controller.php" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="dropdown-item">
-									<i class="bi bi-person fa-fw me-2" id="upload_profile">Edit Profile</i>
+									<i class="bi bi-person fa-fw me-2" id="upload_profile"></i>
+									<a href="controllers/Setting/popup.controller.php">Edit Profile</a>
 								</span>
 							</a>
 						</div>
@@ -267,53 +267,9 @@
 					</ul>
 				</div>
 			<?php
-			} else {
-				$user = $_SESSION['user'];
-				$email = $_SESSION['email'];
+			} 
 			?>
-				<div class="dropdown ms-1 ms-lg-0">
-					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/g10-google-classroom.png" alt="avatar">
-					</a>
-					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-						<!-- Profile info -->
-						<li class="px-3">
-							<div class="d-flex align-items-center">
-								<!-- Avatar -->
-								<div class="avatar me-3">
-									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/g10-google-classroom.png" alt="Card image cap">
-								</div>
-								<div>
-									<div>
-										<a class="h6" href="#"><?= $user[1] ?></a>
-										<p class="small m-0"><?= $email ?></p>
-									</div>
-								</div>
-								<hr>
-						</li>
-						<!-- Links -->
-						<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
-						<li><a class="dropdown-item" href="/editprofile"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
-						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-						<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
-						<li>
-							<hr class="dropdown-divider">
-						</li>
-						<!-- Dark mode switch START -->
-						<li>
-							<div class="modeswitch-wrap" id="darkModeSwitch">
-								<div class="modeswitch-item">
-									<div class="modeswitch-icon"></div>
-								</div>
-								<span>Dark mode</span>
-							</div>
-						</li>
-						<!-- Dark mode switch END -->
-					</ul>
-				</div>
-			<?php
-			}
-			?>
+				
 			<!-- Profile END -->
 		</div>
 	</nav>
@@ -321,7 +277,10 @@
 </header>
 <!-- Header END -->
 
-<div id="contact-popup" style="display: none; z-index: 999; margin-top: 200px;">
+<?php
+if(isset($_SESSION['popup_uploadPf']) && $_SESSION['popup_uploadPf'] != ''):
+?>
+<div id="contact-popup" style="z-index: 999; margin-top: 200px;">
 	<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
 
 		<a href="/home" class="btn d-flex justify-content-end">✖</a>
@@ -338,17 +297,14 @@
 
 	</form>
 </div>
+<?php 
+$_SESSION['popup_uploadPf'] = '';
+endif; 
+?>
 
 <?php
+
 echo '<script src="views/home/searchClasses.view.js"></script>';
-echo '<script>
 
-let uploadProfile = document.querySelector("#upload_profile");
-let popUp = document.querySelector("#contact-popup");
-uploadProfile.addEventListener("click", ()=>{
-	popUp.style.display = "block";
-})
-
-</script>'
 
 ?>

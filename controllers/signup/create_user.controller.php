@@ -57,8 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 					}
 				}
 				else{
-					// condition ddon't have image ___________________				
-					$iscreated = signUpNotImage ($UserName, $passwordHash, $Email,);
+					// condition ddon't have image ___________________	
+					$imgDefault = 'assets/images/profiles/g10-google-classroom.png';			
+					$iscreated = signUpNotImage ($UserName, $passwordHash, $Email, $imgDefault);
 					header ('location: /signin');
 				}
 			}
