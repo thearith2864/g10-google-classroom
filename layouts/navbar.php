@@ -268,7 +268,7 @@ aria-hidden="true">
 			<!-- Main navbar END -->
 			<!-- Profile START -->
 			<?php
-			if (isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['image_url'])) {
+			if (isset($_SESSION['user']) && isset($_SESSION['email'])) {
 				$user = $_SESSION['user'];
 				$email = $_SESSION['email'];
 				$image = $_SESSION['image_url'];
@@ -293,13 +293,12 @@ aria-hidden="true">
 								</div>
 								<hr>
 						</li>
-						<!-- Links -->
 
 						<div class="dropdown ms-1 ms-lg-0">
 
-							<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="avatar avatar-sm p-0" href="controllers/Setting/popup.controller.php" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="dropdown-item">
-									<i class="bi bi-person fa-fw me-2" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit_profile">Edit Profile</i>
+									<i class="bi bi-person fa-fw me-2" id="upload_profile">Edit Profile</i>
 								</span>
 							</a>
 						</div>
@@ -370,6 +369,7 @@ aria-hidden="true">
 			<?php
 			}
 			?>
+				
 			<!-- Profile END -->
 		</div>
 	</nav>
@@ -377,4 +377,34 @@ aria-hidden="true">
 </header>
 <!-- Header END -->
 
+<?php
+if(isset($_SESSION['popup_uploadPf']) && $_SESSION['popup_uploadPf'] != ''):
+?>
+<div id="contact-popup" style="z-index: 999; margin-top: 200px;">
+	<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
 
+		<a href="/home" class="btn d-flex justify-content-end">✖</a>
+		<h1>Upload Profile</h1>
+		<div style="margin-top: 10px; margin-bottom: 10px;">
+			<div>
+				<input type="file" name="my_image" id="image">
+			</div>
+		</div>
+
+		<div>
+			<input type="submit" id="send" name="send" value="Upload" />
+		</div>
+
+	</form>
+</div>
+<?php 
+$_SESSION['popup_uploadPf'] = '';
+endif; 
+?>
+
+<?php
+
+echo '<script src="views/home/searchClasses.view.js"></script>';
+
+
+?>
