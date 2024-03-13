@@ -85,7 +85,7 @@ aria-hidden="true">
 					</li>
 
 					<!-- Nav item 4 Component-->
-					<li class="nav-item"><a class="nav-link me-3" href="docs/alerts.html">To review</a></li>
+					<li class="nav-item"><a class="nav-link me-3" href="/to-review">To review</a></li>
 					<div class='ms-5 me-4'></div>
 
 
