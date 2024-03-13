@@ -226,7 +226,7 @@ Main Banner START -->
 Main Banner END -->
 
 <?php
-			}
+			}else {
 ?>
 	<div class="dropdown me-1 ms-lg-0">
 		<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
@@ -267,6 +267,9 @@ Main Banner END -->
 			<!-- Dark mode switch END -->
 		</ul>
 	</div>
+	<?php
+			}
+	?>
 	<!-- Profile START -->
 	</div>
 	</nav>
