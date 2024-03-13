@@ -238,15 +238,15 @@
 								<hr>
 						</li>
 
-						<div class="dropdown ms-1 ms-lg-0">
-
-							<a class="avatar avatar-sm p-0" href="controllers/Setting/popup.controller.php" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-								<span class="dropdown-item">
-									<i class="bi bi-person fa-fw me-2" id="upload_profile"></i>
-									<a href="controllers/Setting/popup.controller.php">Edit Profile</a>
-								</span>
-							</a>
-						</div>
+						<li>
+							<div class="dropdown ms-1 ms-lg-0 ">
+								<a class="avatar avatar-sm p-0" href="controllers/Setting/popup.controller.php" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+									<span class="dropdown-item">
+										<i class="bi bi-person fa-fw me-2" data-bs-toggle="modal" data-bs-target="#edit_profile"> Edit Profile</i>
+									</span>
+								</a>
+							</div>
+						</li>
 
 						<li><a class="dropdown-item" href="/editprofile"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
@@ -269,6 +269,7 @@
 			<?php
 			} 
 			?>
+
 				
 			<!-- Profile END -->
 		</div>
@@ -277,30 +278,32 @@
 </header>
 <!-- Header END -->
 
-<?php
-if(isset($_SESSION['popup_uploadPf']) && $_SESSION['popup_uploadPf'] != ''):
-?>
-<div id="contact-popup" style="z-index: 999; margin-top: 200px;">
-	<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
 
-		<a href="/home" class="btn d-flex justify-content-end">✖</a>
-		<h1>Upload Profile</h1>
-		<div style="margin-top: 10px; margin-bottom: 10px;">
-			<div>
-				<input type="file" name="my_image" id="image">
+
+<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Update Your profile here</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<!-- Task creation form -->
+				<form enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+					<div class="mb-3">
+						<label for="image" class="form-label">Inter your profile</label>
+						<input type="file" class="form-control" id="image" name="my_image">
+					</div>
+
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary ">Update new</button>
+				</form>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 			</div>
 		</div>
-
-		<div>
-			<input type="submit" id="send" name="send" value="Upload" />
-		</div>
-
-	</form>
+	</div>
 </div>
-<?php 
-$_SESSION['popup_uploadPf'] = '';
-endif; 
-?>
 
 <?php
 
