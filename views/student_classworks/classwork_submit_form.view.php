@@ -222,12 +222,25 @@
                     </p>
                 </div>
                 <div>
+                    <div class="d-flex">
+                        <p>You get (</p>
+                    <?php
+                foreach ($studentsAS as $like) {
+                        if ( $like['user_id'] == $_SESSION['user'][0]){
+                        ?>
+                        <p> <?=$like['score'] ?></p>
+                        <?php
+                        }}
+                        ?>
+                        <p> )point</p>
+                        </div>
                     <!-- here -->
                     <!-- student assignment  -->
                     <?php
                     if ($studentsAS == []) {
                     } else {
                         foreach ($studentsAS as $assignment) {
+                            if ( $assignment['user_id'] == $_SESSION['user'][0]){
                             $assinment_name = $assignment;
                             if ($assignment = substr($assignment['file_work'], 0, 8) == "HOMEWORK") {
 
@@ -247,12 +260,15 @@
                                     
                                 </div>
                         <?php
-                            }
+                            }}
                         }
+                       
                         ?>
+                      
                         <?php
+                        
                         foreach ($studentsAS as $like) {
-
+                            if ( $like['user_id'] == $_SESSION['user'][0]){
                             $ll = $like['file_work'];
                             if ($like['file_work'] = substr($like['file_work'], 0, 8) !== "HOMEWORK") {
                         ?>
@@ -271,8 +287,8 @@
 
                                 </div>
                     <?php
-                            }
-                        }
+                                }
+                        }}
                     }
                     ?>
                     

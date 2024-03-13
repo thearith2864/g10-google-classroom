@@ -62,9 +62,9 @@
                 <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2" aria-selected="false">ClassWork</button>
             </li>
             <!-- Tab item -->
-            <li class="nav-item me-1 me-sm-5 ml-5">
+            <!-- <li class="nav-item me-1 me-sm-5 ml-5">
                 <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false">People </button>
-            </li>
+            </li> -->
             <!-- Tab item -->
           
 
@@ -146,6 +146,7 @@
                     
                 </div>
                     <?php
+                    // print_r($checkAssignments);
                     foreach ($checkAssignments as $assignment):
                     ?>
                     <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
@@ -169,12 +170,7 @@
                     endforeach;
                     ?>
             </div>
-            <div class="tab-pane fade" id="course-pills-tabs-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
-
-                <!-- People page do here ___________________________________________________________________________________________________________________________________ -->
-                <h1>People page</h1>
-
-            </div>
+        
             <!-- Content END -->
 
             <!-- Content START -->
