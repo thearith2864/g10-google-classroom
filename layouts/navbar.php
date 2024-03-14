@@ -322,12 +322,6 @@ aria-hidden="true">
 			<?php
 			} 
 			?>
-<<<<<<< HEAD
-
-				
-			<!-- Profile END -->
-=======
->>>>>>> e04b2ea79ffeedd40e77359b733113e7fe76d152
 		</div>
 	</nav>
 	<!-- Logo Nav END -->
