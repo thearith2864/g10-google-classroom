@@ -47,10 +47,10 @@
 				<h3 class="mb-0">My Classroom List</h3>
 			</div>
 			<!-- Card header END -->
-			<a href="" class="btn btn-primary h-50 m-3" data-bs-toggle="modal" data-bs-target="#createTaskModal">
+			<button class="btn btn-primary h-50 m-3" data-bs-toggle="modal" data-bs-target="#createTaskModal">
 				<i class="bi bi-plus-circle-fill m-2"></i>
 				Cleate New Class
-			</a>
+			</button>
 		</div>
 					<!-- Card header END -->
 					<!-- Card body START -->

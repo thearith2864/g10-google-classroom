@@ -78,11 +78,11 @@
 			</div>
 			<!-- Main navbar END -->
 			<?php
-			if (isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['image_url'])) {
+			// if (isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['image_url'])) {
 				
-				$user = $_SESSION['user'];
-				$email = $_SESSION['email'];
-				$image = $_SESSION['image_url'];
+			// 	$user = $_SESSION['user'];
+			// 	$email = $_SESSION['email'];
+				// $image = $_SESSION['image_url'];
 			?>
 				<!-- Profile START -->
 				<div class="dropdown me-1 ms-lg-0">
@@ -132,6 +132,5 @@
 
 
 			<?php
-			}
+			// }
 			?>
-			

@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if (password_verify($PWD, $user['user_password'])) {
                     $_SESSION['user'] = $user;
                     $_SESSION['email'] = $Email;
-                    $_SESSION['user_id'] = $image;
+                    $_SESSION['image_url'] = getProfile($_SESSION['email'])[0][0];
                     header('location: /home');
                 } else {
                     echo 'Password is incorrect';
