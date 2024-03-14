@@ -21,6 +21,10 @@ $routes = [
     '/editprofile'=>'controllers/Setting/Setting.controller.php',
     '/student_classwork' => 'controllers/student_classworks/student_classwork.controller.php',
     '/submit-form'=> 'controllers/student_classworks/classwork_submit_form.controller.php',
+    '/trainer-class'  => 'controllers/page_class_each_class.cntroller/test.php'
+
+    
+
         
 
     

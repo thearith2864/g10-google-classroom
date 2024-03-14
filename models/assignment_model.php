@@ -240,3 +240,19 @@ function DeleteWork ($idwork){
     ]);
     return $stetement->rowCount() >0 ;
 }
+function findsubmit ($classwork_id){
+    global $connection;
+    $stetement = $connection->prepare('SELECT * FROM submit_classworks where classwork_id = :classwork_id');
+    $stetement->execute([
+        ':classwork_id' => $classwork_id
+    ]);
+    return $stetement-> fetchAll();
+}
+function selectStudentWork ($user_id){
+    global $connection;
+    $stetement = $connection -> prepare("select * from submit_classworks where user_id = :user_id");
+    $stetement->execute([
+        ':user_id' => $user_id
+    ]);
+    return $stetement -> fetchAll();
+}

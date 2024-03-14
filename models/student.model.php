@@ -35,7 +35,7 @@ function get_class_owners() {
 
 function selectstudent ($classcode) {
     global $connection;
-    $stetement = $connection-> prepare('select classroommember_id, classroom_code, user_name, image_url from classroommembers CB inner join users UR on CB.user_email = UR.user_email WHERE classroom_code = :classroom_code');
+    $stetement = $connection-> prepare('select * from classroommembers CB inner join users UR on CB.user_email = UR.user_email WHERE classroom_code = :classroom_code');
     $stetement-> execute([
         ':classroom_code' => $classcode
     ]);
@@ -115,4 +115,13 @@ function get_assignment (){
         [':user_email'=> $user_email]
     );
     return $statement->fetchAll();
+}
+function insertscore ($submit_id, $score){
+    global $connection;
+    $stetement = $connection->prepare('UPDATE submit_classworks SET score = :score   WHERE submit_id = :submit_id');
+    $stetement->execute([
+        ':score' => $score,
+        ':submit_id' => $submit_id
+    ]);
+    return $stetement-> rowCount() > 0 ;  
 }

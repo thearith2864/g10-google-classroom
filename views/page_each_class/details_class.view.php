@@ -67,9 +67,9 @@
                 <button class="nav-link mb-2 mb-md-0 " id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false">People </button>
             </li>
             <!-- Tab item -->
-            <li class="nav-item me-1 me-sm-5 ml-5">
+            <!-- <li class="nav-item me-1 me-sm-5 ml-5">
                 <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-4" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-4" type="button" role="tab" aria-controls="course-pills-tabs-4" aria-selected="false">Grades</button>
-            </li>
+            </li> -->
 
         </ul>
         <!-- Tabs END -->
@@ -310,6 +310,7 @@
                             <div class="d-flex align-items-center">
                                 <img src="../../assets/images/profiles/<?= $member['image_url'] ?>" alt="not foun profile" style="height: 40px;" class="rounded-circle m-3">
                                 <h5><?= $member['user_name'] ?></h5>
+                                <!-- <h5><?= $member['user_id'] ?></h5> -->
                             </div>
                             <div class="right">
                                 <div class="dropdown ms-1 ms-lg-0">
@@ -332,12 +333,12 @@
                     ?>
                 </div>
             </div>
-            <div class="tab-pane fade" id="course-pills-tabs-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
+            <!-- <div class="tab-pane fade" id="course-pills-tabs-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
 
-                <!-- Grade page do here ___________________________________________________________________________________________________________________ -->
+               
                 <h1>Grade page</h1>
 
-            </div>
+            </div> -->
             <!-- Content END -->
 
             <!-- Content START -->

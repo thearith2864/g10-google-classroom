@@ -6,6 +6,7 @@ $codeclass = $_GET['id'];
 $cover_image = chooseCoverImage ($codeclass);
 // print_r( $cover_image);
 $chose = selectstudent($codeclass);
+// print_r($chose);
 $checkid = selectidInclass($codeclass);
 $teacher = getteacher ($codeclass);
  $checkAssignments = checkassignment($checkid['classroom_id']);

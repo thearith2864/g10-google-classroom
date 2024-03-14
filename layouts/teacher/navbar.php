@@ -85,7 +85,7 @@ aria-hidden="true">
 					</li>
 
 					<!-- Nav item 4 Component-->
-					<li class="nav-item"><a class="nav-link me-3" href="docs/alerts.html">To review</a></li>
+					<li class="nav-item"><a class="nav-link me-3" href="/to-review">To review</a></li>
 					<div class='ms-5 me-4'></div>
 
 
@@ -225,17 +225,58 @@ Main Banner START -->
 Main Banner END -->
 
 <?php
-			}
+			}else {
 ?>
-
-<!-- Profile START -->
-</div>
-</nav>
-<!-- Logo Nav END -->
-</header>
-<!-- Header END -->
-<!-- **************** MAIN CONTENT START **************** -->
-<main>
+	<div class="dropdown me-1 ms-lg-0">
+		<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+			<img class="avatar-img rounded-circle" src="../../assets/images/profiles/g10-google-classroom.png" alt="avatar">
+		</a>
+		<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+			<!-- Profile info -->
+			<li class="px-3">
+				<div class="d-flex align-items-center">
+					<!-- Avatar -->
+					<div class="avatar me-3">
+						<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/g10-google-classroom.png" alt="avatar">
+					</div>
+					<div>
+						<a class="h6" href="#"><?= $user[1] ?></a>
+						<p class="small m-0"><?= $email ?></p>
+					</div>
+				</div>
+				<hr>
+			</li>
+			<!-- Links -->
+			<!-- <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li> -->
+			<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+			<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+			<li><a class="dropdown-item bg-danger-soft-hover" href="../../controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+			<li>
+				<hr class="dropdown-divider">
+			</li>
+			<!-- Dark mode switch START -->
+			<li>
+				<div class="modeswitch-wrap" id="darkModeSwitch">
+					<div class="modeswitch-item">
+						<div class="modeswitch-icon"></div>
+					</div>
+					<span>Dark mode</span>
+				</div>
+			</li>
+			<!-- Dark mode switch END -->
+		</ul>
+	</div>
+	<?php
+			}
+	?>
+	<!-- Profile START -->
+	</div>
+	</nav>
+	<!-- Logo Nav END -->
+	</header>
+	<!-- Header END -->
+	<!-- **************** MAIN CONTENT START **************** -->
+	<main>
 
 	<!-- =======================
 Inner part START -->

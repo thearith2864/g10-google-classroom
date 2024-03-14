@@ -133,7 +133,7 @@ aria-hidden="true">
         },
         editable: true,
         events: <?php echo $eventsJson ?>.map(function(event) {
-            var link = '/class?id=' + event.classroom_code;
+            var link = '/student_classwork?id=' + event.classroom_code;
 
             return {
                 title: event.title,
@@ -322,9 +322,12 @@ aria-hidden="true">
 			<?php
 			} 
 			?>
+<<<<<<< HEAD
 
 				
 			<!-- Profile END -->
+=======
+>>>>>>> e04b2ea79ffeedd40e77359b733113e7fe76d152
 		</div>
 	</nav>
 	<!-- Logo Nav END -->
