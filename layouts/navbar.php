@@ -1,4 +1,158 @@
+<!-- Header START -->
 
+<!-- _____________________________________________-start form edit profle_________________________________________________ -->
+<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="createTaskModalLabel">update your profile here</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+                        <div class="modal-body">
+                            <!-- Task creation form -->
+                            <form  enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+                                <div class="mb-3">
+                                    <label for="taskTitleInput" class="form-label">Inter your profile</label>
+                                    <input type="file" class="form-control" id="taskTitleInput" required name="my_image">
+                                </div>
+                                
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary ">Update new</button>
+									</form>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- __________________________________________________________________end edit profile ______________________________________- -->
+
+<!-- _________________________________start form join class______________________________________________- -->
+
+<div class="modal fade" id="form_join_class" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Join Class by Class code</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<!-- Task creation form -->
+				<form action="../../controllers/join_class/join_class.controller.php" method="post">
+					<div class="form-group d-flex flex-column">
+						<label for="classCode" class="mb-3">Ask your teacher for the class code, then enter it here.</label>
+						<input type="text" class="form-control mb-4 w-100" name="classcode" id="classCode" placeholder="Class code">
+					</div>
+					<h5>To sign in with a class code</h5>
+					<ul>
+            <li>Use an authorized account</li>
+            <li>Use a class code with 5-7 letters or numbers, and no spaces or symbols</li>
+        </ul>
+        <p>You need to make sure that I have input the right class code</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary align-self-end px-4">Join Now</button>
+					<!-- <button type="button" class="btn btn-primary">Join Class</button> -->
+				</form>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- _______________________________________________________________________________________________________for teacher create class______________________________________________- -->
+
+<div class="modal fade" id="formteacher" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Create New Class</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<form id="createClassForm" action="../../controllers/create_class/create_class.controller.php" method="post">
+			<div class="modal-body">
+				<!-- Task creation form -->
+				
+			  	<div class="modal-body">
+				  	<input type="text" id="className" class="form-control" name="className" placeholder="Class name (required)">
+            		<span class="text-danger"><?php echo isset($_SESSION['error_classname']) ? $_SESSION['error_classname'] : ''; ?></span>
+				</div>
+				<div class="modal-body">
+					<input type="text" id="section" class="form-control" name='section' placeholder="Section">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="subject" class="form-control" name='subject' placeholder="Subject">
+				</div>
+				<div class="modal-body">
+					<input type="text" id="room" class="form-control" name='room' placeholder="Room">
+				</div>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary align-self-end px-4">Create</button>
+				
+			</form>
+				
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ________________________________________________________________________end teacher create class_______________ -->
+
+ <!-- ______________________________________________-start calendar_____________________________________________-? -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<link href='/docs/dist/demo-to-codepen.css' rel='stylesheet' />
+		<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+  <script src='/docs/dist/demo-to-codepen.js'></script>
+ <style>
+	.fc-event {
+		padding-top: 10px;
+  		height: 40px;
+	}
+ </style>
+  <?php
+	$eventsJson = json_encode($_SESSION['event']);
+  ?>
+
+<script>
+	
+	document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        timeZone: 'UTC',
+        initialView: 'dayGridWeek',
+        headerToolbar: {
+            left: 'prev,next',
+            center: 'title',
+            right: 'dayGridWeek,dayGridDay'
+        },
+        editable: true,
+        events: <?php echo $eventsJson ?>.map(function(event) {
+            var link = '/class?id=' + event.classroom_code;
+
+            return {
+                title: event.title,
+                start: event.dateline,
+                url: link
+            };
+        }),
+        eventClick: function(info) {
+            info.jsEvent.preventDefault();
+            if (info.event.url) {
+                window.location.href = info.event.url; 
+            }
+        }
+    });
+    calendar.render();
+});
+
+
+</script>
 <header class="navbar-light navbar-sticky header-static">
 	<!-- Logo Nav START -->
 	<nav class="navbar navbar-expand-xl">
@@ -112,14 +266,13 @@
 			<!-- Main navbar END -->
 			<!-- Profile START -->
 			<?php
-			if (isset($_SESSION['user']) && isset($_SESSION['email'])) {
+			if (isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['image_url'])) {
 				$user = $_SESSION['user'];
 				$email = $_SESSION['email'];
-				$image = $_SESSION['image_url'];
 			?>
 				<div class="dropdown ms-1 ms-lg-0">
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="avatar">
+						<img class="avatar-img rounded-circle" src="assets/images/profiles/<?php echo $_SESSION['image_url']?>" alt="avatar">
 					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->
@@ -127,7 +280,7 @@
 							<div class="d-flex align-items-center">
 								<!-- Avatar -->
 								<div class="avatar me-3">
-									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="Card image cap">
+									<img class="avatar-img rounded-circle shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url']?>" alt="Card image cap">
 								</div>
 								<div>
 									<div>
@@ -138,15 +291,15 @@
 								<hr>
 						</li>
 
-						<div class="dropdown ms-1 ms-lg-0">
-
-						<a class="avatar avatar-sm p-0" href="controllers/Setting/popup.controller.php" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-								<span class="dropdown-item">
-									<i class="bi bi-person fa-fw me-2" id="upload_profile"></i>
-									<a href="controllers/Setting/popup.controller.php">Edit Profile</a>
-								</span>
-							</a>
-						</div>
+						<li>
+							<div class="dropdown ms-1 ms-lg-0 ">
+								<a class="avatar avatar-sm p-0" href="controllers/Setting/popup.controller.php" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+									<span class="dropdown-item">
+										<i class="bi bi-person fa-fw me-2" data-bs-toggle="modal" data-bs-target="#edit_profile"> Edit Profile</i>
+									</span>
+								</a>
+							</div>
+						</li>
 
 						<li><a class="dropdown-item" href="/editprofile"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
@@ -169,6 +322,7 @@
 			<?php
 			} 
 			?>
+
 				
 			<!-- Profile END -->
 		</div>
@@ -177,30 +331,32 @@
 </header>
 <!-- Header END -->
 
-<?php
-if(isset($_SESSION['popup_uploadPf']) && $_SESSION['popup_uploadPf'] != ''):
-?>
-<div id="contact-popup" style="z-index: 999; margin-top: 200px;">
-	<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
 
-		<a href="/home" class="btn d-flex justify-content-end">✖</a>
-		<h1>Upload Profile</h1>
-		<div style="margin-top: 10px; margin-bottom: 10px;">
-			<div>
-				<input type="file" name="my_image" id="image">
+
+<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Update Your profile here</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<!-- Task creation form -->
+				<form enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+					<div class="mb-3">
+						<label for="image" class="form-label">Inter your profile</label>
+						<input type="file" class="form-control" id="image" name="my_image">
+					</div>
+
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary ">Update new</button>
+				</form>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 			</div>
 		</div>
-
-		<div>
-			<input type="submit" id="send" name="send" value="Upload" />
-		</div>
-
-	</form>
+	</div>
 </div>
-<?php 
-$_SESSION['popup_uploadPf'] = '';
-endif; 
-?>
 
 <?php
 

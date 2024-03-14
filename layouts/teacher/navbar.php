@@ -110,12 +110,11 @@ aria-hidden="true">
 
 				$user = $_SESSION['user'];
 				$email = $_SESSION['email'];
-				$image = $_SESSION['image_url'];
 			?>
 				<!-- Profile START -->
 				<div class="dropdown me-1 ms-lg-0">
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?=$image['image_url'] ?>" alt="avatar">
+						<img class="avatar-img rounded-circle" src="assets/images/profiles/<?php echo $_SESSION['image_url']?>" alt="avatar">
 					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->
@@ -123,7 +122,7 @@ aria-hidden="true">
 							<div class="d-flex align-items-center">
 								<!-- Avatar -->
 								<div class="avatar me-3">
-									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?=$image['image_url'] ?>" alt="avatar">
+									<img class="avatar-img rounded-circle shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url']?>" alt="avatar">
 								</div>
 								<div>
 									<a class="h6" href="#"><?= $user[1] ?></a>
@@ -143,6 +142,7 @@ aria-hidden="true">
 								</a>
 							</div>
 						</li>
+
 						<!-- Profile END -->
 						<li><a class="dropdown-item" href="/editprofile"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
@@ -188,7 +188,7 @@ Main Banner START -->
 							<!-- Avatar -->
 							<div class="col-auto mt-4 mt-md-0">
 								<div class="avatar avatar-xxl mt-n3">
-									<img class="avatar-img rounded-circle border border-white border-3 shadow" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="">
+									<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url'] ?>" alt="">
 								</div>
 							</div>
 							<!-- Profile info -->
@@ -202,7 +202,6 @@ Main Banner START -->
 									</ul>
 								</div>
 								<!-- Button -->
-								
 							</div>
 						</div>
 					</div>
@@ -228,53 +227,15 @@ Main Banner END -->
 <?php
 			}
 ?>
-	<div class="dropdown me-1 ms-lg-0">
-		<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-			<img class="avatar-img rounded-circle" src="../../assets/images/profiles/g10-google-classroom.png" alt="avatar">
-		</a>
-		<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-			<!-- Profile info -->
-			<li class="px-3">
-				<div class="d-flex align-items-center">
-					<!-- Avatar -->
-					<div class="avatar me-3">
-						<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/g10-google-classroom.png" alt="avatar">
-					</div>
-					<div>
-						<a class="h6" href="#"><?= $user[1] ?></a>
-						<p class="small m-0"><?= $email ?></p>
-					</div>
-				</div>
-				<hr>
-			</li>
-			<!-- Links -->
-			<!-- <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li> -->
-			<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
-			<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-			<li><a class="dropdown-item bg-danger-soft-hover" href="../../controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
-			<li>
-				<hr class="dropdown-divider">
-			</li>
-			<!-- Dark mode switch START -->
-			<li>
-				<div class="modeswitch-wrap" id="darkModeSwitch">
-					<div class="modeswitch-item">
-						<div class="modeswitch-icon"></div>
-					</div>
-					<span>Dark mode</span>
-				</div>
-			</li>
-			<!-- Dark mode switch END -->
-		</ul>
-	</div>
-	<!-- Profile START -->
-	</div>
-	</nav>
-	<!-- Logo Nav END -->
-	</header>
-	<!-- Header END -->
-	<!-- **************** MAIN CONTENT START **************** -->
-	<main>
+
+<!-- Profile START -->
+</div>
+</nav>
+<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
 
 	<!-- =======================
 Inner part START -->
@@ -316,30 +277,32 @@ Inner part START -->
 					<!-- Responsive offcanvas body END -->
 				</div>
 
-				<div id="contact-popup" style="display: none; z-index: 999; margin-top: 200px;">
-					<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
-						
-						<a href="/trainer-classroom" class="btn d-flex justify-content-end">✖</a>
-						<h1>Upload Profile</h1>
-						<div style="margin-top: 10px; margin-bottom: 10px;">
-							<div>
-								<input type="file" name="my_image" id="image">
+				<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="createTaskModalLabel">Update Your profile here</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<!-- Task creation form -->
+								<form enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+									<div class="mb-3">
+										<label for="image" class="form-label">Inter your profile</label>
+										<input type="file" class="form-control" id="image" name="my_image">
+									</div>
+
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary ">Update new</button>
+								</form>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							</div>
 						</div>
-
-						<div>
-							<input type="submit" id="send" name="send" value="Upload" />
-						</div>
-						
-					</form>
+					</div>
 				</div>
+
 
 				<?php
 				echo '<script src="views/home/searchClasses.view.js"></script>';
-				echo '<script>let uploadProfile = document.querySelector("#upload_profile");
-				let popUp = document.querySelector("#contact-popup");
-				uploadProfile.addEventListener("click", ()=>{
-				popUp.style.display = "block";
-				})
-				</script>'
 				?>

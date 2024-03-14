@@ -32,7 +32,6 @@ if(isset($_FILES['my_image'])){
                 $img_upload_path = '../../assets/images/profiles/'.$new_img_name;
                 move_uploaded_file($tmp_name, $img_upload_path);
                 
-                
                 uploadProfile($_SESSION['email'], $new_img_name);
                 $_SESSION['image_url'] = getProfile($_SESSION['email'])[0][0];
                 header('Location: /home');
