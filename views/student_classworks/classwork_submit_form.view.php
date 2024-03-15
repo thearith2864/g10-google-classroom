@@ -176,30 +176,45 @@
 
         <!-- //------=========================================================== end display comenrnt-->
         <div  class=" d-flex " style="width: 680px;">
-            <?php
-            if (isset($_SESSION['image_url'])) {
-                $image = $_SESSION['image_url'];
-            ?>
-                <img src="../../assets/images/profiles/<?= $image[4] ?>" alt="" style="height: 40px;" class="rounded-circle m-2">
-            <?php
-            } else {
-            ?>
-                <img src="../../assets/images/profiles/g10-google-classroom.png" alt="" style="height: 40px;" class="rounded-circle m-2">
-            <?php
-            }
-            ?>
+        <?php
+        $image = $_SESSION['image_url'];
+						if(is_array($image)){
+						?>
+						
+					
+                        <img src="../../assets/images/profiles/<?= $_SESSION['image_url']['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-2">
+						<?php
+						}else{
+							?>
+							
+							<!-- <img class="avatar-img rounded-circle shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url']?>" alt="Card image cap"> -->
+                            <img src="../../assets/images/profiles/<?= $_SESSION['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-2">
+							<?php
+						}if($image == null){
+                            ?>
+                            <img src="assets/images/profiles/g10-google-classroom.png" alt="" style="height: 40px;" class="rounded-circle m-2">
+							
+							
+							<?php
+						}
+						?>
             <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="d-flex  w-100">
                 <div class="  w-100" >
                     <input name="comments" type="text" class="form-control shadow-sm h-100 " aria-describedby="emailHelp" placeholder="Enter Your comment">
                     <span class="text-danger"><?php echo isset($_SESSION['errorcomment']) ? $_SESSION['errorcomment'] : ''; ?> </span>
                 </div>
-                <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>" hidden>
-                <input type="text" name="iduser" value="<?= $image['user_id'] ?>" hidden>
-                <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
+                <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>"  hidden>
+                <?php
+                $user_id = $_SESSION['user'];
+                
+                ?>
+                
+                <input type="text" name="iduser" value="<?= $user_id['user_id']?>" hidden>
+                <input type="text" name="idassignment" value="<?= $_GET['id']?>" hidden>
                 <input type="text" name="classcode" value="<?= $_GET['codeclass']; ?>" hidden>
                 <input type="text" name="role" value="" hidden>
+                
                 <button class="btn btn-primary d-flex align-items-center  h-100"><i class="bi bi-send-check "></i></button>
-
             </form>
 
         </div>

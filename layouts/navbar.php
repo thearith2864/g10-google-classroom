@@ -337,19 +337,19 @@ aria-hidden="true">
 
 						<li><a class="dropdown-item" href="/editprofile"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-						<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 						<li>
 							<hr class="dropdown-divider">
 						</li>
+						<li><a class="dropdown-item bg-danger-soft-hover" href="controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
 						<!-- Dark mode switch START -->
-						<li>
+						<!-- <li>
 							<div class="modeswitch-wrap" id="darkModeSwitch">
 								<div class="modeswitch-item">
 									<div class="modeswitch-icon"></div>
 								</div>
 								<span>Dark mode</span>
 							</div>
-						</li>
+						</li> -->
 						<!-- Dark mode switch END -->
 					</ul>
 				</div>
