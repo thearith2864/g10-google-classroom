@@ -153,8 +153,6 @@ aria-hidden="true">
 
 
 </script>
-<!-- _______________________________________________________end calendar ___________________________________________ -->
-</head>
 <header class="navbar-light navbar-sticky header-static">
 	<!-- Logo Nav START -->
 	<nav class="navbar navbar-expand-xl">
