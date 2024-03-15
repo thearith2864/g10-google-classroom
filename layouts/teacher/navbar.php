@@ -70,7 +70,7 @@
 
 							<!-- Dropdown submenu -->
 							<li class="dropdown-submenu dropend">
-								<a class="dropdown-item" href="/join_classrooms"><i class="fas fa-user-graduate fa-fw me-1"></i>Enrolled</a>
+								<a class="dropdown-item" href="/trainer-student	"><i class="fas fa-user-graduate fa-fw me-1"></i>Enrolled</a>
 							</li>
 
 							<li> <a class="dropdown-item" href="#"><i class="fas fa-user-cog fa-fw me-1"></i>Admin (Coming Soon)</a> </li>

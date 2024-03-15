@@ -3,10 +3,10 @@
 <!-- _____________________________________________-start form edit profle_________________________________________________ -->
 <div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel"
 aria-hidden="true">
-<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="createTaskModalLabel">update your profile here</h5>
+<div class="modal-dialog"> 
+	<div class="modal-content border border-success">
+		<div class="modal-header bg-success">
+			<h5 class="modal-title text-white" id="createTaskModalLabel">update your profile here</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
                         <div class="modal-body">
@@ -19,7 +19,7 @@ aria-hidden="true">
                                 
 							</div>
 							<div class="modal-footer">
-								<button class="btn btn-primary ">Update new</button>
+								<button class="btn btn-success ">Update new</button>
 									</form>
 								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
@@ -32,7 +32,7 @@ aria-hidden="true">
 
 <div class="modal fade" id="form_join_class" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
-		<div class="modal-content">
+		<div class="modal-content border border-primary">
 			<div class="modal-header">
 				<h5 class="modal-title" id="createTaskModalLabel">Join Class by Class code</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -51,8 +51,8 @@ aria-hidden="true">
         </ul>
         <p>You need to make sure that I have input the right class code</p>
 				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary align-self-end px-4">Join Now</button>
+				<div class="modal-footer bg-primary">
+					<button type="submit" class="btn btn-danger align-self-end px-4">Join Now</button>
 					<!-- <button type="button" class="btn btn-primary">Join Class</button> -->
 				</form>
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -65,8 +65,8 @@ aria-hidden="true">
 
 <div class="modal fade" id="formteacher" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true" >
 	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
+		<div class="modal-content border border-primary">
+			<div class="modal-header bg-primary">
 				<h5 class="modal-title" id="createTaskModalLabel">Create New Class</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
