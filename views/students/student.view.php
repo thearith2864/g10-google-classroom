@@ -144,8 +144,15 @@
 									</a>
 									<!-- Action item -->
 									<td>
-										<a href="#" class="btn btn-sm btn-success-soft btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
-										<a href="controllers/classroom/delete.classroom.controller.php?id=<?php echo $class['classroom_code'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
+
+										<a id="leave_class" href="controllers/classroom/delete.classroom.controller.php?id=<?php echo $class['classroom_code'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
+										<script>
+												let leave = document.querySelector("#leave_class");
+												leave.addEventListener('click', leave_class);
+												function leave_class(){
+													alert ('are you sure that leave this class');
+												}
+										</script>
 									</td>
 								</tr>
 

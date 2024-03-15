@@ -1,28 +1,27 @@
-<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel"
-aria-hidden="true">
-<div class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title" id="createTaskModalLabel">Update Your profile here</h5>
-			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Update Your profile here</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<!-- Task creation form -->
+				<form enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+					<div class="mb-3">
+						<label for="taskTitleInput" class="form-label">Inter your profile</label>
+						<input type="file" class="form-control" id="taskTitleInput" required name="my_image">
+					</div>
+
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary ">Update new</button>
+				</form>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
 		</div>
-                        <div class="modal-body">
-                            <!-- Task creation form -->
-                            <form  enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
-                                <div class="mb-3">
-                                    <label for="taskTitleInput" class="form-label">Inter your profile</label>
-                                    <input type="file" class="form-control" id="taskTitleInput" required name="my_image">
-                                </div>
-                                
-							</div>
-							<div class="modal-footer">
-								<button class="btn btn-primary ">Update new</button>
-									</form>
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	</div>
+</div>
 
 
 <header class="navbar-light navbar-sticky">
@@ -106,16 +105,32 @@ aria-hidden="true">
 			</div>
 			<!-- Main navbar END -->
 			<?php
-			if (isset($_SESSION['user']) && isset($_SESSION['email']) && isset($_SESSION['image_url'])) {
-
+			if (isset($_SESSION['user']) && isset($_SESSION['email'])) {
 				$user = $_SESSION['user'];
 				$email = $_SESSION['email'];
-				$image = $_SESSION['image_url'];
+				$image = $_SESSION['image_url']
 			?>
 				<!-- Profile START -->
 				<div class="dropdown me-1 ms-lg-0">
 					<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-						<img class="avatar-img rounded-circle" src="../../assets/images/profiles/<?=$image['image_url'] ?>" alt="avatar">
+						<!-- ---------------------------------------start image profile 1 ---------------------------------- -->
+						<?php
+						if (is_array($image)) {
+						?>
+							<img class="avatar-img rounded-circle" src="assets/images/profiles/<?php echo $_SESSION['image_url']['image_url'] ?>" alt="avatar">
+						<?php
+						} else {
+						?>
+							<img class="avatar-img rounded-circle" src="assets/images/profiles/<?php echo $_SESSION['image_url'] ?>" alt="avatar">
+						<?php
+						}
+						if ($image == null) {
+						?>
+							<img class="avatar-img rounded-circle" src="assets/images/profiles/g10-google-classroom.png" alt="avatar">
+						<?php
+						}
+						?>
+						<!-- ---------------------------end image profile -------------------------------------- -->
 					</a>
 					<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 						<!-- Profile info -->
@@ -123,7 +138,26 @@ aria-hidden="true">
 							<div class="d-flex align-items-center">
 								<!-- Avatar -->
 								<div class="avatar me-3">
-									<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/<?=$image['image_url'] ?>" alt="avatar">
+									<!-- ---------------------start iamge profile 2---------------------------- -->
+									<?php
+									if (is_array($image)) {
+									?>
+
+										<img class="avatar-img rounded-circle shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url']['image_url'] ?>" alt="avatar">
+									<?php
+									} else {
+									?>
+										<img class="avatar-img rounded-circle shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url'] ?>" alt="avatar">
+
+									<?php
+									}
+									if ($image == null) {
+									?>
+										<img class="avatar-img rounded-circle shadow" src="assets/images/profiles/g10-google-classroom.png" alt="avatar">
+									<?php
+									}
+									?>
+									<!-- ------------------------------------------- end image profile ------------------------- -->
 								</div>
 								<div>
 									<a class="h6" href="#"><?= $user[1] ?></a>
@@ -143,6 +177,7 @@ aria-hidden="true">
 								</a>
 							</div>
 						</li>
+
 						<!-- Profile END -->
 						<li><a class="dropdown-item" href="/editprofile"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
 						<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
@@ -188,13 +223,30 @@ Main Banner START -->
 							<!-- Avatar -->
 							<div class="col-auto mt-4 mt-md-0">
 								<div class="avatar avatar-xxl mt-n3">
-									<img class="avatar-img rounded-circle border border-white border-3 shadow" src="../../assets/images/profiles/<?= $image['image_url'] ?>" alt="">
+									<!-- ___________________________start image profile 3____________________________ -->
+									<?php
+									if (is_array($image)) {
+									?>
+										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url']['image_url'] ?>" alt="not found">
+									<?php
+									} else {
+									?>
+										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url'] ?>" alt="not found">
+									<?php
+									}
+									if ($image == null) {
+									?>
+										<img class="avatar-img rounded-circle border border-white border-3 shadow" src="assets/images/profiles/g10-google-classroom.png" alt="not found">
+									<?php
+									}
+									?>
+									<!-- -----------------------------------end image profile ------------------------------------- -->
 								</div>
 							</div>
 							<!-- Profile info -->
 							<div class="col d-md-flex justify-content-between align-items-center mt-4">
 								<div>
-									<h1 class="my-1 fs-4"><?= $user[1] ?><i class="bi bi-patch-check-fill text-info small"></i></h1>
+									<h1 class="my-1 fs-4"><?=$user[1] ?><i class="bi bi-patch-check-fill text-info small"></i></h1>
 									<ul class="list-inline mb-0">
 										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
 										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled Students</li>
@@ -202,7 +254,6 @@ Main Banner START -->
 									</ul>
 								</div>
 								<!-- Button -->
-								
 							</div>
 						</div>
 					</div>
@@ -226,58 +277,16 @@ Main Banner START -->
 Main Banner END -->
 
 <?php
-			}else {
-?>
-	<div class="dropdown me-1 ms-lg-0">
-		<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-			<img class="avatar-img rounded-circle" src="../../assets/images/profiles/g10-google-classroom.png" alt="avatar">
-		</a>
-		<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-			<!-- Profile info -->
-			<li class="px-3">
-				<div class="d-flex align-items-center">
-					<!-- Avatar -->
-					<div class="avatar me-3">
-						<img class="avatar-img rounded-circle shadow" src="../../assets/images/profiles/g10-google-classroom.png" alt="avatar">
-					</div>
-					<div>
-						<a class="h6" href="#"><?= $user[1] ?></a>
-						<p class="small m-0"><?= $email ?></p>
-					</div>
-				</div>
-				<hr>
-			</li>
-			<!-- Links -->
-			<!-- <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li> -->
-			<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
-			<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-			<li><a class="dropdown-item bg-danger-soft-hover" href="../../controllers/sognout/sign.controller.php"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
-			<li>
-				<hr class="dropdown-divider">
-			</li>
-			<!-- Dark mode switch START -->
-			<li>
-				<div class="modeswitch-wrap" id="darkModeSwitch">
-					<div class="modeswitch-item">
-						<div class="modeswitch-icon"></div>
-					</div>
-					<span>Dark mode</span>
-				</div>
-			</li>
-			<!-- Dark mode switch END -->
-		</ul>
-	</div>
-	<?php
 			}
-	?>
-	<!-- Profile START -->
-	</div>
-	</nav>
-	<!-- Logo Nav END -->
-	</header>
-	<!-- Header END -->
-	<!-- **************** MAIN CONTENT START **************** -->
-	<main>
+?>
+<!-- Profile START -->
+</div>
+</nav>
+<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
 
 	<!-- =======================
 Inner part START -->
@@ -300,16 +309,13 @@ Inner part START -->
 								<div class="bg-primary border rounded-3 pb-0 p-3 w-100">
 									<!-- Dashboard menu -->
 									<div class="list-group list-group-dark list-group-borderless">
-										
+
 										<a class="list-group-item d-flex" href="/home"><span class="material-symbols-outlined">home</span>Home</a>
 										<!-- <a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">calendar_month</span>Calendar</a> -->
 										<a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">cast_for_education</span>Teaching</a>
-										
-										<a class="list-group-item d-flex" href="/trainer-review"><span class="material-symbols-outlined">preview</span>Reviews</a>
+										<!-- <a class="list-group-item d-flex" href="/trainer-review"><span class="material-symbols-outlined">preview</span>Reviews</a> -->
 										<a class="list-group-item d-flex" href="/trainer-student"><span class="material-symbols-outlined">school</span>Enrolled</a>
 										<a class="list-group-item d-flex" href="/todos"><i class="bi bi-pencil-square fa-fw me-2"></i>To Do</a>
-
-
 										<a class="list-group-item text-danger bg-danger-soft-hover" href="/user-signin"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign Out</a>
 									</div>
 								</div>
@@ -319,30 +325,32 @@ Inner part START -->
 					<!-- Responsive offcanvas body END -->
 				</div>
 
-				<div id="contact-popup" style="display: none; z-index: 999; margin-top: 200px;">
-					<form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
-						
-						<a href="/trainer-classroom" class="btn d-flex justify-content-end">✖</a>
-						<h1>Upload Profile</h1>
-						<div style="margin-top: 10px; margin-bottom: 10px;">
-							<div>
-								<input type="file" name="my_image" id="image">
+				<div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="createTaskModalLabel">Update Your profile here</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<!-- Task creation form -->
+								<form enctype="multipart/form-data" action="../../controllers/Setting/upload_profile.controller.php" method="post">
+									<div class="mb-3">
+										<label for="image" class="form-label">Inter your profile</label>
+										<input type="file" class="form-control" id="image" name="my_image">
+									</div>
+
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary ">Update new</button>
+								</form>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 							</div>
 						</div>
-
-						<div>
-							<input type="submit" id="send" name="send" value="Upload" />
-						</div>
-						
-					</form>
+					</div>
 				</div>
+
 
 				<?php
 				echo '<script src="views/home/searchClasses.view.js"></script>';
-				echo '<script>let uploadProfile = document.querySelector("#upload_profile");
-				let popUp = document.querySelector("#contact-popup");
-				uploadProfile.addEventListener("click", ()=>{
-				popUp.style.display = "block";
-				})
-				</script>'
 				?>

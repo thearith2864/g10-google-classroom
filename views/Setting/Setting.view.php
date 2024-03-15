@@ -24,14 +24,14 @@
           <h2> Edit account settings</h2>
         </div>
 
-        <div class="modal-body">
+        <div class="modal-body" hidden>
           <h5>Change Name</h5>
-          <input type="text" id="name" class="form-control" placeholder="Enter New Name" name="name">
+          <input type="text" id="name" class="form-control" placeholder="Enter New Name" name="name" value="<?=$_SESSION['user'][1]?>">
         </div>
         
-        <div class="modal-body">
+        <div class="modal-body" hidden>
           <h5>Enter Your Email</h5>
-          <input type="email" id="email" class="form-control" placeholder="Enter Your email" name="email">
+          <input type="email" id="email" class="form-control" placeholder="Enter Your email" name="email" value="<?=$_SESSION['email']?>">
         </div>
         
       <!-- password_update_form.php -->

@@ -4,7 +4,6 @@ require "../../database/database.php";
 // echo $_POST['icclass'];
 if (isset($_FILES['cover_image'])  ){
     $codeclass = $_POST['idclass'];
-    echo $codeclass;
     $cover_image = $_FILES['cover_image'];
     $img_name = $_FILES['cover_image']['name'];
     $img_size = $_FILES['cover_image']['size'];

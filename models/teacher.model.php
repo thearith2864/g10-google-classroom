@@ -38,7 +38,15 @@ function get_enrolled(){
 function deleteClass( $classroom_code) : bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from classrooms where classroom_code =:classroom_code");
+    $statement = $connection->prepare("delete from classroommembers where classroom_code =:classroom_code");
+    $statement->execute([':classroom_code' => $classroom_code]);
+    return $statement->rowCount() > 0;
+
+}
+function leaveInclass( $classroom_code) : bool
+{
+    global $connection;
+    $statement = $connection->prepare("delete from classroommembers where classroom_code =:classroom_code");
     $statement->execute([':classroom_code' => $classroom_code]);
     return $statement->rowCount() > 0;
 
