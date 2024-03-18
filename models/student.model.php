@@ -125,3 +125,27 @@ function insertscore ($submit_id, $score){
     ]);
     return $stetement-> rowCount() > 0 ;  
 }
+function checkclassinvite(){
+    global $connection;
+    $stetement = $connection -> prepare('SELECT * from invite invite inner join users user on invite.teacher_id = user.user_id ');
+    $stetement->execute(
+    );
+    return $stetement->fetchAll();
+}
+function deleteInvite ($id){
+   global $connection;
+   $stetement = $connection->prepare('DELETE FROM invite WHERE invite_id = :invite_id');
+   $stetement->execute([
+    ':invite_id' => $id
+   ]);
+   return $stetement->rowCount() > 0;
+
+}
+function checkmember ($student){
+    global $connection;
+    $stetement = $connection->prepare('select * from classroommembers WHERE user_email = :user_email');
+    $stetement-> execute([
+        ':user_email' => $student
+    ]);
+    return $stetement->fetchAll();
+}

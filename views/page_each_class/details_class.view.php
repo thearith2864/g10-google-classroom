@@ -1,4 +1,82 @@
 <section>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php
+
+    if (isset($_GET['invitefalse'])){
+    ?>
+    <script>
+Swal.fire({
+  icon: "error",
+  title: "Cann't Invite",
+  text: "You can not invite you into your class!",
+  footer: 'You can invite anothor People .'
+});
+  </script>
+<?php
+    }
+    if(isset($_GET['invitetrue'])){
+       ?>
+       <script>
+
+let timerInterval;
+Swal.fire({
+    icon: "success",
+  title: "invite successfuly",
+  html: "I will close in <b></b> milliseconds.",
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading();
+    const timer = Swal.getPopup().querySelector("b");
+    timerInterval = setInterval(() => {
+      timer.textContent = `${Swal.getTimerLeft()}`;
+    }, 100);
+  },
+  willClose: () => {
+    clearInterval(timerInterval);
+  }
+}).then((result) => {
+  /* Read more about handling dismissals below */
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log("I was closed by the timer");
+  }
+});
+       </script>
+       
+       <?php
+    }
+?>
+  
+    <div class="modal fade" id="form_invite_student" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createTaskModalLabel">Form invite student</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="controllers/page_class_each_class.cntroller/invite_student.php" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Email Student</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email_student">
+                        <input type="text" name="code" value="<?= $_GET['id']?> "hidden>
+                        <input type="text" name="teacher_email" value="<?=$_SESSION['user']['user_email'] ?> "hidden>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger align-self-end px-4">Invite </button>
+                    </form>
+                    <!-- <button type="button" class="btn btn-primary">Join Class</button> -->
+                    </form>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- write cover image here// -->
     <div class="container">
         <!-- Title -->
@@ -145,32 +223,32 @@
                             <div class="card  shadow-lg m-3 border border-secondary" style="width: 190%;">
                                 <div class="card-body d-flex">
                                     <div>
-                                        <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; " >
-                                        <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                        <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; ">
+                                            <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
                                         </a>
                                     </div>
-                                    <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; " >
-                                    <div class="p-2 w-100 ">
+                                    <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; ">
+                                        <div class="p-2 w-100 ">
                                             <h5 class="card-title"><?= $assignment['title'] ?></h5>
                                             <p class="card-text"><?= $assignment['create_date'] ?></p>
                                             <?php
-                                        if ($assignment['dateline'] > $targetitme) {
+                                            if ($assignment['dateline'] > $targetitme) {
                                             ?>
-                                            
-                                            <p class="card-text"> <?= $assignment['dateline'] ?></p>
+
+                                                <p class="card-text"> <?= $assignment['dateline'] ?></p>
                                             <?php
-                                        
-                                    } else {
-                                        ?>
-                                            
-                                            <h5 class="text-danger card-text ">Missing</h5>
+
+                                            } else {
+                                            ?>
+
+                                                <h5 class="text-danger card-text ">Missing</h5>
                                             <?php
-                                            
-                                        }
-                                        ?>
-                                        <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?>)</p>
-                                    </div>
-                                </a>
+
+                                            }
+                                            ?>
+                                            <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?>)</p>
+                                        </div>
+                                    </a>
                                     <div class="d-flex align-items-center">
 
                                         <a href="../../controllers/assignment/delete_assignment_controller.php?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>"><i class="bi bi-trash-fill fa-2x m-2"></i></a>
@@ -220,17 +298,17 @@
                             <div class="card-body d-flex">
                                 <div>
                                     <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%;">
-                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                        <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
                                     </a>
                                 </div>
                                 <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%;">
-                                <div class="p-2 w-100">
+                                    <div class="p-2 w-100">
                                         <h4 class="card-title text-primary"><?= $assignment['title'] ?></h4>
-                                    
-                                    <p class="card-text"><?= $assignment['create_date'] ?></p>
-                                    <p class="card-text"> <?= $assignment['dateline'] ?></p>
 
-                                </div>
+                                        <p class="card-text"><?= $assignment['create_date'] ?></p>
+                                        <p class="card-text"> <?= $assignment['dateline'] ?></p>
+
+                                    </div>
                                 </a>
                                 <div class="d-flex align-items-center">
                                     <a href="">
@@ -283,8 +361,8 @@
                 </div>
                 <div class="p-2 m-3">
                     <div class="d-flex align-items-center">
-                        <img src="../../assets/images/profiles/<?=$teacher[0]['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-3">
-                        <h5><?=$teacher[0]['user_name'] ?></h5>
+                        <img src="../../assets/images/profiles/<?= $teacher[0]['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-3">
+                        <h5><?= $teacher[0]['user_name'] ?></h5>
 
                     </div>
                 </div>
@@ -298,7 +376,7 @@
                     ?>
                     <div class="d-flex">
                         <p style="margin-top: 19px;" class="m-2"><?= $count . " Student " ?></p>
-                        <i class="bi bi-person-plus-fill fa-2x"></i>
+                        <i class="bi bi-person-plus-fill fa-2x" data-bs-toggle="modal" data-bs-target="#form_invite_student"></i>
                     </div>
                 </div>
 

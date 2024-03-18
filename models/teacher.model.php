@@ -38,7 +38,7 @@ function get_enrolled(){
 function deleteClass( $classroom_code) : bool
 {
     global $connection;
-    $statement = $connection->prepare("delete from classroommembers where classroom_code =:classroom_code");
+    $statement = $connection->prepare("delete from classrooms where classroom_code =:classroom_code");
     $statement->execute([':classroom_code' => $classroom_code]);
     return $statement->rowCount() > 0;
 
@@ -87,3 +87,34 @@ function getClass($name)
     $statement->execute();
     return $statement->fetch();
 }
+function selectEmail ($email){
+    global $connection;
+    $stetement = $connection ->prepare('select * from users where user_email = :user_email');
+    $stetement-> execute([
+        ':user_email' => $email
+    ]);
+    return $stetement-> fetchAll();
+};
+function inviteStudent($student, $teacher, $description, $code) {
+    global $connection;
+    
+    $statement = $connection->prepare('INSERT INTO invite (teacher_id, student_id, description, classroom_code, date) VALUES (:teacher_id, :student_id, :description, :classroom_code, :date)');
+    $statement->execute([
+        ':teacher_id' => $teacher,
+        ':student_id' => $student,
+        ':description' => $description,
+        ':classroom_code' => $code,
+        ':date' => date('Y-m-d')
+
+    ]);
+    
+    return $statement->rowCount() > 0;
+}
+function checkc(){
+    global $connection;
+    $stetement = $connection -> prepare('SELECT * from invite invite inner join users user on invite.teacher_id = user.user_id ');
+    $stetement->execute(
+    );
+    return $stetement->fetchAll();
+}
+

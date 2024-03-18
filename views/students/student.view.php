@@ -29,6 +29,46 @@
 		</div>
 	</div>
 </div>
+<div class="modal fade" id="message_student" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog ">
+		<div class="modal-content border border-primary">
+			<div class="modal-header">
+				<h5 class="modal-title" id="createTaskModalLabel">Message someone invite in class</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<!-- Task creation form -->
+				<?php
+				foreach($invite as $teacher){
+					if ($_SESSION['user']['user_id'] == $teacher['student_id']){
+				?>
+				<div class=" d-flex justify-content-between">
+					<div class="d-flex">
+					<img src="assets/images/profiles/<?=$teacher['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-2">
+					<div style="width: 60%;">
+						<h5><?=$teacher['user_name'] ?></h5> 
+						<p><?=$teacher['description']?></p>
+					</div>
+					<div style="width: 90px;">
+
+						<p style="font-size: 10px;"><?= $teacher['date']?></p>
+					</div>
+					</div>
+					<div class="d-flex " style="height: 29px;">
+						<a href="controllers/join_class/join_class.controller.php?id=<?=$teacher['classroom_code']?>&iviteID=<?=$teacher['invite_id']?>"><button class="btn​ btn-primary" style="margin-right: 8px;" >Joint</button></a>
+						<a href="controllers/join_class/join_class.controller.php?iviteID=<?=$teacher['invite_id']?>"><button class="btn​ btn-gray">Reject</button></a>
+					</div>
+				 </div>
+				 <?php
+				}}
+				 ?>
+				</div>
+				<div class="modal-footer bg-primary">
+					
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Right sidebar END -->
 
@@ -42,10 +82,27 @@
 				<h3 class="mb-0">Enrolled</h3>
 			</div>
 			<!-- Card header END -->
-			<a href="" class="btn btn-danger h-50 m-3" data-bs-toggle="modal" data-bs-target="#createTaskModal">
+			<div>
+				<a href="" class="btn btn-danger h-50 m-3" data-bs-toggle="modal" data-bs-target="#createTaskModal">
 				<i class="bi bi-plus-circle-fill m-2"></i>
 				Join New Class
 			</a>
+				<button class=" btn"> 
+					<i class="bi bi-envelope fa-2x " style="color: red;" data-bs-toggle="modal" data-bs-target="#message_student"></i>
+					<?php
+					$count = 0;
+				foreach($invite as $teacher){
+					if ($_SESSION['user']['user_id'] == $teacher['student_id']){
+					$count += 1;
+				?>
+				<?php
+					}}
+				?>
+					<p style="margin-top: -45px; margin-left: 27px; width:25px;" class="bg-danger rounded-circle text-white" ><?=$count?></p>
+			</button>
+			</div>
+			
+			
 		</div>
 					<!-- Card header END -->
 
@@ -145,7 +202,7 @@
 									<!-- Action item -->
 									<td>
 
-										<a id="leave_class" href="controllers/classroom/delete.classroom.controller.php?id=<?php echo $class['classroom_code'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
+										<a id="leave_class" href="controllers/classroom/delete.classroom.controller.php?ids=<?php echo $class['classroom_code'] ?>" class="btn btn-sm btn-danger-soft btn-round mb-0"><i class="fas fa-fw fa-times"></i></a>
 										<script>
 												let leave = document.querySelector("#leave_class");
 												leave.addEventListener('click', leave_class);
