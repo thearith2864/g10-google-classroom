@@ -78,7 +78,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             $user = $_SESSION['user']['user_name'];
             $teacher_email = getTeacherEmail($codeclass);
             $classwork_name = getClassworkName($idwork);
-            $url_link = 'http://localhost:8888/submit-form?id='. $idwork . '&codeclass=' . $codeclass ;
+            $url_link = 'http://localhost:8888/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass ;
 
             $mail = new PHPMailer(true);
     
