@@ -398,8 +398,8 @@ Swal.fire({
                                     <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
                                         <!-- option here -->
                                         <li><a class="dropdown-item" href="controllers/page_class_each_class.cntroller/delete_steudent.php?id=<?= $member['classroommember_id']; ?>&class=<?= $_GET['id'] ?>">Remove</a></li>
-                                        <li><a class="dropdown-item" href="#">Email name</a></li>
-                                        <li><a class="dropdown-item" href="#">mute</a></li>
+                                        <li><a class="dropdown-item" href="https://mail.google.com/mail/u/0/?fs=1&to=<?=$member['user_email']?>&tf=cm">Email <?=$member['user_email']?></a></li>
+                                        <!-- <li><a class="dropdown-item" href="#">mute</a></li> -->
 
                                     </ul>
                                 </div>

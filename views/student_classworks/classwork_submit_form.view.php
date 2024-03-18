@@ -159,7 +159,7 @@
                                         </ul>
                                     </div>
                                     <!-- <a class="dropdown-item" href="#"><i class="bi bi-pencil-square m-2"></i>Edit</li> -->
-                                    <a class="dropdown-item" href="controllers/detait_assignment_for teacher_controller/delete_comment_controller.php?id=<?= $comment['comment_id']; ?>&idassignment=<?= $_GET['id'] ?>&code=<?= $_GET['codeclass'] ?>"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
+                                    <a class="dropdown-item" href="controllers/detait_assignment_for teacher_controller/delete_comment_controller.php?ids=<?= $comment['comment_id']; ?>&idassignment=<?= $_GET['id'] ?>&code=<?= $_GET['codeclass'] ?>"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
                                 </ul>
                             </div>
 
