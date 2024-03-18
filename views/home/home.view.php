@@ -1,6 +1,8 @@
 <?php
+session_start();
 if (!isset($_SESSION['user'])) {
-	echo 'love';
+    header('Location: /signup');
+    exit(); 
 }
 ?>
 <!-- **************** MAIN CONTENT START **************** -->

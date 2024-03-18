@@ -1,5 +1,11 @@
 <!-- Header START -->
-
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: /signin');
+    exit(); 
+}
+?>
 <!-- _____________________________________________-start form edit profle_________________________________________________ -->
 <div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel"
 aria-hidden="true">

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: /signin');
+    exit(); 
+}
+?>
 <div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
