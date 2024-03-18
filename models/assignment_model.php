@@ -256,3 +256,29 @@ function selectStudentWork ($user_id){
     ]);
     return $stetement -> fetchAll();
 }
+
+function getTeacherEmail ($classcodes) {
+    global $connection;
+    $statement = $connection-> prepare('select user_email from classrooms where classroom_code = :classroom_code');
+    $statement ->execute([
+        ':classroom_code' => $classcodes
+    ]);
+    $result = $statement->fetch();
+
+    if ($result) {
+        return $result['user_email'];
+    } else {
+        return null; 
+    }
+}
+
+function getClassworkName($idwork){
+    global $connection;
+    $statement = $connection-> prepare('select title from classworks where classwork_id  = :classwork_id');
+    $statement ->execute([
+        ':classwork_id' => $idwork
+    ]);
+    $result = $statement->fetch();
+
+    return $result['title'];
+}
