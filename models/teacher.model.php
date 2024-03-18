@@ -117,4 +117,10 @@ function checkc(){
     );
     return $stetement->fetchAll();
 }
+function chooseTeacher (){
+    global $connection;
+    $stetement = $connection-> prepare('SELECT * FROM classrooms CS INNER JOIN users US ON CS.user_email = US.user_email ');
+    $stetement->execute();
+    return $stetement->fetchAll();
+}
 

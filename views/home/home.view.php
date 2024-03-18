@@ -238,12 +238,21 @@ Popular course START -->
 					<div class="col-sm-6 col-lg-4 col-xl-3" id="classCard">
 						<a href="/class?id=<?=$class['classroom_code']?>">
 						<div class="card shadow h-100">
-
-
-
-
 							<!-- Image -->
 							<img src="assets/images/courses/4by3/08.jpg" class="card-img-top" alt="course image">
+							<div class="d-flex align-items-center">
+								<?php
+								foreach ($teacher as $select){
+									// print_r($select['classroom_code']);
+									
+									if ($select['classroom_code'] == $class['classroom_code']){
+								?>
+								<img src="../../assets/images/profiles/<?=$select['image_url']?>"  alt="" style="margin-top: -40px; height: 80px; width:80px; margin-left: 10px; " class="shadow-lg rounded-circle" >
+								<h5 style="margin-left: 10px;"><?=$select['user_name']?></h5>
+								<?Php
+								}}
+								?>
+							</div>
 							<!-- Card body -->
 							<div class="card-body pb-0">
 								<!-- Badge and favorite -->
@@ -253,18 +262,17 @@ Popular course START -->
 									<i class="far fa-heart"></i>
 								</div>
 								<!-- Title -->
-								<h5 class="card-title fw-normal" id='className'><?php echo $class['classroom_name'] ?></h5>
-								
-								<p class="mb-2 text-truncate-2"><?php echo $class['subject'] ?></p>
-								<p class="mb-2 text-truncate-2"><?php echo $class['room'] ?></p>
+								<h5 class="card-title fw-normal" id='className'>class Name: <?php echo $class['classroom_name'] ?></h5>
+								<p class="mb-2 text-truncate-2">Subject: <?php echo $class['subject']?></p>
+								<p class="mb-2 text-truncate-2">Room: <?php echo $class['room']?></p>
 
 							</div>
 							<!-- Card footer -->
 							<div class="card-footer pt-0 pb-3">
 								<hr>
 								<div class="d-flex justify-content-between">
-									<span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>12h 56m</span>
-									<span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>15 lectures</span>
+								
+									<i class="bi bi-archive-fill fa-2x"></i>
 								</div>
 							</div>
 						</div>
