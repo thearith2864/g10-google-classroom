@@ -9,11 +9,10 @@ Footer START -->
 			<!-- Widget 1 START -->
 			<div class="col-lg-3">
 				<!-- logo -->
-				<a class="me-0" href="index.html">
-					<img class="light-mode-item h-40px" src="assets/images/logo.svg" alt="logo">
-					<img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo">
+				<a class="me-0"  href="/home">
+					<img class="light-mode-item h-60px" src="assets/images/pnc.png" alt="logo">
 				</a>
-				<p class="my-3">Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners.</p>
+				<p class="my-3">At the end of the 2-year training, graduating students receive a PNC certificate and an Associate's Degree diploma (for the ones who passed the state exam), recognized by the MoEYS. Graduates also have the possibility to carry on studying in year three at University, if they pass the state exam.</p>
 				<!-- Social media icon -->
 				<ul class="list-inline mb-0 mt-3">
 					<li class="list-inline-item"> <a class="btn btn-white btn-sm shadow px-2 text-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a> </li>
