@@ -95,7 +95,7 @@ function showAssignment (){
 
 function workdone ($user_id){
     global $connection;
-    $stetement = $connection->prepare('select * from submit_classworks WHERE user_id = :user_id');
+    $stetement = $connection->prepare('select * from submit_classworks  WHERE user_id = :user_id');
     $stetement->execute([
         'user_id' => $user_id
     ]);

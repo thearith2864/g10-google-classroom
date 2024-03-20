@@ -86,7 +86,6 @@ if (isset($_SESSION['user'])) {
 
 								<div id="passwordHelpBlock" class="form-text">
 									Your password must be 8 characters at least
-									
 								</div>
 							</div>
 							<div class="mb-4">

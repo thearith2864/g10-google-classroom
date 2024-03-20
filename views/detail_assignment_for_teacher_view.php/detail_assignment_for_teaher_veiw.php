@@ -202,8 +202,8 @@
                                                     <a href="/detait_assignment?id=<?=$_GET['id']?>&codeclass=<?= $_GET['codeclass']?>&user_id=<?=$students['user_id']?>">
                                                     <div class="d-flex align-items-start justify-content-between">
                                                         <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
-                                                            <h5><?= $student['user_name'] ?></h5>
-                                                            <p><?= $count?></p>
+                                                            <h5><?=$student['user_name']?></h5>
+                                                            <p><?=$count?></p>
                                                         </div>
                                                     </div>
                                                 </a>

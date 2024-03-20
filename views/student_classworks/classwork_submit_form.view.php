@@ -309,7 +309,20 @@
                     
                     <div>
                         <div class="dropdown ms-1 ms-lg-0">
-                            <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php
+                        $dateline = $chooose[0]['dateline'];
+                        $currentDate = date('Y-m-d');
+                        if ($dateline < $currentDate) {
+                            ?>
+                             
+                                <button class="btn  " style="border:1px solid black; width:347px;">❌ Your work has expired</button>
+                            
+                            
+                            <?php
+                            
+                        }else{
+                            ?>
+                             <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                                 <button class="btn " style="border:1px solid black; width:347px;">➕Add or create</button>
                             </a>
                             <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
@@ -320,6 +333,11 @@
                                     <i class="bi bi-file-earmark-arrow-up fa-2x m-2 dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#file">File</i>
                                 </div>
                             </ul>
+                            
+                            <?php
+                        }
+                        ?>
+                           
                         </div>
 
                     </div>
