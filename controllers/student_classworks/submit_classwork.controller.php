@@ -27,13 +27,14 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                 $file_upload_path = '../../assets/files/Assignment_for_students_subment/' . $new_file_name;
                 move_uploaded_file($tmp_name, $file_upload_path);
                 submit_classwork($idwork, $user_id['user_id'], $new_file_name, date('Y-m-d'));
-                
+                header('location: /submit-form?id='. $idwork . '&codeclass=' . $codeclass);
+
                 if (isset($_SESSION['email']) ) {
                     $email = $_SESSION['email'];
                     $user = $_SESSION['user']['user_name'];
                     $teacher_email = getTeacherEmail($codeclass);
                     $classwork_name = getClassworkName($idwork);
-                    $url_link = 'http://localhost:8888/submit-form?id='. $idwork . '&codeclass=' . $codeclass ;
+                    $url_link = 'http://localhost:8888/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass ;
                     
                     
                     $mail = new PHPMailer(true);
@@ -43,13 +44,13 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                         $mail->isSMTP();                                            //Send using SMTP
                         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                        $mail->Username   = $email;                     //SMTP username
+                        $mail->Username   = 'hay.sev@student.passerellesnumeriques.org';                     //SMTP username
                         $mail->Password   = 'bfam gtvk xgab kkwv';                               //SMTP password
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             
                         //Recipients
-                        $mail->setFrom('hay.sev@student.passerellesnumeriques.org', 'hay');
+                        $mail->setFrom($email, $user);
                         $mail->addAddress($teacher_email);     //Add a recipient
             
                         //Content
@@ -64,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                     }
                 }
-                header('location: /submit-form?id='. $idwork . '&codeclass=' . $codeclass);
+                
             }
         }
     }else{ 

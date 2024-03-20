@@ -3,7 +3,6 @@ require "database/database.php";
 require "models/assignment_model.php";
  $codeclass = $_GET['id'];
  $studentsAS = chooseAssignmentStudent($_GET['id']);
- print_r($studentsAS);
  $checkid = selectidInclass($codeclass);
  $checkAssignments = checkassignment($checkid['classroom_id']);
  $id = $_GET['id'];

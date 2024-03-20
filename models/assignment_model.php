@@ -282,3 +282,15 @@ function getClassworkName($idwork){
 
     return $result['title'];
 }
+
+function getStudentEmail($idclas){
+    global $connection;
+    $statement = $connection -> prepare('SELECT cm.user_email FROM classroommembers AS cm WHERE classroom_code = :idclass');
+    $statement -> execute(
+        [
+            'idclass' => $idclas
+        ]
+        );
+        $result = $statement -> fetchAll();
+        return $result;
+}
