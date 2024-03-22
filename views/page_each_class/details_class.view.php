@@ -120,10 +120,10 @@ Swal.fire({
             }
             ?>
             <div class=" d-flex  justify-content-sm-around  ">
-                <h5 class="text-success " style="border-bottom: 2px solid black;">Room: <?= $checkid['room'] ?> |</h5>
-                <h5 class="text-success " style="border-bottom: 2px solid black;">Class: <?= $checkid['classroom_name'] ?> |</h5>
-                <h5 class="text-success" style="border-bottom: 2px solid black;">Section: <?= $checkid['section'] ?> |</h5>
-                <h5 class="text-success" style="border-bottom: 2px solid black;">Subject: <?= $checkid['subject'] ?> |</h4>
+                <h5 class="text-primary " style="border-bottom: 2px solid black;">Room: <?= $checkid['room'] ?> |</h5>
+                <h5 class="text-primary " style="border-bottom: 2px solid black;">Class: <?= $checkid['classroom_name'] ?> |</h5>
+                <h5 class="text-primary" style="border-bottom: 2px solid black;">Section: <?= $checkid['section'] ?> |</h5>
+                <h5 class="text-primary" style="border-bottom: 2px solid black;">Subject: <?= $checkid['subject'] ?> |</h4>
                     <!-- <p class="mb-0"><?= $checkid['room'] ?></p> -->
             </div>
 
@@ -220,7 +220,7 @@ Swal.fire({
                         }
                         foreach ($checkAssignments as $assignment) {
                         ?>
-                            <div class="card  shadow-lg m-3 border border-secondary" style="width: 250%;">
+                            <div class="card  shadow-lg m-3 border border-secondary" style="width: 205%;">
                                 <div class="card-body d-flex">
                                     <div>
                                         <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; ">
