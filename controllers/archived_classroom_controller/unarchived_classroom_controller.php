@@ -3,11 +3,11 @@
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     require "../../database/database.php";
     require "../../models/assignment_model.php";
-    if (isset($_POST['archive'])) {
+    if (isset($_POST['unarchive'])) {
         $classroom_code = $_POST['classroom_code'];
     
-        archiveClassroom($classroom_code);
-        header('Location: /archived_classroom');
+        unArchiveClassroom($classroom_code);
+        header('Location: /home');
     
     }
 }
