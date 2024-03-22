@@ -18,7 +18,7 @@ function displayJoinClass() {
         FROM classrooms AS c
         INNER JOIN classroommembers AS cm ON c.classroom_code = cm.classroom_code
         INNER JOIN users AS u ON cm.user_email = u.user_email
-        WHERE cm.user_email = :user_email AND c.archived <> 1");
+        WHERE cm.user_email = :user_email AND (archived <> 1 OR archived IS NULL)");
         $statement->execute(
             [':user_email'=> $user_email]
         );
