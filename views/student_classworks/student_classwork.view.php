@@ -97,12 +97,8 @@
                     foreach ($checkAssignments as $assignment){
                         
                     ?>
-<<<<<<< HEAD
                         
                         <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" class="card shadow-lg m-3 border border-primary nav nav-pills nav-pills-bg-soft"  style="width: 807px; height:100px; padding:0; margin:0; background:white;">
-=======
-                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 315%; height:100px; padding:0; margin:0;">
->>>>>>> fix_bug_style
                             <div class="card-body d-flex">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3 color-primary text-primary"></i>
