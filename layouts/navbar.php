@@ -208,7 +208,6 @@ aria-hidden="true">
 								<hr class="dropdown-divider">
 							</li>
 							<li> <a class="dropdown-item" href="/editprofile"><i class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
-							<li> <a class="dropdown-item" href="instructor-delete-account.html"><i class="fas fa-fw fa-trash-alt me-1"></i>Delete Profile</a> </li>
 						</ul>
 					</li>
 
@@ -397,7 +396,7 @@ aria-hidden="true">
 
 <?php
 
-echo '<script src="views/home/searchClasses.view.js"></script>';
+// echo '<script src="views/home/searchClasses.view.js"></script>';
 
 
 ?>
