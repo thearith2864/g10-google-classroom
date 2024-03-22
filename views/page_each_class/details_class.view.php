@@ -120,10 +120,10 @@ Swal.fire({
             }
             ?>
             <div class=" d-flex  justify-content-sm-around  ">
-                <h5 class="text-danger " style="border-bottom: 2px solid blue;">Room: <?= $checkid['room'] ?> |</h5>
-                <h5 class="text-danger " style="border-bottom: 2px solid blue;">Class: <?= $checkid['classroom_name'] ?> |</h5>
-                <h5 class="text-danger" style="border-bottom: 2px solid blue;">Section: <?= $checkid['section'] ?> |</h5>
-                <h5 class="text-danger" style="border-bottom: 2px solid blue;">Subject: <?= $checkid['subject'] ?></h4>
+                <h5 class="text-primary " style="border-bottom: 2px solid black;">Room: <?= $checkid['room'] ?> |</h5>
+                <h5 class="text-primary " style="border-bottom: 2px solid black;">Class: <?= $checkid['classroom_name'] ?> |</h5>
+                <h5 class="text-primary" style="border-bottom: 2px solid black;">Section: <?= $checkid['section'] ?> |</h5>
+                <h5 class="text-primary" style="border-bottom: 2px solid black;">Subject: <?= $checkid['subject'] ?> |</h4>
                     <!-- <p class="mb-0"><?= $checkid['room'] ?></p> -->
             </div>
 
@@ -220,7 +220,7 @@ Swal.fire({
                         }
                         foreach ($checkAssignments as $assignment) {
                         ?>
-                            <div class="card  shadow-lg m-3 border border-secondary" style="width: 190%;">
+                            <div class="card  shadow-lg m-3 border border-secondary" style="width: 205%;">
                                 <div class="card-body d-flex">
                                     <div>
                                         <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; ">
@@ -294,7 +294,7 @@ Swal.fire({
                     <?php
                     if ($assignment['dateline'] > $targetitme) {
                     ?>
-                        <div class="card  shadow-lg m-3 border border-secondary " style="width: 1050px;">
+                        <div class="card  shadow-lg m-3 border border-secondary " style="width: 100%;">
                             <div class="card-body d-flex">
                                 <div>
                                     <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%;">
@@ -324,7 +324,7 @@ Swal.fire({
                     <?php
                     } else {
                     ?>
-                        <div class="card  shadow-lg m-3 border border-danger  " style="width: 1050px; ">
+                        <div class="card  shadow-lg m-3 border border-danger  " style="width: 100%;">
                             <div class="card-body d-flex">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>

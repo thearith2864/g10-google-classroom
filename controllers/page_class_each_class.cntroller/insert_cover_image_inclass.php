@@ -1,7 +1,6 @@
 <?php
 require "../../models/assignment_model.php";
 require "../../database/database.php";
-// echo $_POST['icclass'];
 if (isset($_FILES['cover_image'])  ){
     $codeclass = $_POST['idclass'];
     $cover_image = $_FILES['cover_image'];
@@ -16,7 +15,6 @@ if (isset($_FILES['cover_image'])  ){
 	$new_img_name = uniqid("IMG-", true) . '.' . $img_ex_lc;
 	$img_upload_path = '../../assets/images/cover_class/' . $new_img_name;
 	move_uploaded_file($tmp_name, $img_upload_path);
-    // echo "love ";
     $insertCoverImage = InsertCoverImage ($codeclass, $new_img_name);
     header('location: /class?id=' . $codeclass);
     }   
