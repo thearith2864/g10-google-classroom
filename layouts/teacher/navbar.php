@@ -85,7 +85,6 @@ if (!isset($_SESSION['user'])) {
 							</li>
 
 							<li> <a class="dropdown-item" href="/editprofile"><i class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
-							<li> <a class="dropdown-item" href="instructor-delete-account.html"><i class="fas fa-fw fa-trash-alt me-1"></i>Delete Profile</a> </li>
 						</ul>
 					</li>
 
@@ -98,16 +97,6 @@ if (!isset($_SESSION['user'])) {
 				</ul>
 				<!-- Nav Main menu END -->
 
-				<!-- Nav Search START -->
-				<div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center ms-5">
-					<div class="nav-item w-100">
-						<form class="position-relative">
-							<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-							<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-						</form>
-					</div>
-				</div>
-				<!-- Nav Search END -->
 			</div>
 			<!-- Main navbar END -->
 			<?php
@@ -363,5 +352,5 @@ preview_off
 
 
 				<?php
-				echo '<script src="views/home/searchClasses.view.js"></script>';
+				// echo '<script src="views/home/searchClasses.view.js"></script>';
 				?>
