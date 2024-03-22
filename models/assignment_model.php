@@ -305,4 +305,12 @@ function getStudentEmail($idclas){
         );
         $result = $statement -> fetchAll();
         return $result;
+};
+function classowner($code){
+    global $connection;
+    $stetement = $connection-> prepare('select * from classrooms CR inner join users US on CR.user_email = US.user_email where classroom_code = :classroom_code');
+    $stetement->execute([
+        ':classroom_code' => $code
+    ]);
+    return $stetement->fetchAll();
 }

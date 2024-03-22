@@ -1,4 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" defer integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
 <div class="modal fade" id="InterLink" tabindex="-1" aria-labelledby="InterLinke" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -117,6 +119,7 @@
         <?php
 
         foreach ($displaycomment as $comment) {
+            if ( $comment['comment_user'] == null){
             $count += 1;
 
             if ($comment['file_work'] == $checkass[0]['file_work']) {
@@ -171,7 +174,7 @@
                 </div>
         <?php
             }
-        }
+        }}
         ?>
 
         <!-- //------=========================================================== end display comenrnt-->
@@ -342,9 +345,141 @@
 
                     </div>
                     <!-- end student assignment? -->
+                    
 
                 </div>
+                
             </div>
+                                <!-- comment private-------------------------------------------------------------------------------------------- -->
+
+                                <div>
+                                    <div class=" overflow-scroll " style="height: 300px; margin-top:10px;">
+                                        <?php
+                                        foreach ($displaycomment as $comment) {
+                                            if ($comment['file_work'] == $checkass[0]['file_work']) {
+                                                if ($comment['comment_user'] == $owner[0]['user_id']) {
+
+                                                    if (isset($_SESSION['image_url'])) {
+                                                        $image = $_SESSION['user'];
+                                                        if ($image[1] == $comment['user_name']) {
+                                        ?>
+                                                            <div class="d-flex align-items-center justify-content-between ">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="../../assets/images/profiles/<?= $comment['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-1">
+                                                                    <div class="">
+                                                                        <div class="d-flex " style="margin-bottom : -29px;">
+                                                                            <h6 style="margin-left: 20px;"><?= $comment['user_name'] ?></h6>
+                                                                            <p style="margin-left: 10px">✔ <?= $comment['time_comment'] ?>AM</p>
+                                                                        </div>
+                                                                        <p style="margin-top: 20px; margin-left: 20px;"><?= $comment['comments'] ?></p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="dropdown ms-1 ms-lg-0 ">
+                                                                    <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        <i class="bi bi-three-dots-vertical fa-1x"></i>
+                                                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                                                                        <div class="dropdown ms-1 ms-lg-0">
+                                                                            <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                                <i class="bi bi-pencil-square m-2 dropdown-item">Edit</i>
+                                                                            </a>
+                                                                            <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown" style="background-color: rgba(14, 13, 13, 0.075); margin:-100px 210px;  ">
+                                                                                <form action="controllers/detait_assignment_for teacher_controller/edit_comment_controller.php" class="d-flex " method="post">
+                                                                                    <input class="form-control shadow-sm" type="text" style="height: 27px;" value="<?= $comment['comments'] ?>" name="comment">
+                                                                                    <input type="text" value="<?= $comment['comment_id'] ?>" name="idcomment" hidden>
+                                                                                    <input type="text" value="<?= $_GET['id'] ?>" name="idassignment" hidden>
+                                                                                    <input type="text" value="<?= $_GET['codeclass'] ?>" name="classcode" hidden>
+                                                                                    <input type="text" value="role" name="role" hidden>
+                                                                                    <button class="" style="height: 27px;" hidden>Send</button>
+                                                                                </form>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <!-- <a class="dropdown-item" href="#"><i class="bi bi-pencil-square m-2"></i>Edit</li> -->
+                                                                        <a class="dropdown-item" href="controllers/detait_assignment_for teacher_controller/delete_comment_controller.php?ids=<?= $comment['comment_id']; ?>&idassignment=<?= $_GET['id'] ?>&code=<?= $_GET['codeclass'] ?>"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
+                                                                    </ul>
+                                                                </div>
+
+
+                                                        <?php
+                                                        }
+                                                    }
+                                                        ?>
+                                                            </div>
+
+
+                                                            <?php
+                                                        }
+                                                        if ($comment['comment_user'] == $_SESSION['user'][0]) {
+                                                            if ($comment['user_id'] == $owner[0]['user_id']) {
+                                                            ?>
+                                                                <div>
+
+
+                                                                    <div class="d-flex align-items-center justify-content-between ">
+                                                                        <div class="d-flex align-items-center">
+                                                                            <img src="../../assets/images/profiles/<?= $comment['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-1">
+                                                                            <div class="">
+                                                                                <div class="d-flex " style="margin-bottom : -29px;">
+                                                                                    <h6 style="margin-left: 20px;"><?= $comment['user_name'] ?></h6>
+                                                                                    <p style="margin-left: 10px">✔ <?= $comment['time_comment'] ?>AM</p>
+                                                                                </div>
+                                                                                <p style="margin-top: 20px; margin-left: 20px;"><?= $comment['comments'] ?></p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                <?php
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                ?>
+                                    </div>
+
+                                    <!-- end commet private  --------------------------------------------------------------------------------------------->
+                                    <div class="d-flex">
+                                        <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="w-100 d-flex align-items-center ">
+                                            <?php
+                                            $image = $_SESSION['image_url'];
+                                            if (is_array($image)) {
+                                            ?>
+
+
+                                                <img src="../../assets/images/profiles/<?= $_SESSION['image_url']['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-2">
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <!-- <img class="avatar-img rounded-circle shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url'] ?>" alt="Card image cap"> -->
+                                                <img src="../../assets/images/profiles/<?= $_SESSION['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-2">
+                                            <?php
+                                            }
+                                            if ($image == null) {
+                                            ?>
+                                                <img src="assets/images/profiles/g10-google-classroom.png" alt="" style="height: 40px;" class="rounded-circle m-2">
+                                            <?php
+                                            }
+                                            ?>
+
+                                            <div class="w-100">
+                                                <input name="comments" type="text" class="form-control shadow-sm width rounded-pill" aria-describedby="emailHelp" placeholder="Enter Your comment" style="height: 40px; ">
+
+                                            </div>
+                                            <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>" hidden>
+                                            <?php
+                                            $user_id = $_SESSION['user'];
+                                            ?>
+                                            <input type="text" name="iduser" value="<?= $user_id['user_id'] ?>" hidden>
+                                            <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
+                                            <input type="text" name="classcode" value="<?= $_GET['codeclass']; ?>" hidden>
+                                            <input type="text" name="comment_user" value="<?= $owner[0]['user_id'] ?>" hidden>
+                                            <button class="btn" style="margin-left: -25px;"><span class="material-symbols-outlined m-2 " style="font-size: 50px; ">send</span> </button>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
 
         </div>
 

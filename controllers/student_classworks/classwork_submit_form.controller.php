@@ -9,4 +9,6 @@ $displaycomment  = displayCM();
 $user_id = get_user_id();
 $studentsAS = chooseAssignmentStudent($_GET['id']);
 $displaycomment  = displayCM();
+$owner = classowner($_GET['codeclass']);
+print_r($owner[0]['user_id']);
 require('views/student_classworks/classwork_submit_form.view.php');
