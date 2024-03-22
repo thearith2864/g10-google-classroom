@@ -131,7 +131,7 @@ Swal.fire({
 
 
         <!-- Tabs START -->
-        <ul class="nav nav-pills  justify-content-sm-center mb-4 px-3" id="course-pills-tab" role="tablist" style="border-bottom: 3px solid blue;">
+        <ul class="nav nav-pills  justify-content-sm-center mb-4 px-3 " id="course-pills-tab" role="tablist" style="border-bottom: 2px solid blue; padding-bottom: 3px;">
             <!-- Tab item -->
             <li class="nav-item me-5 me-sm-5 mr-5">
                 <button class="nav-link  mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Class Stream</button>
@@ -228,20 +228,20 @@ Swal.fire({
                                         </a>
                                     </div>
                                     <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; ">
-                                        <div class="p-2 w-100 ">
-                                            <h5 class="card-title mb-0 "><?= $assignment['title'] ?></h5>
-                                            <p class="card-text m-0" style='font-size:small'><?= $assignment['create_date'] ?></p>
+                                        <div class="p-1 w-100 ">
+                                            <h5 class="card-title mb-0 " style="font-size:19px;"><?= $assignment['title'] ?></h5>
+                                            <p class="card-text m-0" style='font-size:13px'><?= $assignment['create_date'] ?></p>
                                             <?php
                                             if ($assignment['dateline'] > $targetitme) {
                                             ?>
 
-                                                <p class="card-text" id="dateline" style='font-size:small'> Dateline (<?= $assignment['dateline'] ?>)</p>
+                                                <p class="card-text" id="dateline" style='font-size:13px'> Dateline (<?= $assignment['dateline'] ?>)</p>
                                             <?php
 
                                             } else {
                                             ?>
 
-                                                <h5 class="text-danger card-text ">Missing</h5>
+                                                <h5 class="text-danger card-text "style='font-size:16px'>Missing</h5>
                                             <?php
 
                                             }
@@ -302,11 +302,11 @@ Swal.fire({
                                     </a>
                                 </div>
                                 <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%;">
-                                    <div class="p-2 w-100">
-                                        <h4 class="card-title text-primary"><?= $assignment['title'] ?></h4>
+                                    <div class=" w-100">
+                                        <h4 class="card-title text-primary" style='font-size:19px; margin-bottom:5px;'><?= $assignment['title'] ?></h4>
 
-                                        <p class="card-text"><?= $assignment['create_date'] ?></p>
-                                        <p class="card-text"> <?= $assignment['dateline'] ?></p>
+                                        <p class="card-text" style='font-size:13px; margin-bottom:2px;'><?= $assignment['create_date'] ?></p>
+                                        <p class="card-text" style='font-size:13px;'> <?= $assignment['dateline'] ?></p>
 
                                     </div>
                                 </a>
@@ -327,14 +327,14 @@ Swal.fire({
                         <div class="card  shadow-lg m-3 border border-danger  " style="width: 100%;">
                             <div class="card-body d-flex">
                                 <div>
-                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
+                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3 text-primary"></i>
                                 </div>
-                                <div class="p-2 w-100">
+                                <div class="w-100">
                                     <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
-                                        <h4 class="card-title text-danger"><?= $assignment['title'] ?></h4>
+                                        <h5 class="card-title text-danger" style='font-size:19px, margin-bottom:5px;'><?= $assignment['title'] ?></h5>
                                     </a>
-                                    <p class="card-text"><?= $assignment['create_date'] ?></p>
-                                    <h5 class="text-danger card-text ">❌ Missing</h5>
+                                    <p class="card-text" style='font-size:13px;margin-bottom:2px;'><?= $assignment['create_date'] ?></p>
+                                    <h5 class="text-danger card-text" style='font-size:16px;'>❌ Missing</h5>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <a href="">
