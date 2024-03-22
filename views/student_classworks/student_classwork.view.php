@@ -1,3 +1,4 @@
+
 <section>
     <!-- write cover image here// -->
     <div class="container">
@@ -78,11 +79,11 @@
                 <div class="d-flex">
                     <div>
                         <a href="/todos">
-                        <div class="card shadow-lg border border-secondary m-3" style="width: 16rem;">
+                        <div class="card shadow-lg border border-secondary mt-3 me-4" style="width: 16rem;">
                             <div class="card-body">
                                 <h5>Upcoming</h5>
                             </div>
-                            <div class="card-main p-3">
+                            <div class="card-main ps-3">
                                 <p>Woohoo, no work due soon!</p>
                             </div>
                             <div class="card-footer d-flex justify-content-end p-3">
@@ -96,26 +97,20 @@
                     foreach ($checkAssignments as $assignment){
                         
                     ?>
-                        <div class="card  shadow-lg m-3 border border-secondary nav nav-pills nav-pills-bg-soft" style="width: 870px; height:100px; padding:0; margin:0;">
+                        
+                        <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" class="card shadow-lg m-3 border border-primary nav nav-pills nav-pills-bg-soft"  style="width: 807px; height:100px; padding:0; margin:0; background:white;">
                             <div class="card-body d-flex">
                                 <div>
-                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3"></i>
-                                    
+                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3 color-primary text-primary"></i>
                                 </div>
                                 <div class="p-2 w-100">
-                                    <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
-                                            <h5 class="card-title"><?= $assignment['title'] ?></h5>
-                                    </a>
-                                    <p class="card-text"><?=$assignment['create_date']?></p>
-                                   
+                                    <h5 class="card-title"><?= $assignment['title'] ?></h5>
+                                    <p class="card-text" style='font-size:small'><?= $assignment['create_date'] ?></p>
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    
-                                   
                                 </div>
-                               
                             </div>
-                        </div>
+                        </a>
                         <?php
                     }
                         ?>

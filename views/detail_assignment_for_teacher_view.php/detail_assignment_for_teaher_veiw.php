@@ -1,33 +1,36 @@
 <section>
     <div class="container">
-        <ul class="nav nav-pills    justify-content-sm-start mb-4 px-3" id="course-pills-tab" role="tablist" style="border-bottom: 2px solid blue;">
+        <ul class="nav nav-pills    justify-content-sm-start mx-4 mb-4 " id="course-pills-tab" role="tablist" style="border-bottom: 1.5px solid blue; padding-bottom:2.5px;">
             <!-- Tab item -->
             <li class="nav-item me-5 me-sm-5 mr-5">
-                <button class="nav-link  mb-2 mb-md-0 <?php if (!isset($_GET['user_id'])){ ?>active<?php } ?> " id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Instuctions</button>
+                <button class="nav-link  mb-2 mb-md-0 <?php if (!isset($_GET['user_id'])) { ?>active<?php } ?> " id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Instuctions</button>
             </li>
             <li class="nav-item me-1 me-sm-5 ml-5">
-                <button class="nav-link mb-2 mb-md-0 <?php if (isset($_GET['user_id'])){ ?> active <?php } ?>" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-4" type="button" role="tab" aria-controls="course-pills-tabs-4" aria-selected="false">Student Work </button>
+                <button class="nav-link mb-2 mb-md-0 <?php if (isset($_GET['user_id'])) { ?> active <?php } ?>" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-4" type="button" role="tab" aria-controls="course-pills-tabs-4" aria-selected="false">Student Work </button>
             </li>
 
         </ul>
         <div class="tab-content" id="course-pills-tabContent">
-            <div class="tab-pane fade show <?php if (!isset($_GET['user_id'])){ ?>active<?php } ?>" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
+            <div class="tab-pane fade show <?php if (!isset($_GET['user_id'])) { ?>active<?php } ?>" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
 
-                <div class="d-flex justify-content-between p-3" style="height: 120px; border-bottom:2px solid blue; width:90%; margin-left:55px;">
+                <div class="d-flex justify-content-between p-3" style="height: 120px;  width:90%; margin-left:55px;">
                     <div>
-                        <h3 style="margin-left: -50px;"><i class="bi bi-file-earmark-medical fa-1x" style="margin-right: 20px;"></i><?= $chooose[0]['title'] ?></h3>
+                        <h3 style="margin-left:30px;">
+                            <i class="bi  bi-file-earmark-medical fa-1x" style="margin-right: 20px; color:blue;">
+                            </i><?= $chooose[0]['title'] ?>
+                        </h3>
                         <?php
                         if (isset($_SESSION['user'])) {
                             $username = $_SESSION['user'];
                         }
                         ?>
-                        <p style="margin-top: -7px;"><?= $username['user_name'] ?> 🕑✅ <?= $chooose[0]['create_date'] ?> AM</p>
-                        <p style="margin-top: -13px;"><?= $chooose[0]['point'] ?> Point</p>
+                        <p style="margin-top: -7px; margin-left:90px;"><?= $username['user_name'] ?> 🕑✅ <?= $chooose[0]['create_date'] ?> AM</p>
+                        <p style="margin-top: -13px;margin-left:90px;"><?= $chooose[0]['point'] ?> Point</p>
                     </div>
 
-                    <div>
-                        <div class="btn-group p-5">
-                            <button type="button" class=" btn" data-bs-toggle="dropdown" aria-expanded="false" style="margin: -90px -180px 0 0;">
+                    <div style="margin-left: 50px; ">
+                        <div class="btn-group p-5 ">
+                            <button type="button" class=" btn" data-bs-toggle="dropdown" aria-expanded="false" style="margin: -90px -280px 0 0;">
                                 <i class="bi bi-three-dots-vertical fa-2x"></i>
                             </button>
                             <ul class="dropdown-menu">
@@ -42,10 +45,10 @@
                         <!-- <i class="bi bi-three-dots-vertical fa-2x" style="margin-left: 110px;"></i> -->
                         <script src="../../vendor/js/time.js" defer></script>
                         <span id="date" class="text-danger"></span>
-                        <p id="dateline" style="margin-top: -45px;"><?= $chooose[0]['dateline'] ?></p>
+                        <p id="dateline" style="margin-top: -45px;margin-left:70px;"><?= $chooose[0]['dateline'] ?></p>
                     </div>
                 </div>
-                <div class="p-4" style="height: 180px; border-bottom:2px solid blue; width:90%; margin-left:55px;">
+                <div class="p-4" style="height: 180px; border-bottom:0.5px solid blue; border-top:0.5px solid blue; width:83%; margin-left:160px;">
                     <div class="card p-2 shadow-sm" style="width: 90%; border:1px solid black;">
                         <a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>    ">
                             <div class="d-flex align-items-center">
@@ -62,10 +65,10 @@
                         </a>
                     </div>
                 </div>
-                <div class="d-flex align-items-end" style=" width:90%; margin-left:55px;">
+                <div class="d-flex align-items-end" style=" width:90%; margin-left:155px;">
 
                     <i class="bi bi-people-fill fa-2x m-2"></i>
-                    <p><?php
+                    <p ><?php
                         $count = 0;
                         foreach ($displaycomment as $comment) {
                             if ($comment['file_work'] == $checkass[0]['file_work']) {
@@ -87,11 +90,11 @@
                             <div class="d-flex align-items-center">
                                 <img src="../../assets/images/profiles/<?= $comment['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-1">
                                 <div class="">
-                                    <div class="d-flex " style="margin-bottom : -29px;">
+                                    <div class="d-flex " style="margin-bottom : -29px; margin-left:50px;">
                                         <h5 style="margin-left: 20px;"><?= $comment['user_name'] ?></h5>
                                         <p style="margin-left: 10px">✔ <?= $comment['time_comment'] ?>AM</p>
                                     </div>
-                                    <p style="margin-top: 20px; margin-left: 20px;"><?= $comment['comments'] ?></p>
+                                    <p style="margin-top: 20px; margin-left: 70px;"><?= $comment['comments'] ?></p>
                                 </div>
                             </div>
                             <?php
@@ -135,48 +138,49 @@
                 ?>
                 <!-- //------=========================================================== end display comenrnt-->
                 <div style="height: 100px; width:90%; margin-left:55px;" class="p-4 d-flex">
-                <?php
-        $image = $_SESSION['image_url'];
-						if(is_array($image)){
-						?>
-						
-					
-                        <img src="../../assets/images/profiles/<?= $_SESSION['image_url']['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-2">
-						<?php
-						}else{
-							?>
-							
-							<!-- <img class="avatar-img rounded-circle shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url']?>" alt="Card image cap"> -->
-                            <img src="../../assets/images/profiles/<?= $_SESSION['image_url']?>" alt="" style="height: 40px;" class="rounded-circle m-2">
-							<?php
-						}if($image == null){
-                            ?>
-                            <img src="assets/images/profiles/g10-google-classroom.png" alt="" style="height: 40px;" class="rounded-circle m-2">
-							
-							
-							<?php
-						}
-						?>
+                    <?php
+                    $image = $_SESSION['image_url'];
+                    if (is_array($image)) {
+                    ?>
+
+
+                        <img src="../../assets/images/profiles/<?= $_SESSION['image_url']['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-2">
+                    <?php
+                    } else {
+                    ?>
+
+                        <!-- <img class="avatar-img rounded-circle shadow" src="assets/images/profiles/<?php echo $_SESSION['image_url'] ?>" alt="Card image cap"> -->
+                        <img src="../../assets/images/profiles/<?= $_SESSION['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-2">
+                    <?php
+                    }
+                    if ($image == null) {
+                    ?>
+                        <img src="assets/images/profiles/g10-google-classroom.png" alt="" style="height: 40px;" class="rounded-circle m-2">
+
+
+                    <?php
+                    }
+                    ?>
                     <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="d-flex">
                         <div>
-                            <input name="comments" type="text" class="form-control shadow-sm" aria-describedby="emailHelp" placeholder="Enter Your comment" style="width: 800px;">
+                            <input name="comments" type="text" class="form-control shadow-sm " aria-describedby="emailHelp" placeholder="Enter Your comment" style="width: 750px; margin-left:65px;">
                             <span class="text-danger"><?php echo isset($_SESSION['errorcomment']) ? $_SESSION['errorcomment'] : ''; ?> </span>
                         </div>
                         <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>" hidden>
                         <?php
-                $user_id = $_SESSION['user'];
-                
-                ?>
+                        $user_id = $_SESSION['user'];
+
+                        ?>
                         <input type="text" name="iduser" value="<?= $user_id['user_id'] ?>" hidden>
                         <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
                         <input type="text" name="classcode" value="<?= $_GET['codeclass']; ?>" hidden>
-                        <button class="btn btn-primary d-flex "><i class="bi bi-send-check "></i></button>
+                        <button class="btn btn-primary d-flex ms-1 " style="height:39px"><i class="bi bi-send "></i></button>
 
                     </form>
 
                 </div>
             </div>
-            <div class="tab-pane fade show <?php if (isset($_GET['user_id'])){ ?> active <?php } ?> " id="course-pills-tabs-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
+            <div class="tab-pane fade show <?php if (isset($_GET['user_id'])) { ?> active <?php } ?> " id="course-pills-tabs-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
                 <div class="d-flex">
                     <div class="w-50 ">
                         <table class="table table-bordered">
@@ -195,35 +199,36 @@
                                     foreach ($studentfinished as $students) {
                                         if ($student['user_id'] == $students['user_id']) {
                                             $count += 1;
-                                            if ($count <= 1){
+                                            if ($count <= 1) {
                                 ?>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <a href="/detait_assignment?id=<?=$_GET['id']?>&codeclass=<?= $_GET['codeclass']?>&user_id=<?=$students['user_id']?>">
-                                                    <div class="d-flex align-items-start justify-content-between">
-                                                        <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
-                                                            <h5><?= $student['user_name'] ?></h5>
-                                                            <p><?= $count?></p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                </td>
-                                                <td><?= $students['date'] ?></td>
-                                                <td style="width: 100px;">
-                                                    <form action="controllers/detait_assignment_for teacher_controller/insert_score_student.php" method="post">
-                                                        <input type="text" style="width: 50px;" name="score" placeholder="score">
-                                                         <input type="text" value="<?= $students['submit_id'] ?>" name="submit_id" hidden>
-                                                         <input type="text" value="<?=$_GET['id']?>" name="ass_id" hidden>
-                                                         <input type="text" value="<?=$_GET['codeclass']?>" name="code" hidden>
-                                                         <input type="text" value="<?=$students['user_id']?>" name="user_id" hidden>
-                                                         <button hidden>send</button>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <a href="/detait_assignment?id=<?= $_GET['id'] ?>&codeclass=<?= $_GET['codeclass'] ?>&user_id=<?= $students['user_id'] ?>">
+                                                            <div class="d-flex align-items-start justify-content-between">
+                                                                <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
+                                                                    <h5><?= $student['user_name'] ?></h5>
+                                                                    <p><?= $count ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </td>
+                                                    <td><?= $students['date'] ?></td>
+                                                    <td style="width: 100px;">
+                                                        <form action="controllers/detait_assignment_for teacher_controller/insert_score_student.php" method="post">
+                                                            <input type="text" style="width: 50px;" name="score" placeholder="score">
+                                                            <input type="text" value="<?= $students['submit_id'] ?>" name="submit_id" hidden>
+                                                            <input type="text" value="<?= $_GET['id'] ?>" name="ass_id" hidden>
+                                                            <input type="text" value="<?= $_GET['codeclass'] ?>" name="code" hidden>
+                                                            <input type="text" value="<?= $students['user_id'] ?>" name="user_id" hidden>
+                                                            <button hidden>send</button>
                                                         </form>
-                                                        <p class="text-primary"><?= $students['score']?>/<?= $chooose[0]['point'] ?> point</p>
-                                                         
-                                                </td>
-                                            </tr>
+                                                        <p class="text-primary"><?= $students['score'] ?>/<?= $chooose[0]['point'] ?> point</p>
+
+                                                    </td>
+                                                </tr>
                                 <?php
-                                        }}
+                                            }
+                                        }
                                     }
                                 }
                                 ?>
@@ -260,71 +265,77 @@
                                 ?>
                             </tbody>
                         </table>
-                    </div >
+                    </div>
                     <div class="w-50  d-flex align-items-start p-4">
                         <div class="container">
-                        <?php
-                                  if (!isset($studentWork)){
-                                 ?>
+                            <?php
+                            if (!isset($studentWork)) {
+                            ?>
                                 <h4>Eelect any Student to Show Student's Work Document here👇</h4>
+                            <?php
+                            }
+                            ?>
+                            <div>
                                 <?php
-                                  }
+                                if (isset($studentWork)) {
                                 ?>
-                            <div >
-                                 <?php
-                                  if (isset($studentWork)){
-                                 ?>
-                                <h6 class="d-flex">You have given <?= $studentWork[0]['score'] ?> point</h6>
+                                    <h6 class="d-flex">You have given <?= $studentWork[0]['score'] ?> point</h6>
                                 <?php
-                                  }
+                                }
                                 ?>
                             </div>
                             <?php
-                             if (isset($studentWork)){
-                                foreach($studentWork as $work){
+                            if (isset($studentWork)) {
+                                foreach ($studentWork as $work) {
                                     $storeLike = $work['file_work'];
-                                    if ($work['file_work'] = substr($work['file_work'], 0 , 8 ) !== "HOMEWORK"){
-                                    
-                            ?>
-                            <a href="<?= $storeLike?>">
-                            <div class="card border m-2 ">
-                                <div class="d-flex align-items-center">
-                                        
-                                    <i class="bi bi-file-earmark-font fa-3x" style="margin-right: 10px;"></i> <p><?= $storeLike = substr($storeLike, 0 , 40)?></p>
-                                </div>
-                            </div>
-                            </a>
-                            <?php
-                             }}}
-                            ?>
-                            <?php
-                             if (isset($studentWork)){
-                                foreach($studentWork as $work){
-                                    $storeLike = $work['file_work'];
-                                    if ($work['file_work'] = substr($work['file_work'], 0 , 8 ) == "HOMEWORK"){
-                                    
-                            ?>
-                            <a href="../../assets/files/Assignment_for_students_subment/<?= $storeLike?>">
-                            <div class="card border m-2">
-                                <divc class=" d-flex align-items-center">
+                                    if ($work['file_work'] = substr($work['file_work'], 0, 8) !== "HOMEWORK") {
 
-                                    <i class="bi bi-file-earmark fa-3x " style="margin-right: 10px;"></i> <h5><?= $storeLike?></h5>
-                                </div>
-                            </div>
-                            </a>
-                            <?php
-                             }}}
                             ?>
-                            
+                                        <a href="<?= $storeLike ?>">
+                                            <div class="card border m-2 ">
+                                                <div class="d-flex align-items-center">
+
+                                                    <i class="bi bi-file-earmark-font fa-3x" style="margin-right: 10px;"></i>
+                                                    <p><?= $storeLike = substr($storeLike, 0, 40) ?></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                            <?php
+                                    }
+                                }
+                            }
+                            ?>
+                            <?php
+                            if (isset($studentWork)) {
+                                foreach ($studentWork as $work) {
+                                    $storeLike = $work['file_work'];
+                                    if ($work['file_work'] = substr($work['file_work'], 0, 8) == "HOMEWORK") {
+
+                            ?>
+                                        <a href="../../assets/files/Assignment_for_students_subment/<?= $storeLike ?>">
+                                            <div class="card border m-2">
+                                                <divc class=" d-flex align-items-center">
+
+                                                    <i class="bi bi-file-earmark fa-3x " style="margin-right: 10px;"></i>
+                                                    <h5><?= $storeLike ?></h5>
+                                            </div>
                         </div>
+                        </a>
+            <?php
+                                    }
+                                }
+                            }
+            ?>
+
                     </div>
                 </div>
-
             </div>
-        </div>
-        <!-- Content END -->
 
-        <!-- Content START -->
+        </div>
+    </div>
+    <!-- Content END -->
+
+    <!-- Content START -->
     </div>
     <!-- Tabs content END -->
     </div>

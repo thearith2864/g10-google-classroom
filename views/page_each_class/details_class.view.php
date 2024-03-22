@@ -229,13 +229,13 @@ Swal.fire({
                                     </div>
                                     <a href="/detait_assignment?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" style="width: 90%; ">
                                         <div class="p-2 w-100 ">
-                                            <h5 class="card-title"><?= $assignment['title'] ?></h5>
-                                            <p class="card-text"><?= $assignment['create_date'] ?></p>
+                                            <h5 class="card-title mb-0 "><?= $assignment['title'] ?></h5>
+                                            <p class="card-text m-0" style='font-size:small'><?= $assignment['create_date'] ?></p>
                                             <?php
                                             if ($assignment['dateline'] > $targetitme) {
                                             ?>
 
-                                                <p class="card-text"> <?= $assignment['dateline'] ?></p>
+                                                <p class="card-text" id="dateline" style='font-size:small'> Dateline (<?= $assignment['dateline'] ?>)</p>
                                             <?php
 
                                             } else {
@@ -246,7 +246,7 @@ Swal.fire({
 
                                             }
                                             ?>
-                                            <p class="card-text" id="dateline"> Dateline (<?= $assignment['dateline'] ?>)</p>
+                                            
                                         </div>
                                     </a>
                                     <div class="d-flex align-items-center">
