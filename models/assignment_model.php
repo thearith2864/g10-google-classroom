@@ -145,6 +145,18 @@ function createMaterial (string $tile, string $Instruction, $files, $class, stri
     ]);
     return $stetement->rowCount() > 0;
  }
+ function insertcommentPrivate ( int $classwork_id, int $user_id, string $comment, string $time, $comment_user):bool {
+    global $connection;
+    $stetement = $connection->prepare("insert into class_work_comments (user_id, classwork_id, comments, time_comment, comment_user) values(:user_id, :classwork_id, :comments, :time_comment, :comment_user)");
+    $stetement->execute([
+        ':user_id' => $user_id,
+        ':classwork_id' => $classwork_id,
+        ':comments' => $comment,
+        ':time_comment' => $time,
+        'comment_user' => $comment_user
+    ]);
+    return $stetement->rowCount() > 0;
+ }
 
  function checkcomment ($idclasswork){
     global $connection;
@@ -157,7 +169,7 @@ function createMaterial (string $tile, string $Instruction, $files, $class, stri
  
  function displayCM(){
     global $connection;
-    $statement = $connection -> prepare ("  select comment_id, time_comment, comments, file_work, user_name, image_url from class_work_comments CM  inner join classworks CK on CM.classwork_id = CK.classwork_id inner join classrooms CR on CR.classroom_id = CK.classroom_id inner join users U on CM.user_id = U.user_id ");
+    $statement = $connection -> prepare ("  select * from class_work_comments CM  inner join classworks CK on CM.classwork_id = CK.classwork_id inner join classrooms CR on CR.classroom_id = CK.classroom_id inner join users U on CM.user_id = U.user_id ");
     $statement->execute();
     return $statement->fetchAll();
  }
