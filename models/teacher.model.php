@@ -16,15 +16,15 @@ function createClass(string $classroom_name, string $classroom_code, string $sec
     return $statement->rowCount() > 0;
 }
 
-function displayClass() {
+function displayClass()
+{
     global $connection;
-    if(isset($_SESSION['email']) && !empty($_SESSION['email'])){
-
+    if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
         $user_email = $_SESSION['email'];
-        $statement = $connection->prepare("SELECT classroom_name, classroom_code, section, subject, room FROM classrooms WHERE user_email = :user_email");
-        $statement->execute(
-            [':user_email'=> $user_email]
-        );
+        $statement = $connection->prepare("SELECT classroom_name, classroom_code, section, subject, room FROM classrooms WHERE user_email = :user_email AND (archived <> 1 OR archived IS NULL)");
+        $statement->execute([
+            ':user_email' => $user_email,
+        ]);
         return $statement->fetchAll();
     }
 }
@@ -83,7 +83,8 @@ function updateClass ($code){
 function getClass($name)
 {
     global $connection;
-    $statement = $connection->prepare("select * from classrooms where classroom_name = '$name'");
+    $statement = $connection->prepare("SELECT * FROM classrooms WHERE classroom_name = :name AND (archived <> 0 OR archived IS NULL)");
+    $statement->bindParam(':name', $name);
     $statement->execute();
     return $statement->fetch();
 }
