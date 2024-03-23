@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +24,10 @@
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap-icons/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="vendor/tiny-slider/tiny-slider.css">
 	<link rel="stylesheet" type="text/css" href="vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css/popup.css">
+	
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 	<!-- Theme CSS -->
@@ -40,4 +46,4 @@
 
 </head>
 
-<body>
+<body >

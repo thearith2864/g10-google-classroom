@@ -59,6 +59,7 @@ if (isset($_SESSION['user'])) {
 									</span>
 									<input type="text" class="form-control border-0 bg-light rounded-end ps-1" placeholder="User-name" name="username">
 								</div>
+								<span class="text-danger"><?php echo isset($_SESSION['error_username'])? $_SESSION['error_username']: ''; ?> </span>
 							</div>
 							<!-- Email  -->
 							<div class="mb-4">
@@ -69,6 +70,7 @@ if (isset($_SESSION['user'])) {
 									</span>
 									<input type="email" class="form-control border-0 bg-light rounded-end ps-1" placeholder="E-mail" id="exampleInputEmail1" name="email">
 								</div>
+								<span class="text-danger"><?php echo isset($_SESSION['error_email'])? $_SESSION['error_email']: ''; ?> </span>
 							</div>
 							<!-- Password -->
 							<div class="mb-4">
@@ -79,6 +81,9 @@ if (isset($_SESSION['user'])) {
 									</span>
 									<input type="password" class="form-control border-0 bg-light rounded-end ps-1" placeholder="password" id="inputPassword5" name="pwd">
 								</div>
+								<span class="text-danger "><?php echo isset($_SESSION['error_PWD'])? $_SESSION['error_PWD']: ''; ?> </span>
+								<span class="text-danger "><?php echo isset($_SESSION['error_secure'])? $_SESSION['error_secure']: ''; ?> </span>
+
 								<div id="passwordHelpBlock" class="form-text">
 									Your password must be 8 characters at least
 								</div>
@@ -92,7 +97,7 @@ if (isset($_SESSION['user'])) {
 									<input type="file" id="file" class="form-control border-0 bg-light rounded-end ps-1" name="my_image">
 								</div>
 								<div id="passwordHelpBlock" class="form-text">
-									Your password must be 8 characters at least
+								  You can be inter your personal profile or Not required
 								</div>
 							</div>
 							<!-- Button -->
@@ -100,7 +105,16 @@ if (isset($_SESSION['user'])) {
 								<div class="d-grid">
 									<button class="btn btn-primary w-100">SignUp</button>
 								</div>
+								
 							</div>
+							<div class="d-flex justify-content-center p-2 align-items-center">
+								<div class="d-grid d-flex">
+								If you have an account? >	
+									<a href="/signin" style="margin-left: 10px;">sign in</a>
+								</div>
+								
+							</div>
+							
 						</form>
 						<!-- Form END -->
 

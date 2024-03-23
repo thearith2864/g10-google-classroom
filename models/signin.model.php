@@ -17,6 +17,6 @@ function getimage ( string $Email){
     if($statement-> rowCount() > 0){
         return $statement->fetch();
     }else{
-        return[];
+        return [];
     }
 }

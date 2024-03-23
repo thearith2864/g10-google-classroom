@@ -16,7 +16,17 @@ $routes = [
     '/admin' => 'controllers/admin/admin.controller.php',
     '/assignment' => 'controllers/assignment/assignment.controllers.php',
     '/join_class' => 'controllers/join_class/join_class_form.controller.php',
-    '/form_edit_assignment' => 'controllers/assignment/form_edit_assignment.controller.php'
+    '/form_edit_assignment' => 'controllers/assignment/form_edit_assignment.controller.php',
+    '/detait_assignment' => 'controllers/detait_assignment_for teacher_controller/detail_assignment_controller.php',
+    '/editprofile'=>'controllers/Setting/Setting.controller.php',
+    '/student_classwork' => 'controllers/student_classworks/student_classwork.controller.php',
+    '/submit-form'=> 'controllers/student_classworks/classwork_submit_form.controller.php',
+
+    
+
+        
+
+    
 
 ];
 if (array_key_exists($uri, $routes)) {
@@ -36,13 +46,13 @@ require $page;
 
 
 
-if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update' && $uri !== '/join_class') {
+if ($uri !== '/' && $uri !== '/join_classrooms' && $uri !== '/class-update' && $uri !== '/join_class'&&
+ $uri !== '/submit-form' && $uri !== '/student_classwork' ) {
     require "layouts/footer.php";
 }
-if ($uri == '/join_classrooms') {
-    require "layouts/teacher/footer.php";
-}
 
 
 
-?>
+
+
+

@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Google Classroom</title>
+	<title> Google Classroom</title>
 
 	<!-- Meta Tags -->
 	<meta charset="utf-8">
@@ -22,13 +24,18 @@
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap-icons/bootstrap-icons.css">
 	<link rel="stylesheet" type="text/css" href="vendor/tiny-slider/tiny-slider.css">
 	<link rel="stylesheet" type="text/css" href="vendor/glightbox/css/glightbox.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css/popup.css">
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 	<!-- Theme CSS -->
 	<link id="style-switch" rel="stylesheet" type="text/css" href="vendor/css/style.css">
-    
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7N7LGGGWT1"></script>
+
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
