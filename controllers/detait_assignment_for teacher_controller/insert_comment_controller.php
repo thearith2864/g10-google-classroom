@@ -30,7 +30,12 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         $userid = $_POST['iduser'];
         $comment_user = $_POST['comment_user'];
         insertcommentPrivate($classworkid, $userid, $comment, $TimeComment, $comment_user);
-        header('location: /detait_assignment?id='. $idassignmnt . '&codeclass=' . $classcode . '&user_id=' . $comment_user);
+        if (isset($_POST['role'])){
+            header('location: /submit-form?id='. $idassignmnt . '&codeclass=' . $classcode);
+        }else{
+            header('location: /detait_assignment?id='. $idassignmnt . '&codeclass=' . $classcode . '&user_id=' . $comment_user);
+           
+        }
     }
 
 }

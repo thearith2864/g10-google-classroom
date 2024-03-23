@@ -203,9 +203,11 @@
                                         if ($student['user_id'] == $students['user_id']) {
                                             $count += 1;
                                             if ($count <= 1) {
+                                                if(isset($_GET['user_id'])){
+                                                if ($student['user_id'] == $_GET['user_id']){
                                 ?>
-                                                <tr>
-                                                    <td colspan="2">
+                                                <tr  style="background-color: rgba(0, 255, 255, 0.275);">
+                                                    <td colspan="2" >
                                                         <a href="/detait_assignment?id=<?= $_GET['id'] ?>&codeclass=<?= $_GET['codeclass'] ?>&user_id=<?= $students['user_id'] ?>">
                                                             <div class="d-flex align-items-start justify-content-between">
                                                                 <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
@@ -230,7 +232,68 @@
                                                     </td>
                                                 </tr>
                                 <?php
+                                                    }else{
+                                                    ?>
+                                                         <tr>
+                                                    <td colspan="2" >
+                                                        <a href="/detait_assignment?id=<?= $_GET['id'] ?>&codeclass=<?= $_GET['codeclass'] ?>&user_id=<?= $students['user_id'] ?>">
+                                                            <div class="d-flex align-items-start justify-content-between">
+                                                                <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
+                                                                    <h5><?= $student['user_name'] ?></h5>
+                                                                    <p><?= $count ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </td>
+                                                    <td><?= $students['date'] ?></td>
+                                                    <td style="width: 100px;">
+                                                        <form action="controllers/detait_assignment_for teacher_controller/insert_score_student.php" method="post">
+                                                            <input type="text" style="width: 50px;" name="score" placeholder="score">
+                                                            <input type="text" value="<?= $students['submit_id'] ?>" name="submit_id" hidden>
+                                                            <input type="text" value="<?= $_GET['id'] ?>" name="ass_id" hidden>
+                                                            <input type="text" value="<?= $_GET['codeclass'] ?>" name="code" hidden>
+                                                            <input type="text" value="<?= $students['user_id'] ?>" name="user_id" hidden>
+                                                            <button hidden>send</button>
+                                                        </form>
+                                                        <p class="text-primary"><?= $students['score'] ?>/<?= $chooose[0]['point'] ?> point</p>
+
+                                                    </td>
+                                                </tr>
+
+
+
+                                                    <?php
+                                                }
+                                            }else{
+                                                ?>
+                                                         <tr>
+                                                    <td colspan="2" >
+                                                        <a href="/detait_assignment?id=<?= $_GET['id'] ?>&codeclass=<?= $_GET['codeclass'] ?>&user_id=<?= $students['user_id'] ?>">
+                                                            <div class="d-flex align-items-start justify-content-between">
+                                                                <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
+                                                                    <h5><?= $student['user_name'] ?></h5>
+                                                                    <p><?= $count ?></p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </td>
+                                                    <td><?= $students['date'] ?></td>
+                                                    <td style="width: 100px;">
+                                                        <form action="controllers/detait_assignment_for teacher_controller/insert_score_student.php" method="post">
+                                                            <input type="text" style="width: 50px;" name="score" placeholder="score">
+                                                            <input type="text" value="<?= $students['submit_id'] ?>" name="submit_id" hidden>
+                                                            <input type="text" value="<?= $_GET['id'] ?>" name="ass_id" hidden>
+                                                            <input type="text" value="<?= $_GET['codeclass'] ?>" name="code" hidden>
+                                                            <input type="text" value="<?= $students['user_id'] ?>" name="user_id" hidden>
+                                                            <button hidden>send</button>
+                                                        </form>
+                                                        <p class="text-primary"><?= $students['score'] ?>/<?= $chooose[0]['point'] ?> point</p>
+
+                                                    </td>
+                                                </tr>
+                                                <?php
                                             }
+                                        }
                                         }
                                     }
                                 }
@@ -251,7 +314,7 @@
                                 foreach ($chose as $student) {
 
                                 ?>
-                                    <tr>
+                                    <tr​ >
                                         <td colspan="2">
                                             <div class="d-flex align-items-start justify-content-between">
                                                 <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
@@ -381,13 +444,15 @@
                                                                                     <input type="text" value="<?= $comment['comment_id'] ?>" name="idcomment" hidden>
                                                                                     <input type="text" value="<?= $_GET['id'] ?>" name="idassignment" hidden>
                                                                                     <input type="text" value="<?= $_GET['codeclass'] ?>" name="classcode" hidden>
-                                                                                    <input type="text" value="role" name="role" hidden>
+                                                                                    <input type="text" name="comment_user" value="<?= $_GET['user_id'] ?>" hidden>
                                                                                     <button class="" style="height: 27px;" hidden>Send</button>
                                                                                 </form>
                                                                             </ul>
                                                                         </div>
                                                                         <!-- <a class="dropdown-item" href="#"><i class="bi bi-pencil-square m-2"></i>Edit</li> -->
-                                                                        <a class="dropdown-item" href="controllers/detait_assignment_for teacher_controller/delete_comment_controller.php?ids=<?= $comment['comment_id']; ?>&idassignment=<?= $_GET['id'] ?>&code=<?= $_GET['codeclass'] ?>"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
+                                                <a class="dropdown-item" href="controllers/detait_assignment_for teacher_controller/delete_comment_controller.php?id=<?= $comment['comment_id']; ?>&idassignment=<?= $_GET['id'] ?>&code=<?= $_GET['codeclass'] ?>&user=<?=$_GET['user_id']?> "><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
+
+                                                                       
                                                                     </ul>
                                                                 </div>
 
@@ -413,7 +478,7 @@
                                                                             <div class="">
                                                                                 <div class="d-flex " style="margin-bottom : -29px;">
                                                                                     <h5 style="margin-left: 20px;"><?= $comment['user_name'] ?></h5>
-                                                                                    <p style="margin-left: 10px">✔ <?= $comment['time_comment'] ?>AM</p>
+                                                                                    <p style="margin-left: 10px">✔ <?= $comment['time_comment'] ?></p>
                                                                                 </div>
                                                                                 <p style="margin-top: 20px; margin-left: 20px;"><?= $comment['comments'] ?></p>
                                                                             </div>

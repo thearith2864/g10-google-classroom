@@ -351,7 +351,6 @@
                 
             </div>
                                 <!-- comment private-------------------------------------------------------------------------------------------- -->
-
                                 <div>
                                     <div class=" overflow-scroll " style="height: 300px; margin-top:10px;">
                                         <?php
@@ -369,9 +368,9 @@
                                                                     <div class="">
                                                                         <div class="d-flex " style="margin-bottom : -29px;">
                                                                             <h6 style="margin-left: 20px;"><?= $comment['user_name'] ?></h6>
-                                                                            <p style="margin-left: 10px">✔ <?= $comment['time_comment'] ?>AM</p>
+                                                                            <p style="margin-left: 10px; font-size:10px;">✔ <?= $comment['time_comment'] ?></p>
                                                                         </div>
-                                                                        <p style="margin-top: 20px; margin-left: 20px;"><?= $comment['comments'] ?></p>
+                                                                        <p style="margin-top: 20px; margin-left: 20px;" class="text-primary"><?= $comment['comments'] ?></p>
                                                                     </div>
                                                                 </div>
 
@@ -384,7 +383,7 @@
                                                                             <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
                                                                                 <i class="bi bi-pencil-square m-2 dropdown-item">Edit</i>
                                                                             </a>
-                                                                            <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown" style="background-color: rgba(14, 13, 13, 0.075); margin:-100px 210px;  ">
+                                                                            <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown" style="background-color: rgba(14, 13, 13, 0.075); margin:-100px 90px;  ">
                                                                                 <form action="controllers/detait_assignment_for teacher_controller/edit_comment_controller.php" class="d-flex " method="post">
                                                                                     <input class="form-control shadow-sm" type="text" style="height: 27px;" value="<?= $comment['comments'] ?>" name="comment">
                                                                                     <input type="text" value="<?= $comment['comment_id'] ?>" name="idcomment" hidden>
@@ -399,15 +398,11 @@
                                                                         <a class="dropdown-item" href="controllers/detait_assignment_for teacher_controller/delete_comment_controller.php?ids=<?= $comment['comment_id']; ?>&idassignment=<?= $_GET['id'] ?>&code=<?= $_GET['codeclass'] ?>"><i class="bi bi-trash-fill m-2"></i>Delete</a></li>
                                                                     </ul>
                                                                 </div>
-
-
+                                                                </div>
                                                         <?php
                                                         }
                                                     }
                                                         ?>
-                                                            </div>
-
-
                                                             <?php
                                                         }
                                                         if ($comment['comment_user'] == $_SESSION['user'][0]) {
@@ -422,9 +417,9 @@
                                                                             <div class="">
                                                                                 <div class="d-flex " style="margin-bottom : -29px;">
                                                                                     <h6 style="margin-left: 20px;"><?= $comment['user_name'] ?></h6>
-                                                                                    <p style="margin-left: 10px">✔ <?= $comment['time_comment'] ?>AM</p>
+                                                                                    <p style="margin-left: 10px" >✔ <?= $comment['time_comment'] ?>AM</p>
                                                                                 </div>
-                                                                                <p style="margin-top: 20px; margin-left: 20px;"><?= $comment['comments'] ?></p>
+                                                                                <p style="margin-top: 20px; margin-left: 20px;" ><?= $comment['comments'] ?></p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -440,7 +435,7 @@
                                     </div>
 
                                     <!-- end commet private  --------------------------------------------------------------------------------------------->
-                                    <div class="d-flex">
+                                    <div class="d-flex align-items-center">
                                         <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="w-100 d-flex align-items-center ">
                                             <?php
                                             $image = $_SESSION['image_url'];
@@ -475,7 +470,9 @@
                                             <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
                                             <input type="text" name="classcode" value="<?= $_GET['codeclass']; ?>" hidden>
                                             <input type="text" name="comment_user" value="<?= $owner[0]['user_id'] ?>" hidden>
-                                            <button class="btn" style="margin-left: -25px;"><span class="material-symbols-outlined m-2 " style="font-size: 50px; ">send</span> </button>
+                                            <input type="text" name="role" value="" hidden> 
+
+                                            <button class="btn" style="margin-left: -20px;"><span class="material-symbols-outlined m-2 " style="font-size: 35px; ">send</span> </button>
                                         </form>
                                     </div>
                                 </div>
