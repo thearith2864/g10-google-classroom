@@ -431,6 +431,7 @@
                                                                                     <input type="text" value="<?= $_GET['id'] ?>" name="idassignment" hidden>
                                                                                     <input type="text" value="<?= $_GET['codeclass'] ?>" name="classcode" hidden>
                                                                                     <input type="text" name="comment_user" value="<?= $_GET['user_id'] ?>" hidden>
+                                                                                    <!-- <input type="text" name="role  " value="<?= $_GET['user_id'] ?>" hidden> -->
                                                                                     <button class="" style="height: 27px;" hidden>Send</button>
                                                                                 </form>
                                                                             </ul>

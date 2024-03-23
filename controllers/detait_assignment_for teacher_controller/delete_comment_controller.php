@@ -15,4 +15,3 @@ if ($_GET['ids']){
     $user = $_GET['user'];
     header('Location: /detait_assignment?id=' . $idassignmet . '&codeclass=' . $codeclass . '&user_id=' . $user);
 }
-
