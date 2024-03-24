@@ -1,4 +1,5 @@
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <section>
     <!-- write cover image here// -->
     <div class="container">
@@ -56,17 +57,13 @@
         <ul class="nav nav-pills nav-pills-bg-soft justify-content-sm-center mb-4 px-3 shadow-lg" id="course-pills-tab" role="tablist">
             <!-- Tab item -->
             <li class="nav-item me-5 me-sm-5 mr-5">
-                <button class="nav-link  mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Class Stream</button>
+                <button class="nav-link  mb-2 mb-md-0<?php  if(!isset($_POST['topic'])){ ?> active <?php } ?> " id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Class Stream</button>
             </li>
             <!-- Tab item -->
             <li class="nav-item me-1 me-sm-5 ml-5">
-                <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2" aria-selected="false">ClassWork</button>
+                <button class="nav-link mb-2 mb-md-0 <?php  if (isset($_POST['topic'])){ ?>active <?php } ?> " id="course-pills-tab-2" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-2" type="button" role="tab" aria-controls="course-pills-tabs-2" aria-selected="false">ClassWork</button>
             </li>
-            <!-- Tab item -->
-            <!-- <li class="nav-item me-1 me-sm-5 ml-5">
-                <button class="nav-link mb-2 mb-md-0" id="course-pills-tab-3" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-3" type="button" role="tab" aria-controls="course-pills-tabs-3" aria-selected="false">People </button>
-            </li> -->
-            <!-- Tab item -->
+
           
 
         </ul>
@@ -75,7 +72,7 @@
         <!-- Tabs content START -->
         <div class="tab-content" id="course-pills-tabContent">
             <!-- Content START -->
-            <div class="tab-pane fade show active" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
+            <div class="tab-pane fade <?php  if (!isset($_POST['topic'])){ ?>  show active <?php } ?> " id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
                 <div class="d-flex">
                     <div>
                         <a href="/todos">
@@ -95,9 +92,7 @@
                     <div>
                     <?php
                     foreach ($checkAssignments as $assignment){
-                        
                     ?>
-                        
                         <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" class="card shadow-lg m-3 border border-primary nav nav-pills nav-pills-bg-soft"  style="width: 807px; height:100px; padding:0; margin:0; background:white;">
                             <div class="card-body d-flex">
                                 <div>
@@ -121,28 +116,37 @@
             <!-- Content END -->
 
             <!-- Content START -->
-            <div class="tab-pane fade p-3 w-50 " id="course-pills-tabs-2" role="tabpanel" aria-labelledby="course-pills-tab-2"> 
+            <div class="tab-pane fade p-3 w-50 <?php  if (isset($_POST['topic'])){ ?>  show active <?php } ?>  " id="course-pills-tabs-2" role="tabpanel" aria-labelledby="course-pills-tab-2"> 
                 <div class="btn-group " style="margin-bottom: 20px;">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    All topics
+                    <?php
+                    if (isset($_POST['title'])) {
+                       echo $_POST['title'];
+                    }else{
+                        echo "all Class";
+                    }
+                    ?>
                     </button>
                     <ul class="dropdown-menu">
-
-                        <li><a class="dropdown-item" href="#">Assignment</a></li>
-                        <li><a class="dropdown-item" href="#">Quiz assignment</a></li>
-                        <li><a class="dropdown-item" href="#">Question</a></li>
-                        <li><a class="dropdown-item" href="#">Material</a></li>
-                        <li><a class="dropdown-item" href="#">Reuse post</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Topic</a></li>
+                        <?php
+                        foreach ($select as $topics){
+                            if($id[0]['classroom_id'] == $topics['classroom_id']){
+                        ?>
+                        <form action="#" method="post" >
+                            <input type="text" name="topic" value="<?=$topics['topic_id']?>" hidden>
+                            <input type="text" name="title" value="<?=$topics['title']?>" hidden>
+                             <button  class="dropdown-item bg-primary-soft-hover btn w-100">   <li><a><?= $topics['title']?></a></li>  </button>
+                        </form>
+                       <?php
+                        }}
+                       ?>
                     </ul>
-                    
                 </div>
                     <?php
                     // print_r($checkAssignments);
                     foreach ($checkAssignments as $assignment):
+                        if (isset($_POST['topic'])){
+                        if ($assignment['topic_id'] == $_POST['topic']){
                     ?>
                     <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
                         <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft m-2" style=" width: 205%; ">
@@ -162,6 +166,28 @@
                         </div>
                     </a>
                     <?php
+                        
+                        }}else{
+                            ?>
+                             <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
+                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft m-2" style=" width: 205%; ">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3" style="font-size: 23px;margin: 0; padding: 0;"></i>
+                                </div>
+                                <div class="w-100">
+                                    <h5 class="card-title" style="margin: 0; padding: 0;"><?=$assignment['title']?></h5>
+                                    <p><?=$assignment['dateline']?></p>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </a>
+                            <?php
+                        }
                     endforeach;
                     ?>
             </div>

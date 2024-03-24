@@ -382,4 +382,30 @@ function classowner($code){
     ]);
     return $stetement->fetchAll();
 }
+function select_topict(){
+    global $connection;
+    $stetement = $connection->prepare('select * from topics ');
+    $stetement->execute();
+    return $stetement->fetchAll();
+}
+function insert_topic($topic, $classcode){
+    global $connection;
+    $stetement = $connection->prepare('insert into topics (title, classroom_id) VALUES (:topic, :classroom_id)');
+    $stetement->execute([
+        // ':date' => date('Y-m-d H:i:s'),
+        ':topic' => $topic,
+        ':classroom_id' => $classcode
+    ]);
+    return $stetement->rowCount() > 0;
+}
+function deleteTopics($topic_id)
+{
+    global $connection;
+    $statement = $connection->prepare("DELETE FROM topics WHERE topic_id = :topic_id");
+    $statement->execute([
+        ':topic_id' => $topic_id,
+    ]);
+    return $statement->rowCount() > 0;
+}
+
 
