@@ -258,15 +258,15 @@ Popular course START -->
 											<!-- Card body -->
 											<div class="card-body pb-0">
 												<!-- Badge and favorite -->
-												<div class="d-flex justify-content-between mb-2">
+												<div class="d-flex justify-content-between ">
 
 													<p>All level</p>
 													<i class="far fa-heart"></i>
 												</div>
 												<!-- Title -->
-												<h5 class="card-title fw-normal" id='className'>Class: <?php echo $class['classroom_name'] ?></h5>
-												<p class="mb-2 text-truncate-2" style="font-size: 20px;">Subject: <?php echo $class['subject'] ?></p>
-												<p class="mb-2 text-truncate-2" style="font-size: 20px;">Room: <?php echo $class['room'] ?></p>
+												<h5 class="card-title fw-normal text-primary" id='className' style="font-size: 18px; ">Class: <?php echo $class['classroom_name'] ?></h5>
+												<p class="mb-2 text-truncate-2" style="font-size: 16px;">Subject: <?php echo $class['subject'] ?></p>
+												<p class="mb-1 text-truncate-2" style="font-size: 16px;">Room: <?php echo $class['room'] ?></p>
 
 											</div>
 											<!-- Card footer -->
@@ -308,21 +308,38 @@ Popular course START -->
 								<div class="col-sm-6 col-lg-4 col-xl-3">
 									<a href="/student_classwork?id=<?= $class['classroom_code'] ?>">
 										<div class="card shadow h-100">
+										<div class="card shadow h-100">
 											<!-- Image -->
 											<img src="assets/images/courses/4by3/08.jpg" class="card-img-top" alt="course image">
+											<div class="d-flex align-items-center">
+												<?php
+												foreach ($teacher as $select) {
+													// print_r($select['classroom_code']);
+
+													if ($select['classroom_code'] == $class['classroom_code']) {
+												?>
+														<img src="../../assets/images/profiles/<?= $select['image_url'] ?>" alt="" style="margin-top: -40px; height: 80px; width:80px; margin-left: 10px; " class="shadow-lg rounded-circle">
+														<h5 style="margin-left: 10px;"><?= $select['user_name'] ?></h5>
+												<?Php
+													}
+												}
+												?>
+											</div>
 											<!-- Card body -->
 											<div class="card-body pb-0">
 												<!-- Badge and favorite -->
-												<div class="d-flex justify-content-between mb-2">
-													<a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
-													<a href="#" class="h6 mb-0"><i class="far fa-heart"></i></a>
+												<div class="d-flex justify-content-between ">
+
+													<p>All level</p>
+													<i class="far fa-heart"></i>
 												</div>
 												<!-- Title -->
-												<h5 class="card-title fw-normal"><a href="/class?id=<?= $class['classroom_code'] ?>"><?php echo $class['classroom_name'] ?></a></h5>
-												<p class="mb-2 text-truncate-2"><?php echo $class['subject'] ?></p>
-												<p class="mb-2 text-truncate-2"><?php echo $class['room'] ?></p>
+												<h5 class="card-title fw-normal text-primary" id='className' style="font-size: 18px; ">Class: <?php echo $class['classroom_name'] ?></h5>
+												<p class="mb-2 text-truncate-2" style="font-size: 16px;">Subject: <?php echo $class['subject'] ?></p>
+												<p class="mb-1 text-truncate-2" style="font-size: 16px;">Room: <?php echo $class['room'] ?></p>
 
 											</div>
+											<!-- Card footer -->
 											<!-- Card footer -->
 											<div class="card-footer pt-0 pb-3">
 												<hr>
@@ -331,7 +348,10 @@ Popular course START -->
 													<span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>15 lectures</span>
 												</div>
 											</div>
+											
 										</div>
+											
+										
 									</a>
 								</div>
 								<!-- Card item END -->
