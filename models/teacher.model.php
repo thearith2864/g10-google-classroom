@@ -172,3 +172,22 @@ if (!function_exists('countStudent')){
         return $result[0]; 
     }
 }
+
+if (!function_exists('countUsers')){
+    function countUsers(){
+        global $connection;
+        $statement = $connection->prepare('SELECT COUNT(user_id) FROM users');
+        $statement->execute();
+        $result = $statement->fetch();
+        return $result[0]; 
+    }
+}
+if (!function_exists('countClass')){
+    function countClass(){
+        global $connection;
+        $statement = $connection->prepare('SELECT COUNT(classroom_id) FROM classrooms');
+        $statement->execute();
+        $result = $statement->fetch();
+        return $result[0]; 
+    }
+}

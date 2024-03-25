@@ -3,6 +3,7 @@ if (!isset($_SESSION['user'])) {
 	header('Location: /signup');
 	exit();
 }
+require("models/teacher.model.php");
 ?>
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
@@ -143,8 +144,8 @@ Counter START -->
 						<span class="display-6 lh-1 text-warning mb-0"><i class="fas fa-tv"></i></span>
 						<div class="ms-4 h6 fw-normal">
 							<div class="d-flex">
-								<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="10" data-purecounter-delay="200">0</h5>
-								<span class="mb-0 h5">K</span>
+								<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo countClass() ?>" data-purecounter-delay="200"></h5>
+								<span class="mb-0 h5"> +</span>
 							</div>
 							<p class="mb-0">Online Courses</p>
 						</div>
@@ -156,8 +157,8 @@ Counter START -->
 						<span class="display-6 lh-1 text-blue mb-0"><i class="fas fa-user-tie"></i></span>
 						<div class="ms-4 h6 fw-normal">
 							<div class="d-flex">
-								<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="200" data-purecounter-delay="200">0</h5>
-								<span class="mb-0 h5">+</span>
+								<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo countUsers() ?>" data-purecounter-delay="200">0</h5>
+								
 							</div>
 							<p class="mb-0">Expert Tutors</p>
 						</div>
@@ -169,8 +170,8 @@ Counter START -->
 						<span class="display-6 lh-1 text-purple mb-0"><i class="fas fa-user-graduate"></i></span>
 						<div class="ms-4 h6 fw-normal">
 							<div class="d-flex">
-								<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="60" data-purecounter-delay="200">0</h5>
-								<span class="mb-0 h5">K+</span>
+								<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo countUsers() ?>" data-purecounter-delay="200"></h5>
+								
 							</div>
 							<p class="mb-0">Online Students</p>
 						</div>
@@ -182,8 +183,8 @@ Counter START -->
 						<span class="display-6 lh-1 text-info mb-0"><i class="bi bi-patch-check-fill"></i></span>
 						<div class="ms-4 h6 fw-normal">
 							<div class="d-flex">
-								<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="6" data-purecounter-delay="300">0</h5>
-								<span class="mb-0 h5">K+</span>
+								<h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="<?php echo countClass() ?> " data-purecounter-delay="300">0</h5>
+								<span class="mb-0 h5"> +</span>
 							</div>
 							<p class="mb-0">Certified Courses</p>
 						</div>
