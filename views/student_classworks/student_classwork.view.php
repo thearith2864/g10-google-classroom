@@ -170,14 +170,14 @@
                         }}else{
                             ?>
                              <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
-                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft m-2" style=" width: 205%; ">
-                            <div class="card-body d-flex">
+                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft m-3" style=" width: 205%; ">
+                            <div class="card-body d-flex" style='padding:5px;'>
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3" style="font-size: 23px;margin: 0; padding: 0;"></i>
                                 </div>
                                 <div class="w-100">
                                     <h5 class="card-title" style="margin: 0; padding: 0;"><?=$assignment['title']?></h5>
-                                    <p><?=$assignment['dateline']?></p>
+                                    <p style='padding:0; margin:0;'><?=$assignment['dateline']?></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     
