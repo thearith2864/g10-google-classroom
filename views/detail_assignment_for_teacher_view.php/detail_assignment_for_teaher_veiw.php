@@ -471,7 +471,6 @@
                                                 }
                                                 ?>
                                     </div>
-
                                     <!-- end commet private  --------------------------------------------------------------------------------------------->
                                     <div class="d-flex">
                                         <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="w-100 d-flex align-items-center ">
