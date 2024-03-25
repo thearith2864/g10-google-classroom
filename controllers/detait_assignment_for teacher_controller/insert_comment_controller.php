@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         header('location: /detait_assignment?id='. $idassignmnt . '&codeclass=' . $classcode);
         exit;
 	}
-    if (isset($_POST['comments'])) {
+    if (isset($_POST['comments']) && !isset($_POST['comment_user'])) {
         $classworkid = $_POST['idclasswork'];
         $userid = $_POST['iduser'];
         insertcomment($classworkid, $userid, $comment, $TimeComment);
@@ -24,5 +24,18 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
         }else{
             header('location: /detait_assignment?id='. $idassignmnt . '&codeclass=' . $classcode);
         }
+    }if (isset($_POST['comment_user'])){
+        echo "yes";
+        $classworkid = $_POST['idclasswork'];
+        $userid = $_POST['iduser'];
+        $comment_user = $_POST['comment_user'];
+        insertcommentPrivate($classworkid, $userid, $comment, $TimeComment, $comment_user);
+        if (isset($_POST['role'])){
+            header('location: /submit-form?id='. $idassignmnt . '&codeclass=' . $classcode);
+        }else{
+            header('location: /detait_assignment?id='. $idassignmnt . '&codeclass=' . $classcode . '&user_id=' . $comment_user);
+           
+        }
     }
+
 }

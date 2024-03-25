@@ -7,4 +7,6 @@ require "models/assignment_model.php";
  $checkAssignments = checkassignment($checkid['classroom_id']);
  $id = $_GET['id'];
  $each_assignment = selectAssignment($id);
+ $select =  select_topict();
+ $id = classowner($codeclass);
 require('views/student_classworks/student_classwork.view.php');

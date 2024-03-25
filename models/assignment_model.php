@@ -157,7 +157,22 @@ function insertcomment(int $classwork_id, int $user_id, string $comment, string 
         ':time_comment' => $time
     ]);
     return $stetement->rowCount() > 0;
-}
+// <<<<<<< HEAD
+// }
+// =======
+ }
+ function insertcommentPrivate ( int $classwork_id, int $user_id, string $comment, string $time, $comment_user):bool {
+    global $connection;
+    $stetement = $connection->prepare("insert into class_work_comments (user_id, classwork_id, comments, time_comment, comment_user) values(:user_id, :classwork_id, :comments, :time_comment, :comment_user)");
+    $stetement->execute([
+        ':user_id' => $user_id,
+        ':classwork_id' => $classwork_id,
+        ':comments' => $comment,
+        ':time_comment' => $time,
+        'comment_user' => $comment_user
+    ]);
+    return $stetement->rowCount() > 0;
+ }
 
 function checkcomment($idclasswork)
 {
@@ -172,7 +187,11 @@ function checkcomment($idclasswork)
 function displayCM()
 {
     global $connection;
-    $statement = $connection->prepare("  select comment_id, time_comment, comments, file_work, user_name, image_url from class_work_comments CM  inner join classworks CK on CM.classwork_id = CK.classwork_id inner join classrooms CR on CR.classroom_id = CK.classroom_id inner join users U on CM.user_id = U.user_id ");
+// <<<<<<< HEAD
+//     $statement = $connection->prepare("  select comment_id, time_comment, comments, file_work, user_name, image_url from class_work_comments CM  inner join classworks CK on CM.classwork_id = CK.classwork_id inner join classrooms CR on CR.classroom_id = CK.classroom_id inner join users U on CM.user_id = U.user_id ");
+// =======
+    $statement = $connection -> prepare ("  select * from class_work_comments CM  inner join classworks CK on CM.classwork_id = CK.classwork_id inner join classrooms CR on CR.classroom_id = CK.classroom_id inner join users U on CM.user_id = U.user_id ");
+// >>>>>>> private_comment_teacher_with_student
     $statement->execute();
     return $statement->fetchAll();
 }
@@ -315,6 +334,7 @@ function getArchiveClassrooms()
 {
     global $connection;
 
+
         $statement = $connection->prepare("SELECT classroom_name, classroom_code, section, subject, room,classroom_id FROM classrooms WHERE archived = 1");
         $statement->execute();
         return $statement->fetchAll();
@@ -342,3 +362,50 @@ function unArchiveClassroom($classroom_code)
     ]);
     return $statement->rowCount() > 0;
 }
+
+function getStudentEmail($idclas){
+    global $connection;
+    $statement = $connection -> prepare('SELECT cm.user_email FROM classroommembers AS cm WHERE classroom_code = :idclass');
+    $statement -> execute(
+        [
+            'idclass' => $idclas
+        ]
+        );
+        $result = $statement -> fetchAll();
+        return $result;
+};
+function classowner($code){
+    global $connection;
+    $stetement = $connection-> prepare('select * from classrooms CR inner join users US on CR.user_email = US.user_email where classroom_code = :classroom_code');
+    $stetement->execute([
+        ':classroom_code' => $code
+    ]);
+    return $stetement->fetchAll();
+}
+function select_topict(){
+    global $connection;
+    $stetement = $connection->prepare('select * from topics ');
+    $stetement->execute();
+    return $stetement->fetchAll();
+}
+function insert_topic($topic, $classcode){
+    global $connection;
+    $stetement = $connection->prepare('insert into topics (title, classroom_id) VALUES (:topic, :classroom_id)');
+    $stetement->execute([
+        // ':date' => date('Y-m-d H:i:s'),
+        ':topic' => $topic,
+        ':classroom_id' => $classcode
+    ]);
+    return $stetement->rowCount() > 0;
+}
+function deleteTopics($topic_id)
+{
+    global $connection;
+    $statement = $connection->prepare("DELETE FROM topics WHERE topic_id = :topic_id");
+    $statement->execute([
+        ':topic_id' => $topic_id,
+    ]);
+    return $statement->rowCount() > 0;
+}
+
+

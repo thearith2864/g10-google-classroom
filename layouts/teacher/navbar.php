@@ -348,7 +348,7 @@ Inner part START -->
 										<a class="list-group-item d-flex" href="/home"><span class="material-symbols-outlined">home</span>Home</a>
 										<a class="list-group-item d-flex" href="/calendar"><span class="material-symbols-outlined">calendar_month</span>Calendar</a>
 										<a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">cast_for_education</span>Teaching</a>
-										<a class="list-group-item d-flex" href="/trainer-review"><span class="material-symbols-outlined">preview</span>Reviews</a>
+										<!-- <a class="list-group-item d-flex" href="/trainer-review"><span class="material-symbols-outlined">preview</span>Reviews</a> -->
 										<a class="list-group-item d-flex" href="/trainer-student"><span class="material-symbols-outlined">school</span>Enrolled</a>
 										<a class="list-group-item d-flex" href="/todos"><span class="material-symbols-outlined">
 event_available

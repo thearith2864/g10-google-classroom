@@ -35,11 +35,11 @@ aria-hidden="true">
 
 <!-- _________________________________start form join class______________________________________________- -->
 
-<div class="modal fade" id="form_join_class" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
+<div class="modal fade " id="form_join_class" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+	<div class="modal-dialog ">
 		<div class="modal-content border border-primary">
-			<div class="modal-header">
-				<h5 class="modal-title" id="createTaskModalLabel">Join Class by Class code</h5>
+			<div class="modal-header bg-primary text-white">
+				<h5 class="modal-title text-white " id="createTaskModalLabel">Join Class by Class code</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
@@ -56,8 +56,8 @@ aria-hidden="true">
         </ul>
         <p>You need to make sure that I have input the right class code</p>
 				</div>
-				<div class="modal-footer bg-primary">
-					<button type="submit" class="btn btn-danger align-self-end px-4">Join Now</button>
+				<div class="modal-footer ">
+					<button type="submit" class="btn btn-primary align-self-end px-4">Join</button>
 					<!-- <button type="button" class="btn btn-primary">Join Class</button> -->
 				</form>
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -72,7 +72,7 @@ aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content border border-primary">
 			<div class="modal-header bg-primary">
-				<h5 class="modal-title" id="createTaskModalLabel">Create New Class</h5>
+				<h5 class="modal-title text-white" id="createTaskModalLabel">Create New Class</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<form id="createClassForm" action="../../controllers/create_class/create_class.controller.php" method="post">

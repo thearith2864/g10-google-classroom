@@ -10,7 +10,11 @@ if (isset($_SERVER['REQUEST_METHOD'])== "POST"){
     DeleteCM($id, $comment);
     if (isset($_POST['role'])){
         header('Location: /submit-form?id=' . $idassignment . '&codeclass=' . $codeclass);
-    }else{
-        header('Location: /detait_assignment?id=' . $idassignment . '&codeclass=' . $codeclass);
+    }elseif(isset($_POST['comment_user'])){
+        header('Location: /detait_assignment?id=' . $idassignment . '&codeclass=' . $codeclass . '&user_id=' . $_POST['comment_user']);
+    }
+    else{
+        header('Location: /detait_assignment?id=' . $idassignment . '&codeclass=' . $codeclass );
+
     }
 }
