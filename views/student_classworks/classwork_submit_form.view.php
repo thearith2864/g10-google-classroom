@@ -77,11 +77,11 @@
             </div>
         </div>
         <div>
-            <p>_________________________________________________________________________________</p>
+            <p>________________________________________________________________________________</p>
         </div>
         <div class="p-4">
                 <div><a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>">
-                <div class="card p-2 shadow-sm" style="width: 600px; border:1px solid black;">
+                <div class="card p-2 shadow-sm" style="width: 490px; border:1px solid black;">
                     <div class="d-flex align-items-center">
                         <div>
 
@@ -100,7 +100,7 @@
             </div>
         <div>
 
-            <p style="color: gray;">_________________________________________________________________________________</p>
+            <p style="color: gray;">________________________________________________________________________________</p>
         </div>
         <div class="d-flex align-items-end">
 
@@ -202,8 +202,8 @@
 						}
 						?>
             <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="d-flex  w-100">
-                <div class="  w-100" >
-                    <input name="comments" type="text" class="form-control shadow-sm h-100 " aria-describedby="emailHelp" placeholder="Enter Your comment">
+                <div class="  w-75" >
+                    <input name="comments" type="text" class="form-control shadow-sm width rounded-pill mt-2   " aria-describedby="emailHelp" placeholder="Enter Your comment" style="height: 40px; ">
                     <span class="text-danger"><?php echo isset($_SESSION['errorcomment']) ? $_SESSION['errorcomment'] : ''; ?> </span>
                 </div>
                 <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>"  hidden>
@@ -217,7 +217,7 @@
                 <input type="text" name="classcode" value="<?= $_GET['codeclass']; ?>" hidden>
                 <input type="text" name="role" value="" hidden>
                 
-                <button class="btn btn-primary d-flex align-items-center  h-100"><i class="bi bi-send-check "></i></button>
+                <button class="btn" style="margin-left: -20px;"><span class="material-symbols-outlined ms-2 mt-1" style="font-size: 35px; color: blue; ">send</span> </button>
             </form>
 
         </div>
@@ -225,7 +225,7 @@
     <div>
 
         <!-- Form for submit the classwork  -->
-        <div style="width:400px;  margin-left: 80px;">
+        <div style="width:400px;  margin-left: 60px; ">
             <div class="w-100 p-4" style=" border: solid 1px blue; border-radius: 10px;" class="shadow-lg">
                 <div class="w-100 d-flex justify-content-between">
                     <p style="font-size: 26px;">Your work</p>
@@ -352,7 +352,7 @@
             </div>
                                 <!-- comment private-------------------------------------------------------------------------------------------- -->
                                 <div>
-                                    <div class=" overflow-scroll " style="height: 300px; margin-top:10px;">
+                                    <div class=" overflow-scroll " style="height: 300px; margin-top:20px;">
                                         <?php
                                         foreach ($displaycomment as $comment) {
                                             if ($comment['file_work'] == $checkass[0]['file_work']) {
@@ -472,7 +472,7 @@
                                             <input type="text" name="comment_user" value="<?= $owner[0]['user_id'] ?>" hidden>
                                             <input type="text" name="role" value="" hidden> 
 
-                                            <button class="btn" style="margin-left: -20px;"><span class="material-symbols-outlined m-2 " style="font-size: 35px; ">send</span> </button>
+                                            <button class="btn" style="margin-left: -20px;"><span class="material-symbols-outlined ms-2 mt-2" style="font-size: 35px; color: blue; ">send</span> </button>
                                         </form>
                                     </div>
                                 </div>
