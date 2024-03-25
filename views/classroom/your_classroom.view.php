@@ -2,8 +2,8 @@
 <div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true" >
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="createTaskModalLabel">Create New Class</h5>
+			<div class="modal-header bg-primary">
+				<h5 class="modal-title text-white" id="createTaskModalLabel">Create New Class</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<form id="createClassForm" action="../../controllers/create_class/create_class.controller.php" method="post">
