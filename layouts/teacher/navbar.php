@@ -1,3 +1,11 @@
+<?php
+require('models/teacher.model.php');
+require('models/student.model.php');
+if (!isset($_SESSION['user'])) {
+    header('Location: /signin');
+    exit(); 
+}
+?>
 <div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -79,7 +87,6 @@
 							</li>
 
 							<li> <a class="dropdown-item" href="/editprofile"><i class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
-							<li> <a class="dropdown-item" href="instructor-delete-account.html"><i class="fas fa-fw fa-trash-alt me-1"></i>Delete Profile</a> </li>
 						</ul>
 					</li>
 
@@ -92,16 +99,6 @@
 				</ul>
 				<!-- Nav Main menu END -->
 
-				<!-- Nav Search START -->
-				<div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center ms-5">
-					<div class="nav-item w-100">
-						<form class="position-relative">
-							<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-							<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
-						</form>
-					</div>
-				</div>
-				<!-- Nav Search END -->
 			</div>
 			<!-- Main navbar END -->
 			<?php
@@ -249,8 +246,46 @@ Main Banner START -->
 									<h1 class="my-1 fs-4"><?=$user[1] ?><i class="bi bi-patch-check-fill text-info small"></i></h1>
 									<ul class="list-inline mb-0">
 										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
-										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled Students</li>
-										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>25 Courses</li>
+										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0">
+										<?php 
+											$currentFile = $_SERVER['PHP_SELF'];
+											if($currentFile == '/index.php/trainer-classroom'){
+												$user_email = $_SESSION['email'];
+												$result = countStudent($user_email) ;
+												echo '<i class="fas fa-user-graduate text-orange me-2"></i>';
+												echo $result;
+												if($result == 1){
+													echo ' Enrolled Student';
+												}elseif($result > 1){
+													echo ' Enrolled Students';
+												}
+											}
+										?>
+										</li>
+										<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i>
+										<?php 
+											$currentFile = $_SERVER['PHP_SELF'];
+											if($currentFile == '/index.php/trainer-classroom'){
+												$user_email = $_SESSION['email'];
+												$result = countClassroom($user_email) ;
+												echo $result;
+												if($result == 1){
+													echo ' Classroom';
+												}elseif($result > 1){
+													echo ' Classrooms';
+												}
+											}elseif($currentFile == '/index.php/trainer-student'){
+												$user_email = $_SESSION['email'];
+												$result = countJoinClassroom($user_email) ;
+												echo $result;
+												if($result == 1){
+													echo " Classroom's joined";
+												}elseif($result > 1){
+													echo " Classrooms' joined";
+												}
+											}
+											?>
+										</li>
 									</ul>
 								</div>
 								<!-- Button -->
@@ -311,12 +346,17 @@ Inner part START -->
 									<div class="list-group list-group-dark list-group-borderless">
 
 										<a class="list-group-item d-flex" href="/home"><span class="material-symbols-outlined">home</span>Home</a>
-										<!-- <a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">calendar_month</span>Calendar</a> -->
+										<a class="list-group-item d-flex" href="/calendar"><span class="material-symbols-outlined">calendar_month</span>Calendar</a>
 										<a class="list-group-item d-flex" href="/trainer-classroom"><span class="material-symbols-outlined">cast_for_education</span>Teaching</a>
 										<!-- <a class="list-group-item d-flex" href="/trainer-review"><span class="material-symbols-outlined">preview</span>Reviews</a> -->
 										<a class="list-group-item d-flex" href="/trainer-student"><span class="material-symbols-outlined">school</span>Enrolled</a>
-										<a class="list-group-item d-flex" href="/todos"><i class="bi bi-pencil-square fa-fw me-2"></i>To Do</a>
-										<a class="list-group-item text-danger bg-danger-soft-hover" href="/user-signin"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign Out</a>
+										<a class="list-group-item d-flex" href="/todos"><span class="material-symbols-outlined">
+event_available
+</span>To Do</a>
+										<a class="list-group-item d-flex" href="/archived_classroom"><span class="material-symbols-outlined">
+preview_off
+</span></i>Archived classes</a>
+										<!-- <a class="list-group-item text-danger bg-danger-soft-hover" href="/user-signin"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign Out</a> -->
 									</div>
 								</div>
 							</div>
@@ -352,5 +392,5 @@ Inner part START -->
 
 
 				<?php
-				echo '<script src="views/home/searchClasses.view.js"></script>';
+				// echo '<script src="views/home/searchClasses.view.js"></script>';
 				?>

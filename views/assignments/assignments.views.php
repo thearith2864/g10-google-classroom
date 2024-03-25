@@ -194,7 +194,7 @@
                                 <?php
                                 foreach ($alltopic as $topic){
                                 ?>
-                                <option><?=$topic['topic_name']?></option>
+                                <option><?=$topic['title']?></option>
                                 <?php
                                 }
                                 ?>

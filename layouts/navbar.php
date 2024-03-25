@@ -1,5 +1,10 @@
 <!-- Header START -->
-
+<?php
+if (!isset($_SESSION['user'])) {
+    header('Location: /signin');
+    exit(); 
+}
+?>
 <!-- _____________________________________________-start form edit profle_________________________________________________ -->
 <div class="modal fade" id="edit_profile" tabindex="-1" aria-labelledby="createTaskModalLabel"
 aria-hidden="true">
@@ -101,58 +106,6 @@ aria-hidden="true">
 </div>
 <!-- ________________________________________________________________________end teacher create class_______________ -->
 
- <!-- ______________________________________________-start calendar_____________________________________________-? -->
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset='utf-8' />
-		<link href='/docs/dist/demo-to-codepen.css' rel='stylesheet' />
-		<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
-  <script src='/docs/dist/demo-to-codepen.js'></script>
- <style>
-	.fc-event {
-		padding-top: 10px;
-  		height: 40px;
-	}
- </style>
-  <?php
-	$eventsJson = json_encode($_SESSION['event']);
-  ?>
-
-<script>
-	
-	document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        timeZone: 'UTC',
-        initialView: 'dayGridWeek',
-        headerToolbar: {
-            left: 'prev,next',
-            center: 'title',
-            right: 'dayGridWeek,dayGridDay'
-        },
-        editable: true,
-        events: <?php echo $eventsJson ?>.map(function(event) {
-            var link = '/student_classwork?id=' + event.classroom_code;
-
-            return {
-                title: event.title,
-                start: event.dateline,
-                url: link
-            };
-        }),
-        eventClick: function(info) {
-            info.jsEvent.preventDefault();
-            if (info.event.url) {
-                window.location.href = info.event.url; 
-            }
-        }
-    });
-    calendar.render();
-});
-
-
-</script>
 <header class="navbar-light navbar-sticky header-static">
 	<!-- Logo Nav START -->
 	<nav class="navbar navbar-expand-xl">
@@ -203,27 +156,12 @@ aria-hidden="true">
 								<hr class="dropdown-divider">
 							</li>
 							<li> <a class="dropdown-item" href="/editprofile"><i class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
-							<li> <a class="dropdown-item" href="instructor-delete-account.html"><i class="fas fa-fw fa-trash-alt me-1"></i>Delete Profile</a> </li>
 						</ul>
 					</li>
 
 					<!-- Nav item 4 Calendar-->
-					<li class="nav-item dropdown dropdown-fullwidth">
-						<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Calendar</a>
-						<div class="dropdown-menu dropdown-menu-end pb-0" data-bs-popper="none">
-							<div class="row p-4 g-4">
-								<!-- Dropdown column item -->
-
-
-								<div class='demo-topbar'></div>
-  								<div class="w-100 mx-1 h-25" id='calendar'></div>
-
-								  
-					
-							
-							</div>
-						</div>
-					</li>
+		
+					<li class="nav-item"><a class="nav-link " href="/calendar">Calendar</a></li>
 					<li class="nav-item"><a class="nav-link me-5" href="/todos">To-do</a></li>
 
 					<!-- Nav item 5 link-->
@@ -392,7 +330,7 @@ aria-hidden="true">
 
 <?php
 
-echo '<script src="views/home/searchClasses.view.js"></script>';
+// echo '<script src="views/home/searchClasses.view.js"></script>';
 
 
 ?>

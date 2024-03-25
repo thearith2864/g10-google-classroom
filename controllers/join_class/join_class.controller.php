@@ -25,7 +25,10 @@ if(isset($_GET['id'])){
         }
     }
     if($jointed == "true"){
+        echo $jointed;
         echo "yes";
+        echo $codeclass;
+        echo $joint['classroom_code'];
     $isjoin = joinClass($codeclass, $user_email);
     if($isjoin){
         deleteInvite ($iviteId);
@@ -33,6 +36,8 @@ if(isset($_GET['id'])){
     }
 }else{
     echo "no";
+    echo $jointed;
+    
     deleteInvite ($iviteId);
     header('location: /trainer-student');   
 }

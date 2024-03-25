@@ -63,23 +63,10 @@
 							<div class="col-md-8">
 								<form class="rounded position-relative" action="controllers/classroom/search_classroom.controllers.php" method='post'>
 									<input class="form-control pe-5 bg-transparent" id="search" type="search" placeholder="Search" aria-label="Search">
-									<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
 								</form>
 							</div>
 
-							<!-- Select option -->
-							<div class="col-md-3">
-								<!-- Short by filter -->
-								<form>
-									<select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm">
-										<option value="">Sort by</option>
-										<option>Free</option>
-										<option>Newest</option>
-										<option>Most popular</option>
-										<option>Most Viewed</option>
-									</select>
-								</form>
-							</div>
+							
 						</div>
 						<!-- Search and select END -->
 						<!-- Course list table START -->
