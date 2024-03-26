@@ -93,14 +93,14 @@
                     <?php
                     foreach ($checkAssignments as $assignment){
                     ?>
-                        <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" class="card shadow-lg m-3 border border-primary nav nav-pills nav-pills-bg-soft"  style="width: 807px; height:100px; padding:0; margin:0; background:white;">
-                            <div class="card-body d-flex">
+                        <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" class="card shadow-lg m-3 border border-primary nav nav-pills nav-pills-bg-soft"  style="width: 807px; height:80px; padding:0; margin:0; background:white;">
+                            <div class="card-body d-flex" style=" padding: 13px 0px 13px 10px;">
                                 <div>
-                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3 color-primary text-primary"></i>
+                                    <i class="bi bi-file-earmark-medical-fill fa-2x m-3 color-primary text-primary"></i>
                                 </div>
-                                <div class="p-2 w-100">
-                                    <h5 class="card-title"><?= $assignment['title'] ?></h5>
-                                    <p class="card-text" style='font-size:small'><?= $assignment['create_date'] ?></p>
+                                <div class=" w-100">
+                                    <h5 class="card-title" style=" padding: 0; margin:0;"><?= $assignment['title'] ?></h5>
+                                    <p class="card-text" style='font-size:small; padding:0;'><?= $assignment['create_date'] ?></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                 </div>
@@ -149,14 +149,14 @@
                         if ($assignment['topic_id'] == $_POST['topic']){
                     ?>
                     <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
-                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft m-2" style=" width: 205%; ">
-                            <div class="card-body d-flex">
+                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft mb-3" style=" width: 205%; ">
+                            <div class="card-body d-flex" style=" padding: 5px;">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3" style="font-size: 23px;margin: 0; padding: 0;"></i>
                                 </div>
                                 <div class="w-100">
                                     <h5 class="card-title" style="margin: 0; padding: 0;"><?=$assignment['title']?></h5>
-                                    <p><?=$assignment['dateline']?></p>
+                                    <p style="margin: 0; padding: 0;"><?=$assignment['dateline']?></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     
@@ -170,14 +170,14 @@
                         }}else{
                             ?>
                              <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
-                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft m-2" style=" width: 205%; ">
-                            <div class="card-body d-flex">
+                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft m-3" style=" width: 205%; ">
+                            <div class="card-body d-flex" style='padding:5px;'>
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3" style="font-size: 23px;margin: 0; padding: 0;"></i>
                                 </div>
                                 <div class="w-100">
                                     <h5 class="card-title" style="margin: 0; padding: 0;"><?=$assignment['title']?></h5>
-                                    <p><?=$assignment['dateline']?></p>
+                                    <p style='padding:0; margin:0;'><?=$assignment['dateline']?></p>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     

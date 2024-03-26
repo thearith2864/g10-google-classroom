@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <section>
     <div class="container">
-        <ul class="nav nav-pills    justify-content-sm-start mb-4 px-3" id="course-pills-tab" role="tablist" style="border-bottom: 2px solid blue;">
+        <ul class="nav nav-pills    justify-content-sm-start mb-4 mx-3" id="course-pills-tab" role="tablist" style="width:95%;border-bottom: 2px solid blue; padding-bottom:2px;">
             <!-- Tab item -->
             <li class="nav-item me-5 me-sm-5 mr-5">
                 <button class="nav-link  mb-2 mb-md-0 <?php if (!isset($_GET['user_id'])) { ?>active<?php } ?> " id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-tabs-1" type="button" role="tab" aria-controls="course-pills-tabs-1" aria-selected="false">Instuctions</button>
@@ -11,25 +11,25 @@
             </li>
 
         </ul>
-        <div class="tab-content" id="course-pills-tabContent">
+        <div class="tab-content " id="course-pills-tabContent" style="margin-left:80px;">
             <div class="tab-pane fade show <?php if (!isset($_GET['user_id'])) { ?>active<?php } ?>" id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
 
-                <div class="d-flex justify-content-between p-3" style="height: 120px; border-bottom:2px solid blue; width:90%; margin-left:55px;">
+                <div class="d-flex justify-content-between p-3" style="height: 120px; border-bottom:1.5px solid blue; width:87.5%; margin-left:55px;">
                     <div>
-                        <h3 style="margin-left: -50px;"><i class="bi bi-file-earmark-medical fa-1x" style="margin-right: 20px;"></i><?= $chooose[0]['title'] ?></h3>
+                        <h3 class="text-primary" style="margin-left: -50px;"><i class="bi bi-file-earmark-medical fa-1x text-primary" style="margin-right: 20px;"></i><?= $chooose[0]['title'] ?></h3>
                         <?php
                         if (isset($_SESSION['user'])) {
                             $username = $_SESSION['user'];
                         }
                         ?>
-                        <p style="margin-top: -7px;"><?= $username['user_name'] ?> 🕑✅ <?= $chooose[0]['create_date'] ?> AM</p>
+                        <p style="margin-top: -7px;"><?= $username['user_name'] ?> 🕑✅ <?= $chooose[0]['create_date'] ?> </p>
                         <p style="margin-top: -13px;"><?= $chooose[0]['point'] ?> Point</p>
                     </div>
 
                     <div>
                         <div class="btn-group p-5">
                             <button type="button" class=" btn" data-bs-toggle="dropdown" aria-expanded="false" style="margin: -90px -180px 0 0;">
-                                <i class="bi bi-three-dots-vertical fa-2x"></i>
+                                <i class="bi bi-three-dots-vertical fa-2x text-primary pb-5" ></i>
                             </button>
                             <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/form_edit_assignment?id=<?= $_GET['id']; ?>&codeclass=<?= $_GET['codeclass'] ?>"><i class="bi bi-pencil-square m-2"></i>Edit</a></li>
@@ -45,8 +45,8 @@
                         <p id="dateline" style="margin-top: -45px;"><?= $chooose[0]['dateline'] ?></p>
                     </div>
                 </div>
-                <div class="p-4" style="height: 180px; border-bottom:2px solid blue; width:90%; margin-left:55px;">
-                    <div class="card p-2 shadow-sm" style="width: 90%; border:1px solid black;">
+                <div class="p-4" style="height: 180px; border-bottom:1.5px solid blue; width:87%; margin-left:55px;">
+                    <div class="card p-2 shadow-sm" style="width: 99%; border:0.5px solid black;">
                         <a href="assets/files/assignment_files/<?= $chooose[0]['file_work'] ?>    ">
                             <div class="d-flex align-items-center">
                                 <div>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="d-flex align-items-end" style=" width:90%; margin-left:55px;">
 
-                    <i class="bi bi-people-fill fa-2x m-2"></i>
+                    <i class="bi bi-people-fill fa-2x m-2 text-primary"></i>
                     <p><?php
                         $count = 0;
                         foreach ($displaycomment as $comment) {
@@ -86,7 +86,7 @@
                         echo $comment['comment_user'];
                         $count += 1;
             ?>
-                        <div style=" width:80%; margin-left:85px;" class="d-flex align-items-center justify-content-between ">
+                        <div style=" width:87%; margin-left:85px;" class="d-flex align-items-center justify-content-between ">
                             <div class="d-flex align-items-center">
                                 <img src="../../assets/images/profiles/<?= $comment['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-1">
                                 <div class="">
@@ -118,6 +118,7 @@
                                                         <input type="text" value="<?= $_GET['id'] ?>" name="idassignment" hidden>
                                                         <input type="text" value="<?= $_GET['codeclass'] ?>" name="classcode" hidden>
                                                         <button class="" style="height: 27px;">Send</button>
+                                                        
                                                     </form>
                                                 </ul>
                                             </div>
@@ -163,7 +164,7 @@
                     ?>
                     <form action="controllers/detait_assignment_for teacher_controller/insert_comment_controller.php" method="post" class="d-flex">
                         <div>
-                            <input name="comments" type="text" class="form-control shadow-sm" aria-describedby="emailHelp" placeholder="Enter Your comment" style="width: 800px;">
+                            <input name="comments" type="text" class="form-control shadow-sm width rounded-pill" aria-describedby="emailHelp" placeholder="Enter Your comment" style="width: 770px; height: 40px; margin-top:10px">
                             <span class="text-danger"><?php echo isset($_SESSION['errorcomment']) ? $_SESSION['errorcomment'] : ''; ?> </span>
                         </div>
                         <input type="text" name="idclasswork" value="<?= $chooose[0]['classwork_id'] ?>" hidden>
@@ -174,7 +175,7 @@
                         <input type="text" name="iduser" value="<?= $user_id['user_id'] ?>" hidden>
                         <input type="text" name="idassignment" value="<?= $_GET['id'] ?>" hidden>
                         <input type="text" name="classcode" value="<?= $_GET['codeclass']; ?>" hidden>
-                        <button class="btn btn-primary d-flex "><i class="bi bi-send-check "></i></button>
+                        <button class="btn" style="margin-left: -20px;"><span class="material-symbols-outlined ms-2 mt-1 " style="font-size: 35px; color: blue; ">send</span> </button>
 
                     </form>
 
