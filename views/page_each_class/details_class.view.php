@@ -487,8 +487,8 @@
                                         </a>
                                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3 p-2">
                                             
-                                            <button data-toggle="modal" data-target="#rename_topic"
-                                                class="bg-primary-soft-hover p-2 btn w-100">Rename</button>
+                                            <!-- <button data-toggle="modal" data-target="#rename_topic"
+                                                class="bg-primary-soft-hover p-2 btn w-100">Rename</button> -->
                                             <button data-toggle="model" data-target="#rename_topic"  class="bg-primary-soft-hover p-2 btn w-100"><a  href="../../controllers/assignment/delete_topic.controller.php?id=<?= $topic['topic_id'] ?>"
                                                   >Delete</a></button>
                                             

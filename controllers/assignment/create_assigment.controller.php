@@ -55,27 +55,27 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                         $teacher_email = $_SESSION['email'];
                         $student_email = $email['user_email'];
                         $user = $_SESSION['user']['user_name'];
-                        $url_link = 'http://localhost:8888/student_classwork?id='. $idclas ;
+                        $url_link = 'http://localhost:3000/student_classwork?id='. $idclas ;
                         
                         $mail = new PHPMailer(true);
 
                         try {
                             //Server settings
-                            $mail->isSMTP();                                            //Send using SMTP
-                            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                            $mail->Username   = 'hay.sev@student.passerellesnumeriques.org';                     //SMTP username
-                            $mail->Password   = 'gjln qpau ewyl tvot';                               //SMTP password
-                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                            $mail->isSMTP();                                            
+                            $mail->Host       = 'smtp.gmail.com';                     
+                            $mail->SMTPAuth   = true;                                  
+                            $mail->Username   = 'thearithclassroom@gmail.com';                   
+                            $mail->Password   = 'gjecrvuzuqbicbvk';                              
+                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+                            $mail->Port       = 465;                                   
 
                             //Recipients
                             $mail->setFrom($teacher_email, $user);
-                            $mail->addAddress($student_email);     //Add a recipient
+                            $mail->addAddress($student_email);     
 
                             //Content
-                            $mail->isHTML(true);                                  //Set email format to HTML
-                            $mail->Subject = 'Create a classwork';
+                            $mail->isHTML(true);                                  
+                            $mail->Subject = 'Create a Assignment';
                             $mail->Body    = 'Teacher ' . $user . ' is created a classwork named ' . $title. ' on '. date('y-m-d'). '. Click <a href="' . $url_link . '">here</a> to access the link.';
                             $mail->AltBody = 'Teacher ' . $user . ' is created a classwork named ' . $title. ' on '. date('y-m-d'). '. Click <a href="' . $url_link . '">here</a> to access the link.';
 
@@ -125,27 +125,27 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                         $teacher_email = $_SESSION['email'];
                         $student_email = $email['user_email'];
                         $user = $_SESSION['user']['user_name'];
-                        $url_link = 'http://localhost:8888/student_classwork?id='. $idclas ;
+                        $url_link = 'http://localhost:3000/student_classwork?id='. $idclas ;
 
                         $mail = new PHPMailer(true);
 
                         try {
                             //Server settings
-                            $mail->isSMTP();                                            //Send using SMTP
-                            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                            $mail->Username   = 'hay.sev@student.passerellesnumeriques.org';                     //SMTP username
-                            $mail->Password   = 'gjln qpau ewyl tvot';                               //SMTP password
-                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                            $mail->isSMTP();                                           
+                            $mail->Host       = 'smtp.gmail.com';                     
+                            $mail->SMTPAuth   = true;                                 
+                            $mail->Username   = 'thearithclassroom@gmail.com';                    
+                            $mail->Password   = 'gjecrvuzuqbicbvk';                              
+                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;           
+                            $mail->Port       = 465;                                   
 
                             //Recipients
                             $mail->setFrom($teacher_email, $user);
-                            $mail->addAddress($student_email);     //Add a recipient
+                            $mail->addAddress($student_email);    
 
                             //Content
-                            $mail->isHTML(true);                                  //Set email format to HTML
-                            $mail->Subject = 'Create a classwork';
+                            $mail->isHTML(true);                                 
+                            $mail->Subject = 'Create Assignment ';
                             $mail->Body    = 'Teacher ' . $user . ' is created a classwork named ' . $title. ' on '. date('y-m-d'). '. Click <a href="' . $url_link . '">here</a> to access the link.';
                             $mail->AltBody = 'Teacher ' . $user . ' is created a classwork named ' . $title. ' on '. date('y-m-d'). '. Click <a href="' . $url_link . '">here</a> to access the link.';
 

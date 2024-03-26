@@ -34,9 +34,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                     $user = $_SESSION['user']['user_name'];
                     $teacher_email = getTeacherEmail($codeclass);
                     $classwork_name = getClassworkName($idwork);
-                    $url_link = 'http://localhost:8888/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass ;
-                    
-                    
+                    $url_link = 'http://localhost:3000/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass . "&user_id="  . $user_id;
                     $mail = new PHPMailer(true);
             
                     try {
@@ -44,8 +42,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                         $mail->isSMTP();                                            //Send using SMTP
                         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                        $mail->Username   = 'hay.sev@student.passerellesnumeriques.org';                     //SMTP username
-                        $mail->Password   = 'bfam gtvk xgab kkwv';                               //SMTP password
+                        $mail->Username   = 'thearithclassroom@gmail.com';                     //SMTP username
+                        $mail->Password   = 'gjec rvuz uqbi cbvk';                               //SMTP password
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
             
@@ -55,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             
                         //Content
                         $mail->isHTML(true);                                  //Set email format to HTML
-                        $mail->Subject = 'Submit a folder';
+                        $mail->Subject = 'Submit a file';
                         $mail->Body    = $user.' is submit a folder into the classwork name '. $classwork_name . '. Click <a href="' . $url_link . '">here</a> to access the link.';                  
                         $mail->AltBody = $user. ' is submit a folder into the classworkname '. $classwork_name . '. Click <a href="' . $url_link . '">here</a> to access the link.';
             
@@ -79,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             $user = $_SESSION['user']['user_name'];
             $teacher_email = getTeacherEmail($codeclass);
             $classwork_name = getClassworkName($idwork);
-            $url_link = 'http://localhost:8888/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass ;
+            $url_link = 'http://localhost:3000/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass . "&user_id="  . $user_id;
 
             $mail = new PHPMailer(true);
     
@@ -88,8 +86,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                 $mail->isSMTP();                                            //Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = 'hay.sev@student.passerellesnumeriques.org';                     //SMTP username
-                $mail->Password   = 'bfam gtvk xgab kkwv';                               //SMTP password
+                $mail->Username   = 'thearithclassroom@gmail.com';                     //SMTP username
+                $mail->Password   = 'gjec rvuz uqbi cbvk';                               //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
     

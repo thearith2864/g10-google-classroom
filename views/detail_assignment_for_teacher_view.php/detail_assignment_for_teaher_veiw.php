@@ -218,8 +218,8 @@
                                                     <td style="width: 100px;">
                                                         <form action="controllers/detait_assignment_for teacher_controller/insert_score_student.php" method="post">
                                                             <input type="text" style="width: 50px;" name="score" placeholder="score">
-                                                            <input type="text" value="<?= $students['submit_id'] ?>" name="submit_id" hidden>
                                                             <input type="text" value="<?= $_GET['id'] ?>" name="ass_id" hidden>
+                                                            <input type="text" value="<?=$student['user_email'] ?>" name="email_student" hidden>
                                                             <input type="text" value="<?= $_GET['codeclass'] ?>" name="code" hidden>
                                                             <input type="text" value="<?= $students['user_id'] ?>" name="user_id" hidden>
                                                             <button hidden>send</button>

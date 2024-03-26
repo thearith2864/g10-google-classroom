@@ -75,26 +75,38 @@
             <div class="tab-pane fade <?php  if (!isset($_POST['topic'])){ ?>  show active <?php } ?> " id="course-pills-tabs-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
                 <div class="d-flex">
                     <div>
-                        <a href="/todos">
                         <div class="card shadow-lg border border-secondary mt-3 me-4" style="width: 16rem;">
                             <div class="card-body">
                                 <h5>Upcoming</h5>
                             </div>
                             <div class="card-main ps-3">
-                                <p>Woohoo, no work due soon!</p>
-                            </div>
-                            <div class="card-footer d-flex justify-content-end p-3">
-                                <p>View All</p>
-                            </div>
-                        </div>
+                                <?php
+                    foreach ($checkAssignments as $assignment){
+                        if ($assignment['dateline'] >= date('Y-m-d')){
+                            ?>
+                        <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" class="bg-danger-soft-hover">
+
+                                <p><?=$assignment['file_work'] = substr($assignment['file_work'], 20)?><br><?=$assignment['dateline']?></p>
+                               
                         </a>
+                                <?php
+                        }}
+                        ?>
+                            </div>
+                            <a href="/todos">
+                            <div class="card-footer d-flex justify-content-end p-3">
+                                <p class="bg-danger-soft-hover">View All</p>
+                            </div>
+                        </a>
+                        </div>
                     </div>
                     <div>
                     <?php
                     foreach ($checkAssignments as $assignment){
+                        if ($assignment['dateline'] >= date('Y-m-d')){
                     ?>
                         <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" class="card shadow-lg m-3 border border-primary nav nav-pills nav-pills-bg-soft"  style="width: 807px; height:80px; padding:0; margin:0; background:white;">
-                            <div class="card-body d-flex" style=" padding: 13px 0px 13px 10px;">
+                            <div class="card-body d-flex bg-primary-soft-hover" style=" padding: 13px 0px 13px 10px;">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-2x m-3 color-primary text-primary"></i>
                                 </div>
@@ -108,6 +120,25 @@
                         </a>
                         <?php
                     }
+                    if($assignment['dateline'] < date('Y-m-d')){
+                        ?>
+                        <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>" class="card shadow-lg m-3 border border-primary nav nav-pills nav-pills-bg-soft"  style="width: 807px; height:80px; padding:0; margin:0; background:white;">
+                            <div class="card-body d-flex bg-danger-soft-hover" style=" padding: 13px 0px 13px 10px;">
+                                <div>
+                                    <i class="bi bi-file-earmark-medical-fill fa-2x m-3 color-primary text-primary"></i>
+                                </div>
+                                <div class=" w-100">
+                                    <h5 class="card-title" style=" padding: 0; margin:0;"><?= $assignment['title'] ?></h5>
+                                    <p class="card-text" style='font-size:small; padding:0;'><?= $assignment['create_date'] ?></p>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                </div>
+                            </div>
+                        </a>
+                    
+                        <?php
+                    }
+                }
                         ?>
                         
                     </div>
@@ -149,7 +180,7 @@
                         if ($assignment['topic_id'] == $_POST['topic']){
                     ?>
                     <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
-                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft mb-3" style=" width: 205%; ">
+                        <div class="card shadow-lg mx-2 border border-secondary  mb-3 bg-primary-soft-hover" style=" width: 205%; ">
                             <div class="card-body d-flex" style=" padding: 5px;">
                                 <div>
                                     <i class="bi bi-file-earmark-medical-fill fa-3x m-3" style="font-size: 23px;margin: 0; padding: 0;"></i>
@@ -170,10 +201,10 @@
                         }}else{
                             ?>
                              <a href="/submit-form?id=<?= $assignment['classwork_id'] ?>&codeclass=<?= $_GET['id'] ?>">
-                        <div class="card shadow-lg mx-2 border border-secondary nav nav-pills nav-pills-bg-soft m-3" style=" width: 205%; ">
+                        <div class="card shadow-lg mx-2 border border-secondary  m-3 bg-primary-soft-hover" style=" width: 205%; ">
                             <div class="card-body d-flex" style='padding:5px;'>
                                 <div>
-                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3" style="font-size: 23px;margin: 0; padding: 0;"></i>
+                                    <i class="bi bi-file-earmark-medical-fill fa-3x m-3" style="font-size: 43px;margin: 0; padding: 0;"></i>
                                 </div>
                                 <div class="w-100">
                                     <h5 class="card-title" style="margin: 0; padding: 0;"><?=$assignment['title']?></h5>

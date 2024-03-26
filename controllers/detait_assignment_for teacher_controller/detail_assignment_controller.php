@@ -10,6 +10,7 @@ $chooose =choosessignment($assignment);
 $pdf =choosessignment($assignment);
 $displaycomment  = displayCM();
 $chose = selectstudent($codeclass);
+print_r($chose[0]['user_email']);
 // print_r($chose);
 $studentfinished =  findsubmit($assignment);
 // print_r($studentfinished);

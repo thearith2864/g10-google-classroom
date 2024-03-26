@@ -8,7 +8,7 @@ if (isset($_SERVER['REQUEST_METHOD']) == 'POST'){
    echo $topic;
    $id = classowner($code);
 //    print_r($id[0]['classroom_id']);
-   insert_topic($topic, $id[0]['classroom_id']);
+   insert_topic($topic,$topic, $id[0]['classroom_id']);
    header('location: /class?id=' . $code);
 
 }

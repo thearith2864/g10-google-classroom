@@ -388,11 +388,12 @@ function select_topict(){
     $stetement->execute();
     return $stetement->fetchAll();
 }
-function insert_topic($topic, $classcode){
+function insert_topic($topic_name ,$topic, $classcode){
     global $connection;
-    $stetement = $connection->prepare('insert into topics (title, classroom_id) VALUES (:topic, :classroom_id)');
+    $stetement = $connection->prepare('insert into topics (topic_name, date,title, classroom_id) VALUES (:topic_name,:date,:topic, :classroom_id)');
     $stetement->execute([
-        // ':date' => date('Y-m-d H:i:s'),
+        ':topic_name' => $topic_name,
+        ':date' => date('Y-m-d H:i:s'),
         ':topic' => $topic,
         ':classroom_id' => $classcode
     ]);

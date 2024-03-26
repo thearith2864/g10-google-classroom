@@ -195,3 +195,11 @@ if (!function_exists('countJoinClassroom')){
         return $result[0]; 
     }
 }
+// function selectclass($code){
+//     global $connection;
+//     $setement = $connection -> prepare('select * from classrooms where classroom_code = :classroom_code');
+//     $setement -> execute([
+//         ':classroom_code' => $code
+//     ]);
+//     return $setement ->fetchAll();
+// }
