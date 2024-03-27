@@ -62,7 +62,7 @@ function selectidInclass($code)
 function displayAllClass()
 {
     global $connection;
-    $statement = $connection->prepare("SELECT classroom_name FROM classrooms");
+    $statement = $connection->prepare("SELECT * FROM classrooms");
     $statement->execute();
     return $statement->fetchAll();
 }
