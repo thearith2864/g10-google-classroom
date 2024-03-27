@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             $mail->Host       = 'smtp.gmail.com';                     
                             $mail->SMTPAuth   = true;                                  
                             $mail->Username   = 'thearithclassroom@gmail.com';                   
-                            $mail->Password   = 'gjecrvuzuqbicbvk';                              
+                            $mail->Password   = 'gjec rvuz uqbi cbvk';                              
                             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
                             $mail->Port       = 465;                                   
 
@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             $mail->Host       = 'smtp.gmail.com';                     
                             $mail->SMTPAuth   = true;                                 
                             $mail->Username   = 'thearithclassroom@gmail.com';                    
-                            $mail->Password   = 'gjecrvuzuqbicbvk';                              
+                            $mail->Password   = 'gjec rvuz uqbi cbvk';                              
                             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;           
                             $mail->Port       = 465;                                   
 

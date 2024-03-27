@@ -225,6 +225,8 @@
                                                             <input type="text" value="<?=$student['user_email'] ?>" name="email_student" hidden>
                                                             <input type="text" value="<?= $_GET['codeclass'] ?>" name="code" hidden>
                                                             <input type="text" value="<?= $students['user_id'] ?>" name="user_id" hidden>
+                                                            <input type="text" value="<?= $student['user_email'] ?>" name="email_student" hidden>
+
                                                             <button hidden>send</button>
                                                         </form>
                                                         <p class="text-primary"><?= $students['score'] ?>/<?= $chooose[0]['point'] ?> point</p>
@@ -256,6 +258,8 @@
                                                             <input type="text" value="<?= $_GET['id'] ?>" name="ass_id" hidden>
                                                             <input type="text" value="<?= $_GET['codeclass'] ?>" name="code" hidden>
                                                             <input type="text" value="<?= $students['user_id'] ?>" name="user_id" hidden>
+                                                            <input type="text" value="<?= $student['user_email'] ?>" name="email_student" hidden>
+
                                                             <button hidden>send</button>
                                                         </form>
                                                         <?php
@@ -291,6 +295,7 @@
                                                             <input type="text" value="<?= $_GET['id'] ?>" name="ass_id" hidden>
                                                             <input type="text" value="<?= $_GET['codeclass'] ?>" name="code" hidden>
                                                             <input type="text" value="<?= $students['user_id'] ?>" name="user_id" hidden>
+                                                            <input type="text" value="<?= $student['user_email'] ?>" name="email_student" hidden>
                                                             <button hidden>send</button>
                                                         </form>
                                                         <?php

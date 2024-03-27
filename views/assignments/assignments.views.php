@@ -149,7 +149,6 @@
                             <label for="country-select" >For</label>
                             <select id="country-select" class="form-control" name="class">
                                 <?php
-                                    
                                 foreach ($allclass as $class){
                                     if ($class['user_email'] == $_SESSION['email']){
                                     ?>
