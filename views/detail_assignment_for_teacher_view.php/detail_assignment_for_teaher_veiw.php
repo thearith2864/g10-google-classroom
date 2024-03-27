@@ -203,13 +203,13 @@
                                                 if(isset($_GET['user_id'])){
                                                 if ($student['user_id'] == $_GET['user_id']){
                                 ?>
-                                                <tr  style="background-color: rgba(0, 255, 255, 0.275);">
-                                                    <td colspan="2" >
+                                                <tr  style="background-color: rgba(0, 255, 255, 0.275);" class="bg-danger-soft-hover">
+                                                    <td colspan="2"  >
                                                         <a href="/detait_assignment?id=<?= $_GET['id'] ?>&codeclass=<?= $_GET['codeclass'] ?>&user_id=<?= $students['user_id'] ?>">
                                                             <div class="d-flex align-items-start justify-content-between">
                                                                 <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
                                                                     <h5><?= $student['user_name'] ?></h5>
-                                                                    <p><?= $count ?></p>
+                                                                       <p><?= $count ?></p>
                                                                 </div>
                                                             </div>
                                                         </a>
@@ -236,7 +236,7 @@
                                                    } }else{
                                                     ?>
                                                          <tr>
-                                                    <td colspan="2" >
+                                                    <td colspan="2" class="bg-danger-soft-hover">
                                                         <a href="/detait_assignment?id=<?= $_GET['id'] ?>&codeclass=<?= $_GET['codeclass'] ?>&user_id=<?= $students['user_id'] ?>">
                                                             <div class="d-flex align-items-start justify-content-between">
                                                                 <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
@@ -274,7 +274,7 @@
                                             }else{
                                                 ?>
                                                          <tr>
-                                                    <td colspan="2" >
+                                                    <td colspan="2"  class="bg-primary-soft-hover">
                                                         <a href="/detait_assignment?id=<?= $_GET['id'] ?>&codeclass=<?= $_GET['codeclass'] ?>&user_id=<?= $students['user_id'] ?>">
                                                             <div class="d-flex align-items-start justify-content-between">
                                                                 <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
@@ -326,12 +326,16 @@
                                 <?php
 
                                 foreach ($chose as $student) {?>
+
+
                                     <tr  >
-                                        <td colspan="2">
+                                        <td colspan="2" class="bg-primary-soft-hover">
                                             <div class="d-flex align-items-start justify-content-between">
+                                                
                                                 <div class="d-flex align-items-center"><img src="../../assets/images/profiles/<?= $student['image_url'] ?>" alt="image_student" style="height: 38px; margin-right:10px;" class="rounded-circle ">
                                                     <h5><?= $student['user_name'] ?></h5>
                                                 </div>
+                                            
                                             </div>
                                         </td>
 
@@ -401,7 +405,7 @@
                                             if ($work['file_work'] = substr($work['file_work'], 0, 8) == "HOMEWORK") {?>
                                                 <a href="../../assets/files/Assignment_for_students_subment/<?= $storeLike ?>">
                                                     <div class="card border m-2">
-                                                        <div> class=" d-flex align-items-center">
+                                                        <div class=" d-flex align-items-center"> 
 
                                                             <i class="bi bi-file-earmark fa-3x " style="margin-right: 10px;"></i>
                                                             <h5><?= $storeLike ?></h5>
@@ -500,8 +504,6 @@
                                             $image = $_SESSION['image_url'];
                                             if (is_array($image)) {
                                             ?>
-
-
                                                 <img src="../../assets/images/profiles/<?= $_SESSION['image_url']['image_url'] ?>" alt="" style="height: 40px;" class="rounded-circle m-2">
                                             <?php
                                             } else {
