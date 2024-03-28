@@ -6,7 +6,7 @@ $classes = displayClass();
 // print_r($classes);
 $teacher = chooseTeacher ();
 
-$_SESSION['event'] = get_assignment();
+// $_SESSION['event'] = get_assignment();
 
 $join_classes = displayJoinClass();
 
