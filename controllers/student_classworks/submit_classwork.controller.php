@@ -34,15 +34,15 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
                     $user = $_SESSION['user']['user_name'];
                     $teacher_email = getTeacherEmail($codeclass);
                     $classwork_name = getClassworkName($idwork);
-                    $url_link = 'http://localhost:3000/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass . "&user_id="  . $user_id;
+                    $url_link = 'http://localhost:3001/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass . "&user_id="  . $user_id;
                     $mail = new PHPMailer(true);
                     try {
                         //Server settings
                         $mail->isSMTP();                                            //Send using SMTP
                         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                        $mail->Username   = 'thearithclassroom@gmail.com';                     //SMTP username
-                        $mail->Password   = 'gjec rvuz uqbi cbvk';                               //SMTP password
+                        $mail->Username   = 'rith.zer007@gmail.com';                     //SMTP username
+                        $mail->Password   = 'voua bhoj mevy idhi';                               //SMTP password
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
                         //Recipients
@@ -74,15 +74,15 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             $user = $_SESSION['user']['user_name'];
             $teacher_email = getTeacherEmail($codeclass);
             $classwork_name = getClassworkName($idwork);
-            $url_link = 'http://localhost:3000/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass . "&user_id="  . $user_id['user_id'];
+            $url_link = 'http://localhost:3001/detait_assignment?id='. $idwork . '&codeclass=' . $codeclass . "&user_id="  . $user_id['user_id'];
             $mail = new PHPMailer(true);
             try {
                 //Server settings
                 $mail->isSMTP();                                            //Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                $mail->Username   = 'thearithclassroom@gmail.com';                     //SMTP username
-                $mail->Password   = 'gjec rvuz uqbi cbvk';                               //SMTP password
+                $mail->Username   = 'rith.zer007@gmail.com';                     //SMTP username
+                $mail->Password   = 'voua bhoj mevy idhi';                               //SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
                 //Recipients

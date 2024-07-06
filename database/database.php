@@ -1,7 +1,7 @@
 <?php
 
 $hostname = "localhost";
-$database = "google_classroom";
+$database = "googleclassroom";
 $username = "root";
 $password = "";
 $dsn = "mysql:host=$hostname;dbname=$database;charset=utf8mb4";

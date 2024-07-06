@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
     $work_id = $_POST['submit_id'];
     $assignment_id = $_POST['ass_id'];
     $code = $_POST['code'];
+    $classwork_name = "click";
     $user_id = $_POST['user_id'];
     $insert = insertscore ($work_id, $score);
     if (isset($_SESSION['email'])){
@@ -25,32 +26,30 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
         $mail = new PHPMailer(true);
 
         try {
-            echo "yes";
             //Server settings
             $mail->isSMTP();                                            
             $mail->Host       = 'smtp.gmail.com';                     
             $mail->SMTPAuth   = true;                                  
-            $mail->Username   = 'thearithclassroom@gmail.com';                     
-            $mail->Password   = 'gjec rvuz uqbi cbvk';                               
+            $mail->Username   = 'rith.zer007@gmail.com';                     
+            $mail->Password   = 'voua bhoj mevy idhi';                               
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
             $mail->Port       = 465;                                    
 
             //Recipients
             $mail->setFrom($_POST['email_student'], $teacher_email);
             $mail->addAddress($_POST['email_student']);    
-
             //Content
             $mail->isHTML(true);                               
             $mail->Subject = 'give your score';
-            $mail->Body    = $user.' is submit a folder into the classwork name '. $classwork_name . '. Click <a href="' . $url_link . '">here</a> to access the link.';                  
-            $mail->AltBody = $user. ' is submit a folder into the classworkname '. $classwork_name . '. Click <a href="' . $url_link . '">here</a> to access the link.';
+            $mail->Body    = $user.' Give then score from your work '. $classwork_name . '. Click <a href="' . $url_link . '">here</a> to access the link.';                  
+            $mail->AltBody = $user. ' Give the score '. $classwork_name . '. Click <a href="' . $url_link . '">here</a> to access the link.';
             $mail->send();
             echo 'Message has been sent';
-            header('location: /detait_assignment?id=' . $assignment_id . "&codeclass=" . $code . "&user_id=" . $user_id);
         } catch (Exception $e) {
             echo "no";
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
+    header('location: /detait_assignment?id=' . $assignment_id . "&codeclass=" . $code . "&user_id=" . $user_id);
     }}
     
