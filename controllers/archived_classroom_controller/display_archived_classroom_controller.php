@@ -20,6 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["archived"]) && isset($
 
 $classes = getArchiveClassrooms();
 $teacher = chooseTeacher();
-$_SESSION['event'] = get_assignment();
+// $_SESSION['event'] = get_assignment();
 
 require "views/Archived_classroom_view/Archived_classroom_view.php";

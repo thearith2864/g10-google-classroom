@@ -19,5 +19,4 @@ if (isset($_FILES['cover_image'])  ){
     header('location: /class?id=' . $codeclass);
     }   
 }
-
 ?>

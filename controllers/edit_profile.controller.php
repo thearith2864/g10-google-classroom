@@ -2,11 +2,9 @@
     if(isset($_FILES["image"]["name"])){
       $id = $_POST["id"];
       $name = $_POST["name"];
-
       $imageName = $_FILES["image"]["name"];
       $imageSize = $_FILES["image"]["size"];
       $tmpName = $_FILES["image"]["tmp_name"];
-
       // Image validation
       $validImageExtension = ['jpg', 'jpeg', 'png'];
       $imageExtension = explode('.', $imageName);

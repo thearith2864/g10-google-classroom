@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>assignment</title>
 
@@ -150,11 +150,12 @@
                             <select id="country-select" class="form-control" name="class">
                                 <?php
                                 foreach ($allclass as $class){
+                                    if ($class['user_email'] == $_SESSION['email']){
                                     ?>
                                     <option><?=$class['classroom_name']?></option>
 
                                     <?php
-                                }
+                                }}
                                 ?>
                                 
                             </select>
